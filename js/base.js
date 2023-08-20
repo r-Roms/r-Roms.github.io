@@ -9,12 +9,19 @@ function getSearchTerm() {
     }
 }
 
+function applyTopPadding() {
+    // Update various absolute positions to match where the main container
+    // starts. This is necessary for handling multi-line nav headers, since
+    // that pushes the main container down.
+    var offset = $('body > .container').offset();
+    $('html').css('scroll-padding-top', offset.top + 'px');
+    $('.bs-sidebar.affix').css('top', offset.top + 'px');
+}
+
 $(document).ready(function() {
-    /**
-     * ------------------------------------------------------------------------
-     * Taken from themes/mkdocs/js/base.js
-     * ------------------------------------------------------------------------
-     */
+
+    applyTopPadding();
+
     var search_term = getSearchTerm(),
         $search_modal = $('#mkdocs_search_modal'),
         $keyboard_modal = $('#mkdocs_keyboard_modal');
@@ -23,7 +30,7 @@ $(document).ready(function() {
         $search_modal.modal();
     }
 
-    // make sure search input gets autofocus everytime modal opens.
+    // make sure search input gets autofocus every time modal opens.
     $search_modal.on('shown.bs.modal', function() {
         $search_modal.find('#mkdocs-search-query').focus();
     });
@@ -36,44 +43,41 @@ $(document).ready(function() {
         }
     });
 
-    if (typeof shortcuts !== 'undefined') {
-        // Populate keyboard modal with proper Keys
-        $keyboard_modal.find('.help.shortcut kbd')[0].innerHTML = keyCodes[shortcuts.help];
-        $keyboard_modal.find('.prev.shortcut kbd')[0].innerHTML = keyCodes[shortcuts.previous];
-        $keyboard_modal.find('.next.shortcut kbd')[0].innerHTML = keyCodes[shortcuts.next];
-        $keyboard_modal.find('.search.shortcut kbd')[0].innerHTML = keyCodes[shortcuts.search];
+    // Populate keyboard modal with proper Keys
+    $keyboard_modal.find('.help.shortcut kbd')[0].innerHTML = keyCodes[shortcuts.help];
+    $keyboard_modal.find('.prev.shortcut kbd')[0].innerHTML = keyCodes[shortcuts.previous];
+    $keyboard_modal.find('.next.shortcut kbd')[0].innerHTML = keyCodes[shortcuts.next];
+    $keyboard_modal.find('.search.shortcut kbd')[0].innerHTML = keyCodes[shortcuts.search];
 
-        // Keyboard navigation
-        document.addEventListener("keydown", function(e) {
-            if ($(e.target).is(':input')) return true;
-            var key = e.which || e.key || window.event && window.event.key;
-            var page;
-            switch (key) {
-                case shortcuts.next:
-                    page = $('.navbar a[rel="next"]:first').prop('href');
-                    break;
-                case shortcuts.previous:
-                    page = $('.navbar a[rel="prev"]:first').prop('href');
-                    break;
-                case shortcuts.search:
-                    e.preventDefault();
-                    $keyboard_modal.modal('hide');
-                    $search_modal.modal('show');
-                    $search_modal.find('#mkdocs-search-query').focus();
-                    break;
-                case shortcuts.help:
-                    $search_modal.modal('hide');
-                    $keyboard_modal.modal('show');
-                    break;
-                default:
-                    break;
-            }
-            if (page) {
+    // Keyboard navigation
+    document.addEventListener("keydown", function(e) {
+        if ($(e.target).is(':input')) return true;
+        var key = e.which || e.keyCode || window.event && window.event.keyCode;
+        var page;
+        switch (key) {
+            case shortcuts.next:
+                page = $('.navbar a[rel="next"]:first').prop('href');
+                break;
+            case shortcuts.previous:
+                page = $('.navbar a[rel="prev"]:first').prop('href');
+                break;
+            case shortcuts.search:
+                e.preventDefault();
                 $keyboard_modal.modal('hide');
-                window.location.href = page;
-            }
-        });
-    }
+                $search_modal.modal('show');
+                $search_modal.find('#mkdocs-search-query').focus();
+                break;
+            case shortcuts.help:
+                $search_modal.modal('hide');
+                $keyboard_modal.modal('show');
+                break;
+            default: break;
+        }
+        if (page) {
+            $keyboard_modal.modal('hide');
+            window.location.href = page;
+        }
+    });
 
     $('table').addClass('table table-striped table-hover');
 
@@ -89,14 +93,68 @@ $(document).ready(function() {
             }
         }, 50);
     });
+
+    function showInnerDropdown(item) {
+        var popup = $(item).next('.dropdown-menu');
+        popup.addClass('show');
+        $(item).addClass('open');
+
+        // First, close any sibling dropdowns.
+        var container = $(item).parent().parent();
+        container.find('> .dropdown-submenu > a').each(function(i, el) {
+            if (el !== item) {
+                hideInnerDropdown(el);
+            }
+        });
+
+        var popupMargin = 10;
+        var maxBottom = $(window).height() - popupMargin;
+        var bounds = item.getBoundingClientRect();
+
+        popup.css('left', bounds.right + 'px');
+        if (bounds.top + popup.height() > maxBottom &&
+            bounds.top > $(window).height() / 2) {
+            popup.css({
+                'top': (bounds.bottom - popup.height()) + 'px',
+                'max-height': (bounds.bottom - popupMargin) + 'px',
+            });
+        } else {
+            popup.css({
+                'top': bounds.top + 'px',
+                'max-height': (maxBottom - bounds.top) + 'px',
+            });
+        }
+    }
+
+    function hideInnerDropdown(item) {
+        var popup = $(item).next('.dropdown-menu');
+        popup.removeClass('show');
+        $(item).removeClass('open');
+
+        popup.scrollTop(0);
+        popup.find('.dropdown-menu').scrollTop(0).removeClass('show');
+        popup.find('.dropdown-submenu > a').removeClass('open');
+    }
+
+    $('.dropdown-submenu > a').on('click', function(e) {
+        if ($(this).next('.dropdown-menu').hasClass('show')) {
+            hideInnerDropdown(this);
+        } else {
+            showInnerDropdown(this);
+        }
+
+        e.stopPropagation();
+        e.preventDefault();
+    });
+
+    $('.dropdown-menu').parent().on('hide.bs.dropdown', function(e) {
+        $(this).find('.dropdown-menu').scrollTop(0);
+        $(this).find('.dropdown-submenu > a').removeClass('open');
+        $(this).find('.dropdown-menu .dropdown-menu').removeClass('show');
+    });
 });
 
-
-/**
- * ------------------------------------------------------------------------
- * Taken from themes/mkdocs/js/base.js
- * ------------------------------------------------------------------------
- */
+$(window).on('resize', applyTopPadding);
 
 $('body').scrollspy({
     target: '.bs-sidebar',
@@ -109,7 +167,7 @@ $("li.disabled a").click(function() {
 });
 
 // See https://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
-// We only list common keys below. Obscure keys are omited and their use is discouraged.
+// We only list common keys below. Obscure keys are omitted and their use is discouraged.
 var keyCodes = {
     8: 'backspace',
     9: 'tab',
