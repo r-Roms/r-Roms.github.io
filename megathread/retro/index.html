@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +10,13 @@
         <link rel="shortcut icon" href="../../img/favicon.ico">
         <title>Retro - /r/Roms Megathread</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/rainbow.min.css">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/rainbow.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
         <link href="../../css/extra.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
@@ -23,7 +27,7 @@
             <div class="container">
                 <a class="navbar-brand" href="../..">/r/Roms Megathread</a>
                 <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -31,38 +35,38 @@
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem">
+                            <li class="nav-item">
                                 <a href="../.." class="nav-link">Home</a>
                             </li>
-                            <li class="navitem">
+                            <li class="nav-item">
                                 <a href="../popular/" class="nav-link">Popular</a>
                             </li>
-                            <li class="navitem">
+                            <li class="nav-item">
                                 <a href="../microsoft/" class="nav-link">Microsoft</a>
                             </li>
-                            <li class="navitem">
+                            <li class="nav-item">
                                 <a href="../misc/" class="nav-link">Misc</a>
                             </li>
-                            <li class="navitem">
+                            <li class="nav-item">
                                 <a href="../nintendo/" class="nav-link">Nintendo</a>
                             </li>
-                            <li class="navitem">
+                            <li class="nav-item">
                                 <a href="../pc/" class="nav-link">PC</a>
                             </li>
-                            <li class="navitem active">
-                                <a href="./" class="nav-link">Retro</a>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Retro</a>
                             </li>
-                            <li class="navitem">
+                            <li class="nav-item">
                                 <a href="../sega/" class="nav-link">Sega</a>
                             </li>
-                            <li class="navitem">
+                            <li class="nav-item">
                                 <a href="../sony/" class="nav-link">Sony</a>
                             </li>
                         </ul>
 
-                    <ul class="nav navbar-nav ml-auto">
+                    <ul class="nav navbar-nav ms-md-auto">
                         <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
@@ -83,20 +87,20 @@
 
         <div class="container">
             <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
     <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
             <span class="fa fa-angle-down"></span>
         </button>
     </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#retro-games" class="nav-link">Retro Games</a>
+            <li class="nav-item" data-bs-level="1"><a href="#retro-games" class="nav-link">Retro Games</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#arcade" class="nav-link">Arcade</a>
+            <li class="nav-item" data-bs-level="2"><a href="#arcade" class="nav-link">Arcade</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -228,87 +232,87 @@
 <tbody>
 <tr>
 <td>Atari - 2600</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Atari%20-%202600.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Atari%20-%202600.zip/">Link</a> <a href="https://archive.org/download/nointro.atari-2600">(Alt)</a></td>
 </tr>
 <tr>
 <td>Atari - 5200</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Atari%20-%202600.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Atari%20-%202600.zip/">Link</a> <a href="https://archive.org/download/nointro.atari-5200">(Alt)</a></td>
 </tr>
 <tr>
 <td>Atari - 7800</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Atari%20-%207800.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Atari%20-%207800.zip/">Link</a> <a href="https://archive.org/download/nointro.atari-7800">(Alt)</a></td>
 </tr>
 <tr>
 <td>NEC - PC Engine - TurboGrafx 16</td>
-<td><a href="https://archive.org/download/ni-roms/roms/NEC%20-%20PC%20Engine%20-%20TurboGrafx-16.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/NEC%20-%20PC%20Engine%20-%20TurboGrafx-16.zip/">Link</a> <a href="https://archive.org/download/nointro.tg-16">(Alt)</a></td>
 </tr>
 <tr>
 <td>Nintendo - Family Computer Disk System</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Family%20Computer%20Disk%20System%20%28FDS%29.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Family%20Computer%20Disk%20System%20%28FDS%29.zip/">Link</a> <a href="https://archive.org/download/nointro.fds">(Alt)</a></td>
 </tr>
 <tr>
 <td>Nintendo - Game Boy Advance (Multiboot)</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Game%20Boy%20Advance%20%28Multiboot%29.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Game%20Boy%20Advance%20%28Multiboot%29.zip/">Link</a> <a href="https://archive.org/download/nointro.gba-multiboot">(Alt)</a></td>
 </tr>
 <tr>
 <td>Nintendo - Game Boy Advance</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Game%20Boy%20Advance.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Game%20Boy%20Advance.zip/">Link</a> <a href="https://archive.org/download/nointro.gba">(Alt)</a></td>
 </tr>
 <tr>
 <td>Nintendo - Game Boy Color</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Game%20Boy%20Color.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Game%20Boy%20Color.zip/">Link</a> <a href="https://archive.org/download/nointro.gbc-1">(Alt)</a></td>
 </tr>
 <tr>
 <td>Nintendo - Game Boy</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Game%20Boy.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Game%20Boy.zip/">Link</a> <a href="https://archive.org/download/nointro.gb">(Alt)</a></td>
 </tr>
 <tr>
 <td>Nintendo - Nintendo 64</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Nintendo%2064%20%28BigEndian%29.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Nintendo%2064%20%28BigEndian%29.zip/">Link</a> <a href="https://archive.org/download/nointro.n64">(Alt)</a></td>
 </tr>
 <tr>
 <td>Nintendo - Nintendo 64DD</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Nintendo%2064DD.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Nintendo%2064DD.zip/">Link</a> <a href="https://archive.org/download/nointro.n64dd">(Alt)</a></td>
 </tr>
 <tr>
 <td>Nintendo - Nintendo Entertainment System (Headered)</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Nintendo%20Entertainment%20System%20%28Headered%29.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Nintendo%20Entertainment%20System%20%28Headered%29.zip/">Link</a> <a href="https://archive.org/download/nointro.nes-headered">(Alt)</a></td>
 </tr>
 <tr>
 <td>Nintendo - Nintendo Entertainment System (Headerless)</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Nintendo%20Entertainment%20System%20%28Unheadered%29.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Nintendo%20Entertainment%20System%20%28Unheadered%29.zip/">Link</a> <a href="https://archive.org/download/nointro.nes">(Alt)</a></td>
 </tr>
 <tr>
 <td>Nintendo - Pokémon Mini</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Pokemon%20Mini.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Pokemon%20Mini.zip/">Link</a> <a href="https://archive.org/download/nointro.poke-mini">(Alt)</a></td>
 </tr>
 <tr>
 <td>Nintendo - Super Nintendo Entertainment System</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System.zip/">Link</a> <a href="https://archive.org/download/nointro.snes">(Alt)</a></td>
 </tr>
 <tr>
 <td>Nintendo - Virtual Boy</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Virtual%20Boy.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Virtual%20Boy.zip/">Link</a> <a href="https://archive.org/download/nointro.vb">(Alt)</a></td>
 </tr>
 <tr>
 <td>Nintendo - e-Reader</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Game%20Boy%20Advance%20%28e-Reader%29.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Nintendo%20-%20Game%20Boy%20Advance%20%28e-Reader%29.zip/">Link</a> <a href="https://archive.org/download/nointro.e-reader">(Alt)</a></td>
 </tr>
 <tr>
 <td>Sega - 32X</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Sega%20-%2032X.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Sega%20-%2032X.zip/">Link</a> <a href="https://archive.org/download/nointro.32x">(Alt)</a></td>
 </tr>
 <tr>
 <td>Sega - Game Gear</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Sega%20-%20Game%20Gear.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Sega%20-%20Game%20Gear.zip/">Link</a> <a href="https://archive.org/download/nointro.gg">(Alt)</a></td>
 </tr>
 <tr>
 <td>Sega - Master System - Mark III</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Sega%20-%20Master%20System%20-%20Mark%20III.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Sega%20-%20Master%20System%20-%20Mark%20III.zip/">Link</a> <a href="https://archive.org/download/nointro.ms-mkiii">(Alt)</a></td>
 </tr>
 <tr>
 <td>Sega - Mega Drive - Genesis</td>
-<td><a href="https://archive.org/download/ni-roms/roms/Sega%20-%20Mega%20Drive%20-%20Genesis.zip/">Link</a></td>
+<td><a href="https://archive.org/download/ni-roms/roms/Sega%20-%20Mega%20Drive%20-%20Genesis.zip/">Link</a> <a href="https://archive.org/download/nointro.md">(Alt)</a></td>
 </tr>
 </tbody>
 </table>
@@ -520,19 +524,19 @@
 </thead>
 <tbody>
 <tr>
-<td>MAME 0.261 Software List ROMs Merged</td>
+<td>MAME 0.266 Software List ROMs Merged</td>
 <td><a href="https://archive.org/download/mame-sl/mame-sl/">Link</a></td>
 </tr>
 <tr>
-<td>MAME 0.261 CHDs Merged</td>
+<td>MAME 0.266 CHDs Merged</td>
 <td><a href="https://archive.org/download/MAME_0.225_CHDs_merged">Link</a></td>
 </tr>
 <tr>
-<td>MAME 0.261 ROMs Merged</td>
+<td>MAME 0.265 ROMs Merged</td>
 <td><a href="https://archive.org/download/mame-merged/mame-merged/">Link</a></td>
 </tr>
 <tr>
-<td>MAME 0.261 BIOS Sets</td>
+<td>MAME 0.265 BIOS Sets</td>
 <td><a href="https://archive.org/download/mame-merged/BIOS/">Link</a></td>
 </tr>
 <tr>
@@ -579,8 +583,7 @@
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="../../js/jquery-3.6.0.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
         <script>
             var base_url = "../..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
@@ -593,7 +596,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <p>From here you can search these documents. Enter your search terms below.</p>
@@ -613,7 +616,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <table class="table">
