@@ -12,7 +12,7 @@
 <!-- Home page for the ROMs megathread -->
 <div class="mx-8 mb-8 mt-8 space-y-4 bg-background">
     <h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">
-        Sony Playstation PorTable (PSP)
+        Sony Playstation Portable (PSP)
     </h1>
     <div class="my-6 w-full overflow-y-auto">
         <Table>
