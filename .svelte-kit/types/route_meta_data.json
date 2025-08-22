@@ -1,0 +1,126 @@
+{
+	"/": [
+		"src/routes/+layout.server.js",
+		"src/routes/+layout.server.js"
+	],
+	"/Microsoft": [
+		"src/routes/+layout.server.js"
+	],
+	"/Microsoft/microsoft-xbox360": [
+		"src/routes/+layout.server.js"
+	],
+	"/Microsoft/microsoft-xbox": [
+		"src/routes/+layout.server.js"
+	],
+	"/Miscellaneous": [
+		"src/routes/+layout.server.js"
+	],
+	"/Miscellaneous/bios-files": [
+		"src/routes/+layout.server.js"
+	],
+	"/Miscellaneous/rom-sets": [
+		"src/routes/+layout.server.js"
+	],
+	"/Nintendo": [
+		"src/routes/+layout.server.js"
+	],
+	"/Nintendo/nintendo-3ds": [
+		"src/routes/+layout.server.js"
+	],
+	"/Nintendo/nintendo-ds": [
+		"src/routes/+layout.server.js"
+	],
+	"/Nintendo/nintendo-gamecube": [
+		"src/routes/+layout.server.js"
+	],
+	"/Nintendo/nintendo-games": [
+		"src/routes/+layout.server.js"
+	],
+	"/Nintendo/nintendo-wii-u": [
+		"src/routes/+layout.server.js"
+	],
+	"/Nintendo/nintendo-wii": [
+		"src/routes/+layout.server.js"
+	],
+	"/PC": [
+		"src/routes/+layout.server.js"
+	],
+	"/PC/pc-games": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/about-rvz-files": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/fire-emblem": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/mario": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/metroid": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/persona": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/pokemon": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/super-smash-bros": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/xenoblade": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/zelda": [
+		"src/routes/+layout.server.js"
+	],
+	"/Retro & Arcade": [
+		"src/routes/+layout.server.js"
+	],
+	"/Retro & Arcade/arcade": [
+		"src/routes/+layout.server.js"
+	],
+	"/Retro & Arcade/retro-games": [
+		"src/routes/+layout.server.js"
+	],
+	"/Sega": [
+		"src/routes/+layout.server.js"
+	],
+	"/Sega/sega-cd": [
+		"src/routes/+layout.server.js"
+	],
+	"/Sega/sega-dreamcast": [
+		"src/routes/+layout.server.js"
+	],
+	"/Sega/sega-games": [
+		"src/routes/+layout.server.js"
+	],
+	"/Sega/sega-saturn": [
+		"src/routes/+layout.server.js"
+	],
+	"/Sony": [
+		"src/routes/+layout.server.js"
+	],
+	"/Sony/nopaystation": [
+		"src/routes/+layout.server.js"
+	],
+	"/Sony/sony-playstation-2": [
+		"src/routes/+layout.server.js"
+	],
+	"/Sony/sony-playstation-3": [
+		"src/routes/+layout.server.js"
+	],
+	"/Sony/sony-playstation-portable": [
+		"src/routes/+layout.server.js"
+	],
+	"/Sony/sony-playstation-vita": [
+		"src/routes/+layout.server.js"
+	],
+	"/Sony/sony-playstation": [
+		"src/routes/+layout.server.js"
+	]
+}
