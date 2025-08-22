@@ -1,0 +1,11 @@
+import type { ClassValue } from "clsx";
+export declare function isFunction(value: unknown): value is (...args: unknown[]) => unknown;
+export declare function isObject(value: unknown): value is Record<PropertyKey, unknown>;
+export declare function isClassValue(value: unknown): value is ClassValue;
+export declare function isHTMLElement(v: unknown): v is HTMLElement;
+export declare function isDocument(v: unknown): v is Document;
+export declare function isWindow(v: unknown): v is Window;
+export declare function getNodeName(node: Node | Window): string;
+export declare function isRootElement(node: Node): boolean;
+export declare function isNode(v: unknown): v is Node;
+export declare function isShadowRoot(v: unknown): v is ShadowRoot;

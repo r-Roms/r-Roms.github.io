@@ -1,0 +1,14 @@
+export { default as Root } from "./components/combobox.svelte";
+export { default as Input } from "./components/combobox-input.svelte";
+export { default as Separator } from "../separator/components/separator.svelte";
+export { default as Arrow } from "../utilities/arrow/arrow.svelte";
+export { default as Trigger } from "./components/combobox-trigger.svelte";
+export { default as Portal } from "../utilities/portal/portal.svelte";
+export { default as Content } from "../select/components/select-content.svelte";
+export { default as ContentStatic } from "../select/components/select-content-static.svelte";
+export { default as Item } from "../select/components/select-item.svelte";
+export { default as Group } from "../select/components/select-group.svelte";
+export { default as GroupHeading } from "../select/components/select-group-heading.svelte";
+export { default as Viewport } from "../select/components/select-viewport.svelte";
+export { default as ScrollDownButton } from "../select/components/select-scroll-down-button.svelte";
+export { default as ScrollUpButton } from "../select/components/select-scroll-up-button.svelte";

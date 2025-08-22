@@ -1,0 +1,129 @@
+{
+  "name": "@vinejs/compiler",
+  "version": "3.0.0",
+  "description": "Low level compiler for VineJS validator",
+  "type": "module",
+  "main": "build/index.js",
+  "files": [
+    "build",
+    "!build/benchmarks",
+    "!build/bin",
+    "!build/examples",
+    "!build/factories",
+    "!build/tests"
+  ],
+  "exports": {
+    ".": "./build/index.js",
+    "./types": "./build/src/types.js"
+  },
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "c8 npm run quick:test",
+    "lint": "eslint",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "clean": "del-cli build",
+    "precompile": "npm run lint && npm run clean",
+    "compile": "tsup-node && tsc --emitDeclarationOnly --declaration",
+    "build": "npm run compile",
+    "release": "release-it",
+    "version": "npm run build",
+    "prepublishOnly": "npm run build",
+    "quick:test": "node --import=ts-node-maintained/register/esm --enable-source-maps bin/test.ts"
+  },
+  "keywords": [
+    "vinejs",
+    "compiler",
+    "validator"
+  ],
+  "author": "virk,vinejs",
+  "license": "MIT",
+  "devDependencies": {
+    "@adonisjs/eslint-config": "^2.0.0-beta.7",
+    "@adonisjs/prettier-config": "^1.4.0",
+    "@adonisjs/tsconfig": "^1.4.0",
+    "@japa/assert": "^3.0.0",
+    "@japa/runner": "^3.1.4",
+    "@release-it/conventional-changelog": "^9.0.3",
+    "@swc/core": "^1.9.3",
+    "@types/node": "^22.10.1",
+    "acorn": "^8.14.0",
+    "ajv": "^8.17.1",
+    "benchmark": "^2.1.4",
+    "c8": "^10.1.2",
+    "del-cli": "^6.0.0",
+    "eslint": "^9.15.0",
+    "js-beautify": "^1.15.1",
+    "prettier": "^3.4.1",
+    "release-it": "^17.10.0",
+    "tinybench": "^3.0.6",
+    "ts-node-maintained": "^10.9.4",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "zod": "^3.23.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinejs/compiler.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vinejs/compiler/issues"
+  },
+  "homepage": "https://github.com/vinejs/compiler#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "tsup": {
+    "entry": [
+      "./index.ts",
+      "./benchmarks/*.ts",
+      "./src/types.ts"
+    ],
+    "outDir": "./build",
+    "clean": true,
+    "format": "esm",
+    "dts": false,
+    "sourcemap": false,
+    "target": "esnext"
+  },
+  "release-it": {
+    "git": {
+      "requireCleanWorkingDir": true,
+      "requireUpstream": true,
+      "commitMessage": "chore(release): ${version}",
+      "tagAnnotation": "v${version}",
+      "push": true,
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": true,
+      "skipChecks": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": {
+          "name": "angular"
+        }
+      }
+    }
+  },
+  "c8": {
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**",
+      "bin/**",
+      "factories/**"
+    ]
+  },
+  "prettier": "@adonisjs/prettier-config"
+}

@@ -1,0 +1,24 @@
+export declare const intrinsic: {
+    emptyStructure: import("./index.ts").StructureNode;
+    jsonPrimitive: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    jsonObject: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    jsonData: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    integer: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    lengthBoundable: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    key: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    nonNegativeIntegerString: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    string: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    number: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    bigint: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    boolean: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    symbol: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    undefined: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    object: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    null: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    Array: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    Date: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    false: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    never: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    true: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+    unknown: import("./index.ts").BaseRoot<import("./index.ts").InternalRootDeclaration>;
+};

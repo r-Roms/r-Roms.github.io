@@ -1,0 +1,1 @@
+import {b}from'./chunk-LK3VBVBE.js';import {twMerge,extendTailwindMerge}from'tailwind-merge';var p=s=>b(s)?twMerge:extendTailwindMerge({...s,extend:{theme:s.theme,classGroups:s.classGroups,conflictingClassGroupModifiers:s.conflictingClassGroupModifiers,conflictingClassGroups:s.conflictingClassGroups,...s.extend}});export{p as a};
