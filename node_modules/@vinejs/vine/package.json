@@ -1,0 +1,149 @@
+{
+  "name": "@vinejs/vine",
+  "description": "Form data validation library for Node.js",
+  "version": "3.0.1",
+  "engines": {
+    "node": ">=18.16.0"
+  },
+  "main": "build/index.js",
+  "type": "module",
+  "files": [
+    "build",
+    "!build/benchmarks",
+    "!build/bin",
+    "!build/tests"
+  ],
+  "exports": {
+    ".": "./build/index.js",
+    "./defaults": "./build/src/defaults.js",
+    "./factories": "./build/factories/main.js",
+    "./types": "./build/src/types.js",
+    "./schema/base/*": "./build/src/schema/base/*.js"
+  },
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "c8 npm run quick:test",
+    "lint": "eslint",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "clean": "del-cli build",
+    "precompile": "npm run lint && npm run clean",
+    "compile": "tsup-node && tsc --emitDeclarationOnly --declaration",
+    "build": "npm run compile",
+    "version": "npm run build",
+    "prepublishOnly": "npm run build",
+    "release": "npx release-it",
+    "benchmark": "node build/benchmarks/flat_object.js && node build/benchmarks/nested_object.js && node build/benchmarks/array.js && node build/benchmarks/union.js",
+    "quick:test": "node --import=ts-node-maintained/register/esm --enable-source-maps bin/test.ts"
+  },
+  "devDependencies": {
+    "@adonisjs/eslint-config": "^2.0.0",
+    "@adonisjs/prettier-config": "^1.4.4",
+    "@adonisjs/tsconfig": "^1.4.0",
+    "@japa/assert": "^4.0.1",
+    "@japa/expect-type": "^2.0.3",
+    "@japa/runner": "^4.2.0",
+    "@japa/snapshot": "^2.0.8",
+    "@release-it/conventional-changelog": "^10.0.0",
+    "@swc/core": "1.10.7",
+    "@types/dlv": "^1.1.5",
+    "@types/node": "^22.13.10",
+    "ajv": "^8.17.1",
+    "benchmark": "^2.1.4",
+    "c8": "^10.1.3",
+    "del-cli": "^6.0.0",
+    "eslint": "^9.22.0",
+    "joi": "^17.13.3",
+    "prettier": "^3.5.3",
+    "release-it": "^18.1.2",
+    "ts-node-maintained": "^10.9.5",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2",
+    "valibot": "^0.42.1",
+    "yup": "^1.6.1",
+    "zod": "^3.24.2"
+  },
+  "dependencies": {
+    "@poppinss/macroable": "^1.0.4",
+    "@types/validator": "^13.12.2",
+    "@vinejs/compiler": "^3.0.0",
+    "camelcase": "^8.0.0",
+    "dayjs": "^1.11.13",
+    "dlv": "^1.1.3",
+    "normalize-url": "^8.0.1",
+    "validator": "^13.12.0"
+  },
+  "author": "virk,vinejs",
+  "license": "MIT",
+  "homepage": "https://github.com/vinejs/vine#readme",
+  "keywords": [
+    "validator",
+    "validation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinejs/vine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vinejs/vine/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "tsup": {
+    "entry": [
+      "./index.ts",
+      "./src/defaults.ts",
+      "./factories/main.ts",
+      "./src/types.ts",
+      "./benchmarks/flat_object.ts",
+      "./benchmarks/nested_object.ts",
+      "./benchmarks/array.ts",
+      "./benchmarks/union.ts"
+    ],
+    "outDir": "./build",
+    "clean": true,
+    "format": "esm",
+    "dts": false,
+    "sourcemap": false,
+    "target": "esnext"
+  },
+  "release-it": {
+    "git": {
+      "requireCleanWorkingDir": true,
+      "requireUpstream": true,
+      "commitMessage": "chore(release): ${version}",
+      "tagAnnotation": "v${version}",
+      "push": true,
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": true,
+      "skipChecks": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": {
+          "name": "angular"
+        }
+      }
+    }
+  },
+  "c8": {
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**",
+      "factories/**",
+      "bin/**",
+      "benchmarks/**"
+    ]
+  },
+  "prettier": "@adonisjs/prettier-config"
+}

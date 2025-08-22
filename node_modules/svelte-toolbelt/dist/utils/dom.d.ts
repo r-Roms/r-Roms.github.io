@@ -1,0 +1,14 @@
+export declare function isHTMLElement(node: unknown): node is HTMLElement;
+export declare function isDocument(node: unknown): node is Document;
+export declare function isWindow(node: unknown): node is Window;
+export declare function getNodeName(node: Node | Window): string;
+export declare function isNode(node: unknown): node is Node;
+export declare function isShadowRoot(node: unknown): node is ShadowRoot;
+type Target = HTMLElement | EventTarget | null | undefined;
+export declare function contains(parent: Target, child: Target): boolean;
+export declare function getDocument(node: Element | Window | Node | Document | null | undefined): Document;
+export declare function getDocumentElement(node: Element | Node | Window | Document | null | undefined): HTMLElement;
+export declare function getWindow(node: Node | ShadowRoot | Document | null | undefined): Window & typeof globalThis;
+export declare function getActiveElement(rootNode: Document | ShadowRoot): HTMLElement | null;
+export declare function getParentNode(node: Node): Node;
+export {};

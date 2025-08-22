@@ -1,0 +1,44 @@
+{
+  "name": "@publint/pack",
+  "version": "0.1.2",
+  "description": "Utilities for packing and unpacking npm packages",
+  "type": "module",
+  "author": "Bjorn Lu",
+  "license": "MIT",
+  "exports": {
+    "types": "./src/index.d.ts",
+    "browser": "./src/index-browser.js",
+    "default": "./src/index-node.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "src"
+  ],
+  "funding": "https://bjornlu.com/sponsor",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/publint/publint.git",
+    "directory": "packages/pack"
+  },
+  "bugs": {
+    "url": "https://github.com/publint/publint/issues"
+  },
+  "keywords": [
+    "utilities",
+    "pack",
+    "unpack",
+    "npm"
+  ],
+  "devDependencies": {
+    "fs-fixture": "^2.7.1",
+    "vitest": "^3.0.6"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test-dev": "vitest",
+    "lint-publint": "node ../publint/src/cli.js",
+    "typecheck": "tsc"
+  }
+}
