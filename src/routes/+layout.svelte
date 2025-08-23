@@ -105,7 +105,7 @@
             <footer class="flex flex-col items-center justify-center gap-2 p-4">
                 <Separator />
                 <p class="text-sm text-primary">
-                    © 2025 /r/Roms Megathread. All rights reserved.
+                    © 2025 /r/Roms Megathread. GPL-3.0 license.
                 </p>
                 <p class="text-xs text-muted-foreground">
                     Designed by{" "}
