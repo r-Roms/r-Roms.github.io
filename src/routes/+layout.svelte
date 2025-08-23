@@ -77,12 +77,12 @@
                 <NavigationMenu.Root viewport={false}>
                     <NavigationMenu.List>
                         <NavigationMenuItem></NavigationMenuItem>
+                        <Sidebar.Trigger />
                         <NavigationMenuItem>
                             <Button variant="ghost" href="/"
                                 >/r/Roms Megathread</Button
                             >
                         </NavigationMenuItem>
-                        <Sidebar.Trigger />
                         <Button
                             onclick={toggleMode}
                             variant="outline"
