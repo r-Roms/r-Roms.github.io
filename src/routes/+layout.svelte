@@ -78,7 +78,7 @@
                     <NavigationMenu.List>
                         <NavigationMenuItem></NavigationMenuItem>
                         <NavigationMenuItem>
-                            <Button variant="ghost" href={base}
+                            <Button variant="ghost" href="/"
                                 >/r/Roms Megathread</Button
                             >
                         </NavigationMenuItem>
