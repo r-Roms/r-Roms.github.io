@@ -6565,8 +6565,6 @@ function Sidebar_trigger($$payload, $$props) {
       "data-sidebar": "trigger",
       "data-slot": "sidebar-trigger",
       variant: "ghost",
-      size: "icon",
-      class: cn("size-7", className),
       type: "button",
       onclick: (e) => {
         onclick?.(e);
@@ -6577,7 +6575,7 @@ function Sidebar_trigger($$payload, $$props) {
     {
       children: ($$payload2) => {
         Menu($$payload2, {});
-        $$payload2.out.push(`<!----> <span class="sr-only">Toggle Sidebar</span>`);
+        $$payload2.out.push(`<!----> Menu <span class="sr-only">Toggle Sidebar</span>`);
       },
       $$slots: { default: true }
     }
@@ -7426,6 +7424,8 @@ function _layout($$payload, $$props) {
               Navigation_menu_list($$payload4, {
                 children: ($$payload5) => {
                   Navigation_menu_item($$payload5, {});
+                  $$payload5.out.push(`<!----> <!---->`);
+                  Sidebar_trigger($$payload5, {});
                   $$payload5.out.push(`<!----> `);
                   Navigation_menu_item($$payload5, {
                     children: ($$payload6) => {
@@ -7440,8 +7440,6 @@ function _layout($$payload, $$props) {
                     },
                     $$slots: { default: true }
                   });
-                  $$payload5.out.push(`<!----> <!---->`);
-                  Sidebar_trigger($$payload5, {});
                   $$payload5.out.push(`<!----> `);
                   Button($$payload5, {
                     onclick: toggleMode,
