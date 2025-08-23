@@ -21,6 +21,11 @@
             href={base + "/Retro & Arcade/retro-games"}>Retro Games page</a
         >.
     </p>
+    <h2
+        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+    >
+        Nintendo FCDS Downloads
+    </h2>
     <div class="my-6 w-full overflow-y-auto">
         <Table>
             <TableHeader>
@@ -54,6 +59,23 @@
                         >
                     </TableCell>
                 </TableRow>
+            </TableBody>
+        </Table>
+    </div>
+    <h2
+        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+    >
+        Nintendo Gameboy Advance Downloads
+    </h2>
+    <div class="my-6 w-full overflow-y-auto">
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Myrient (Fast & Unrestricted)</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
                 <TableRow>
                     <TableCell>Nintendo - Game Boy Advance</TableCell>
                     <TableCell>
@@ -98,6 +120,23 @@
                         >
                     </TableCell>
                 </TableRow>
+            </TableBody>
+        </Table>
+    </div>
+    <h2
+        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+    >
+        Nintendo Gameboy & Gameboy Color Downloads
+    </h2>
+    <div class="my-6 w-full overflow-y-auto">
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Myrient (Fast & Unrestricted)</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
                 <TableRow>
                     <TableCell>Nintendo - Game Boy Color</TableCell>
                     <TableCell>
@@ -118,6 +157,23 @@
                         >
                     </TableCell>
                 </TableRow>
+            </TableBody>
+        </Table>
+    </div>
+    <h2
+        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+    >
+        Nintendo 64 Downloads
+    </h2>
+    <div class="my-6 w-full overflow-y-auto">
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Myrient (Fast & Unrestricted)</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
                 <TableRow>
                     <TableCell>Nintendo - Nintendo 64 (BigEndian)</TableCell>
                     <TableCell>
@@ -148,6 +204,23 @@
                         >
                     </TableCell>
                 </TableRow>
+            </TableBody>
+        </Table>
+    </div>
+    <h2
+        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+    >
+        Nintendo NES Downloads
+    </h2>
+    <div class="my-6 w-full overflow-y-auto">
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Myrient (Fast & Unrestricted)</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
                 <TableRow>
                     <TableCell>
                         Nintendo - Nintendo Entertainment System (Headered)
@@ -172,6 +245,23 @@
                         >
                     </TableCell>
                 </TableRow>
+            </TableBody>
+        </Table>
+    </div>
+    <h2
+        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+    >
+        Nintendo Pokemon Mini Downloads
+    </h2>
+    <div class="my-6 w-full overflow-y-auto">
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Myrient (Fast & Unrestricted)</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
                 <TableRow>
                     <TableCell>Nintendo - Pokemon Mini</TableCell>
                     <TableCell>
@@ -182,6 +272,23 @@
                         >
                     </TableCell>
                 </TableRow>
+            </TableBody>
+        </Table>
+    </div>
+    <h2
+        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+    >
+        Nintendo SNES Downloads
+    </h2>
+    <div class="my-6 w-full overflow-y-auto">
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Myrient (Fast & Unrestricted)</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
                 <TableRow>
                     <TableCell>
                         Nintendo - Super Nintendo Entertainment System
@@ -194,6 +301,23 @@
                         >
                     </TableCell>
                 </TableRow>
+            </TableBody>
+        </Table>
+    </div>
+    <h2
+        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+    >
+        Nintendo Virtual Boy Downloads
+    </h2>
+    <div class="my-6 w-full overflow-y-auto">
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Myrient (Fast & Unrestricted)</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
                 <TableRow>
                     <TableCell>Nintendo - Virtual Boy</TableCell>
                     <TableCell>

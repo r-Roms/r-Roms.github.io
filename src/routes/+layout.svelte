@@ -1,4 +1,5 @@
 <script lang="ts">
+    let pageTitle = "/r/Roms Megathread";
     import "../app.css";
     import { ModeWatcher } from "mode-watcher";
     import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
@@ -60,6 +61,12 @@
     let { children } = $props();
 </script>
 
+<svelte:head>
+  <title>{pageTitle}</title>
+</svelte:head>
+
+<meta property="og:title" content="{pageTitle}" />
+
 <div class="mx-8 my-4 space-y-8 md:mx-16 lg:mx-24 xl:mx-32">
     <Sidebar.Provider>
         <AppSidebar />
@@ -71,7 +78,7 @@
                     <NavigationMenu.List>
                         <NavigationMenuItem></NavigationMenuItem>
                         <NavigationMenuItem>
-                            <Button variant="ghost" href="/"
+                            <Button variant="ghost" href={base}
                                 >/r/Roms Megathread</Button
                             >
                         </NavigationMenuItem>
@@ -98,7 +105,7 @@
             <footer class="flex flex-col items-center justify-center gap-2 p-4">
                 <Separator />
                 <p class="text-sm text-primary">
-                    © 2025 /r/Roms Megathread. All rights reserved.
+                    © 2025 /r/Roms Megathread. GPL-3.0 license.
                 </p>
                 <p class="text-xs text-muted-foreground">
                     Designed by{" "}

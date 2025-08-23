@@ -42,6 +42,17 @@
             </TableHeader>
             <TableBody>
                 <TableRow>
+                    <TableCell>Sony - PlayStation 3</TableCell>
+                    <TableCell
+                        ><a
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%203/"
+                            >Download</a
+                        ></TableCell
+                    >
+                    <TableCell></TableCell>
+                </TableRow>
+                <TableRow>
                     <TableCell>Sony - PlayStation 3 (PSN) (Content)</TableCell>
                     <TableCell
                         ><a
@@ -338,17 +349,6 @@
                             >Download</a
                         ></TableCell
                     >
-                </TableRow>
-                <TableRow>
-                    <TableCell>Sony - PlayStation 3</TableCell>
-                    <TableCell
-                        ><a
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%203/"
-                            >Download</a
-                        ></TableCell
-                    >
-                    <TableCell></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Sony PlayStation 3 - # - Redump.org</TableCell>
