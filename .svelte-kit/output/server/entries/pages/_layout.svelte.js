@@ -7471,7 +7471,7 @@ function _layout($$payload, $$props) {
           children?.($$payload3);
           $$payload3.out.push(`<!----></main> <footer class="flex flex-col items-center justify-center gap-2 p-4">`);
           Separator($$payload3, {});
-          $$payload3.out.push(`<!----> <p class="text-sm text-primary">© 2025 /r/Roms Megathread. All rights reserved.</p> <p class="text-xs text-muted-foreground">Designed by  <a href="https://www.ashleehee.com/" class="text-primary underline underline-offset-4 hover:bg-primary hover:text-primary-foreground">AshLee</a></p></footer>`);
+          $$payload3.out.push(`<!----> <p class="text-sm text-primary">© 2025 /r/Roms Megathread. GPL-3.0 license.</p> <p class="text-xs text-muted-foreground">Designed by  <a href="https://www.ashleehee.com/" class="text-primary underline underline-offset-4 hover:bg-primary hover:text-primary-foreground">AshLee</a></p></footer>`);
         },
         $$slots: { default: true }
       });

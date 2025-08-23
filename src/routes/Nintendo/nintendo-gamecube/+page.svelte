@@ -24,6 +24,11 @@
             >RVZ format page</a
         >.
     </p>
+    <h2
+        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+    >
+        RVZ Downloads
+    </h2>
     <div class="my-6 w-full overflow-y-auto">
         <Table>
             <TableHeader>
@@ -86,6 +91,24 @@
                         >
                     </TableCell>
                 </TableRow>
+            </TableBody>
+        </Table>
+    </div>
+    <h2
+        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+    >
+        Redump Downloads
+    </h2>
+    <div class="my-6 w-full overflow-y-auto">
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Myrient (Fast & Unrestricted)</TableHead>
+                    <TableHead>Internet Archive</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
                 <TableRow>
                     <TableCell>
                         Redump - Nintendo - GameCube (America) (20160527)
