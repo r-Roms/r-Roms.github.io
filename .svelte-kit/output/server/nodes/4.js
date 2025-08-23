@@ -3,6 +3,6 @@
 export const index = 4;
 let component_cache;
 export const component = async () => component_cache ??= (await import('../entries/pages/Microsoft/microsoft-xbox/_page.svelte.js')).default;
-export const imports = ["_app/immutable/nodes/4.Dluv7pwZ.js","_app/immutable/chunks/DsnmJJEf.js","_app/immutable/chunks/DWHoCW4y.js","_app/immutable/chunks/EcSZM9gp.js","_app/immutable/chunks/BCB0H17l.js","_app/immutable/chunks/CPEHrLlw.js","_app/immutable/chunks/VBTYuNyv.js","_app/immutable/chunks/DJZrlNGB.js","_app/immutable/chunks/DchlhQoD.js","_app/immutable/chunks/_Z2JNJkV.js"];
+export const imports = ["_app/immutable/nodes/4.C7XUJZ8u.js","_app/immutable/chunks/DsnmJJEf.js","_app/immutable/chunks/DYqqDfhR.js","_app/immutable/chunks/B9ZEekOX.js","_app/immutable/chunks/VPLmnpWR.js","_app/immutable/chunks/CKiK-OH1.js","_app/immutable/chunks/Ce2I-S6o.js","_app/immutable/chunks/LH67jeQE.js","_app/immutable/chunks/DWDLdo9L.js","_app/immutable/chunks/CosbbSs6.js"];
 export const stylesheets = [];
 export const fonts = [];

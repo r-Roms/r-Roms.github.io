@@ -1,7 +1,7 @@
 import "clsx";
 import { T as Table, a as Table_header, b as Table_row, c as Table_head, d as Table_body, e as Table_cell } from "../../../../chunks/table-row.js";
 function _page($$payload) {
-  $$payload.out.push(`<div class="mx-8 mb-8 mt-8 space-y-4 bg-background"><h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">Sony Playstation PorTable (PSP)</h1> <div class="my-6 w-full overflow-y-auto">`);
+  $$payload.out.push(`<div class="mx-8 mb-8 mt-8 space-y-4 bg-background"><h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">Sony Playstation Portable (PSP)</h1> <div class="my-6 w-full overflow-y-auto">`);
   Table($$payload, {
     children: ($$payload2) => {
       Table_header($$payload2, {
@@ -42,14 +42,14 @@ function _page($$payload) {
             children: ($$payload4) => {
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Sony - PlayStation PorTable`);
+                  $$payload5.out.push(`<!---->Sony - PlayStation Portable`);
                 },
                 $$slots: { default: true }
               });
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%20PorTable/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%20Portable/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -73,7 +73,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://archive.org/download/sony_playstation_porTable_part1">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://archive.org/download/sony_playstation_portable_part1">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -95,7 +95,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://archive.org/download/sony_playstation_porTable_part2">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://archive.org/download/sony_playstation_portable_part2">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -117,7 +117,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://archive.org/download/sony_playstation_porTable_part3">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://archive.org/download/sony_playstation_portable_part3">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -139,7 +139,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://archive.org/download/sony_playstation_porTable_part4">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://archive.org/download/sony_playstation_portable_part4">Download</a>`);
                 },
                 $$slots: { default: true }
               });

@@ -12,7 +12,7 @@
 <!-- Home page for the ROMs megathread -->
 <div class="mx-8 mb-8 mt-8 space-y-4 bg-background">
     <h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">
-        Sony Playstation PorTable (PSP)
+        Sony Playstation Portable (PSP)
     </h1>
     <div class="my-6 w-full overflow-y-auto">
         <Table>
@@ -27,11 +27,11 @@
             </TableHeader>
             <TableBody>
                 <TableRow>
-                    <TableCell>Sony - PlayStation PorTable</TableCell>
+                    <TableCell>Sony - PlayStation Portable</TableCell>
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%20PorTable/"
+                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%20Portable/"
                             >Download</a
                         ></TableCell
                     >
@@ -43,7 +43,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://archive.org/download/sony_playstation_porTable_part1"
+                            href="https://archive.org/download/sony_playstation_portable_part1"
                             >Download</a
                         ></TableCell
                     >
@@ -54,7 +54,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://archive.org/download/sony_playstation_porTable_part2"
+                            href="https://archive.org/download/sony_playstation_portable_part2"
                             >Download</a
                         ></TableCell
                     >
@@ -65,7 +65,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://archive.org/download/sony_playstation_porTable_part3"
+                            href="https://archive.org/download/sony_playstation_portable_part3"
                             >Download</a
                         ></TableCell
                     >
@@ -76,7 +76,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://archive.org/download/sony_playstation_porTable_part4"
+                            href="https://archive.org/download/sony_playstation_portable_part4"
                             >Download</a
                         ></TableCell
                     >

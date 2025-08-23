@@ -1,4 +1,5 @@
 <script lang="ts">
+    let pageTitle = "/r/Roms Megathread";
     import "../app.css";
     import { ModeWatcher } from "mode-watcher";
     import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
@@ -60,6 +61,12 @@
     let { children } = $props();
 </script>
 
+<svelte:head>
+  <title>{pageTitle}</title>
+</svelte:head>
+
+<meta property="og:title" content="{pageTitle}" />
+
 <div class="mx-8 my-4 space-y-8 md:mx-16 lg:mx-24 xl:mx-32">
     <Sidebar.Provider>
         <AppSidebar />
@@ -71,7 +78,7 @@
                     <NavigationMenu.List>
                         <NavigationMenuItem></NavigationMenuItem>
                         <NavigationMenuItem>
-                            <Button variant="ghost" href="/"
+                            <Button variant="ghost" href={base}
                                 >/r/Roms Megathread</Button
                             >
                         </NavigationMenuItem>

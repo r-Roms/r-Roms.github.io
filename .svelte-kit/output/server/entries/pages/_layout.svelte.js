@@ -1,6 +1,6 @@
+import { A as ATTACHMENT_KEY, f as run, e as pop, p as push, h as head, g as hasContext, j as getContext, s as setContext, k as derived, l as props_id, m as spread_attributes, n as bind_props, o as getAllContexts, q as spread_props, t as copy_payload, u as assign_payload, B as BROWSER, v as attr_class, w as ensure_array_like, x as element, y as stringify } from "../../chunks/index.js";
 import { clsx } from "clsx";
 import parse from "style-to-object";
-import { A as ATTACHMENT_KEY, f as run, e as pop, p as push, h as head, g as hasContext, j as getContext, s as setContext, k as derived, l as props_id, m as spread_attributes, n as bind_props, o as getAllContexts, q as spread_props, t as copy_payload, u as assign_payload, B as BROWSER, v as attr_class, w as ensure_array_like, x as element, y as stringify } from "../../chunks/index.js";
 import { a as attr, c as clsx$1, e as escape_html } from "../../chunks/attributes.js";
 import { c as cn } from "../../chunks/utils.js";
 import { t as on } from "../../chunks/events.js";
@@ -6496,7 +6496,7 @@ function Sidebar_provider($$payload, $$props) {
   bind_props($$props, { ref, open });
   pop();
 }
-function Panel_left($$payload, $$props) {
+function Menu($$payload, $$props) {
   push();
   /**
    * @license @lucide/svelte v0.534.0 - ISC
@@ -6520,19 +6520,17 @@ function Panel_left($$payload, $$props) {
    */
   let { $$slots, $$events, ...props } = $$props;
   const iconNode = [
-    [
-      "rect",
-      { "width": "18", "height": "18", "x": "3", "y": "3", "rx": "2" }
-    ],
-    ["path", { "d": "M9 3v18" }]
+    ["path", { "d": "M4 12h16" }],
+    ["path", { "d": "M4 18h16" }],
+    ["path", { "d": "M4 6h16" }]
   ];
   Icon($$payload, spread_props([
-    { name: "panel-left" },
+    { name: "menu" },
     /**
-     * @component @name PanelLeft
+     * @component @name Menu
      * @description Lucide SVG icon component, renders SVG Element with children.
      *
-     * @preview ![img](data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6ICNmZmY7IGJvcmRlci1yYWRpdXM6IDJweCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cmVjdCB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHg9IjMiIHk9IjMiIHJ4PSIyIiAvPgogIDxwYXRoIGQ9Ik05IDN2MTgiIC8+Cjwvc3ZnPgo=) - https://lucide.dev/icons/panel-left
+     * @preview ![img](data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6ICNmZmY7IGJvcmRlci1yYWRpdXM6IDJweCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cGF0aCBkPSJNNCAxMmgxNiIgLz4KICA8cGF0aCBkPSJNNCAxOGgxNiIgLz4KICA8cGF0aCBkPSJNNCA2aDE2IiAvPgo8L3N2Zz4K) - https://lucide.dev/icons/menu
      * @see https://lucide.dev/guide/packages/lucide-svelte - Documentation
      *
      * @param {Object} props - Lucide icons props and any valid SVG attribute
@@ -6578,7 +6576,7 @@ function Sidebar_trigger($$payload, $$props) {
     restProps,
     {
       children: ($$payload2) => {
-        Panel_left($$payload2, {});
+        Menu($$payload2, {});
         $$payload2.out.push(`<!----> <span class="sr-only">Toggle Sidebar</span>`);
       },
       $$slots: { default: true }
@@ -7408,8 +7406,12 @@ function App_sidebar($$payload) {
   });
 }
 function _layout($$payload, $$props) {
+  let pageTitle = "/r/Roms Megathread";
   let { children } = $$props;
-  $$payload.out.push(`<div class="mx-8 my-4 space-y-8 md:mx-16 lg:mx-24 xl:mx-32"><!---->`);
+  head($$payload, ($$payload2) => {
+    $$payload2.title = `<title>/r/Roms Megathread</title>`;
+  });
+  $$payload.out.push(`<meta property="og:title"${attr("content", pageTitle)}/> <div class="mx-8 my-4 space-y-8 md:mx-16 lg:mx-24 xl:mx-32"><!---->`);
   Sidebar_provider($$payload, {
     children: ($$payload2) => {
       App_sidebar($$payload2);
