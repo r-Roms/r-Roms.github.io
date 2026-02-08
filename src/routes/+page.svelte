@@ -49,7 +49,7 @@
         >
         and/or to the Internet Archive
         <a
-            href="https://myrient.erista.me/donate/"
+            href="https://archive.org/donate?origin=iawww-TopNavDonateButton"
             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
             >here</a
         >.
