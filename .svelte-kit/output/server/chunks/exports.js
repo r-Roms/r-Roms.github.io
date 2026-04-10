@@ -1,4 +1,4 @@
-import { aa as noop } from "./index.js";
+import { ad as noop } from "./index.js";
 import { a as safe_not_equal } from "./equality.js";
 import "clsx";
 const internal = new URL("sveltekit-internal://");
@@ -58,10 +58,10 @@ function make_trackable(url, callback, search_params_callback, allow_hash = fals
     });
   }
   {
-    tracked[Symbol.for("nodejs.util.inspect.custom")] = (depth, opts, inspect) => {
+    tracked[/* @__PURE__ */ Symbol.for("nodejs.util.inspect.custom")] = (depth, opts, inspect) => {
       return inspect(url, opts);
     };
-    tracked.searchParams[Symbol.for("nodejs.util.inspect.custom")] = (depth, opts, inspect) => {
+    tracked.searchParams[/* @__PURE__ */ Symbol.for("nodejs.util.inspect.custom")] = (depth, opts, inspect) => {
       return inspect(url.searchParams, opts);
     };
   }
@@ -92,7 +92,7 @@ function disable_search(url) {
 }
 function allow_nodejs_console_log(url) {
   {
-    url[Symbol.for("nodejs.util.inspect.custom")] = (depth, opts, inspect) => {
+    url[/* @__PURE__ */ Symbol.for("nodejs.util.inspect.custom")] = (depth, opts, inspect) => {
       return inspect(new URL(url), opts);
     };
   }

@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/Miscellaneous/bios-files/+page.svelte";
+export { default as component } from "../../../../src/routes/Microsoft/+page.svelte";

@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/Nintendo/nintendo-games/+page.svelte";
+export { default as component } from "../../../../src/routes/Miscellaneous/rom-sets/+page.svelte";

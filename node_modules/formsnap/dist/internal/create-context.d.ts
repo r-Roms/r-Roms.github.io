@@ -1,1 +1,0 @@
-export declare function createContext<ContextValue>(providerComponentName: string | string[], contextName?: string, useSymbol?: boolean): readonly [(value: ContextValue) => ContextValue, <T extends ContextValue | null | undefined = ContextValue>(fallback?: T) => T extends null ? ContextValue | null : ContextValue];

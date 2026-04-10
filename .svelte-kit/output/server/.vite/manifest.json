@@ -9,10 +9,6 @@
       "_paths.js"
     ]
   },
-  "_attributes.js": {
-    "file": "chunks/attributes.js",
-    "name": "attributes"
-  },
   "_equality.js": {
     "file": "chunks/equality.js",
     "name": "equality"
@@ -35,10 +31,7 @@
   },
   "_index.js": {
     "file": "chunks/index.js",
-    "name": "index",
-    "imports": [
-      "_attributes.js"
-    ]
+    "name": "index"
   },
   "_internal.js": {
     "file": "chunks/internal.js",
@@ -58,8 +51,7 @@
     "name": "table-row",
     "imports": [
       "_index.js",
-      "_utils.js",
-      "_attributes.js"
+      "_utils.js"
     ]
   },
   "_utils.js": {
@@ -72,7 +64,6 @@
     "src": "node_modules/@sveltejs/kit/src/runtime/components/svelte-5/error.svelte",
     "isEntry": true,
     "imports": [
-      "_attributes.js",
       "_index.js",
       "_exports.js"
     ]
@@ -88,14 +79,6 @@
       "_exports.js",
       "_internal.js"
     ]
-  },
-  "src/lib/img/75nhplt.png": {
-    "file": "_app/immutable/assets/75nhplt.X__IKEbs.png",
-    "src": "src/lib/img/75nhplt.png"
-  },
-  "src/lib/img/9K4CIDd.png": {
-    "file": "_app/immutable/assets/9K4CIDd.DmoYaDR6.png",
-    "src": "src/lib/img/9K4CIDd.png"
   },
   "src/lib/img/internetarchivelock.png": {
     "file": "_app/immutable/assets/internetarchivelock.DpKBpTri.png",
@@ -126,29 +109,54 @@
     "isEntry": true,
     "imports": [
       "_index.js",
-      "_attributes.js",
       "_utils.js",
       "_events.js",
       "_paths.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.BMJDPy6h.css"
+      "_app/immutable/assets/_layout.Calwx5yR.css"
     ]
   },
   "src/routes/+page.svelte": {
     "file": "entries/pages/_page.svelte.js",
     "name": "entries/pages/_page.svelte",
     "src": "src/routes/+page.svelte",
+    "isEntry": true
+  },
+  "src/routes/General/ddl/+page.svelte": {
+    "file": "entries/pages/General/ddl/_page.svelte.js",
+    "name": "entries/pages/General/ddl/_page.svelte",
+    "src": "src/routes/General/ddl/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_attributes.js",
       "_table-row.js"
-    ],
-    "assets": [
-      "_app/immutable/assets/internetarchivelock.DpKBpTri.png",
-      "_app/immutable/assets/internetarchivelockfile1.DHowa-XL.png",
-      "_app/immutable/assets/internetarchivelockfile2.Da6gvtEV.png",
-      "_app/immutable/assets/internetarchivemetadata.CThqcmLe.png"
+    ]
+  },
+  "src/routes/General/other/+page.svelte": {
+    "file": "entries/pages/General/other/_page.svelte.js",
+    "name": "entries/pages/General/other/_page.svelte",
+    "src": "src/routes/General/other/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_table-row.js"
+    ]
+  },
+  "src/routes/General/preservation/+page.svelte": {
+    "file": "entries/pages/General/preservation/_page.svelte.js",
+    "name": "entries/pages/General/preservation/_page.svelte",
+    "src": "src/routes/General/preservation/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_table-row.js"
+    ]
+  },
+  "src/routes/General/torrents/+page.svelte": {
+    "file": "entries/pages/General/torrents/_page.svelte.js",
+    "name": "entries/pages/General/torrents/_page.svelte",
+    "src": "src/routes/General/torrents/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_table-row.js"
     ]
   },
   "src/routes/Microsoft/+page.svelte": {
@@ -181,10 +189,19 @@
     "src": "src/routes/Miscellaneous/+page.svelte",
     "isEntry": true
   },
-  "src/routes/Miscellaneous/bios-files/+page.svelte": {
-    "file": "entries/pages/Miscellaneous/bios-files/_page.svelte.js",
-    "name": "entries/pages/Miscellaneous/bios-files/_page.svelte",
-    "src": "src/routes/Miscellaneous/bios-files/+page.svelte",
+  "src/routes/Miscellaneous/bios-sets/+page.svelte": {
+    "file": "entries/pages/Miscellaneous/bios-sets/_page.svelte.js",
+    "name": "entries/pages/Miscellaneous/bios-sets/_page.svelte",
+    "src": "src/routes/Miscellaneous/bios-sets/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_table-row.js"
+    ]
+  },
+  "src/routes/Miscellaneous/other/+page.svelte": {
+    "file": "entries/pages/Miscellaneous/other/_page.svelte.js",
+    "name": "entries/pages/Miscellaneous/other/_page.svelte",
+    "src": "src/routes/Miscellaneous/other/+page.svelte",
     "isEntry": true,
     "imports": [
       "_table-row.js"
@@ -229,8 +246,6 @@
     "src": "src/routes/Nintendo/nintendo-gamecube/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_attributes.js",
-      "_paths.js",
       "_table-row.js"
     ]
   },
@@ -240,7 +255,7 @@
     "src": "src/routes/Nintendo/nintendo-games/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_attributes.js",
+      "_index.js",
       "_paths.js",
       "_table-row.js"
     ]
@@ -260,8 +275,6 @@
     "src": "src/routes/Nintendo/nintendo-wii/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_attributes.js",
-      "_paths.js",
       "_table-row.js"
     ]
   },
@@ -275,97 +288,6 @@
     "file": "entries/pages/PC/pc-games/_page.svelte.js",
     "name": "entries/pages/PC/pc-games/_page.svelte",
     "src": "src/routes/PC/pc-games/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_table-row.js"
-    ]
-  },
-  "src/routes/Populars/+page.svelte": {
-    "file": "entries/pages/Populars/_page.svelte.js",
-    "name": "entries/pages/Populars/_page.svelte",
-    "src": "src/routes/Populars/+page.svelte",
-    "isEntry": true
-  },
-  "src/routes/Populars/about-rvz-files/+page.svelte": {
-    "file": "entries/pages/Populars/about-rvz-files/_page.svelte.js",
-    "name": "entries/pages/Populars/about-rvz-files/_page.svelte",
-    "src": "src/routes/Populars/about-rvz-files/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_attributes.js"
-    ],
-    "assets": [
-      "_app/immutable/assets/9K4CIDd.DmoYaDR6.png",
-      "_app/immutable/assets/75nhplt.X__IKEbs.png"
-    ]
-  },
-  "src/routes/Populars/fire-emblem/+page.svelte": {
-    "file": "entries/pages/Populars/fire-emblem/_page.svelte.js",
-    "name": "entries/pages/Populars/fire-emblem/_page.svelte",
-    "src": "src/routes/Populars/fire-emblem/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_table-row.js"
-    ]
-  },
-  "src/routes/Populars/mario/+page.svelte": {
-    "file": "entries/pages/Populars/mario/_page.svelte.js",
-    "name": "entries/pages/Populars/mario/_page.svelte",
-    "src": "src/routes/Populars/mario/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_table-row.js"
-    ]
-  },
-  "src/routes/Populars/metroid/+page.svelte": {
-    "file": "entries/pages/Populars/metroid/_page.svelte.js",
-    "name": "entries/pages/Populars/metroid/_page.svelte",
-    "src": "src/routes/Populars/metroid/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_table-row.js"
-    ]
-  },
-  "src/routes/Populars/persona/+page.svelte": {
-    "file": "entries/pages/Populars/persona/_page.svelte.js",
-    "name": "entries/pages/Populars/persona/_page.svelte",
-    "src": "src/routes/Populars/persona/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_table-row.js"
-    ]
-  },
-  "src/routes/Populars/pokemon/+page.svelte": {
-    "file": "entries/pages/Populars/pokemon/_page.svelte.js",
-    "name": "entries/pages/Populars/pokemon/_page.svelte",
-    "src": "src/routes/Populars/pokemon/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_table-row.js"
-    ]
-  },
-  "src/routes/Populars/super-smash-bros/+page.svelte": {
-    "file": "entries/pages/Populars/super-smash-bros/_page.svelte.js",
-    "name": "entries/pages/Populars/super-smash-bros/_page.svelte",
-    "src": "src/routes/Populars/super-smash-bros/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_table-row.js"
-    ]
-  },
-  "src/routes/Populars/xenoblade/+page.svelte": {
-    "file": "entries/pages/Populars/xenoblade/_page.svelte.js",
-    "name": "entries/pages/Populars/xenoblade/_page.svelte",
-    "src": "src/routes/Populars/xenoblade/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_table-row.js"
-    ]
-  },
-  "src/routes/Populars/zelda/+page.svelte": {
-    "file": "entries/pages/Populars/zelda/_page.svelte.js",
-    "name": "entries/pages/Populars/zelda/_page.svelte",
-    "src": "src/routes/Populars/zelda/+page.svelte",
     "isEntry": true,
     "imports": [
       "_table-row.js"
@@ -425,7 +347,7 @@
     "src": "src/routes/Sega/sega-games/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_attributes.js",
+      "_index.js",
       "_paths.js",
       "_table-row.js"
     ]

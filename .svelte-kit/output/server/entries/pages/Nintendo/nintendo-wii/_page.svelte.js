@@ -1,10 +1,10 @@
-import { a as attr } from "../../../../chunks/attributes.js";
-import { b as base } from "../../../../chunks/paths.js";
+import "clsx";
 import { T as Table, a as Table_header, b as Table_row, c as Table_head, d as Table_body, e as Table_cell } from "../../../../chunks/table-row.js";
 function _page($$payload) {
-  $$payload.out.push(`<div class="mx-8 mb-8 mt-8 space-y-4 bg-background"><h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">Nintendo Wii</h1> <p class="leading-7 [&amp;:not(:first-child)]:mt-6">RVZ format is recommended for its size and convenience. For more
-        information, please refer to the <a${attr("href", base + "/Populars/about-rvz-files")} class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">RVZ format page</a>. <br/> NKit can be used to convert NKit to ISO, do note that the
-        download is <code class="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">~14 GB</code> so using RVZ is recommended over NKit.</p> <div class="my-6 w-full overflow-y-auto">`);
+  $$payload.out.push(`<div class="mx-8 mb-8 mt-8 space-y-4 bg-background"><h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">Nintendo Wii</h1> <p class="leading-7 [&amp;:not(:first-child)]:mt-6">The RVZ format is recommended for use in the Dolphin Emulator, not real
+        hardware. RVZ is compressed, saving bandwidth and disk space. If you
+        require an ISO for real hardware or patching, you can convert using
+        Dolphin Emulator.</p> <div class="my-6 w-full overflow-y-auto">`);
   Table($$payload, {
     children: ($$payload2) => {
       Table_header($$payload2, {

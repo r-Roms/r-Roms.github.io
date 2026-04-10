@@ -1,4 +1,4 @@
-import { a as attr } from "../../../../chunks/attributes.js";
+import { g as attr } from "../../../../chunks/index.js";
 import { b as base } from "../../../../chunks/paths.js";
 import { T as Table, a as Table_header, b as Table_row, c as Table_head, d as Table_body, e as Table_cell } from "../../../../chunks/table-row.js";
 function _page($$payload) {

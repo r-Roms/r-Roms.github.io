@@ -1,8 +1,0 @@
-import type { writeUnassignableDefaultValueMessage } from "@ark/schema";
-import type { ErrorMessage } from "@ark/util";
-import type { type } from "../../keywords/keywords.ts";
-import type { UnitLiteral } from "../shift/operator/default.ts";
-import type { inferAstIn } from "./infer.ts";
-import type { astToString } from "./utils.ts";
-import type { validateAst } from "./validate.ts";
-export type validateDefault<baseAst, unitLiteral extends UnitLiteral, $, args> = validateAst<baseAst, $, args> extends infer e extends ErrorMessage ? e : type.infer<unitLiteral> extends inferAstIn<baseAst, $, args> ? undefined : ErrorMessage<writeUnassignableDefaultValueMessage<astToString<baseAst>, unitLiteral>>;

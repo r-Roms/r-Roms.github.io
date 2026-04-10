@@ -1,9 +1,0 @@
-import { box } from "svelte-toolbelt";
-/**
- * The key used to store the `mode` in localStorage.
- */
-export const modeStorageKey = box("mode-watcher-mode");
-/**
- * The key used to store the `theme` in localStorage.
- */
-export const themeStorageKey = box("mode-watcher-theme");

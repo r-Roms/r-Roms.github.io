@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/Populars/mario/+page.svelte";
+export { default as component } from "../../../../src/routes/PC/+page.svelte";

@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/Retro & Arcade/+page.svelte";
+export { default as component } from "../../../../src/routes/Sega/sega-dreamcast/+page.svelte";
