@@ -23,7 +23,7 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>Title</TableHead>
-                    <TableHead>Myrient (Fast &amp; Unrestricted)</TableHead>
+                    <TableHead>Minerva Archive</TableHead>
                     <TableHead>Internet Archive</TableHead>
                     <TableHead>MEGA</TableHead>
                 </TableRow>
