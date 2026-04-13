@@ -211,6 +211,24 @@
             </Sidebar.GroupContent>
         </Sidebar.Group>
         <Sidebar.Group>
+            <Sidebar.GroupLabel>Popular</Sidebar.GroupLabel>
+            <Sidebar.GroupContent>
+                <Sidebar.Menu>
+                    {#each populars as item}
+                        <Sidebar.MenuItem>
+                            <Sidebar.MenuButton>
+                                {#snippet child({ props })}
+                                    <a href={item.url} {...props}>
+                                        <span>{item.title}</span>
+                                    </a>
+                                {/snippet}
+                            </Sidebar.MenuButton>
+                        </Sidebar.MenuItem>
+                    {/each}
+                </Sidebar.Menu>
+            </Sidebar.GroupContent>
+        </Sidebar.Group>
+        <Sidebar.Group>
             <Sidebar.GroupLabel>Nintendo</Sidebar.GroupLabel>
             <Sidebar.GroupContent>
                 <Sidebar.Menu>
