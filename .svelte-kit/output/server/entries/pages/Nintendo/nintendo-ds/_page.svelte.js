@@ -56,7 +56,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Decrypted)/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Decrypted)/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -80,7 +80,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Encrypted)/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Encrypted)/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -104,7 +104,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Download%20Play)/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Download%20Play)/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -128,7 +128,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DSi%20(Decrypted)/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DSi%20(Decrypted)/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -152,7 +152,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DSi%20(Encrypted)/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DSi%20(Encrypted)/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -176,7 +176,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DSi%20(Digital)/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DSi%20(Digital)/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -253,7 +253,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/nds_apfix/apfix/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/nds_apfix/apfix/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
                 },
                 $$slots: { default: true }
               });

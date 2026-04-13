@@ -53,7 +53,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%203/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Redump/Sony%20-%20PlayStation%203/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -75,7 +75,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%203%20(PSN)%20(Content)/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/No-Intro/Sony%20-%20PlayStation%203%20(PSN)%20(Content)/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -97,7 +97,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%203%20(PSN)%20(Updates)/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/No-Intro/Sony%20-%20PlayStation%203%20(PSN)%20(Updates)/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -603,7 +603,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_PSN_1/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_PSN_1/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -630,7 +630,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_PSN_2/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_PSN_2/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -2109,7 +2109,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_1/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_1/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -2136,7 +2136,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_2/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_2/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -2163,7 +2163,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_3/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_3/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -2190,7 +2190,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_3_OTHER/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_3_OTHER/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -2217,7 +2217,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_4/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_4/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -2244,7 +2244,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART__5/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART__5/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -2271,7 +2271,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_6/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_6/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -2298,7 +2298,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_7/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_7/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -2325,7 +2325,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_8/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_8/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -2352,7 +2352,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_9/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_9/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -2379,7 +2379,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_10/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_10/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -2406,7 +2406,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_11/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_11/">Download</a>`);
                 },
                 $$slots: { default: true }
               });

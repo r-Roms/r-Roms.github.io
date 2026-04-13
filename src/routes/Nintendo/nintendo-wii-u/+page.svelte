@@ -67,7 +67,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/teamgt19/nintendo-wii-u-usa-full-set-wua-format-embedded-dlc-updates/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/teamgt19/nintendo-wii-u-usa-full-set-wua-format-embedded-dlc-updates/"
                             >Download</a
                         ></TableCell
                     >
@@ -81,7 +81,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/teamgt19/nintendo-wii-u-eshop-usa-full-set-wua-format-embedded-dlc-updates/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/teamgt19/nintendo-wii-u-eshop-usa-full-set-wua-format-embedded-dlc-updates/"
                             >Download</a
                         ></TableCell
                     >
@@ -92,7 +92,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Wii%20U%20(Digital)%20(CDN)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Wii%20U%20(Digital)%20(CDN)/"
                             >Download</a
                         ></TableCell
                     >
@@ -103,7 +103,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/archiver_2020/wii-u-retail-nus-usa/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/archiver_2020/wii-u-retail-nus-usa/"
                             >Download</a
                         ></TableCell
                     >
@@ -120,7 +120,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/archiver_2020/wii-u-download-nus-usa/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/archiver_2020/wii-u-download-nus-usa/"
                             >Download</a
                         ></TableCell
                     >
@@ -131,7 +131,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/archiver_2020/wii-u-turbografx16-nus/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/archiver_2020/wii-u-turbografx16-nus/"
                             >Download</a
                         ></TableCell
                     >
@@ -148,7 +148,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/archiver_2020/wii-u-wii-nus/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/archiver_2020/wii-u-wii-nus/"
                             >Download</a
                         ></TableCell
                     >
@@ -165,7 +165,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/archiver_2020/wii-u-nintendo-64-nus/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/archiver_2020/wii-u-nintendo-64-nus/"
                             >Download</a
                         ></TableCell
                     >
@@ -182,7 +182,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/archiver_2020/wii-u-nes-fc-nus/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/archiver_2020/wii-u-nes-fc-nus/"
                             >Download</a
                         ></TableCell
                     >
@@ -199,7 +199,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/archiver_2020/wii-u-super-nintendo-snes-nus/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/archiver_2020/wii-u-super-nintendo-snes-nus/"
                             >Download</a
                         ></TableCell
                     >
@@ -216,7 +216,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/archiver_2020/wii-u-nintendo-ds-nds-nus/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/archiver_2020/wii-u-nintendo-ds-nds-nus/"
                             >Download</a
                         ></TableCell
                     >
@@ -233,7 +233,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/archiver_2020/wii-u-gameboy-advance-nus/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/archiver_2020/wii-u-gameboy-advance-nus/"
                             >Download</a
                         ></TableCell
                     >
@@ -250,7 +250,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/archiver_2020/wii-u-retail-game-disc-nus-usa/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/archiver_2020/wii-u-retail-game-disc-nus-usa/"
                             >Download</a
                         ></TableCell
                     >
@@ -267,7 +267,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Nintendo%20-%20Wii%20U%20-%20WUX/"
+                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20Wii%20U%20-%20WUX/"
                             >Download</a
                         ></TableCell
                     >

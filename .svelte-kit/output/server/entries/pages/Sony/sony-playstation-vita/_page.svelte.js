@@ -53,7 +53,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%20Vita%20(PSN)%20(Content)/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/No-Intro/Sony%20-%20PlayStation%20Vita%20(PSN)%20(Content)/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -73,7 +73,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%20Vita%20(PSN)%20(Updates)/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/No-Intro/Sony%20-%20PlayStation%20Vita%20(PSN)%20(Updates)/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -95,7 +95,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(BlackFinPSV)/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(BlackFinPSV)/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -117,7 +117,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(NoNpDrm)/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(NoNpDrm)/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -140,7 +140,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(PSN)%20(Decrypted)%20(VPK)/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(PSN)%20(Decrypted)%20(VPK)/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -162,7 +162,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(PSVgameSD)/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(PSVgameSD)/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -184,7 +184,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(VPK)/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(VPK)/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -229,7 +229,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/teamgt19/sony-playstation-vita-usa-full-set-nonpdrm-format-dlc-updates/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/teamgt19/sony-playstation-vita-usa-full-set-nonpdrm-format-dlc-updates/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -278,7 +278,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PSVITA_MAIDUMP/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PSVITA_MAIDUMP/">Download</a>`);
                 },
                 $$slots: { default: true }
               });

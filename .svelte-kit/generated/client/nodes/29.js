@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/Sega/sega-games/+page.svelte";
+export { default as component } from "../../../../src/routes/Populars/pokemon/+page.svelte";

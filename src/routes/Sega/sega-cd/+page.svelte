@@ -28,7 +28,7 @@
                 <TableCell
                     ><a
                         class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://myrient.erista.me/files/Redump/Sega%20-%20Mega%20CD%20&amp;%20Sega%20CD/"
+                        href="https://minerva-archive.org/browse/Redump/Sega%20-%20Mega%20CD%20&amp;%20Sega%20CD/"
                         >Download</a
                     ></TableCell
                 >
@@ -45,7 +45,7 @@
                 <TableCell
                     ><a
                         class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_segacd/CHD-SegaCD-NTSC/"
+                        href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_segacd/CHD-SegaCD-NTSC/"
                         >Download</a
                     ></TableCell
                 >
@@ -62,7 +62,7 @@
                 <TableCell
                     ><a
                         class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_segacd/CHD-MegaCD-PAL/"
+                        href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_segacd/CHD-MegaCD-PAL/"
                         >Download</a
                     ></TableCell
                 >
@@ -79,7 +79,7 @@
                 <TableCell
                     ><a
                         class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_segacd/CHD-MegaCD-NTSCJ/"
+                        href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_segacd/CHD-MegaCD-NTSCJ/"
                         >Download</a
                     ></TableCell
                 >
@@ -96,7 +96,7 @@
                 <TableCell
                     ><a
                         class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_segacd/CHD-SegaCD-Bonus/"
+                        href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_segacd/CHD-SegaCD-Bonus/"
                         >Download</a
                     ></TableCell
                 >

@@ -52,7 +52,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -184,7 +184,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/Internet%20Archive/Unknown/RedumpNintendoGameCubeAmerica/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Part 1</a> / <a href="https://myrient.erista.me/files/Internet%20Archive/Unknown/RedumpNintendoGameCubeAmericaPart2/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Part 2</a> / <a href="https://myrient.erista.me/files/Internet%20Archive/Unknown/RedumpNintendoGameCubeAmericaPart3/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Part 3</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/Internet%20Archive/Unknown/RedumpNintendoGameCubeAmerica/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Part 1</a> / <a href="https://minerva-archive.org/browse/Internet%20Archive/Unknown/RedumpNintendoGameCubeAmericaPart2/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Part 2</a> / <a href="https://minerva-archive.org/browse/Internet%20Archive/Unknown/RedumpNintendoGameCubeAmericaPart3/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Part 3</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -206,7 +206,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/Internet%20Archive/pixelspoil/NCubeJ/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/Internet%20Archive/pixelspoil/NCubeJ/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -233,7 +233,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/Internet%20Archive/kodi_amp_spmc_canada/EuropeanGamecubeCollectionByGhostware/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/EuropeanGamecubeCollectionByGhostware/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -255,7 +255,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/Internet%20Archive/kodi_amp_spmc_canada/AustraliaGamecubeCollectionByGhostware/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/AustraliaGamecubeCollectionByGhostware/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -277,7 +277,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/Internet%20Archive/kodi_amp_spmc_canada/AsiaGamecubeCollectionByGhostware/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/AsiaGamecubeCollectionByGhostware/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
                 },
                 $$slots: { default: true }
               });

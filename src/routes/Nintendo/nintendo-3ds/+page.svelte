@@ -41,7 +41,7 @@
                     <TableCell>Nintendo - Nintendo 3DS (Decrypted)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Decrypted)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Decrypted)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -53,7 +53,7 @@
                     <TableCell>Nintendo - Nintendo 3DS (Encrypted)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Encrypted)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Encrypted)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -67,7 +67,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20New%20Nintendo%203DS%20(Decrypted)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20New%20Nintendo%203DS%20(Decrypted)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -81,7 +81,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20New%20Nintendo%203DS%20(Encrypted)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20New%20Nintendo%203DS%20(Encrypted)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -95,7 +95,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Digital)%20(Deprecated)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Digital)%20(Deprecated)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -109,7 +109,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20New%20Nintendo%203DS%20(Digital)%20(Deprecated)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20New%20Nintendo%203DS%20(Digital)%20(Deprecated)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -124,7 +124,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Unofficial%20-%20Nintendo%20-%20Nintendo%203DS%20(Digital)%20(Updates%20and%20DLC)%20(Decrypted)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Unofficial%20-%20Nintendo%20-%20Nintendo%203DS%20(Digital)%20(Updates%20and%20DLC)%20(Decrypted)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -139,7 +139,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Unofficial%20-%20Nintendo%20-%20Nintendo%203DS%20(Digital)%20(Updates%20and%20DLC)%20(Encrypted)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Unofficial%20-%20Nintendo%20-%20Nintendo%203DS%20(Digital)%20(Updates%20and%20DLC)%20(Encrypted)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -153,7 +153,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Digital)%20(CDN)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Digital)%20(CDN)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -167,7 +167,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Digital)%20(Dev%20ROMs)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Digital)%20(Dev%20ROMs)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -181,7 +181,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Digital)%20(Pre-Install)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Digital)%20(Pre-Install)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >

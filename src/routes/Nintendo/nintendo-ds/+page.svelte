@@ -29,7 +29,7 @@
                     <TableCell>Nintendo - Nintendo DS (Decrypted)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Decrypted)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Decrypted)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -41,7 +41,7 @@
                     <TableCell>Nintendo - Nintendo DS (Encrypted)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Encrypted)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Encrypted)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -55,7 +55,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Download%20Play)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Download%20Play)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -67,7 +67,7 @@
                     <TableCell>Nintendo - Nintendo DSi (Decrypted)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DSi%20(Decrypted)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DSi%20(Decrypted)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -79,7 +79,7 @@
                     <TableCell>Nintendo - Nintendo DSi (Encrypted)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DSi%20(Encrypted)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DSi%20(Encrypted)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -91,7 +91,7 @@
                     <TableCell>Nintendo - Nintendo DSi (Digital)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20DSi%20(Digital)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DSi%20(Digital)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -135,7 +135,7 @@
                     <TableCell>Nintendo DS Anti-Piracy Fixed ROMs</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/nds_apfix/apfix/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/nds_apfix/apfix/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >

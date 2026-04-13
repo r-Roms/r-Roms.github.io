@@ -49,7 +49,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Redump/Sega%20-%20Mega%20CD%20&amp;%20Sega%20CD/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Redump/Sega%20-%20Mega%20CD%20&amp;%20Sega%20CD/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -76,7 +76,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_segacd/CHD-SegaCD-NTSC/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_segacd/CHD-SegaCD-NTSC/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -103,7 +103,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_segacd/CHD-MegaCD-PAL/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_segacd/CHD-MegaCD-PAL/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -130,7 +130,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_segacd/CHD-MegaCD-NTSCJ/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_segacd/CHD-MegaCD-NTSCJ/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -157,7 +157,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_segacd/CHD-SegaCD-Bonus/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_segacd/CHD-SegaCD-Bonus/">Download</a>`);
                 },
                 $$slots: { default: true }
               });

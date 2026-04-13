@@ -62,10 +62,10 @@
 </script>
 
 <svelte:head>
-  <title>{pageTitle}</title>
+    <title>{pageTitle}</title>
 </svelte:head>
 
-<meta property="og:title" content="{pageTitle}" />
+<meta property="og:title" content={pageTitle} />
 
 <div class="mx-8 my-4 space-y-8 md:mx-16 lg:mx-24 xl:mx-32">
     <Sidebar.Provider>

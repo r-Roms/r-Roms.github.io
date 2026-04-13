@@ -56,7 +56,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/sketch_the_cow/Total_DOS_Collection_Release_16_March_2019/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/sketch_the_cow/Total_DOS_Collection_Release_16_March_2019/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -133,7 +133,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/2020_03_22_DOOM/DOOM%20WADs/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/2020_03_22_DOOM/DOOM%20WADs/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -162,7 +162,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Redump/Apple%20-%20Macintosh/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Redump/Apple%20-%20Macintosh/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -191,7 +191,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Redump/IBM%20-%20PC%20compatible/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Redump/IBM%20-%20PC%20compatible/">Download</a>`);
                 },
                 $$slots: { default: true }
               });

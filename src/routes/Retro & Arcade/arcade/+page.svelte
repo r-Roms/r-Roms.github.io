@@ -29,7 +29,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Arcade%20-%20Konami%20-%20FireBeat/"
+                            href="https://minerva-archive.org/browse/Redump/Arcade%20-%20Konami%20-%20FireBeat/"
                             >Download</a
                         ></TableCell
                     >
@@ -46,7 +46,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Arcade%20-%20Konami%20-%20M2/"
+                            href="https://minerva-archive.org/browse/Redump/Arcade%20-%20Konami%20-%20M2/"
                             >Download</a
                         ></TableCell
                     >
@@ -63,7 +63,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Arcade%20-%20Konami%20-%20System%20573/"
+                            href="https://minerva-archive.org/browse/Redump/Arcade%20-%20Konami%20-%20System%20573/"
                             >Download</a
                         ></TableCell
                     >
@@ -80,7 +80,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Arcade%20-%20Konami%20-%20System%20GV/"
+                            href="https://minerva-archive.org/browse/Redump/Arcade%20-%20Konami%20-%20System%20GV/"
                             >Download</a
                         ></TableCell
                     >
@@ -97,7 +97,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Arcade%20-%20Konami%20-%20e-Amusement/"
+                            href="https://minerva-archive.org/browse/Redump/Arcade%20-%20Konami%20-%20e-Amusement/"
                             >Download</a
                         ></TableCell
                     >
@@ -116,7 +116,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Arcade%20-%20Namco%20-%20Sega%20-%20Nintendo%20-%20Triforce/"
+                            href="https://minerva-archive.org/browse/Redump/Arcade%20-%20Namco%20-%20Sega%20-%20Nintendo%20-%20Triforce/"
                             >Download</a
                         ></TableCell
                     >
@@ -133,7 +133,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Arcade%20-%20Namco%20-%20System%20246/"
+                            href="https://minerva-archive.org/browse/Redump/Arcade%20-%20Namco%20-%20System%20246/"
                             >Download</a
                         ></TableCell
                     >
@@ -150,7 +150,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Arcade%20-%20Sega%20-%20Chihiro/"
+                            href="https://minerva-archive.org/browse/Redump/Arcade%20-%20Sega%20-%20Chihiro/"
                             >Download</a
                         ></TableCell
                     >
@@ -167,7 +167,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Arcade%20-%20Sega%20-%20Lindbergh/"
+                            href="https://minerva-archive.org/browse/Redump/Arcade%20-%20Sega%20-%20Lindbergh/"
                             >Download</a
                         ></TableCell
                     >
@@ -184,7 +184,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Arcade%20-%20Sega%20-%20Naomi/"
+                            href="https://minerva-archive.org/browse/Redump/Arcade%20-%20Sega%20-%20Naomi/"
                             >Download</a
                         ></TableCell
                     >
@@ -201,7 +201,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Arcade%20-%20Sega%20-%20Naomi%202/"
+                            href="https://minerva-archive.org/browse/Redump/Arcade%20-%20Sega%20-%20Naomi%202/"
                             >Download</a
                         ></TableCell
                     >
@@ -218,7 +218,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Arcade%20-%20Sega%20-%20RingEdge/"
+                            href="https://minerva-archive.org/browse/Redump/Arcade%20-%20Sega%20-%20RingEdge/"
                             >Download</a
                         ></TableCell
                     >
@@ -235,7 +235,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Arcade%20-%20Sega%20-%20RingEdge%202/"
+                            href="https://minerva-archive.org/browse/Redump/Arcade%20-%20Sega%20-%20RingEdge%202/"
                             >Download</a
                         ></TableCell
                     >
@@ -252,7 +252,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/mame-sl/mame-sl/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/mame-sl/mame-sl/"
                             >Download</a
                         ></TableCell
                     >
@@ -269,7 +269,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/lollo_220/MAME_0.225_CHDs_merged/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/lollo_220/MAME_0.225_CHDs_merged/"
                             >Download</a
                         ></TableCell
                     >
@@ -286,7 +286,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/mame-merged/mame-merged/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/mame-merged/mame-merged/"
                             >Download</a
                         ></TableCell
                     >
@@ -303,7 +303,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/mame-merged/BIOS/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/mame-merged/BIOS/"
                             >Download</a
                         ></TableCell
                     >
@@ -320,7 +320,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aberusugi/hbmame_0244_roms/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aberusugi/hbmame_0244_roms/"
                             >Download</a
                         ></TableCell
                     >
@@ -337,7 +337,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/rompacker/mame-chds-roms-extras-complete/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/rompacker/mame-chds-roms-extras-complete/"
                             >Download</a
                         ></TableCell
                     >
@@ -354,7 +354,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/mame-support/Support/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/mame-support/Support/"
                             >Download</a
                         ></TableCell
                     >
@@ -373,7 +373,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/2020_01_06_fbn/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/2020_01_06_fbn/"
                             >Download</a
                         ></TableCell
                     >
@@ -390,7 +390,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/fbneo/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/fbneo/"
                             >Download</a
                         ></TableCell
                     >
@@ -409,7 +409,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/fbnarcade-fullnonmerged/arcade/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/fbnarcade-fullnonmerged/arcade/"
                             >Download</a
                         ></TableCell
                     >

@@ -34,7 +34,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Sega%20-%20Dreamcast/"
+                            href="https://minerva-archive.org/browse/Redump/Sega%20-%20Dreamcast/"
                             >Download</a
                         ></TableCell
                     >
@@ -52,7 +52,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/dc-chd-zstd-redump/dc-chd-zstd/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/dc-chd-zstd-redump/dc-chd-zstd/"
                             >Download</a
                         ></TableCell
                     >
@@ -110,7 +110,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/kodi_amp_spmc_canada/DreamcastCollectionByGhostwareMulti-region/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/DreamcastCollectionByGhostwareMulti-region/"
                             >Download</a
                         ></TableCell
                     >
@@ -128,7 +128,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/cmpltromsets/almstcmpltdrmcst/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/cmpltromsets/almstcmpltdrmcst/"
                             >Download</a
                         ></TableCell
                     >

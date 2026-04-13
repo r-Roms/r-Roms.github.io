@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/Sony/sony-playstation/+page.svelte";
+export { default as component } from "../../../../src/routes/Retro & Arcade/+page.svelte";

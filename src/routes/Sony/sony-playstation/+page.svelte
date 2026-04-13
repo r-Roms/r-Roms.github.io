@@ -29,7 +29,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation/"
+                            href="https://minerva-archive.org/browse/Redump/Sony%20-%20PlayStation/"
                             >Download</a
                         >
                     </TableCell>
@@ -105,7 +105,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_psx/CHD-PSX-USA/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_psx/CHD-PSX-USA/"
                             >Download</a
                         ></TableCell
                     >
@@ -122,7 +122,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_psx_eur/CHD-PSX-EUR/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_psx_eur/CHD-PSX-EUR/"
                             >Download</a
                         ></TableCell
                     >
@@ -139,7 +139,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_psx_jap/CHD-PSX-JAP/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_psx_jap/CHD-PSX-JAP/"
                             >Download</a
                         ></TableCell
                     >
@@ -156,7 +156,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_psx_jap_p2/CHD-PSX-JAP/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_psx_jap_p2/CHD-PSX-JAP/"
                             >Download</a
                         ></TableCell
                     >
@@ -173,7 +173,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_psx_misc/CHD-PSX-Misc/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_psx_misc/CHD-PSX-Misc/"
                             >Download</a
                         ></TableCell
                     >

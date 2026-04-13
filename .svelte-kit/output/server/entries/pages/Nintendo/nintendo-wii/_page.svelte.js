@@ -59,7 +59,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -83,7 +83,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/Internet%20Archive/kodi_amp_spmc_canada/WiiRomSetByGhostware/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/WiiRomSetByGhostware/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -107,7 +107,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://myrient.erista.me/files/Internet%20Archive/kodi_amp_spmc_canada/WiiRomSetByGhostwarePart2/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
+                  $$payload5.out.push(`<a href="https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/WiiRomSetByGhostwarePart2/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -131,7 +131,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/kodi_amp_spmc_canada/WiiRomSetByGhostwarePart3/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/WiiRomSetByGhostwarePart3/">Download</a>`);
                 },
                 $$slots: { default: true }
               });
@@ -184,7 +184,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_cell($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://myrient.erista.me/files/Internet%20Archive/bingbong294/NKitFullyLoaded2020429/NKit%202020.4.29/">Download</a>`);
+                  $$payload5.out.push(`<a class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground" href="https://minerva-archive.org/browse/Internet%20Archive/bingbong294/NKitFullyLoaded2020429/NKit%202020.4.29/">Download</a>`);
                 },
                 $$slots: { default: true }
               });

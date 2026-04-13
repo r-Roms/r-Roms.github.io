@@ -31,7 +31,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%20Portable/"
+                            href="https://minerva-archive.org/browse/Redump/Sony%20-%20PlayStation%20Portable/"
                             >Download</a
                         ></TableCell
                     >
@@ -86,7 +86,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/psp-chd-zstd-redump-part1/psp-chd-zstd/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/psp-chd-zstd-redump-part1/psp-chd-zstd/"
                             >Download</a
                         ></TableCell
                     >
@@ -103,7 +103,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/psp-chd-zstd-redump-part2/psp-chd-zstd/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/psp-chd-zstd-redump-part2/psp-chd-zstd/"
                             >Download</a
                         ></TableCell
                     >
@@ -120,7 +120,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/storage_manager/PSP-DLC/PSP%20DLC/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/storage_manager/PSP-DLC/PSP%20DLC/"
                             >Download</a
                         ></TableCell
                     >
@@ -137,7 +137,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/storage_manager/PSP-DLC/%5BNo-Intro%5D%20PSP%20DLC/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/storage_manager/PSP-DLC/%5BNo-Intro%5D%20PSP%20DLC/"
                             >Download</a
                         ></TableCell
                     >

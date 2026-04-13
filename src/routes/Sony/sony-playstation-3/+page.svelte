@@ -46,7 +46,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%203/"
+                            href="https://minerva-archive.org/browse/Redump/Sony%20-%20PlayStation%203/"
                             >Download</a
                         ></TableCell
                     >
@@ -57,7 +57,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%203%20(PSN)%20(Content)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Sony%20-%20PlayStation%203%20(PSN)%20(Content)/"
                             >Download</a
                         ></TableCell
                     >
@@ -68,7 +68,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%203%20(PSN)%20(Updates)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Sony%20-%20PlayStation%203%20(PSN)%20(Updates)/"
                             >Download</a
                         ></TableCell
                     >
@@ -321,7 +321,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_PSN_1/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_PSN_1/"
                             >Download</a
                         ></TableCell
                     >
@@ -338,7 +338,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_PSN_2/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_PSN_2/"
                             >Download</a
                         ></TableCell
                     >
@@ -1193,7 +1193,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_1/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_1/"
                             >Download</a
                         ></TableCell
                     >
@@ -1210,7 +1210,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_2/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_2/"
                             >Download</a
                         ></TableCell
                     >
@@ -1227,7 +1227,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_3/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_3/"
                             >Download</a
                         ></TableCell
                     >
@@ -1244,7 +1244,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_3_OTHER/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_3_OTHER/"
                             >Download</a
                         ></TableCell
                     >
@@ -1261,7 +1261,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_4/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_4/"
                             >Download</a
                         ></TableCell
                     >
@@ -1278,7 +1278,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART__5/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART__5/"
                             >Download</a
                         ></TableCell
                     >
@@ -1295,7 +1295,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_6/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_6/"
                             >Download</a
                         ></TableCell
                     >
@@ -1312,7 +1312,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_7/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_7/"
                             >Download</a
                         ></TableCell
                     >
@@ -1329,7 +1329,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_8/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_8/"
                             >Download</a
                         ></TableCell
                     >
@@ -1346,7 +1346,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_9/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_9/"
                             >Download</a
                         ></TableCell
                     >
@@ -1363,7 +1363,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_10/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_10/"
                             >Download</a
                         ></TableCell
                     >
@@ -1380,7 +1380,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PS3_ALVRO_PART_11/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PS3_ALVRO_PART_11/"
                             >Download</a
                         ></TableCell
                     >

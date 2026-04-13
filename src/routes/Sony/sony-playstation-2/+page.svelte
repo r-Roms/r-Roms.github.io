@@ -38,7 +38,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%202/"
+                            href="https://minerva-archive.org/browse/Redump/Sony%20-%20PlayStation%202/"
                             >Download</a
                         ></TableCell
                     >
