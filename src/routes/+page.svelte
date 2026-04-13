@@ -48,4 +48,12 @@
         files back to the torrent swarm. This ensures both availability and
         speed for files.
     </p>
+    <h2
+        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+        Designer Shoutout
+    </h2>
+    <p class="leading-7 [&:not(:first-child)]:mt-6">
+        This is a shoutout to my designer and friend AshLee whose design skills helped make the megathread more usable, easier to update and visually nicer.
+        Her blog can be found at https://www.ashleehee.com/
+    </p>
 </div>
