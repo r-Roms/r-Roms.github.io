@@ -29,7 +29,7 @@ declare module "$app/types" {
 	type MatcherParam<M> = M extends (param : string) => param is (infer U extends string) ? U : string;
 
 	export interface AppTypes {
-		RouteId(): "/" | "/General" | "/General/ddl" | "/General/other" | "/General/preservation" | "/General/torrents" | "/Microsoft" | "/Microsoft/microsoft-xbox360" | "/Microsoft/microsoft-xbox" | "/Miscellaneous" | "/Miscellaneous/bios-sets" | "/Miscellaneous/other" | "/Miscellaneous/rom-sets" | "/Nintendo" | "/Nintendo/nintendo-3ds" | "/Nintendo/nintendo-ds" | "/Nintendo/nintendo-gamecube" | "/Nintendo/nintendo-games" | "/Nintendo/nintendo-wii-u" | "/Nintendo/nintendo-wii" | "/PC" | "/PC/pc-games" | "/Retro & Arcade" | "/Retro & Arcade/arcade" | "/Retro & Arcade/retro-games" | "/Sega" | "/Sega/sega-cd" | "/Sega/sega-dreamcast" | "/Sega/sega-games" | "/Sega/sega-saturn" | "/Sony" | "/Sony/nopaystation" | "/Sony/sony-playstation-2" | "/Sony/sony-playstation-3" | "/Sony/sony-playstation-portable" | "/Sony/sony-playstation-vita" | "/Sony/sony-playstation";
+		RouteId(): "/" | "/General" | "/General/ddl" | "/General/other" | "/General/preservation" | "/General/torrents" | "/Microsoft" | "/Microsoft/microsoft-xbox360" | "/Microsoft/microsoft-xbox" | "/Miscellaneous" | "/Miscellaneous/bios-sets" | "/Miscellaneous/other" | "/Miscellaneous/rom-sets" | "/Nintendo" | "/Nintendo/nintendo-3ds" | "/Nintendo/nintendo-ds" | "/Nintendo/nintendo-gamecube" | "/Nintendo/nintendo-games" | "/Nintendo/nintendo-wii-u" | "/Nintendo/nintendo-wii" | "/PC" | "/PC/pc-games" | "/Populars" | "/Populars/about-rvz-files" | "/Populars/fire-emblem" | "/Populars/mario" | "/Populars/metroid" | "/Populars/persona" | "/Populars/pokemon" | "/Populars/super-smash-bros" | "/Populars/xenoblade" | "/Populars/zelda" | "/Retro & Arcade" | "/Retro & Arcade/arcade" | "/Retro & Arcade/retro-games" | "/Sega" | "/Sega/sega-cd" | "/Sega/sega-dreamcast" | "/Sega/sega-games" | "/Sega/sega-saturn" | "/Sony" | "/Sony/nopaystation" | "/Sony/sony-playstation-2" | "/Sony/sony-playstation-3" | "/Sony/sony-playstation-portable" | "/Sony/sony-playstation-vita" | "/Sony/sony-playstation";
 		RouteParams(): {
 			
 		};
@@ -56,6 +56,16 @@ declare module "$app/types" {
 			"/Nintendo/nintendo-wii": Record<string, never>;
 			"/PC": Record<string, never>;
 			"/PC/pc-games": Record<string, never>;
+			"/Populars": Record<string, never>;
+			"/Populars/about-rvz-files": Record<string, never>;
+			"/Populars/fire-emblem": Record<string, never>;
+			"/Populars/mario": Record<string, never>;
+			"/Populars/metroid": Record<string, never>;
+			"/Populars/persona": Record<string, never>;
+			"/Populars/pokemon": Record<string, never>;
+			"/Populars/super-smash-bros": Record<string, never>;
+			"/Populars/xenoblade": Record<string, never>;
+			"/Populars/zelda": Record<string, never>;
 			"/Retro & Arcade": Record<string, never>;
 			"/Retro & Arcade/arcade": Record<string, never>;
 			"/Retro & Arcade/retro-games": Record<string, never>;
@@ -72,7 +82,7 @@ declare module "$app/types" {
 			"/Sony/sony-playstation-vita": Record<string, never>;
 			"/Sony/sony-playstation": Record<string, never>
 		};
-		Pathname(): "/" | "/General/ddl" | "/General/other" | "/General/preservation" | "/General/torrents" | "/Microsoft" | "/Microsoft/microsoft-xbox360" | "/Microsoft/microsoft-xbox" | "/Miscellaneous" | "/Miscellaneous/bios-sets" | "/Miscellaneous/other" | "/Miscellaneous/rom-sets" | "/Nintendo" | "/Nintendo/nintendo-3ds" | "/Nintendo/nintendo-ds" | "/Nintendo/nintendo-gamecube" | "/Nintendo/nintendo-games" | "/Nintendo/nintendo-wii-u" | "/Nintendo/nintendo-wii" | "/PC" | "/PC/pc-games" | "/Retro & Arcade" | "/Retro & Arcade/arcade" | "/Retro & Arcade/retro-games" | "/Sega" | "/Sega/sega-cd" | "/Sega/sega-dreamcast" | "/Sega/sega-games" | "/Sega/sega-saturn" | "/Sony" | "/Sony/nopaystation" | "/Sony/sony-playstation-2" | "/Sony/sony-playstation-3" | "/Sony/sony-playstation-portable" | "/Sony/sony-playstation-vita" | "/Sony/sony-playstation";
+		Pathname(): "/" | "/General/ddl" | "/General/other" | "/General/preservation" | "/General/torrents" | "/Microsoft" | "/Microsoft/microsoft-xbox360" | "/Microsoft/microsoft-xbox" | "/Miscellaneous" | "/Miscellaneous/bios-sets" | "/Miscellaneous/other" | "/Miscellaneous/rom-sets" | "/Nintendo" | "/Nintendo/nintendo-3ds" | "/Nintendo/nintendo-ds" | "/Nintendo/nintendo-gamecube" | "/Nintendo/nintendo-games" | "/Nintendo/nintendo-wii-u" | "/Nintendo/nintendo-wii" | "/PC" | "/PC/pc-games" | "/Populars" | "/Populars/about-rvz-files" | "/Populars/fire-emblem" | "/Populars/mario" | "/Populars/metroid" | "/Populars/persona" | "/Populars/pokemon" | "/Populars/super-smash-bros" | "/Populars/xenoblade" | "/Populars/zelda" | "/Retro & Arcade" | "/Retro & Arcade/arcade" | "/Retro & Arcade/retro-games" | "/Sega" | "/Sega/sega-cd" | "/Sega/sega-dreamcast" | "/Sega/sega-games" | "/Sega/sega-saturn" | "/Sony" | "/Sony/nopaystation" | "/Sony/sony-playstation-2" | "/Sony/sony-playstation-3" | "/Sony/sony-playstation-portable" | "/Sony/sony-playstation-vita" | "/Sony/sony-playstation";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
 		Asset(): "/favicon.ico" | "/favicon.svg" | string & {};
 	}

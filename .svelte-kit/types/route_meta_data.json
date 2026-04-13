@@ -63,6 +63,36 @@
 	"/PC/pc-games": [
 		"src/routes/+layout.server.js"
 	],
+	"/Populars": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/about-rvz-files": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/fire-emblem": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/mario": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/metroid": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/persona": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/pokemon": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/super-smash-bros": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/xenoblade": [
+		"src/routes/+layout.server.js"
+	],
+	"/Populars/zelda": [
+		"src/routes/+layout.server.js"
+	],
 	"/Retro & Arcade": [
 		"src/routes/+layout.server.js"
 	],
