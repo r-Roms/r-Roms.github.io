@@ -54,6 +54,10 @@
     </h2>
     <p class="leading-7 [&:not(:first-child)]:mt-6">
         This is a shoutout to my designer and friend AshLee whose design skills helped make the megathread more usable, easier to update and visually nicer.
-        Her blog can be found at https://www.ashleehee.com/
+        Her blog can be found at         
+        <a
+            href="https://www.ashleehee.com/"
+            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+            >https://www.ashleehee.com/</a>.
     </p>
 </div>
