@@ -54,7 +54,7 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>Title</TableHead>
-                    <TableHead>Myrient (Fast & Unrestricted)</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
                     <TableHead>Internet Archive</TableHead>
                 </TableRow>
             </TableHeader>

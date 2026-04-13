@@ -20,7 +20,7 @@ function _page($$payload) {
               Table_head($$payload4, {
                 class: "border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Myrient (Fast &amp; Unrestricted)`);
+                  $$payload5.out.push(`<!---->Minerva (Torrent Based)`);
                 },
                 $$slots: { default: true }
               });

@@ -17,7 +17,7 @@ function _page($$payload) {
               $$payload4.out.push(`<!----> `);
               Table_head($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Myrient (Fast &amp; Unrestricted)`);
+                  $$payload5.out.push(`<!---->Minerva (Torrent Based)`);
                 },
                 $$slots: { default: true }
               });

@@ -8,12 +8,14 @@
 	let { stores, page, constructors, components = [], form, data_0 = null, data_1 = null } = $props();
 
 	if (!browser) {
+		// svelte-ignore state_referenced_locally
 		setContext('__svelte__', stores);
 	}
 
 	if (browser) {
 		$effect.pre(() => stores.page.set(page));
 	} else {
+		// svelte-ignore state_referenced_locally
 		stores.page.set(page);
 	}
 	$effect(() => {

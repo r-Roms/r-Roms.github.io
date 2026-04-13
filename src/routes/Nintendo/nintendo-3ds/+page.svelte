@@ -19,7 +19,7 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>Title</TableHead>
-                    <TableHead>Myrient (Fast & Unrestricted)</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
                     <TableHead>Internet Archive (No-Intro)</TableHead>
                     <TableHead>hShop</TableHead>
                 </TableRow>
