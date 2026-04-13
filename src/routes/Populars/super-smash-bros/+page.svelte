@@ -19,7 +19,7 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>Title</TableHead>
-                    <TableHead>Myrient (Fast & Unrestricted)</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
                     <TableHead>Internet Archive</TableHead>
                 </TableRow>
             </TableHeader>
@@ -28,7 +28,7 @@
                     <TableCell>Super Smash Bros Brawl (Wii) (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/Super%20Smash%20Bros.%20Brawl%20(USA)%20(Rev%202).zip"
+                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/Super%20Smash%20Bros.%20Brawl%20(USA)%20(Rev%202).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -39,7 +39,7 @@
                     <TableCell>Super Smash Bros Melee (GC) (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/Super%20Smash%20Bros.%20Melee%20(USA)%20(En,Ja)%20(Rev%202).zip"
+                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/Super%20Smash%20Bros.%20Melee%20(USA)%20(En,Ja)%20(Rev%202).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -52,19 +52,19 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Wii%20U%20(Digital)%20(CDN)/Super%20Smash%20Bros.%20for%20Wii%20U%20(USA)%20(En,Fr,Es).zip"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Wii%20U%20(Digital)%20(CDN)/Super%20Smash%20Bros.%20for%20Wii%20U%20(USA)%20(En,Fr,Es).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Game</a
                         >
                         /
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Wii%20U%20(Digital)%20(CDN)/Super%20Smash%20Bros.%20for%20Wii%20U%20(USA)%20(En,Fr,Es)%20(Update).zip"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Wii%20U%20(Digital)%20(CDN)/Super%20Smash%20Bros.%20for%20Wii%20U%20(USA)%20(En,Fr,Es)%20(Update).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Update</a
                         >
                         /
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Wii%20U%20(Digital)%20(CDN)/Super%20Smash%20Bros.%20for%20Wii%20U%20(USA)%20(En,Fr,Es)%20(v96)%20(DLC).zip"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Wii%20U%20(Digital)%20(CDN)/Super%20Smash%20Bros.%20for%20Wii%20U%20(USA)%20(En,Fr,Es)%20(v96)%20(DLC).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >DLC</a
                         >

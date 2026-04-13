@@ -19,7 +19,7 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>Title</TableHead>
-                    <TableHead>Myrient (Fast & Unrestricted)</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
                     <TableHead>Internet Archive</TableHead>
                     <TableHead>NoPayStation</TableHead>
                     <TableHead>Google Drive</TableHead>
@@ -30,13 +30,13 @@
                     <TableCell>Persona 5 (PS3) (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%203%20(PSN)%20(Content)/Persona%205%20(USA).zip"
+                            href="https://minerva-archive.org/browse/No-Intro/Sony%20-%20PlayStation%203%20(PSN)%20(Content)/Persona%205%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >PS3 PKG</a
                         >
                         /
                         <a
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%203/Persona%205%20(USA).zip"
+                            href="https://minerva-archive.org/browse/Redump/Sony%20-%20PlayStation%203/Persona%205%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >PS3 ISO</a
                         >
@@ -61,7 +61,7 @@
                     <TableCell>Persona 4 (PS2) (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%202/Shin%20Megami%20Tensei%20-%20Persona%204%20(USA).zip"
+                            href="https://minerva-archive.org/browse/Redump/Sony%20-%20PlayStation%202/Shin%20Megami%20Tensei%20-%20Persona%204%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -86,7 +86,7 @@
                     <TableCell>Persona 4 Golden (PSV) (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%20Vita%20(PSN)%20(Content)/Persona%204%20Golden%20(USA).zip"
+                            href="https://minerva-archive.org/browse/No-Intro/Sony%20-%20PlayStation%20Vita%20(PSN)%20(Content)/Persona%204%20Golden%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >PSV PKG</a
                         >
@@ -111,7 +111,7 @@
                     <TableCell>Persona 3 (PS2) (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%202/Shin%20Megami%20Tensei%20-%20Persona%203%20(USA).zip"
+                            href="https://minerva-archive.org/browse/Redump/Sony%20-%20PlayStation%202/Shin%20Megami%20Tensei%20-%20Persona%203%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -130,7 +130,7 @@
                     <TableCell>Persona 3 FES (PS2) (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%202/Shin%20Megami%20Tensei%20-%20Persona%203%20FES%20(USA).zip"
+                            href="https://minerva-archive.org/browse/Redump/Sony%20-%20PlayStation%202/Shin%20Megami%20Tensei%20-%20Persona%203%20FES%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -155,7 +155,7 @@
                     <TableCell>Persona 3 PorTable (PSP) (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%20PorTable/Shin%20Megami%20Tensei%20-%20Persona%203%20PorTable%20(USA).zip"
+                            href="https://minerva-archive.org/browse/Redump/Sony%20-%20PlayStation%20PorTable/Shin%20Megami%20Tensei%20-%20Persona%203%20PorTable%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -180,13 +180,13 @@
                     <TableCell>Persona 2: Innocent Sin (USA/Japan)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%20PorTable/Shin%20Megami%20Tensei%20-%20Persona%202%20-%20Innocent%20Sin%20(USA).zip"
+                            href="https://minerva-archive.org/browse/Redump/Sony%20-%20PlayStation%20PorTable/Shin%20Megami%20Tensei%20-%20Persona%202%20-%20Innocent%20Sin%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >PSP ISO</a
                         >
                         /
                         <a
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation/Persona%202%20-%20Tsumi%20-%20Innocent%20Sin%20%28Japan%29%20%28Rev%201%29.zip"
+                            href="https://minerva-archive.org/browse/Redump/Sony%20-%20PlayStation/Persona%202%20-%20Tsumi%20-%20Innocent%20Sin%20%28Japan%29%20%28Rev%201%29.zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >PS1 ISO</a
                         >
@@ -216,13 +216,13 @@
                     <TableCell>Persona 2: Eternal Punishment (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Internet%20Archive/superbio/persona-2-eternal-punishment-english-v-1.00.iso.-7z/Persona%202%20-%20Eternal%20Punishment%20%28English%20v1.00%29.iso.7z"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/superbio/persona-2-eternal-punishment-english-v-1.00.iso.-7z/Persona%202%20-%20Eternal%20Punishment%20%28English%20v1.00%29.iso.7z"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >PSP ISO</a
                         >
                         /
                         <a
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation/Persona%202%20-%20Eternal%20Punishment%20%28USA%29.zip"
+                            href="https://minerva-archive.org/browse/Redump/Sony%20-%20PlayStation/Persona%202%20-%20Eternal%20Punishment%20%28USA%29.zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >PS1 ISO</a
                         >
@@ -257,13 +257,13 @@
                     <TableCell>Persona 1 (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation%20PorTable/Shin%20Megami%20Tensei%20-%20Persona%20(USA).zip"
+                            href="https://minerva-archive.org/browse/Redump/Sony%20-%20PlayStation%20PorTable/Shin%20Megami%20Tensei%20-%20Persona%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >PSP ISO</a
                         >
                         /
                         <a
-                            href="https://myrient.erista.me/files/Redump/Sony%20-%20PlayStation/Persona%20(USA).zip"
+                            href="https://minerva-archive.org/browse/Redump/Sony%20-%20PlayStation/Persona%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >PS1 ISO</a
                         >

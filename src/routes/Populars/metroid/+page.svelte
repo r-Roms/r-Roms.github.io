@@ -19,7 +19,7 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>Title</TableHead>
-                    <TableHead>Myrient (Fast & Unrestricted)</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -27,7 +27,7 @@
                     <TableCell>Metroid Fusion (GBA) (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Advance/Metroid%20Fusion%20(USA).zip"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy%20Advance/Metroid%20Fusion%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -37,7 +37,7 @@
                     <TableCell>Metroid Zero Mission (GBA) (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Advance/Metroid%20-%20Zero%20Mission%20(USA).zip"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy%20Advance/Metroid%20-%20Zero%20Mission%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -47,7 +47,7 @@
                     <TableCell>Metroid Prime Trilogy (Wii) (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/Metroid%20Prime%20Trilogy%20(USA).zip"
+                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/Metroid%20Prime%20Trilogy%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -57,7 +57,7 @@
                     <TableCell>Metroid Prime (GC) (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/Metroid%20Prime%20(USA).zip"
+                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/Metroid%20Prime%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -67,7 +67,7 @@
                     <TableCell>Metroid Prime 2 (GC) (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/Metroid%20Prime%202%20-%20Echoes%20(USA).zip"
+                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/Metroid%20Prime%202%20-%20Echoes%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -77,7 +77,7 @@
                     <TableCell>Metroid Prime 3 (Wii) (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/Metroid%20Prime%203%20-%20Corruption%20(USA).zip"
+                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/Metroid%20Prime%203%20-%20Corruption%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >

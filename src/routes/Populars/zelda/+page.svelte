@@ -19,7 +19,7 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>Title</TableHead>
-                    <TableHead>Myrient (Fast & Unrestricted)</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
                     <TableHead>Internet Archive</TableHead>
                 </TableRow>
             </TableHeader>
@@ -30,7 +30,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/Legend%20of%20Zelda,%20The%20-%20Twilight%20Princess%20(USA)%20(En,Fr,Es)%20(Rev%202).zip"
+                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/Legend%20of%20Zelda,%20The%20-%20Twilight%20Princess%20(USA)%20(En,Fr,Es)%20(Rev%202).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -43,7 +43,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/Legend%20of%20Zelda,%20The%20-%20Twilight%20Princess%20(USA).zip"
+                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/Legend%20of%20Zelda,%20The%20-%20Twilight%20Princess%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -56,7 +56,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/Legend%20of%20Zelda,%20The%20-%20Skyward%20Sword%20(USA)%20(En,Fr,Es)%20(Rev%202).zip"
+                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/Legend%20of%20Zelda,%20The%20-%20Skyward%20Sword%20(USA)%20(En,Fr,Es)%20(Rev%202).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -67,7 +67,7 @@
                     <TableCell>Legend of Zelda Wind Waker (GC) (USA)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20%5Bzstd-19-128k%5D/Legend%20of%20Zelda%2C%20The%20-%20The%20Wind%20Waker%20%28USA%2C%20Canada%29.zip"
+                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20%5Bzstd-19-128k%5D/Legend%20of%20Zelda%2C%20The%20-%20The%20Wind%20Waker%20%28USA%2C%20Canada%29.zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -80,7 +80,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Encrypted)/Legend%20of%20Zelda,%20The%20-%20Ocarina%20of%20Time%203D%20(USA)%20(En,Fr,Es).zip"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Encrypted)/Legend%20of%20Zelda,%20The%20-%20Ocarina%20of%20Time%203D%20(USA)%20(En,Fr,Es).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -93,7 +93,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%2064%20(BigEndian)/Legend%20of%20Zelda,%20The%20-%20Ocarina%20of%20Time%20(USA).zip"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%2064%20(BigEndian)/Legend%20of%20Zelda,%20The%20-%20Ocarina%20of%20Time%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -112,19 +112,19 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Wii%20U%20(Digital)%20(CDN)/Legend%20of%20Zelda,%20The%20-%20Breath%20of%20the%20Wild%20(USA).zip"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Wii%20U%20(Digital)%20(CDN)/Legend%20of%20Zelda,%20The%20-%20Breath%20of%20the%20Wild%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Game</a
                         >
                         /
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Wii%20U%20(Digital)%20(CDN)/Legend%20of%20Zelda,%20The%20-%20Breath%20of%20the%20Wild%20(USA)%20(Update).zip"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Wii%20U%20(Digital)%20(CDN)/Legend%20of%20Zelda,%20The%20-%20Breath%20of%20the%20Wild%20(USA)%20(Update).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Update</a
                         >
                         /
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Wii%20U%20(Digital)%20(CDN)/Legend%20of%20Zelda,%20The%20-%20Breath%20of%20the%20Wild%20(USA)%20(DLC).zip"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Wii%20U%20(Digital)%20(CDN)/Legend%20of%20Zelda,%20The%20-%20Breath%20of%20the%20Wild%20(USA)%20(DLC).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >DLC</a
                         >
