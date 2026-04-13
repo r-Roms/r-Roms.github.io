@@ -20,7 +20,7 @@
                 <TableRow>
                     <TableHead>Title</TableHead>
                     <TableHead>
-                        Myrient(Fast &amp; Unrestricted)</TableHead
+                        Minerva (Torrent Based)</TableHead
                     >
                     <TableHead>Internet Archive</TableHead>
                 </TableRow>
