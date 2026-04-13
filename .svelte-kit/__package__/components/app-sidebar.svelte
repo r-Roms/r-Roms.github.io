@@ -2,43 +2,27 @@
     import * as Sidebar from "./ui/sidebar/index.js";
     import { base } from "$app/paths";
 
-    //Popular items,
-    const populars = [
+    //General items,
+    const General = [
         {
-            title: "About RVZ files",
-            url: base + "/Populars/about-rvz-files",
+            title: "Home",
+            url: "/",
         },
         {
-            title: "Metroid",
-            url: base + "/Populars/metroid",
+            title: "Direct Downloads",
+            url: base + "/General/ddl",
         },
         {
-            title: "Mario",
-            url: base + "/Populars/mario",
+            title: "Torrents",
+            url: base + "/General/torrents",
         },
         {
-            title: "Fire Emblem",
-            url: base + "/Populars/fire-emblem",
+            title: "Preservation",
+            url: base + "/General/preservation",
         },
         {
-            title: "The Legend of Zelda",
-            url: base + "/Populars/zelda",
-        },
-        {
-            title: "Pokemon",
-            url: base + "/Populars/pokemon",
-        },
-        {
-            title: "Persona",
-            url: base + "/Populars/persona",
-        },
-        {
-            title: "Super Smash Bros",
-            url: base + "/Populars/super-smash-bros",
-        },
-        {
-            title: "Xenoblade",
-            url: base + "/Populars/xenoblade",
+            title: "Other",
+            url: base + "/General/other",
         },
     ];
 
@@ -157,8 +141,12 @@
             url: base + "/Miscellaneous/rom-sets",
         },
         {
-            title: "BIOS Files",
-            url: base + "/Miscellaneous/bios-files",
+            title: "BIOS Sets",
+            url: base + "/Miscellaneous/bios-sets",
+        },
+        {
+            title: "Other",
+            url: base + "/Miscellaneous/other",
         },
     ];
 </script>
@@ -166,10 +154,10 @@
 <Sidebar.Root collapsible="offcanvas">
     <Sidebar.Content>
         <Sidebar.Group>
-            <Sidebar.GroupLabel>Popular</Sidebar.GroupLabel>
+            <Sidebar.GroupLabel>General</Sidebar.GroupLabel>
             <Sidebar.GroupContent>
                 <Sidebar.Menu>
-                    {#each populars as item}
+                    {#each General as item}
                         <Sidebar.MenuItem>
                             <Sidebar.MenuButton>
                                 {#snippet child({ props })}

@@ -1,5 +1,4 @@
-import { c as clsx, a as attr, e as escape_html, t as to_class } from "./attributes.js";
-import "clsx";
+import { clsx as clsx$1 } from "clsx";
 const BROWSER = false;
 var is_array = Array.isArray;
 var index_of = Array.prototype.indexOf;
@@ -51,8 +50,8 @@ const USER_EFFECT = 1 << 20;
 const REACTION_IS_UPDATING = 1 << 21;
 const ASYNC = 1 << 22;
 const ERROR_VALUE = 1 << 23;
-const STATE_SYMBOL = Symbol("$state");
-const LEGACY_PROPS = Symbol("legacy props");
+const STATE_SYMBOL = /* @__PURE__ */ Symbol("$state");
+const LEGACY_PROPS = /* @__PURE__ */ Symbol("legacy props");
 const STALE_REACTION = new class StaleReactionError extends Error {
   name = "StaleReactionError";
   message = "The reaction that called `getAbortSignal()` was re-run or destroyed";
@@ -68,7 +67,7 @@ const HYDRATION_END = "]";
 const HYDRATION_ERROR = {};
 const ELEMENT_IS_NAMESPACED = 1;
 const ELEMENT_PRESERVE_ATTRIBUTE_CASE = 1 << 1;
-const UNINITIALIZED = Symbol();
+const UNINITIALIZED = /* @__PURE__ */ Symbol();
 const ATTACHMENT_KEY = "@attach";
 const VOID_ELEMENT_NAMES = [
   "area",
@@ -138,6 +137,45 @@ function is_raw_text_element(name) {
     /** @type {RAW_TEXT_ELEMENTS[number]} */
     name
   );
+}
+const ATTR_REGEX = /[&"<]/g;
+const CONTENT_REGEX = /[&<]/g;
+function escape_html(value, is_attr) {
+  const str = String(value ?? "");
+  const pattern = is_attr ? ATTR_REGEX : CONTENT_REGEX;
+  pattern.lastIndex = 0;
+  let escaped = "";
+  let last = 0;
+  while (pattern.test(str)) {
+    const i = pattern.lastIndex - 1;
+    const ch = str[i];
+    escaped += str.substring(last, i) + (ch === "&" ? "&amp;" : ch === '"' ? "&quot;" : "&lt;");
+    last = i + 1;
+  }
+  return escaped + str.substring(last);
+}
+const replacements = {
+  translate: /* @__PURE__ */ new Map([
+    [true, "yes"],
+    [false, "no"]
+  ])
+};
+function attr(name, value, is_boolean = false) {
+  if (value == null || !value && is_boolean) return "";
+  const normalized = name in replacements && replacements[name].get(value) || value;
+  const assignment = is_boolean ? "" : `="${escape_html(normalized, true)}"`;
+  return ` ${name}${assignment}`;
+}
+function clsx(value) {
+  if (typeof value === "object") {
+    return clsx$1(value);
+  } else {
+    return value ?? "";
+  }
+}
+function to_class(value, hash, directives) {
+  var classname = value == null ? "" : "" + value;
+  return classname === "" ? null : classname;
 }
 var current_component = null;
 function getContext(key) {
@@ -397,69 +435,72 @@ function derived(fn) {
   };
 }
 export {
-  get_descriptor as $,
+  object_prototype as $,
   ATTACHMENT_KEY as A,
   BROWSER as B,
   COMMENT_NODE as C,
-  EFFECT_RAN as D,
-  ERROR_VALUE as E,
-  run_all as F,
-  CLEAN as G,
+  escape_html as D,
+  stringify as E,
+  BOUNDARY_EFFECT as F,
+  ERROR_VALUE as G,
   HYDRATION_ERROR as H,
-  DERIVED as I,
-  INERT as J,
-  EFFECT as K,
+  EFFECT_RAN as I,
+  run_all as J,
+  CLEAN as K,
   LEGACY_PROPS as L,
   MAYBE_DIRTY as M,
-  ASYNC as N,
-  BLOCK_EFFECT as O,
-  DIRTY as P,
-  deferred as Q,
-  BRANCH_EFFECT as R,
-  ROOT_EFFECT as S,
-  DESTROYED as T,
+  DERIVED as N,
+  INERT as O,
+  EFFECT as P,
+  ASYNC as Q,
+  BLOCK_EFFECT as R,
+  DIRTY as S,
+  deferred as T,
   UNOWNED as U,
-  USER_EFFECT as V,
-  INSPECT_EFFECT as W,
-  STATE_SYMBOL as X,
-  object_prototype as Y,
-  array_prototype as Z,
-  UNINITIALIZED as _,
+  BRANCH_EFFECT as V,
+  ROOT_EFFECT as W,
+  DESTROYED as X,
+  USER_EFFECT as Y,
+  INSPECT_EFFECT as Z,
+  STATE_SYMBOL as _,
   HYDRATION_START as a,
-  get_prototype_of as a0,
-  is_array as a1,
-  is_extensible as a2,
-  EFFECT_PRESERVED as a3,
-  HEAD_EFFECT as a4,
-  STALE_REACTION as a5,
-  EFFECT_TRANSPARENT as a6,
-  DISCONNECTED as a7,
-  REACTION_IS_UPDATING as a8,
-  index_of as a9,
-  noop as aa,
+  array_prototype as a0,
+  UNINITIALIZED as a1,
+  get_descriptor as a2,
+  get_prototype_of as a3,
+  is_array as a4,
+  is_extensible as a5,
+  EFFECT_PRESERVED as a6,
+  HEAD_EFFECT as a7,
+  STALE_REACTION as a8,
+  EFFECT_TRANSPARENT as a9,
+  DISCONNECTED as aa,
+  REACTION_IS_UPDATING as ab,
+  index_of as ac,
+  noop as ad,
   HYDRATION_END as b,
   array_from as c,
   define_property as d,
   pop as e,
   run as f,
-  hasContext as g,
+  attr as g,
   head as h,
   is_passive_event as i,
-  getContext as j,
-  derived as k,
-  props_id as l,
-  spread_attributes as m,
-  bind_props as n,
-  getAllContexts as o,
+  hasContext as j,
+  getContext as k,
+  derived as l,
+  props_id as m,
+  spread_attributes as n,
+  bind_props as o,
   push as p,
-  spread_props as q,
+  getAllContexts as q,
   render as r,
   setContext as s,
-  copy_payload as t,
-  assign_payload as u,
-  attr_class as v,
-  ensure_array_like as w,
-  element as x,
-  stringify as y,
-  BOUNDARY_EFFECT as z
+  spread_props as t,
+  copy_payload as u,
+  assign_payload as v,
+  attr_class as w,
+  clsx as x,
+  ensure_array_like as y,
+  element as z
 };

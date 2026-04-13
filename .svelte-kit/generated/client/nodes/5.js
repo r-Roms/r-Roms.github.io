@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/Microsoft/microsoft-xbox360/+page.svelte";
+export { default as component } from "../../../../src/routes/General/preservation/+page.svelte";

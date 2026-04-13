@@ -1,6 +1,5 @@
-import { e as escape_html } from "../../chunks/attributes.js";
+import { ad as noop, k as getContext, D as escape_html, e as pop, p as push } from "../../chunks/index.js";
 import "clsx";
-import { aa as noop, j as getContext, e as pop, p as push } from "../../chunks/index.js";
 import "@sveltejs/kit/internal";
 import { w as writable } from "../../chunks/exports.js";
 function create_updated_store() {

@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/Nintendo/nintendo-ds/+page.svelte";
+export { default as component } from "../../../../src/routes/Miscellaneous/bios-sets/+page.svelte";

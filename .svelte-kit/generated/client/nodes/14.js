@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/Nintendo/nintendo-wii/+page.svelte";
+export { default as component } from "../../../../src/routes/Nintendo/+page.svelte";

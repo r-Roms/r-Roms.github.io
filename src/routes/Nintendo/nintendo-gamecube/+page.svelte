@@ -16,13 +16,10 @@
         Nintendo GameCube
     </h1>
     <p class="leading-7 [&:not(:first-child)]:mt-6">
-        RVZ format is recommended for its size and convenience. For more
-        information, please refer to the
-        <a
-            href={base + "/Populars/about-rvz-files"}
-            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-            >RVZ format page</a
-        >.
+        The RVZ format is recommended for use in the Dolphin Emulator, not real
+        hardware. RVZ is compressed, saving bandwidth and disk space. If you
+        require an ISO for real hardware or patching, you can convert using
+        Dolphin Emulator.
     </p>
     <h2
         class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"

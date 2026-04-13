@@ -1,8 +1,7 @@
 import type * as Kit from '@sveltejs/kit';
 
 type Expand<T> = T extends infer O ? { [K in keyof O]: O[K] } : never;
-// @ts-ignore
-type MatcherParam<M> = M extends (param : string) => param is infer U ? U extends string ? U : string : string;
+type MatcherParam<M> = M extends (param : string) => param is (infer U extends string) ? U : string;
 type RouteParams = {  };
 type RouteId = '/';
 type MaybeWithVoid<T> = {} extends T ? T | void : T;
@@ -12,7 +11,7 @@ type EnsureDefined<T> = T extends null | undefined ? {} : T;
 type OptionalUnion<U extends Record<string, any>, A extends keyof U = U extends U ? keyof U : never> = U extends unknown ? { [P in Exclude<A, keyof U>]?: never } & U : never;
 export type Snapshot<T = any> = Kit.Snapshot<T>;
 type PageParentData = EnsureDefined<LayoutData>;
-type LayoutRouteId = RouteId | "/" | "/Microsoft" | "/Microsoft/microsoft-xbox" | "/Microsoft/microsoft-xbox360" | "/Miscellaneous" | "/Miscellaneous/bios-files" | "/Miscellaneous/rom-sets" | "/Nintendo" | "/Nintendo/nintendo-3ds" | "/Nintendo/nintendo-ds" | "/Nintendo/nintendo-gamecube" | "/Nintendo/nintendo-games" | "/Nintendo/nintendo-wii" | "/Nintendo/nintendo-wii-u" | "/PC" | "/PC/pc-games" | "/Populars" | "/Populars/about-rvz-files" | "/Populars/fire-emblem" | "/Populars/mario" | "/Populars/metroid" | "/Populars/persona" | "/Populars/pokemon" | "/Populars/super-smash-bros" | "/Populars/xenoblade" | "/Populars/zelda" | "/Retro & Arcade" | "/Retro & Arcade/arcade" | "/Retro & Arcade/retro-games" | "/Sega" | "/Sega/sega-cd" | "/Sega/sega-dreamcast" | "/Sega/sega-games" | "/Sega/sega-saturn" | "/Sony" | "/Sony/nopaystation" | "/Sony/sony-playstation" | "/Sony/sony-playstation-2" | "/Sony/sony-playstation-3" | "/Sony/sony-playstation-portable" | "/Sony/sony-playstation-vita" | null
+type LayoutRouteId = RouteId | "/" | "/General/ddl" | "/General/other" | "/General/preservation" | "/General/torrents" | "/Microsoft" | "/Microsoft/microsoft-xbox" | "/Microsoft/microsoft-xbox360" | "/Miscellaneous" | "/Miscellaneous/bios-sets" | "/Miscellaneous/other" | "/Miscellaneous/rom-sets" | "/Nintendo" | "/Nintendo/nintendo-3ds" | "/Nintendo/nintendo-ds" | "/Nintendo/nintendo-gamecube" | "/Nintendo/nintendo-games" | "/Nintendo/nintendo-wii" | "/Nintendo/nintendo-wii-u" | "/PC" | "/PC/pc-games" | "/Retro & Arcade" | "/Retro & Arcade/arcade" | "/Retro & Arcade/retro-games" | "/Sega" | "/Sega/sega-cd" | "/Sega/sega-dreamcast" | "/Sega/sega-games" | "/Sega/sega-saturn" | "/Sony" | "/Sony/nopaystation" | "/Sony/sony-playstation" | "/Sony/sony-playstation-2" | "/Sony/sony-playstation-3" | "/Sony/sony-playstation-portable" | "/Sony/sony-playstation-vita" | null
 type LayoutParams = RouteParams & {  }
 type LayoutServerParentData = EnsureDefined<{}>;
 type LayoutParentData = EnsureDefined<{}>;

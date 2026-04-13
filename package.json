@@ -59,7 +59,7 @@
 		"tw-animate-css": "^1.3.6",
 		"typescript": "^5.0.0",
 		"vaul-svelte": "^1.0.0-next.7",
-		"vite": "^7.0.4"
+		"vite": "^7.3.2"
 	},
 	"keywords": [
 		"svelte"

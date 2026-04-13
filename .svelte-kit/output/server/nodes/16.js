@@ -2,7 +2,7 @@
 
 export const index = 16;
 let component_cache;
-export const component = async () => component_cache ??= (await import('../entries/pages/PC/_page.svelte.js')).default;
-export const imports = ["_app/immutable/nodes/16.Fc0kk2wE.js","_app/immutable/chunks/DsnmJJEf.js","_app/immutable/chunks/DYqqDfhR.js","_app/immutable/chunks/B9ZEekOX.js"];
+export const component = async () => component_cache ??= (await import('../entries/pages/Nintendo/nintendo-ds/_page.svelte.js')).default;
+export const imports = ["_app/immutable/nodes/16.Bfq156Sw.js","_app/immutable/chunks/DsnmJJEf.js","_app/immutable/chunks/tD9sc2xJ.js","_app/immutable/chunks/Dzp75J2T.js","_app/immutable/chunks/V7l7X-v7.js","_app/immutable/chunks/XmN0OgFk.js","_app/immutable/chunks/Dwefem8K.js","_app/immutable/chunks/hkqgSeLz.js"];
 export const stylesheets = [];
 export const fonts = [];

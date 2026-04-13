@@ -1,6 +1,5 @@
-import { m as spread_attributes, n as bind_props, e as pop, p as push } from "./index.js";
+import { n as spread_attributes, x as clsx, o as bind_props, e as pop, p as push } from "./index.js";
 import { c as cn } from "./utils.js";
-import { c as clsx } from "./attributes.js";
 function Table($$payload, $$props) {
   push();
   let {

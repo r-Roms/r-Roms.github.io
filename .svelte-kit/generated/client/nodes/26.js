@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/Populars/xenoblade/+page.svelte";
+export { default as component } from "../../../../src/routes/Sega/+page.svelte";

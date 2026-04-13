@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/Nintendo/nintendo-gamecube/+page.svelte";
+export { default as component } from "../../../../src/routes/Miscellaneous/other/+page.svelte";

@@ -16,18 +16,10 @@
         Nintendo Wii
     </h1>
     <p class="leading-7 [&:not(:first-child)]:mt-6">
-        RVZ format is recommended for its size and convenience. For more
-        information, please refer to the
-        <a
-            href={base + "/Populars/about-rvz-files"}
-            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-            >RVZ format page</a
-        >. <br /> NKit can be used to convert NKit to ISO, do note that the
-        download is
-        <code
-            class="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
-            >~14 GB</code
-        > so using RVZ is recommended over NKit.
+        The RVZ format is recommended for use in the Dolphin Emulator, not real
+        hardware. RVZ is compressed, saving bandwidth and disk space. If you
+        require an ISO for real hardware or patching, you can convert using
+        Dolphin Emulator.
     </p>
     <div class="my-6 w-full overflow-y-auto">
         <Table>

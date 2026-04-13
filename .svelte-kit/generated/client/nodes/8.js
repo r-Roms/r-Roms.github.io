@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/Miscellaneous/rom-sets/+page.svelte";
+export { default as component } from "../../../../src/routes/Microsoft/microsoft-xbox/+page.svelte";

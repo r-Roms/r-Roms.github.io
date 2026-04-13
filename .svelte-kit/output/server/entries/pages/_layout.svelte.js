@@ -1,7 +1,6 @@
-import { A as ATTACHMENT_KEY, f as run, e as pop, p as push, h as head, g as hasContext, j as getContext, s as setContext, k as derived, l as props_id, m as spread_attributes, n as bind_props, o as getAllContexts, q as spread_props, t as copy_payload, u as assign_payload, B as BROWSER, v as attr_class, w as ensure_array_like, x as element, y as stringify } from "../../chunks/index.js";
+import { A as ATTACHMENT_KEY, f as run, g as attr, e as pop, p as push, h as head, j as hasContext, k as getContext, s as setContext, l as derived, m as props_id, n as spread_attributes, o as bind_props, q as getAllContexts, t as spread_props, u as copy_payload, v as assign_payload, B as BROWSER, w as attr_class, x as clsx$1, y as ensure_array_like, z as element, D as escape_html, E as stringify } from "../../chunks/index.js";
 import { clsx } from "clsx";
 import parse from "style-to-object";
-import { a as attr, c as clsx$1, e as escape_html } from "../../chunks/attributes.js";
 import { c as cn } from "../../chunks/utils.js";
 import { t as on } from "../../chunks/events.js";
 import { tv } from "tailwind-variants";
@@ -183,8 +182,8 @@ function isFunction$2(value) {
 function isObject$1(value) {
   return value !== null && typeof value === "object";
 }
-const BoxSymbol$1 = Symbol("box");
-const isWritableSymbol$1 = Symbol("is-writable");
+const BoxSymbol$1 = /* @__PURE__ */ Symbol("box");
+const isWritableSymbol$1 = /* @__PURE__ */ Symbol("is-writable");
 function isBox$1(value) {
   return isObject$1(value) && BoxSymbol$1 in value;
 }
@@ -675,8 +674,8 @@ function isClassValue(value) {
   }
   return false;
 }
-const BoxSymbol = Symbol("box");
-const isWritableSymbol = Symbol("is-writable");
+const BoxSymbol = /* @__PURE__ */ Symbol("box");
+const isWritableSymbol = /* @__PURE__ */ Symbol("is-writable");
 function isBox(value) {
   return isObject(value) && BoxSymbol in value;
 }
@@ -5719,26 +5718,6 @@ function Navigation_menu_list($$payload, $$props) {
   bind_props($$props, { ref });
   pop();
 }
-/**
- * @license @lucide/svelte v0.534.0 - ISC
- *
- * ISC License
- * 
- * Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022.
- * 
- * Permission to use, copy, modify, and/or distribute this software for any
- * purpose with or without fee is hereby granted, provided that the above
- * copyright notice and this permission notice appear in all copies.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
- * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
- * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
- * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
- * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
- * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
- * 
- */
 const defaultAttributes = {
   xmlns: "http://www.w3.org/2000/svg",
   width: 24,
@@ -5901,26 +5880,6 @@ function Separator($$payload, $$props) {
 }
 function Sun($$payload, $$props) {
   push();
-  /**
-   * @license @lucide/svelte v0.534.0 - ISC
-   *
-   * ISC License
-   *
-   * Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022.
-   *
-   * Permission to use, copy, modify, and/or distribute this software for any
-   * purpose with or without fee is hereby granted, provided that the above
-   * copyright notice and this permission notice appear in all copies.
-   *
-   * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-   * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-   * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-   * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-   * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-   * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-   * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-   *
-   */
   let { $$slots, $$events, ...props } = $$props;
   const iconNode = [
     ["circle", { "cx": "12", "cy": "12", "r": "4" }],
@@ -5960,26 +5919,6 @@ function Sun($$payload, $$props) {
 }
 function Moon($$payload, $$props) {
   push();
-  /**
-   * @license @lucide/svelte v0.534.0 - ISC
-   *
-   * ISC License
-   *
-   * Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022.
-   *
-   * Permission to use, copy, modify, and/or distribute this software for any
-   * purpose with or without fee is hereby granted, provided that the above
-   * copyright notice and this permission notice appear in all copies.
-   *
-   * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-   * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-   * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-   * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-   * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-   * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-   * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-   *
-   */
   let { $$slots, $$events, ...props } = $$props;
   const iconNode = [
     [
@@ -6498,26 +6437,6 @@ function Sidebar_provider($$payload, $$props) {
 }
 function Menu($$payload, $$props) {
   push();
-  /**
-   * @license @lucide/svelte v0.534.0 - ISC
-   *
-   * ISC License
-   *
-   * Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022.
-   *
-   * Permission to use, copy, modify, and/or distribute this software for any
-   * purpose with or without fee is hereby granted, provided that the above
-   * copyright notice and this permission notice appear in all copies.
-   *
-   * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-   * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-   * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-   * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-   * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-   * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-   * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-   *
-   */
   let { $$slots, $$events, ...props } = $$props;
   const iconNode = [
     ["path", { "d": "M4 12h16" }],
@@ -6625,26 +6544,6 @@ function Sheet_overlay($$payload, $$props) {
 }
 function X($$payload, $$props) {
   push();
-  /**
-   * @license @lucide/svelte v0.534.0 - ISC
-   *
-   * ISC License
-   *
-   * Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022.
-   *
-   * Permission to use, copy, modify, and/or distribute this software for any
-   * purpose with or without fee is hereby granted, provided that the above
-   * copyright notice and this permission notice appear in all copies.
-   *
-   * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-   * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-   * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-   * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-   * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-   * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-   * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-   *
-   */
   let { $$slots, $$events, ...props } = $$props;
   const iconNode = [
     ["path", { "d": "M18 6 6 18" }],
@@ -6978,22 +6877,12 @@ function Sidebar($$payload, $$props) {
   pop();
 }
 function App_sidebar($$payload) {
-  const populars = [
-    {
-      title: "About RVZ files",
-      url: base + "/Populars/about-rvz-files"
-    },
-    { title: "Metroid", url: base + "/Populars/metroid" },
-    { title: "Mario", url: base + "/Populars/mario" },
-    { title: "Fire Emblem", url: base + "/Populars/fire-emblem" },
-    { title: "The Legend of Zelda", url: base + "/Populars/zelda" },
-    { title: "Pokemon", url: base + "/Populars/pokemon" },
-    { title: "Persona", url: base + "/Populars/persona" },
-    {
-      title: "Super Smash Bros",
-      url: base + "/Populars/super-smash-bros"
-    },
-    { title: "Xenoblade", url: base + "/Populars/xenoblade" }
+  const General = [
+    { title: "Home", url: "/" },
+    { title: "Direct Downloads", url: base + "/General/ddl" },
+    { title: "Torrents", url: base + "/General/torrents" },
+    { title: "Preservation", url: base + "/General/preservation" },
+    { title: "Other", url: base + "/General/other" }
   ];
   const Nintendo = [
     {
@@ -7061,7 +6950,8 @@ function App_sidebar($$payload) {
   const pc = [{ title: "PC Games", url: base + "/PC/pc-games" }];
   const misc = [
     { title: "ROM Sets", url: base + "/Miscellaneous/rom-sets" },
-    { title: "BIOS Files", url: base + "/Miscellaneous/bios-files" }
+    { title: "BIOS Sets", url: base + "/Miscellaneous/bios-sets" },
+    { title: "Other", url: base + "/Miscellaneous/other" }
   ];
   Sidebar($$payload, {
     collapsible: "offcanvas",
@@ -7072,7 +6962,7 @@ function App_sidebar($$payload) {
             children: ($$payload4) => {
               Sidebar_group_label($$payload4, {
                 children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Popular`);
+                  $$payload5.out.push(`<!---->General`);
                 },
                 $$slots: { default: true }
               });
@@ -7081,7 +6971,7 @@ function App_sidebar($$payload) {
                 children: ($$payload5) => {
                   Sidebar_menu($$payload5, {
                     children: ($$payload6) => {
-                      const each_array = ensure_array_like(populars);
+                      const each_array = ensure_array_like(General);
                       $$payload6.out.push(`<!--[-->`);
                       for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
                         let item = each_array[$$index];
