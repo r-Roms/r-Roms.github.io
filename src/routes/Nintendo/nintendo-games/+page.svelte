@@ -31,7 +31,7 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>Title</TableHead>
-                    <TableHead>Minerva Archive</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -72,7 +72,7 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>Title</TableHead>
-                    <TableHead>Minerva Archive</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -133,7 +133,7 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>Title</TableHead>
-                    <TableHead>Minerva Archive</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -170,7 +170,7 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>Title</TableHead>
-                    <TableHead>Minerva Archive</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -217,7 +217,7 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>Title</TableHead>
-                    <TableHead>Minerva Archive</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -258,7 +258,7 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>Title</TableHead>
-                    <TableHead>Minerva Archive</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -285,7 +285,7 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>Title</TableHead>
-                    <TableHead>Minerva Archive</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -314,7 +314,7 @@
             <TableHeader>
                 <TableRow>
                     <TableHead>Title</TableHead>
-                    <TableHead>Minerva Archive</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>

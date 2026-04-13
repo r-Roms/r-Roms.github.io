@@ -18,7 +18,7 @@
         <TableHeader>
             <TableRow>
                 <TableHead>Title</TableHead>
-                <TableHead>Minerva Archive</TableHead>
+                <TableHead>Minerva (Torrent Based)</TableHead>
                 <TableHead>Internet Archive</TableHead>
                 <TableHead>ExoDos</TableHead>
             </TableRow>
