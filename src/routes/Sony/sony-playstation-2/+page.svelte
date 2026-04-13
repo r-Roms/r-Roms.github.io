@@ -24,7 +24,7 @@
                     >
                     <TableHead
                         class="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right"
-                        >Myrient Fast &amp; Unrestricted</TableHead
+                        >Minerva (Torrent Based)</TableHead
                     >
                     <TableHead
                         class="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right"
