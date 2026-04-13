@@ -25,6 +25,45 @@
             url: base + "/General/other",
         },
     ];
+    //Popular items,
+    const populars = [
+        {
+            title: "About RVZ files",
+            url: base + "/Populars/about-rvz-files",
+        },
+        {
+            title: "Metroid",
+            url: base + "/Populars/metroid",
+        },
+        {
+            title: "Mario",
+            url: base + "/Populars/mario",
+        },
+        {
+            title: "Fire Emblem",
+            url: base + "/Populars/fire-emblem",
+        },
+        {
+            title: "The Legend of Zelda",
+            url: base + "/Populars/zelda",
+        },
+        {
+            title: "Pokemon",
+            url: base + "/Populars/pokemon",
+        },
+        {
+            title: "Persona",
+            url: base + "/Populars/persona",
+        },
+        {
+            title: "Super Smash Bros",
+            url: base + "/Populars/super-smash-bros",
+        },
+        {
+            title: "Xenoblade",
+            url: base + "/Populars/xenoblade",
+        },
+    ];
 
     //Nintendo items,
     const Nintendo = [
