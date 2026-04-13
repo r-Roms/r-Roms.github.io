@@ -29,7 +29,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Microsoft%20-%20Xbox%20360/"
+                            href="https://minerva-archive.org/browse/Redump/Microsoft%20-%20Xbox%20360/"
                             >Download</a
                         ></TableCell
                     >
@@ -504,7 +504,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/No-Intro/Unofficial%20-%20Microsoft%20-%20Xbox%20360%20(Title%20Updates)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Unofficial%20-%20Microsoft%20-%20Xbox%20360%20(Title%20Updates)/"
                             >Download</a
                         ></TableCell
                     >
@@ -515,7 +515,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/No-Intro/Microsoft%20-%20Xbox%20360%20(Digital)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Microsoft%20-%20Xbox%20360%20(Digital)/"
                             >Download</a
                         ></TableCell
                     >
@@ -830,7 +830,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/mdashk/rock-band-dlc-complete-collection-xbox-360-by-americo/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/mdashk/rock-band-dlc-complete-collection-xbox-360-by-americo/"
                             >Download</a
                         ></TableCell
                     >

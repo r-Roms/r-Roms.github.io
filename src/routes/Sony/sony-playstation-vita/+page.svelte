@@ -48,7 +48,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%20Vita%20(PSN)%20(Content)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Sony%20-%20PlayStation%20Vita%20(PSN)%20(Content)/"
                             >Download</a
                         ></TableCell
                     >
@@ -60,7 +60,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/No-Intro/Sony%20-%20PlayStation%20Vita%20(PSN)%20(Updates)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Sony%20-%20PlayStation%20Vita%20(PSN)%20(Updates)/"
                             >Download</a
                         ></TableCell
                     >
@@ -73,7 +73,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(BlackFinPSV)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(BlackFinPSV)/"
                             >Download</a
                         ></TableCell
                     >
@@ -86,7 +86,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(NoNpDrm)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(NoNpDrm)/"
                             >Download</a
                         ></TableCell
                     >
@@ -100,7 +100,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(PSN)%20(Decrypted)%20(VPK)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(PSN)%20(Decrypted)%20(VPK)/"
                             >Download</a
                         ></TableCell
                     >
@@ -113,7 +113,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(PSVgameSD)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(PSVgameSD)/"
                             >Download</a
                         ></TableCell
                     >
@@ -126,7 +126,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(VPK)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Unofficial%20-%20Sony%20-%20PlayStation%20Vita%20(VPK)/"
                             >Download</a
                         ></TableCell
                     >
@@ -153,7 +153,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/teamgt19/sony-playstation-vita-usa-full-set-nonpdrm-format-dlc-updates/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/teamgt19/sony-playstation-vita-usa-full-set-nonpdrm-format-dlc-updates/"
                             >Download</a
                         ></TableCell
                     >
@@ -181,7 +181,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/aitus95/PSVITA_MAIDUMP/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/aitus95/PSVITA_MAIDUMP/"
                             >Download</a
                         ></TableCell
                     >

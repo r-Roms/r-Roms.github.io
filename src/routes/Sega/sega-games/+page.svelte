@@ -35,7 +35,7 @@
                 <TableCell
                     ><a
                         class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://myrient.erista.me/files/No-Intro/Sega%20-%2032X/"
+                        href="https://minerva-archive.org/browse/No-Intro/Sega%20-%2032X/"
                         >Download</a
                     ></TableCell
                 >
@@ -58,7 +58,7 @@
                 <TableCell
                     ><a
                         class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://myrient.erista.me/files/No-Intro/Sega%20-%20Game%20Gear/"
+                        href="https://minerva-archive.org/browse/No-Intro/Sega%20-%20Game%20Gear/"
                         >Download</a
                     ></TableCell
                 >
@@ -81,7 +81,7 @@
                 <TableCell
                     ><a
                         class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://myrient.erista.me/files/No-Intro/Sega%20-%20Master%20System%20-%20Mark%20III/"
+                        href="https://minerva-archive.org/browse/No-Intro/Sega%20-%20Master%20System%20-%20Mark%20III/"
                         >Download</a
                     ></TableCell
                 >
@@ -104,7 +104,7 @@
                 <TableCell
                     ><a
                         class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://myrient.erista.me/files/No-Intro/Sega%20-%20Mega%20Drive%20-%20Genesis/"
+                        href="https://minerva-archive.org/browse/No-Intro/Sega%20-%20Mega%20Drive%20-%20Genesis/"
                         >Download</a
                     ></TableCell
                 >

@@ -41,7 +41,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Family%20Computer%20Disk%20System%20(FDS)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Family%20Computer%20Disk%20System%20(FDS)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -53,7 +53,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Family%20Computer%20Disk%20System%20(QD)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Family%20Computer%20Disk%20System%20(QD)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -80,7 +80,7 @@
                     <TableCell>Nintendo - Game Boy Advance</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Advance/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy%20Advance/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -92,7 +92,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Advance%20(Multiboot)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy%20Advance%20(Multiboot)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -102,7 +102,7 @@
                     <TableCell>Nintendo - Game Boy Advance (Video)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Advance%20(Video)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy%20Advance%20(Video)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -114,7 +114,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Advance%20(e-Reader)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy%20Advance%20(e-Reader)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -141,7 +141,7 @@
                     <TableCell>Nintendo - Game Boy Color</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy%20Color/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy%20Color/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -151,7 +151,7 @@
                     <TableCell>Nintendo - Game Boy</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Game%20Boy/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -178,7 +178,7 @@
                     <TableCell>Nintendo - Nintendo 64 (BigEndian)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%2064%20(BigEndian)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%2064%20(BigEndian)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -188,7 +188,7 @@
                     <TableCell>Nintendo - Nintendo 64 (ByteSwapped)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%2064%20(ByteSwapped)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%2064%20(ByteSwapped)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -198,7 +198,7 @@
                     <TableCell>Nintendo - Nintendo 64DD</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%2064DD/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%2064DD/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -227,7 +227,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20(Headered)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20(Headered)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -239,7 +239,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20(Headerless)/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20(Headerless)/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -266,7 +266,7 @@
                     <TableCell>Nintendo - Pokemon Mini</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Pokemon%20Mini/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Pokemon%20Mini/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -295,7 +295,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -322,7 +322,7 @@
                     <TableCell>Nintendo - Virtual Boy</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/No-Intro/Nintendo%20-%20Virtual%20Boy/"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Virtual%20Boy/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >

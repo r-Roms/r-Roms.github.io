@@ -29,7 +29,7 @@
                 <TableCell
                     ><a
                         class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://myrient.erista.me/files/Redump/Microsoft%20-%20Xbox/"
+                        href="https://minerva-archive.org/browse/Redump/Microsoft%20-%20Xbox/"
                         >Download</a
                     ></TableCell
                 >

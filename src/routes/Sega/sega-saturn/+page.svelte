@@ -29,7 +29,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Redump/Sega%20-%20Saturn/"
+                            href="https://minerva-archive.org/browse/Redump/Sega%20-%20Saturn/"
                             >Download</a
                         ></TableCell
                     >
@@ -46,7 +46,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_saturn/CHD-Saturn/USA/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_saturn/CHD-Saturn/USA/"
                             >Download</a
                         ></TableCell
                     >
@@ -63,7 +63,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_saturn/CHD-Saturn/Europe/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_saturn/CHD-Saturn/Europe/"
                             >Download</a
                         ></TableCell
                     >
@@ -80,7 +80,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_saturn/CHD-Saturn/Japan/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_saturn/CHD-Saturn/Japan/"
                             >Download</a
                         ></TableCell
                     >
@@ -97,7 +97,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_saturn/CHD-Saturn/Other-Regions/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_saturn/CHD-Saturn/Other-Regions/"
                             >Download</a
                         ></TableCell
                     >
@@ -114,7 +114,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_saturn/CHD-Saturn/Translations/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_saturn/CHD-Saturn/Translations/"
                             >Download</a
                         ></TableCell
                     >
@@ -131,7 +131,7 @@
                     <TableCell
                         ><a
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/chd_saturn/CHD-Saturn/Improvements/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/chd_saturn/CHD-Saturn/Improvements/"
                             >Download</a
                         ></TableCell
                     >

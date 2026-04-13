@@ -30,7 +30,7 @@
                 <TableCell
                     ><a
                         class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://myrient.erista.me/files/Internet%20Archive/sketch_the_cow/Total_DOS_Collection_Release_16_March_2019/"
+                        href="https://minerva-archive.org/browse/Internet%20Archive/sketch_the_cow/Total_DOS_Collection_Release_16_March_2019/"
                         >Download</a
                     ></TableCell
                 >
@@ -70,7 +70,7 @@
                 <TableCell
                     ><a
                         class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://myrient.erista.me/files/Internet%20Archive/chadmaster/2020_03_22_DOOM/DOOM%20WADs/"
+                        href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/2020_03_22_DOOM/DOOM%20WADs/"
                         >Download</a
                     ></TableCell
                 >
@@ -88,7 +88,7 @@
                 <TableCell
                     ><a
                         class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://myrient.erista.me/files/Redump/Apple%20-%20Macintosh/"
+                        href="https://minerva-archive.org/browse/Redump/Apple%20-%20Macintosh/"
                         >Download</a
                     ></TableCell
                 >
@@ -106,7 +106,7 @@
                 <TableCell
                     ><a
                         class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://myrient.erista.me/files/Redump/IBM%20-%20PC%20compatible/"
+                        href="https://minerva-archive.org/browse/Redump/IBM%20-%20PC%20compatible/"
                         >Download</a
                     ></TableCell
                 >

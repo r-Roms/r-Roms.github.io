@@ -42,7 +42,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/"
+                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -112,19 +112,19 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Internet%20Archive/Unknown/RedumpNintendoGameCubeAmerica/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/Unknown/RedumpNintendoGameCubeAmerica/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Part 1</a
                         >
                         /
                         <a
-                            href="https://myrient.erista.me/files/Internet%20Archive/Unknown/RedumpNintendoGameCubeAmericaPart2/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/Unknown/RedumpNintendoGameCubeAmericaPart2/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Part 2</a
                         >
                         /
                         <a
-                            href="https://myrient.erista.me/files/Internet%20Archive/Unknown/RedumpNintendoGameCubeAmericaPart3/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/Unknown/RedumpNintendoGameCubeAmericaPart3/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Part 3</a
                         >
@@ -135,7 +135,7 @@
                     <TableCell>Redump - Nintendo - GameCube (Japan)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Internet%20Archive/pixelspoil/NCubeJ/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/pixelspoil/NCubeJ/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -152,7 +152,7 @@
                     <TableCell>Redump - Nintendo - GameCube (Europe)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Internet%20Archive/kodi_amp_spmc_canada/EuropeanGamecubeCollectionByGhostware/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/EuropeanGamecubeCollectionByGhostware/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -165,7 +165,7 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Internet%20Archive/kodi_amp_spmc_canada/AustraliaGamecubeCollectionByGhostware/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/AustraliaGamecubeCollectionByGhostware/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -176,7 +176,7 @@
                     <TableCell>Redump - Nintendo - GameCube (Asia)</TableCell>
                     <TableCell>
                         <a
-                            href="https://myrient.erista.me/files/Internet%20Archive/kodi_amp_spmc_canada/AsiaGamecubeCollectionByGhostware/"
+                            href="https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/AsiaGamecubeCollectionByGhostware/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
