@@ -2,7 +2,7 @@
 
 export const index = 33;
 let component_cache;
-export const component = async () => component_cache ??= (await import('../entries/pages/Sony/sony-playstation/_page.svelte.js')).default;
-export const imports = ["_app/immutable/nodes/33.CueOKm7q.js","_app/immutable/chunks/DsnmJJEf.js","_app/immutable/chunks/tD9sc2xJ.js","_app/immutable/chunks/Dzp75J2T.js","_app/immutable/chunks/V7l7X-v7.js","_app/immutable/chunks/XmN0OgFk.js","_app/immutable/chunks/Dwefem8K.js","_app/immutable/chunks/hkqgSeLz.js"];
+export const component = async () => component_cache ??= (await import('../entries/pages/Retro _ Arcade/_page.svelte.js')).default;
+export const imports = ["_app/immutable/nodes/33.BuzazoxF.js","_app/immutable/chunks/Bc9IkHl1.js","_app/immutable/chunks/BhSJA8DS.js","_app/immutable/chunks/CX9ytsJo.js"];
 export const stylesheets = [];
 export const fonts = [];

@@ -2,7 +2,7 @@
 
 export const index = 23;
 let component_cache;
-export const component = async () => component_cache ??= (await import('../entries/pages/Retro _ Arcade/_page.svelte.js')).default;
-export const imports = ["_app/immutable/nodes/23.CEBvD6yh.js","_app/immutable/chunks/DsnmJJEf.js","_app/immutable/chunks/tD9sc2xJ.js","_app/immutable/chunks/Dzp75J2T.js"];
+export const component = async () => component_cache ??= (await import('../entries/pages/Populars/_page.svelte.js')).default;
+export const imports = ["_app/immutable/nodes/23.3gvcv7tu.js","_app/immutable/chunks/Bc9IkHl1.js","_app/immutable/chunks/BhSJA8DS.js","_app/immutable/chunks/CX9ytsJo.js"];
 export const stylesheets = [];
 export const fonts = [];

@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/Sony/sony-playstation-vita/+page.svelte";
+export { default as component } from "../../../../src/routes/Sony/nopaystation/+page.svelte";

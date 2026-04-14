@@ -1,22 +1,18 @@
-import { A as ATTACHMENT_KEY, f as run, g as attr, e as pop, p as push, h as head, j as hasContext, k as getContext, s as setContext, l as derived, m as props_id, n as spread_attributes, o as bind_props, q as getAllContexts, t as spread_props, u as copy_payload, v as assign_payload, B as BROWSER, w as attr_class, x as clsx$1, y as ensure_array_like, z as element, D as escape_html, E as stringify } from "../../chunks/index.js";
+import { f as derived, h as head, A as ATTACHMENT_KEY, p as props_id, g as attributes, j as bind_props, s as spread_props, k as attr_class, l as ensure_array_like, m as element, n as stringify } from "../../chunks/renderer.js";
 import { clsx } from "clsx";
 import parse from "style-to-object";
-import { c as cn } from "../../chunks/utils.js";
-import { t as on } from "../../chunks/events.js";
+import { a as attr, c as clsx$1 } from "../../chunks/attributes.js";
+import { c as cn } from "../../chunks/utils2.js";
+import { h as hasContext, g as getContext, s as setContext, a as getAllContexts } from "../../chunks/context.js";
+import { r as run, e as escape_html } from "../../chunks/escaping.js";
+import { l as lifecycle_function_unavailable } from "../../chunks/render-context.js";
 import { tv } from "tailwind-variants";
-import { computePosition, offset, shift, flip, size, arrow, hide, limitShift } from "@floating-ui/dom";
+import { Q as on } from "../../chunks/events.js";
+import { computePosition, offset, shift, limitShift, flip, size, arrow, hide } from "@floating-ui/dom";
 import { tabbable, focusable, isFocusable } from "tabbable";
-import { b as base } from "../../chunks/paths.js";
-function createAttachmentKey() {
-  return Symbol(ATTACHMENT_KEY);
-}
-function lifecycle_function_unavailable(name) {
-  const error = new Error(`lifecycle_function_unavailable
-\`${name}(...)\` is not available on the server
-https://svelte.dev/e/lifecycle_function_unavailable`);
-  error.name = "Svelte error";
-  throw error;
-}
+import { b as base } from "../../chunks/server.js";
+import "../../chunks/url.js";
+import "@sveltejs/kit/internal/server";
 function html(value) {
   var html2 = String(value ?? "");
   var open = "<!---->";
@@ -204,13 +200,13 @@ function box$1(initialValue) {
   };
 }
 function boxWith$1(getter, setter) {
-  const derived2 = getter();
+  const derived$1 = derived(getter);
   if (setter) {
     return {
       [BoxSymbol$1]: true,
       [isWritableSymbol$1]: true,
       get current() {
-        return derived2;
+        return derived$1();
       },
       set current(v) {
         setter(v);
@@ -293,7 +289,7 @@ function styleToCSS$1(styleObj) {
 function styleToString$1(style = {}) {
   return styleToCSS$1(style).replace("\n", " ");
 }
-const srOnlyStyles$1 = {
+const srOnlyStyles = {
   position: "absolute",
   width: "1px",
   height: "1px",
@@ -305,7 +301,7 @@ const srOnlyStyles$1 = {
   borderWidth: "0",
   transform: "translateX(-100%)"
 };
-styleToString$1(srOnlyStyles$1);
+styleToString$1(srOnlyStyles);
 const defaultWindow$1 = void 0;
 function getActiveElement$2(document2) {
   let activeElement = document2.activeElement;
@@ -390,40 +386,6 @@ class SystemPrefersMode {
 }
 const userPrefersMode = new UserPrefersMode();
 const systemPrefersMode = new SystemPrefersMode();
-class CustomTheme {
-  #storage = isBrowser$1 ? localStorage : noopStorage;
-  #initialValue = this.#storage.getItem(themeStorageKey.current);
-  #value = this.#initialValue === null || this.#initialValue === void 0 ? "" : this.#initialValue;
-  #persisted = this.#makePersisted();
-  #makePersisted(value = this.#value) {
-    return new PersistedState(themeStorageKey.current, value, {
-      serializer: {
-        serialize: (v) => {
-          if (typeof v !== "string") return "";
-          return v;
-        },
-        deserialize: (v) => v
-      }
-    });
-  }
-  constructor() {
-  }
-  /**
-   * The current theme.
-   * @returns The current theme.
-   */
-  get current() {
-    return this.#persisted.current;
-  }
-  /**
-   * Set the current theme.
-   * @param newValue The new theme to set.
-   */
-  set current(newValue) {
-    this.#persisted.current = newValue;
-  }
-}
-const customTheme = new CustomTheme();
 let timeoutAction;
 let timeoutEnable;
 let hasLoaded = false;
@@ -490,7 +452,7 @@ const synchronousModeChanges = box$1(false);
 const darkClassNames = box$1([]);
 const lightClassNames = box$1([]);
 function createDerivedMode() {
-  const current = (() => {
+  const current = derived(() => {
     if (!isBrowser$1) return void 0;
     const derivedMode2 = userPrefersMode.current === "system" ? systemPrefersMode.current : userPrefersMode.current;
     const sanitizedDarkClassNames = sanitizeClassNames(darkClassNames.current);
@@ -520,36 +482,14 @@ function createDerivedMode() {
       update();
     }
     return derivedMode2;
-  })();
+  });
   return {
     get current() {
-      return current;
-    }
-  };
-}
-function createDerivedTheme() {
-  const current = (() => {
-    customTheme.current;
-    if (!isBrowser$1) return void 0;
-    function update() {
-      const htmlEl = document.documentElement;
-      htmlEl.setAttribute("data-theme", customTheme.current);
-    }
-    if (disableTransitions.current) {
-      withoutTransition(update, run(() => synchronousModeChanges.current));
-    } else {
-      update();
-    }
-    return customTheme.current;
-  })();
-  return {
-    get current() {
-      return current;
+      return current();
     }
   };
 }
 const derivedMode = createDerivedMode();
-createDerivedTheme();
 function toggleMode() {
   userPrefersMode.current = derivedMode.current === "dark" ? "light" : "dark";
 }
@@ -585,73 +525,77 @@ function setInitialMode({ defaultMode = "system", themeColors: themeColors2, dar
   }
   localStorage.setItem(modeStorageKey2, mode);
 }
-function Mode_watcher_lite($$payload, $$props) {
-  push();
-  let { themeColors: themeColors2 } = $$props;
-  if (themeColors2) {
-    $$payload.out.push("<!--[-->");
-    $$payload.out.push(`<meta name="theme-color"${attr("content", themeColors2.dark)}/>`);
-  } else {
-    $$payload.out.push("<!--[!-->");
-  }
-  $$payload.out.push(`<!--]-->`);
-  pop();
-}
-function Mode_watcher_full($$payload, $$props) {
-  push();
-  let { trueNonce = "", initConfig, themeColors: themeColors2 } = $$props;
-  head($$payload, ($$payload2) => {
+function Mode_watcher_lite($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { themeColors: themeColors2 } = $$props;
     if (themeColors2) {
-      $$payload2.out.push("<!--[-->");
-      $$payload2.out.push(`<meta name="theme-color"${attr("content", themeColors2.dark)}/>`);
+      $$renderer2.push("<!--[0-->");
+      $$renderer2.push(`<meta name="theme-color"${attr("content", themeColors2.dark)}/>`);
     } else {
-      $$payload2.out.push("<!--[!-->");
+      $$renderer2.push("<!--[-1-->");
     }
-    $$payload2.out.push(`<!--]--> ${html(`<script${trueNonce ? ` nonce=${trueNonce}` : ""}>(` + setInitialMode.toString() + `)(` + JSON.stringify(initConfig) + `);<\/script>`)}`);
+    $$renderer2.push(`<!--]-->`);
   });
-  pop();
 }
-function Mode_watcher($$payload, $$props) {
-  push();
-  let {
-    defaultMode = "system",
-    themeColors: themeColorsProp,
-    disableTransitions: disableTransitionsProp = true,
-    darkClassNames: darkClassNamesProp = ["dark"],
-    lightClassNames: lightClassNamesProp = [],
-    defaultTheme = "",
-    nonce = "",
-    themeStorageKey: themeStorageKeyProp = "mode-watcher-theme",
-    modeStorageKey: modeStorageKeyProp = "mode-watcher-mode",
-    disableHeadScriptInjection = false,
-    synchronousModeChanges: synchronousModeChangesProp = false
-  } = $$props;
-  modeStorageKey.current = modeStorageKeyProp;
-  themeStorageKey.current = themeStorageKeyProp;
-  darkClassNames.current = darkClassNamesProp;
-  lightClassNames.current = lightClassNamesProp;
-  disableTransitions.current = disableTransitionsProp;
-  themeColors.current = themeColorsProp;
-  synchronousModeChanges.current = synchronousModeChangesProp;
-  const initConfig = defineConfig({
-    defaultMode,
-    themeColors: themeColorsProp,
-    darkClassNames: darkClassNamesProp,
-    lightClassNames: lightClassNamesProp,
-    defaultTheme,
-    modeStorageKey: modeStorageKeyProp,
-    themeStorageKey: themeStorageKeyProp
+function Mode_watcher_full($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { trueNonce = "", initConfig, themeColors: themeColors2 } = $$props;
+    head("1funsus", $$renderer2, ($$renderer3) => {
+      if (themeColors2) {
+        $$renderer3.push("<!--[0-->");
+        $$renderer3.push(`<meta name="theme-color"${attr("content", themeColors2.dark)}/>`);
+      } else {
+        $$renderer3.push("<!--[-1-->");
+      }
+      $$renderer3.push(`<!--]--> ${html(`<script${trueNonce ? ` nonce=${trueNonce}` : ""}>(` + setInitialMode.toString() + `)(` + JSON.stringify(initConfig) + `);<\/script>`)}`);
+    });
   });
-  const trueNonce = typeof window === "undefined" ? nonce : "";
-  if (disableHeadScriptInjection) {
-    $$payload.out.push("<!--[-->");
-    Mode_watcher_lite($$payload, { themeColors: themeColors.current });
-  } else {
-    $$payload.out.push("<!--[!-->");
-    Mode_watcher_full($$payload, { trueNonce, initConfig, themeColors: themeColors.current });
-  }
-  $$payload.out.push(`<!--]-->`);
-  pop();
+}
+function Mode_watcher($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      defaultMode = "system",
+      themeColors: themeColorsProp,
+      disableTransitions: disableTransitionsProp = true,
+      darkClassNames: darkClassNamesProp = ["dark"],
+      lightClassNames: lightClassNamesProp = [],
+      defaultTheme = "",
+      nonce = "",
+      themeStorageKey: themeStorageKeyProp = "mode-watcher-theme",
+      modeStorageKey: modeStorageKeyProp = "mode-watcher-mode",
+      disableHeadScriptInjection = false,
+      synchronousModeChanges: synchronousModeChangesProp = false
+    } = $$props;
+    modeStorageKey.current = modeStorageKeyProp;
+    themeStorageKey.current = themeStorageKeyProp;
+    darkClassNames.current = darkClassNamesProp;
+    lightClassNames.current = lightClassNamesProp;
+    disableTransitions.current = disableTransitionsProp;
+    themeColors.current = themeColorsProp;
+    synchronousModeChanges.current = synchronousModeChangesProp;
+    const initConfig = defineConfig({
+      defaultMode,
+      themeColors: themeColorsProp,
+      darkClassNames: darkClassNamesProp,
+      lightClassNames: lightClassNamesProp,
+      defaultTheme,
+      modeStorageKey: modeStorageKeyProp,
+      themeStorageKey: themeStorageKeyProp
+    });
+    const trueNonce = derived(() => typeof window === "undefined" ? nonce : "");
+    if (disableHeadScriptInjection) {
+      $$renderer2.push("<!--[0-->");
+      Mode_watcher_lite($$renderer2, { themeColors: themeColors.current });
+    } else {
+      $$renderer2.push("<!--[-1-->");
+      Mode_watcher_full($$renderer2, {
+        trueNonce: trueNonce(),
+        initConfig,
+        themeColors: themeColors.current
+      });
+    }
+    $$renderer2.push(`<!--]-->`);
+  });
 }
 function isFunction$1(value) {
   return typeof value === "function";
@@ -676,33 +620,14 @@ function isClassValue(value) {
 }
 const BoxSymbol = /* @__PURE__ */ Symbol("box");
 const isWritableSymbol = /* @__PURE__ */ Symbol("is-writable");
-function isBox(value) {
-  return isObject(value) && BoxSymbol in value;
-}
-function isWritableBox(value) {
-  return box.isBox(value) && isWritableSymbol in value;
-}
-function box(initialValue) {
-  let current = initialValue;
-  return {
-    [BoxSymbol]: true,
-    [isWritableSymbol]: true,
-    get current() {
-      return current;
-    },
-    set current(v) {
-      current = v;
-    }
-  };
-}
 function boxWith(getter, setter) {
-  const derived2 = getter();
+  const derived$1 = derived(getter);
   if (setter) {
     return {
       [BoxSymbol]: true,
       [isWritableSymbol]: true,
       get current() {
-        return derived2;
+        return derived$1();
       },
       set current(v) {
         setter(v);
@@ -716,18 +641,24 @@ function boxWith(getter, setter) {
     }
   };
 }
+function isBox(value) {
+  return isObject(value) && BoxSymbol in value;
+}
+function isWritableBox(value) {
+  return isBox(value) && isWritableSymbol in value;
+}
 function boxFrom(value) {
-  if (box.isBox(value)) return value;
-  if (isFunction$1(value)) return box.with(value);
-  return box(value);
+  if (isBox(value)) return value;
+  if (isFunction$1(value)) return boxWith(value);
+  return simpleBox(value);
 }
 function boxFlatten(boxes) {
   return Object.entries(boxes).reduce(
     (acc, [key, b]) => {
-      if (!box.isBox(b)) {
+      if (!isBox(b)) {
         return Object.assign(acc, { [key]: b });
       }
-      if (box.isWritableBox(b)) {
+      if (isWritableBox(b)) {
         Object.defineProperty(acc, key, {
           get() {
             return b.current;
@@ -750,11 +681,37 @@ function boxFlatten(boxes) {
   );
 }
 function toReadonlyBox(b) {
-  if (!box.isWritableBox(b)) return b;
+  if (!isWritableBox(b)) return b;
   return {
     [BoxSymbol]: true,
     get current() {
       return b.current;
+    }
+  };
+}
+function simpleBox(initialValue) {
+  let current = initialValue;
+  return {
+    [BoxSymbol]: true,
+    [isWritableSymbol]: true,
+    get current() {
+      return current;
+    },
+    set current(v) {
+      current = v;
+    }
+  };
+}
+function box(initialValue) {
+  let current = initialValue;
+  return {
+    [BoxSymbol]: true,
+    [isWritableSymbol]: true,
+    get current() {
+      return current;
+    },
+    set current(v) {
+      current = v;
     }
   };
 }
@@ -884,19 +841,6 @@ function styleToCSS(styleObj) {
 function styleToString(style = {}) {
   return styleToCSS(style).replace("\n", " ");
 }
-const srOnlyStyles = {
-  position: "absolute",
-  width: "1px",
-  height: "1px",
-  padding: "0",
-  margin: "-1px",
-  overflow: "hidden",
-  clip: "rect(0, 0, 0, 0)",
-  whiteSpace: "nowrap",
-  borderWidth: "0",
-  transform: "translateX(-100%)"
-};
-styleToString(srOnlyStyles);
 const EVENT_LIST = [
   "onabort",
   "onanimationcancel",
@@ -1072,11 +1016,11 @@ function mergeProps(...args) {
   if (typeof result.style === "object") {
     result.style = styleToString(result.style).replaceAll("\n", " ");
   }
-  if (result.hidden !== true) {
+  if (result.hidden === false) {
     result.hidden = void 0;
     delete result.hidden;
   }
-  if (result.disabled !== true) {
+  if (result.disabled === false) {
     result.disabled = void 0;
     delete result.disabled;
   }
@@ -1189,7 +1133,7 @@ class Context {
 }
 function useDebounce(callback, wait) {
   let context = null;
-  const wait$ = extract(wait, 250);
+  const wait$ = derived(() => extract(wait, 250));
   function debounced(...args) {
     if (context) {
       if (context.timeout) {
@@ -1214,7 +1158,7 @@ function useDebounce(callback, wait) {
         ctx.reject(error);
       }
     };
-    context.timeout = setTimeout(context.runner, wait$);
+    context.timeout = setTimeout(context.runner, wait$());
     return context.promise;
   }
   debounced.cancel = async () => {
@@ -1323,18 +1267,6 @@ class ElementSize {
     return this.#height();
   }
 }
-class Previous {
-  #previous = void 0;
-  constructor(getter, initialValue) {
-    if (initialValue !== void 0) this.#previous = initialValue;
-    watch(() => getter(), (_, v) => {
-      this.#previous = v;
-    });
-  }
-  get current() {
-    return this.#previous;
-  }
-}
 function onDestroyEffect(fn) {
 }
 function afterSleep(ms, cb) {
@@ -1423,7 +1355,7 @@ class DOMContext {
   }
   constructor(element2) {
     if (typeof element2 === "function") {
-      this.element = box.with(element2);
+      this.element = boxWith(element2);
     } else {
       this.element = element2;
     }
@@ -1458,10 +1390,13 @@ class DOMContext {
     return this.getWindow().clearTimeout(timeoutId);
   };
 }
+function createAttachmentKey() {
+  return Symbol(ATTACHMENT_KEY);
+}
 function attachRef(ref, onChange) {
   return {
     [createAttachmentKey()]: (node) => {
-      if (box.isBox(ref)) {
+      if (isBox(ref)) {
         ref.current = node;
         run(() => onChange?.(node));
         return () => {
@@ -1482,20 +1417,21 @@ function attachRef(ref, onChange) {
     }
   };
 }
+function boolToStrTrueOrUndef(condition) {
+  return condition ? "true" : void 0;
+}
+function boolToEmptyStrOrUndef(condition) {
+  return condition ? "" : void 0;
+}
 function getDataOpenClosed(condition) {
   return condition ? "open" : "closed";
 }
-function getDataDisabled(condition) {
-  return condition ? "" : void 0;
-}
-function getAriaOrientation(orientation) {
-  return orientation;
-}
-function getAriaHidden(condition) {
-  return condition ? "true" : void 0;
-}
-function getDataOrientation(orientation) {
-  return orientation;
+function getDataTransitionAttrs(state) {
+  if (state === "starting")
+    return { "data-starting-style": "" };
+  if (state === "ending")
+    return { "data-ending-style": "" };
+  return {};
 }
 class BitsAttrs {
   #variant;
@@ -1560,6 +1496,27 @@ function getDirectionalKeys(dir = "ltr", orientation = "horizontal") {
     nextKey: getNextKey(dir, orientation),
     prevKey: getPrevKey(dir, orientation)
   };
+}
+const isBrowser = typeof document !== "undefined";
+const isIOS = getIsIOS();
+function getIsIOS() {
+  return isBrowser && window?.navigator?.userAgent && (/iP(ad|hone|od)/.test(window.navigator.userAgent) || // The new iPad Pro Gen3 does not identify itself as iPad, but as Macintosh.
+  window?.navigator?.maxTouchPoints > 2 && /iPad|Macintosh/.test(window?.navigator.userAgent));
+}
+function isHTMLElement(element2) {
+  return element2 instanceof HTMLElement;
+}
+function isElement(element2) {
+  return element2 instanceof Element;
+}
+function isElementOrSVGElement(element2) {
+  return element2 instanceof Element || element2 instanceof SVGElement;
+}
+function isFocusVisible(element2) {
+  return element2.matches(":focus-visible");
+}
+function isNotNull(value) {
+  return value !== null;
 }
 class RovingFocusGroup {
   #opts;
@@ -1630,177 +1587,105 @@ class RovingFocusGroup {
   setCurrentTabStopId(id) {
     this.#currentTabStopId.current = id;
   }
-}
-function noop() {
-}
-function createId(prefixOrUid, uid) {
-  return `bits-${prefixOrUid}`;
-}
-class StateMachine {
-  state;
-  #machine;
-  constructor(initialState, machine) {
-    this.state = box(initialState);
-    this.#machine = machine;
-    this.dispatch = this.dispatch.bind(this);
+  focusCurrentTabStop() {
+    const currentTabStopId = this.#currentTabStopId.current;
+    if (!currentTabStopId)
+      return;
+    const currentTabStop = this.#opts.rootNode.current?.querySelector(`#${currentTabStopId}`);
+    if (!currentTabStop || !isHTMLElement(currentTabStop))
+      return;
+    currentTabStop.focus();
   }
-  #reducer(event) {
-    const nextState = this.#machine[this.state.current][event];
-    return nextState ?? this.state.current;
-  }
-  dispatch(event) {
-    this.state.current = this.#reducer(event);
-  }
-}
-const presenceMachine = {
-  mounted: { UNMOUNT: "unmounted", ANIMATION_OUT: "unmountSuspended" },
-  unmountSuspended: { MOUNT: "mounted", ANIMATION_END: "unmounted" },
-  unmounted: { MOUNT: "mounted" }
-};
-class Presence {
-  opts;
-  prevAnimationNameState = "none";
-  styles = {};
-  initialStatus;
-  previousPresent;
-  machine;
-  present;
-  constructor(opts) {
-    this.opts = opts;
-    this.present = this.opts.open;
-    this.initialStatus = opts.open.current ? "mounted" : "unmounted";
-    this.previousPresent = new Previous(() => this.present.current);
-    this.machine = new StateMachine(this.initialStatus, presenceMachine);
-    this.handleAnimationEnd = this.handleAnimationEnd.bind(this);
-    this.handleAnimationStart = this.handleAnimationStart.bind(this);
-    watchPresenceChange(this);
-    watchStatusChange(this);
-    watchRefChange(this);
-  }
-  /**
-   * Triggering an ANIMATION_OUT during an ANIMATION_IN will fire an `animationcancel`
-   * event for ANIMATION_IN after we have entered `unmountSuspended` state. So, we
-   * make sure we only trigger ANIMATION_END for the currently active animation.
-   */
-  handleAnimationEnd(event) {
-    if (!this.opts.ref.current) return;
-    const currAnimationName = getAnimationName(this.opts.ref.current);
-    const isCurrentAnimation = currAnimationName.includes(event.animationName) || currAnimationName === "none";
-    if (event.target === this.opts.ref.current && isCurrentAnimation) {
-      this.machine.dispatch("ANIMATION_END");
-    }
-  }
-  handleAnimationStart(event) {
-    if (!this.opts.ref.current) return;
-    if (event.target === this.opts.ref.current) {
-      this.prevAnimationNameState = getAnimationName(this.opts.ref.current);
-    }
-  }
-  #isPresent = derived(() => {
-    return ["mounted", "unmountSuspended"].includes(this.machine.state.current);
-  });
-  get isPresent() {
-    return this.#isPresent();
-  }
-  set isPresent($$value) {
-    return this.#isPresent($$value);
-  }
-}
-function watchPresenceChange(state) {
-  watch(() => state.present.current, () => {
-    if (!state.opts.ref.current) return;
-    const hasPresentChanged = state.present.current !== state.previousPresent.current;
-    if (!hasPresentChanged) return;
-    const prevAnimationName = state.prevAnimationNameState;
-    const currAnimationName = getAnimationName(state.opts.ref.current);
-    if (state.present.current) {
-      state.machine.dispatch("MOUNT");
-    } else if (currAnimationName === "none" || state.styles.display === "none") {
-      state.machine.dispatch("UNMOUNT");
-    } else {
-      const isAnimating = prevAnimationName !== currAnimationName;
-      if (state.previousPresent.current && isAnimating) {
-        state.machine.dispatch("ANIMATION_OUT");
-      } else {
-        state.machine.dispatch("UNMOUNT");
-      }
-    }
-  });
-}
-function watchStatusChange(state) {
-  watch(() => state.machine.state.current, () => {
-    if (!state.opts.ref.current) return;
-    const currAnimationName = getAnimationName(state.opts.ref.current);
-    state.prevAnimationNameState = state.machine.state.current === "mounted" ? currAnimationName : "none";
-  });
-}
-function watchRefChange(state) {
-  watch(() => state.opts.ref.current, () => {
-    if (!state.opts.ref.current) return;
-    state.styles = getComputedStyle(state.opts.ref.current);
-    return executeCallbacks(on(state.opts.ref.current, "animationstart", state.handleAnimationStart), on(state.opts.ref.current, "animationcancel", state.handleAnimationEnd), on(state.opts.ref.current, "animationend", state.handleAnimationEnd));
-  });
-}
-function getAnimationName(node) {
-  return node ? getComputedStyle(node).animationName || "none" : "none";
-}
-function Presence_layer($$payload, $$props) {
-  push();
-  let { open, forceMount, presence, ref } = $$props;
-  const presenceState = new Presence({ open: box.with(() => open), ref });
-  if (forceMount || open || presenceState.isPresent) {
-    $$payload.out.push("<!--[-->");
-    presence?.($$payload, { present: presenceState.isPresent });
-    $$payload.out.push(`<!---->`);
-  } else {
-    $$payload.out.push("<!--[!-->");
-  }
-  $$payload.out.push(`<!--]-->`);
-  pop();
 }
 class AnimationsComplete {
   #opts;
-  #currentFrame = void 0;
-  #isRunning = false;
+  #currentFrame = null;
+  #observer = null;
+  #runId = 0;
   constructor(opts) {
     this.#opts = opts;
   }
   #cleanup() {
-    if (this.#currentFrame) {
+    if (this.#currentFrame !== null) {
       window.cancelAnimationFrame(this.#currentFrame);
-      this.#currentFrame = void 0;
+      this.#currentFrame = null;
     }
-    this.#isRunning = false;
+    this.#observer?.disconnect();
+    this.#observer = null;
+    this.#runId++;
   }
   run(fn) {
-    if (this.#isRunning)
-      return;
     this.#cleanup();
-    this.#isRunning = true;
     const node = this.#opts.ref.current;
-    if (!node) {
-      this.#isRunning = false;
+    if (!node)
       return;
-    }
     if (typeof node.getAnimations !== "function") {
       this.#executeCallback(fn);
       return;
     }
-    this.#currentFrame = window.requestAnimationFrame(() => {
+    const runId = this.#runId;
+    const executeIfCurrent = () => {
+      if (runId !== this.#runId)
+        return;
+      this.#executeCallback(fn);
+    };
+    const waitForAnimations = () => {
+      if (runId !== this.#runId)
+        return;
       const animations = node.getAnimations();
       if (animations.length === 0) {
-        this.#executeCallback(fn);
+        executeIfCurrent();
         return;
       }
-      Promise.allSettled(animations.map((animation) => animation.finished)).then(() => {
-        this.#executeCallback(fn);
+      Promise.all(animations.map((animation) => animation.finished)).then(() => {
+        executeIfCurrent();
+      }).catch(() => {
+        if (runId !== this.#runId)
+          return;
+        const currentAnimations = node.getAnimations();
+        const hasRunningAnimations = currentAnimations.some((animation) => animation.pending || animation.playState !== "finished");
+        if (hasRunningAnimations) {
+          waitForAnimations();
+          return;
+        }
+        executeIfCurrent();
+      });
+    };
+    const requestWaitForAnimations = () => {
+      this.#currentFrame = window.requestAnimationFrame(() => {
+        this.#currentFrame = null;
+        waitForAnimations();
+      });
+    };
+    if (!this.#opts.afterTick.current) {
+      requestWaitForAnimations();
+      return;
+    }
+    this.#currentFrame = window.requestAnimationFrame(() => {
+      this.#currentFrame = null;
+      const startingStyleAttr = "data-starting-style";
+      if (!node.hasAttribute(startingStyleAttr)) {
+        requestWaitForAnimations();
+        return;
+      }
+      this.#observer = new MutationObserver(() => {
+        if (runId !== this.#runId)
+          return;
+        if (node.hasAttribute(startingStyleAttr))
+          return;
+        this.#observer?.disconnect();
+        this.#observer = null;
+        requestWaitForAnimations();
+      });
+      this.#observer.observe(node, {
+        attributes: true,
+        attributeFilter: [startingStyleAttr]
       });
     });
   }
   #executeCallback(fn) {
     const execute = () => {
       fn();
-      this.#isRunning = false;
     };
     if (this.#opts.afterTick) {
       afterTick(execute);
@@ -1809,27 +1694,76 @@ class AnimationsComplete {
     }
   }
 }
-class OpenChangeComplete {
+class PresenceManager {
   #opts;
   #enabled;
   #afterAnimations;
+  #shouldRender = false;
+  #transitionStatus = void 0;
+  #hasMounted = false;
+  #transitionFrame = null;
   constructor(opts) {
     this.#opts = opts;
+    this.#shouldRender = opts.open.current;
     this.#enabled = opts.enabled ?? true;
-    this.#afterAnimations = new AnimationsComplete({
-      ref: this.#opts.ref,
-      afterTick: this.#opts.open
-    });
-    watch([() => this.#opts.open.current], ([open]) => {
-      if (!this.#enabled)
+    this.#afterAnimations = new AnimationsComplete({ ref: this.#opts.ref, afterTick: this.#opts.open });
+    watch(() => this.#opts.open.current, (isOpen) => {
+      if (!this.#hasMounted) {
+        this.#hasMounted = true;
         return;
+      }
+      this.#clearTransitionFrame();
+      if (!isOpen && this.#opts.shouldSkipExitAnimation?.()) {
+        this.#shouldRender = false;
+        this.#transitionStatus = void 0;
+        this.#opts.onComplete?.();
+        return;
+      }
+      if (isOpen) this.#shouldRender = true;
+      this.#transitionStatus = isOpen ? "starting" : "ending";
+      if (isOpen) {
+        this.#transitionFrame = window.requestAnimationFrame(() => {
+          this.#transitionFrame = null;
+          if (this.#opts.open.current) {
+            this.#transitionStatus = void 0;
+          }
+        });
+      }
+      if (!this.#enabled) {
+        if (!isOpen) {
+          this.#shouldRender = false;
+        }
+        this.#transitionStatus = void 0;
+        this.#opts.onComplete?.();
+        return;
+      }
       this.#afterAnimations.run(() => {
-        if (open === this.#opts.open.current) {
-          this.#opts.onComplete();
+        if (isOpen === this.#opts.open.current) {
+          if (!this.#opts.open.current) {
+            this.#shouldRender = false;
+          }
+          this.#transitionStatus = void 0;
+          this.#opts.onComplete?.();
         }
       });
     });
   }
+  get shouldRender() {
+    return this.#shouldRender;
+  }
+  get transitionStatus() {
+    return this.#transitionStatus;
+  }
+  #clearTransitionFrame() {
+    if (this.#transitionFrame === null) return;
+    window.cancelAnimationFrame(this.#transitionFrame);
+    this.#transitionFrame = null;
+  }
+}
+function noop() {
+}
+function createId(prefixOrUid, uid) {
+  return `bits-${prefixOrUid}`;
 }
 const dialogAttrs = createBitsAttrs({
   component: "dialog",
@@ -1847,29 +1781,55 @@ const dialogAttrs = createBitsAttrs({
 const DialogRootContext = new Context("Dialog.Root | AlertDialog.Root");
 class DialogRootState {
   static create(opts) {
-    return DialogRootContext.set(new DialogRootState(opts));
+    const parent = DialogRootContext.getOr(null);
+    return DialogRootContext.set(new DialogRootState(opts, parent));
   }
   opts;
   triggerNode = null;
   contentNode = null;
+  overlayNode = null;
   descriptionNode = null;
   contentId = void 0;
   titleId = void 0;
   triggerId = void 0;
   descriptionId = void 0;
   cancelNode = null;
-  constructor(opts) {
+  nestedOpenCount = 0;
+  depth;
+  parent;
+  contentPresence;
+  overlayPresence;
+  constructor(opts, parent) {
     this.opts = opts;
+    this.parent = parent;
+    this.depth = parent ? parent.depth + 1 : 0;
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    new OpenChangeComplete({
-      ref: box.with(() => this.contentNode),
+    this.contentPresence = new PresenceManager({
+      ref: boxWith(() => this.contentNode),
       open: this.opts.open,
       enabled: true,
       onComplete: () => {
         this.opts.onOpenChangeComplete.current(this.opts.open.current);
       }
     });
+    this.overlayPresence = new PresenceManager({
+      ref: boxWith(() => this.overlayNode),
+      open: this.opts.open,
+      enabled: true
+    });
+    watch(
+      () => this.opts.open.current,
+      (isOpen) => {
+        if (!this.parent) return;
+        if (isOpen) {
+          this.parent.incrementNested();
+        } else {
+          this.parent.decrementNested();
+        }
+      },
+      { lazy: true }
+    );
   }
   handleOpen() {
     if (this.opts.open.current) return;
@@ -1882,6 +1842,15 @@ class DialogRootState {
   getBitsAttr = (part) => {
     return dialogAttrs.getAttr(part, this.opts.variant.current);
   };
+  incrementNested() {
+    this.nestedOpenCount++;
+    this.parent?.incrementNested();
+  }
+  decrementNested() {
+    if (this.nestedOpenCount === 0) return;
+    this.nestedOpenCount--;
+    this.parent?.decrementNested();
+  }
   #sharedProps = derived(() => ({ "data-state": getDataOpenClosed(this.opts.open.current) }));
   get sharedProps() {
     return this.#sharedProps();
@@ -2026,9 +1995,15 @@ class DialogContentState {
     [this.root.getBitsAttr("content")]: "",
     style: {
       pointerEvents: "auto",
-      outline: this.root.opts.variant.current === "alert-dialog" ? "none" : void 0
+      outline: this.root.opts.variant.current === "alert-dialog" ? "none" : void 0,
+      "--bits-dialog-depth": this.root.depth,
+      "--bits-dialog-nested-count": this.root.nestedOpenCount,
+      contain: "layout style"
     },
     tabindex: this.root.opts.variant.current === "alert-dialog" ? -1 : void 0,
+    "data-nested-open": boolToEmptyStrOrUndef(this.root.nestedOpenCount > 0),
+    "data-nested": boolToEmptyStrOrUndef(this.root.parent !== null),
+    ...getDataTransitionAttrs(this.root.contentPresence.transitionStatus),
     ...this.root.sharedProps,
     ...this.attachment
   }));
@@ -2037,6 +2012,9 @@ class DialogContentState {
   }
   set props($$value) {
     return this.#props($$value);
+  }
+  get shouldRender() {
+    return this.root.contentPresence.shouldRender;
   }
 }
 class DialogOverlayState {
@@ -2049,7 +2027,7 @@ class DialogOverlayState {
   constructor(opts, root) {
     this.opts = opts;
     this.root = root;
-    this.attachment = attachRef(this.opts.ref);
+    this.attachment = attachRef(this.opts.ref, (v) => this.root.overlayNode = v);
   }
   #snippetProps = derived(() => ({ open: this.root.opts.open.current }));
   get snippetProps() {
@@ -2061,7 +2039,14 @@ class DialogOverlayState {
   #props = derived(() => ({
     id: this.opts.id.current,
     [this.root.getBitsAttr("overlay")]: "",
-    style: { pointerEvents: "auto" },
+    style: {
+      pointerEvents: "auto",
+      "--bits-dialog-depth": this.root.depth,
+      "--bits-dialog-nested-count": this.root.nestedOpenCount
+    },
+    "data-nested-open": boolToEmptyStrOrUndef(this.root.nestedOpenCount > 0),
+    "data-nested": boolToEmptyStrOrUndef(this.root.parent !== null),
+    ...getDataTransitionAttrs(this.root.overlayPresence.transitionStatus),
     ...this.root.sharedProps,
     ...this.attachment
   }));
@@ -2071,57 +2056,42 @@ class DialogOverlayState {
   set props($$value) {
     return this.#props($$value);
   }
-}
-function Dialog_title($$payload, $$props) {
-  push();
-  const uid = props_id($$payload);
-  let {
-    id = createId(uid),
-    ref = null,
-    child,
-    children,
-    level = 2,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const titleState = DialogTitleState.create({
-    id: box.with(() => id),
-    level: box.with(() => level),
-    ref: box.with(() => ref, (v) => ref = v)
-  });
-  const mergedProps = mergeProps(restProps, titleState.props);
-  if (child) {
-    $$payload.out.push("<!--[-->");
-    child($$payload, { props: mergedProps });
-    $$payload.out.push(`<!---->`);
-  } else {
-    $$payload.out.push("<!--[!-->");
-    $$payload.out.push(`<div${spread_attributes({ ...mergedProps })}>`);
-    children?.($$payload);
-    $$payload.out.push(`<!----></div>`);
+  get shouldRender() {
+    return this.root.overlayPresence.shouldRender;
   }
-  $$payload.out.push(`<!--]-->`);
-  bind_props($$props, { ref });
-  pop();
 }
-const isBrowser = typeof document !== "undefined";
-const isIOS = getIsIOS();
-function getIsIOS() {
-  return isBrowser && window?.navigator?.userAgent && (/iP(ad|hone|od)/.test(window.navigator.userAgent) || // The new iPad Pro Gen3 does not identify itself as iPad, but as Macintosh.
-  window?.navigator?.maxTouchPoints > 2 && /iPad|Macintosh/.test(window?.navigator.userAgent));
-}
-function isHTMLElement(element2) {
-  return element2 instanceof HTMLElement;
-}
-function isElement(element2) {
-  return element2 instanceof Element;
-}
-function isFocusVisible(element2) {
-  return element2.matches(":focus-visible");
-}
-function isNotNull(value) {
-  return value !== null;
+function Dialog_title($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    const uid = props_id($$renderer2);
+    let {
+      id = createId(uid),
+      ref = null,
+      child,
+      children,
+      level = 2,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const titleState = DialogTitleState.create({
+      id: boxWith(() => id),
+      level: boxWith(() => level),
+      ref: boxWith(() => ref, (v) => ref = v)
+    });
+    const mergedProps = derived(() => mergeProps(restProps, titleState.props));
+    if (child) {
+      $$renderer2.push("<!--[0-->");
+      child($$renderer2, { props: mergedProps() });
+      $$renderer2.push(`<!---->`);
+    } else {
+      $$renderer2.push("<!--[-1-->");
+      $$renderer2.push(`<div${attributes({ ...mergedProps() })}>`);
+      children?.($$renderer2);
+      $$renderer2.push(`<!----></div>`);
+    }
+    $$renderer2.push(`<!--]-->`);
+    bind_props($$props, { ref });
+  });
 }
 const BitsConfigContext = new Context("BitsConfig");
 function getBitsConfig() {
@@ -2140,7 +2110,7 @@ class BitsConfigState {
 }
 function createConfigResolver(parent, currentOpts) {
   return (getter) => {
-    const configOption = box.with(() => {
+    const configOption = boxWith(() => {
       const value = getter(currentOpts)?.current;
       if (value !== void 0)
         return value;
@@ -2154,7 +2124,7 @@ function createConfigResolver(parent, currentOpts) {
 function createPropResolver(configOption, fallback) {
   return (getProp) => {
     const config = getBitsConfig();
-    return box.with(() => {
+    return boxWith(() => {
       const propValue = getProp();
       if (propValue !== void 0)
         return propValue;
@@ -2166,56 +2136,49 @@ function createPropResolver(configOption, fallback) {
   };
 }
 const resolvePortalToProp = createPropResolver((config) => config.defaultPortalTo, "body");
-function Portal($$payload, $$props) {
-  push();
-  let { to: toProp, children, disabled } = $$props;
-  const to = resolvePortalToProp(() => toProp);
-  getAllContexts();
-  let target = getTarget();
-  function getTarget() {
-    if (!isBrowser || disabled) return null;
-    let localTarget = null;
-    if (typeof to.current === "string") {
-      const target2 = document.querySelector(to.current);
-      localTarget = target2;
+function Portal($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { to: toProp, children, disabled } = $$props;
+    const to = resolvePortalToProp(() => toProp);
+    getAllContexts();
+    let target = derived(getTarget);
+    function getTarget() {
+      if (!isBrowser || disabled) return null;
+      let localTarget = null;
+      if (typeof to.current === "string") {
+        const target2 = document.querySelector(to.current);
+        localTarget = target2;
+      } else {
+        localTarget = to.current;
+      }
+      return localTarget;
+    }
+    let instance;
+    function unmountInstance() {
+      if (instance) {
+        unmount();
+        instance = null;
+      }
+    }
+    watch([() => target(), () => disabled], ([target2, disabled2]) => {
+      if (!target2 || disabled2) {
+        unmountInstance();
+        return;
+      }
+      instance = mount();
+      return () => {
+        unmountInstance();
+      };
+    });
+    if (disabled) {
+      $$renderer2.push("<!--[0-->");
+      children?.($$renderer2);
+      $$renderer2.push(`<!---->`);
     } else {
-      localTarget = to.current;
+      $$renderer2.push("<!--[-1-->");
     }
-    return localTarget;
-  }
-  let instance;
-  function unmountInstance() {
-    if (instance) {
-      unmount();
-      instance = null;
-    }
-  }
-  watch([() => target, () => disabled], ([target2, disabled2]) => {
-    if (!target2 || disabled2) {
-      unmountInstance();
-      return;
-    }
-    instance = mount();
-    return () => {
-      unmountInstance();
-    };
+    $$renderer2.push(`<!--]-->`);
   });
-  if (disabled) {
-    $$payload.out.push("<!--[-->");
-    children?.($$payload);
-    $$payload.out.push(`<!---->`);
-  } else {
-    $$payload.out.push("<!--[!-->");
-  }
-  $$payload.out.push(`<!--]-->`);
-  pop();
-}
-function addEventListener(target, event, handler, options) {
-  const events = Array.isArray(event) ? event : [event];
-  events.forEach((_event) => target.addEventListener(_event, handler, options));
-  return () => {
-    events.forEach((_event) => target.removeEventListener(_event, handler, options));
-  };
 }
 function debounce(fn, wait = 500) {
   let timeout = null;
@@ -2246,6 +2209,63 @@ function isClickTrulyOutside(event, contentNode) {
   const rect = contentNode.getBoundingClientRect();
   return clientX < rect.left || clientX > rect.right || clientY < rect.top || clientY > rect.bottom;
 }
+function getTabbableCandidates(container) {
+  const nodes = [];
+  const doc = getDocument(container);
+  const walker = doc.createTreeWalker(container, NodeFilter.SHOW_ELEMENT, {
+    // oxlint-disable-next-line no-explicit-any
+    acceptNode: (node) => {
+      const isHiddenInput = node.tagName === "INPUT" && node.type === "hidden";
+      if (node.disabled || node.hidden || isHiddenInput)
+        return NodeFilter.FILTER_SKIP;
+      return node.tabIndex >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+    }
+  });
+  while (walker.nextNode())
+    nodes.push(walker.currentNode);
+  return nodes;
+}
+const defaultOptions = { afterMs: 1e4, onChange: noop };
+function boxAutoReset(defaultValue, options) {
+  const { afterMs, onChange, getWindow: getWindow2 } = { ...defaultOptions, ...options };
+  let timeout = null;
+  let value = defaultValue;
+  function resetAfter() {
+    return getWindow2().setTimeout(
+      () => {
+        value = defaultValue;
+        onChange?.(defaultValue);
+      },
+      afterMs
+    );
+  }
+  return boxWith(() => value, (v) => {
+    value = v;
+    onChange?.(v);
+    if (timeout) getWindow2().clearTimeout(timeout);
+    timeout = resetAfter();
+  });
+}
+const CONTEXT_MENU_TRIGGER_ATTR = "data-context-menu-trigger";
+const CONTEXT_MENU_CONTENT_ATTR = "data-context-menu-content";
+createBitsAttrs({
+  component: "menu",
+  parts: [
+    "trigger",
+    "content",
+    "sub-trigger",
+    "item",
+    "group",
+    "group-heading",
+    "checkbox-group",
+    "checkbox-item",
+    "radio-group",
+    "radio-item",
+    "separator",
+    "sub-content",
+    "arrow"
+  ]
+});
 globalThis.bitsDismissableLayers ??= /* @__PURE__ */ new Map();
 class DismissibleLayerState {
   static create(opts) {
@@ -2343,7 +2363,7 @@ class DismissibleLayerState {
       }
       if (e.pointerType === "touch") {
         this.#unsubClickListener();
-        this.#unsubClickListener = addEventListener(this.#documentObj, "click", this.#handleDismiss, { once: true });
+        this.#unsubClickListener = on(this.#documentObj, "click", this.#handleDismiss, { once: true });
       } else {
         this.#interactOutsideProp.current(event);
       }
@@ -2388,20 +2408,26 @@ class DismissibleLayerState {
     onblurcapture: this.#onblurcapture
   };
 }
-function getTopMostLayer(layersArr) {
+function getTopMostDismissableLayer(layersArr = [...globalThis.bitsDismissableLayers]) {
   return layersArr.findLast(([_, { current: behaviorType }]) => behaviorType === "close" || behaviorType === "ignore");
 }
 function isResponsibleLayer(node) {
   const layersArr = [...globalThis.bitsDismissableLayers];
-  const topMostLayer = getTopMostLayer(layersArr);
+  const topMostLayer = getTopMostDismissableLayer(layersArr);
   if (topMostLayer) return topMostLayer[0].opts.ref.current === node;
   const [firstLayerNode] = layersArr[0];
   return firstLayerNode.opts.ref.current === node;
 }
 function isValidEvent(e, node) {
-  if ("button" in e && e.button > 0) return false;
   const target = e.target;
-  if (!isElement(target)) return false;
+  if (!isElementOrSVGElement(target)) return false;
+  const targetIsContextMenuTrigger = Boolean(target.closest(`[${CONTEXT_MENU_TRIGGER_ATTR}]`));
+  const nodeIsContextMenu = Boolean(node.closest(`[${CONTEXT_MENU_CONTENT_ATTR}]`));
+  if ("button" in e && e.button > 0 && !targetIsContextMenuTrigger) return false;
+  if ("button" in e && e.button === 0 && targetIsContextMenuTrigger && nodeIsContextMenu) {
+    return true;
+  }
+  if (targetIsContextMenuTrigger && nodeIsContextMenu) return false;
   const ownerDocument = getOwnerDocument(target);
   const isValid = ownerDocument.documentElement.contains(target) && !isOrContainsTarget(node, target) && isClickTrulyOutside(e, node);
   return isValid;
@@ -2443,30 +2469,30 @@ function createWrappedEvent(e) {
   });
   return wrappedEvent;
 }
-function Dismissible_layer($$payload, $$props) {
-  push();
-  let {
-    interactOutsideBehavior = "close",
-    onInteractOutside = noop,
-    onFocusOutside = noop,
-    id,
-    children,
-    enabled,
-    isValidEvent: isValidEvent2 = () => false,
-    ref
-  } = $$props;
-  const dismissibleLayerState = DismissibleLayerState.create({
-    id: box.with(() => id),
-    interactOutsideBehavior: box.with(() => interactOutsideBehavior),
-    onInteractOutside: box.with(() => onInteractOutside),
-    enabled: box.with(() => enabled),
-    onFocusOutside: box.with(() => onFocusOutside),
-    isValidEvent: box.with(() => isValidEvent2),
-    ref
+function Dismissible_layer($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      interactOutsideBehavior = "close",
+      onInteractOutside = noop,
+      onFocusOutside = noop,
+      id,
+      children,
+      enabled,
+      isValidEvent: isValidEvent2 = () => false,
+      ref
+    } = $$props;
+    const dismissibleLayerState = DismissibleLayerState.create({
+      id: boxWith(() => id),
+      interactOutsideBehavior: boxWith(() => interactOutsideBehavior),
+      onInteractOutside: boxWith(() => onInteractOutside),
+      enabled: boxWith(() => enabled),
+      onFocusOutside: boxWith(() => onFocusOutside),
+      isValidEvent: boxWith(() => isValidEvent2),
+      ref
+    });
+    children?.($$renderer2, { props: dismissibleLayerState.props });
+    $$renderer2.push(`<!---->`);
   });
-  children?.($$payload, { props: dismissibleLayerState.props });
-  $$payload.out.push(`<!---->`);
-  pop();
 }
 globalThis.bitsEscapeLayers ??= /* @__PURE__ */ new Map();
 class EscapeLayerState {
@@ -2509,29 +2535,30 @@ function isResponsibleEscapeLayer(instance) {
   const [firstLayerNode] = layersArr[0];
   return firstLayerNode === instance;
 }
-function Escape_layer($$payload, $$props) {
-  push();
-  let {
-    escapeKeydownBehavior = "close",
-    onEscapeKeydown = noop,
-    children,
-    enabled,
-    ref
-  } = $$props;
-  EscapeLayerState.create({
-    escapeKeydownBehavior: box.with(() => escapeKeydownBehavior),
-    onEscapeKeydown: box.with(() => onEscapeKeydown),
-    enabled: box.with(() => enabled),
-    ref
+function Escape_layer($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      escapeKeydownBehavior = "close",
+      onEscapeKeydown = noop,
+      children,
+      enabled,
+      ref
+    } = $$props;
+    EscapeLayerState.create({
+      escapeKeydownBehavior: boxWith(() => escapeKeydownBehavior),
+      onEscapeKeydown: boxWith(() => onEscapeKeydown),
+      enabled: boxWith(() => enabled),
+      ref
+    });
+    children?.($$renderer2);
+    $$renderer2.push(`<!---->`);
   });
-  children?.($$payload);
-  $$payload.out.push(`<!---->`);
-  pop();
 }
 class FocusScopeManager {
   static instance;
-  #scopeStack = box([]);
+  #scopeStack = simpleBox([]);
   #focusHistory = /* @__PURE__ */ new WeakMap();
+  #preFocusHistory = /* @__PURE__ */ new WeakMap();
   static getInstance() {
     if (!this.instance) {
       this.instance = new FocusScopeManager();
@@ -2542,6 +2569,10 @@ class FocusScopeManager {
     const current = this.getActive();
     if (current && current !== scope) {
       current.pause();
+    }
+    const activeElement = document.activeElement;
+    if (activeElement && activeElement !== document.body) {
+      this.#preFocusHistory.set(scope, activeElement);
     }
     this.#scopeStack.current = this.#scopeStack.current.filter((s) => s !== scope);
     this.#scopeStack.current.unshift(scope);
@@ -2564,6 +2595,15 @@ class FocusScopeManager {
   }
   isActiveScope(scope) {
     return this.getActive() === scope;
+  }
+  setPreFocusMemory(scope, element2) {
+    this.#preFocusHistory.set(scope, element2);
+  }
+  getPreFocusMemory(scope) {
+    return this.#preFocusHistory.get(scope);
+  }
+  clearPreFocusMemory(scope) {
+    this.#preFocusHistory.delete(scope);
   }
 }
 class FocusScope {
@@ -2604,6 +2644,7 @@ class FocusScope {
     this.#cleanup();
     this.#handleCloseAutoFocus();
     this.#manager.unregister(this);
+    this.#manager.clearPreFocusMemory(this);
     this.#container = null;
   }
   #handleOpenAutoFocus() {
@@ -2627,9 +2668,13 @@ class FocusScope {
     const event = new CustomEvent("focusScope.onCloseAutoFocus", { bubbles: false, cancelable: true });
     this.#opts.onCloseAutoFocus.current?.(event);
     if (!event.defaultPrevented) {
-      const prevFocused = document.activeElement;
-      if (prevFocused && prevFocused !== document.body) {
-        prevFocused.focus();
+      const preFocusedElement = this.#manager.getPreFocusMemory(this);
+      if (preFocusedElement && document.contains(preFocusedElement)) {
+        try {
+          preFocusedElement.focus();
+        } catch {
+          document.body.focus();
+        }
       }
     }
   }
@@ -2660,7 +2705,7 @@ class FocusScope {
       if (!this.#opts.loop || this.#paused || e.key !== "Tab") return;
       if (!this.#manager.isActiveScope(this)) return;
       const tabbables = this.#getTabbables();
-      if (tabbables.length < 2) return;
+      if (tabbables.length === 0) return;
       const first = tabbables[0];
       const last = tabbables[tabbables.length - 1];
       if (!e.shiftKey && doc.activeElement === last) {
@@ -2721,28 +2766,28 @@ class FocusScope {
     };
   }
 }
-function Focus_scope($$payload, $$props) {
-  push();
-  let {
-    enabled = false,
-    trapFocus = false,
-    loop = false,
-    onCloseAutoFocus = noop,
-    onOpenAutoFocus = noop,
-    focusScope,
-    ref
-  } = $$props;
-  const focusScopeState = FocusScope.use({
-    enabled: box.with(() => enabled),
-    trap: box.with(() => trapFocus),
-    loop,
-    onCloseAutoFocus: box.with(() => onCloseAutoFocus),
-    onOpenAutoFocus: box.with(() => onOpenAutoFocus),
-    ref
+function Focus_scope($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      enabled = false,
+      trapFocus = false,
+      loop = false,
+      onCloseAutoFocus = noop,
+      onOpenAutoFocus = noop,
+      focusScope,
+      ref
+    } = $$props;
+    const focusScopeState = FocusScope.use({
+      enabled: boxWith(() => enabled),
+      trap: boxWith(() => trapFocus),
+      loop,
+      onCloseAutoFocus: boxWith(() => onCloseAutoFocus),
+      onOpenAutoFocus: boxWith(() => onOpenAutoFocus),
+      ref
+    });
+    focusScope?.($$renderer2, { props: focusScopeState.props });
+    $$renderer2.push(`<!---->`);
   });
-  focusScope?.($$payload, { props: focusScopeState.props });
-  $$payload.out.push(`<!---->`);
-  pop();
 }
 globalThis.bitsTextSelectionLayers ??= /* @__PURE__ */ new Map();
 class TextSelectionLayerState {
@@ -2808,27 +2853,27 @@ function isHighestLayer(instance) {
   if (!highestLayer) return false;
   return highestLayer[0] === instance;
 }
-function Text_selection_layer($$payload, $$props) {
-  push();
-  let {
-    preventOverflowTextSelection = true,
-    onPointerDown = noop,
-    onPointerUp = noop,
-    id,
-    children,
-    enabled,
-    ref
-  } = $$props;
-  TextSelectionLayerState.create({
-    id: box.with(() => id),
-    onPointerDown: box.with(() => onPointerDown),
-    onPointerUp: box.with(() => onPointerUp),
-    enabled: box.with(() => enabled && preventOverflowTextSelection),
-    ref
+function Text_selection_layer($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      preventOverflowTextSelection = true,
+      onPointerDown = noop,
+      onPointerUp = noop,
+      id,
+      children,
+      enabled,
+      ref
+    } = $$props;
+    TextSelectionLayerState.create({
+      id: boxWith(() => id),
+      onPointerDown: boxWith(() => onPointerDown),
+      onPointerUp: boxWith(() => onPointerUp),
+      enabled: boxWith(() => enabled && preventOverflowTextSelection),
+      ref
+    });
+    children?.($$renderer2);
+    $$renderer2.push(`<!---->`);
   });
-  children?.($$payload);
-  $$payload.out.push(`<!---->`);
-  pop();
 }
 globalThis.bitsIdCounter ??= { current: 0 };
 function useId(prefix = "bits") {
@@ -2860,40 +2905,70 @@ class SharedState {
     return this.#state;
   }
 }
-const bodyLockStackCount = new SharedState(() => {
-  const map = new SvelteMap();
-  const locked = (() => {
-    for (const value of map.values()) {
-      if (value) return true;
-    }
-    return false;
-  })();
-  let initialBodyStyle = null;
-  let stopTouchMoveListener = null;
-  function resetBodyStyle() {
-    if (!isBrowser) return;
-    document.body.setAttribute("style", initialBodyStyle ?? "");
-    document.body.style.removeProperty("--scrollbar-width");
-    isIOS && stopTouchMoveListener?.();
+const lockMap = new SvelteMap();
+let initialBodyStyle = null;
+let cleanupTimeoutId = null;
+let isInCleanupTransition = false;
+const anyLocked = boxWith(() => {
+  for (const value of lockMap.values()) {
+    if (value) return true;
   }
-  watch(() => locked, () => {
-    if (!locked) return;
-    initialBodyStyle = document.body.getAttribute("style");
+  return false;
+});
+let cleanupScheduledAt = null;
+const bodyLockStackCount = new SharedState(() => {
+  function resetBodyStyle() {
+    return;
+  }
+  function cancelPendingCleanup() {
+    if (cleanupTimeoutId === null) return;
+    window.clearTimeout(cleanupTimeoutId);
+    cleanupTimeoutId = null;
+  }
+  function scheduleCleanupIfNoNewLocks(delay, callback) {
+    cancelPendingCleanup();
+    isInCleanupTransition = true;
+    cleanupScheduledAt = Date.now();
+    const currentCleanupId = cleanupScheduledAt;
+    const cleanupFn = () => {
+      cleanupTimeoutId = null;
+      if (cleanupScheduledAt !== currentCleanupId) return;
+      if (!isAnyLocked(lockMap)) {
+        isInCleanupTransition = false;
+        callback();
+      } else {
+        isInCleanupTransition = false;
+      }
+    };
+    const actualDelay = delay === null ? 24 : delay;
+    cleanupTimeoutId = window.setTimeout(cleanupFn, actualDelay);
+  }
+  function ensureInitialStyleCaptured() {
+    if (initialBodyStyle === null && lockMap.size === 0 && !isInCleanupTransition) {
+      initialBodyStyle = document.body.getAttribute("style");
+    }
+  }
+  watch(() => anyLocked.current, () => {
+    if (!anyLocked.current) return;
+    ensureInitialStyleCaptured();
+    isInCleanupTransition = false;
+    const htmlStyle = getComputedStyle(document.documentElement);
     const bodyStyle = getComputedStyle(document.body);
+    const hasStableGutter = htmlStyle.scrollbarGutter?.includes("stable") || bodyStyle.scrollbarGutter?.includes("stable");
     const verticalScrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
     const paddingRight = Number.parseInt(bodyStyle.paddingRight ?? "0", 10);
     const config = {
       padding: paddingRight + verticalScrollbarWidth,
       margin: Number.parseInt(bodyStyle.marginRight ?? "0", 10)
     };
-    if (verticalScrollbarWidth > 0) {
+    if (verticalScrollbarWidth > 0 && !hasStableGutter) {
       document.body.style.paddingRight = `${config.padding}px`;
       document.body.style.marginRight = `${config.margin}px`;
       document.body.style.setProperty("--scrollbar-width", `${verticalScrollbarWidth}px`);
-      document.body.style.overflow = "hidden";
     }
+    document.body.style.overflow = "hidden";
     if (isIOS) {
-      stopTouchMoveListener = addEventListener(
+      on(
         document,
         "touchmove",
         (e) => {
@@ -2910,10 +2985,13 @@ const bodyLockStackCount = new SharedState(() => {
     });
   });
   return {
-    get map() {
-      return map;
+    get lockMap() {
+      return lockMap;
     },
-    resetBodyStyle
+    resetBodyStyle,
+    scheduleCleanupIfNoNewLocks,
+    cancelPendingCleanup,
+    ensureInitialStyleCaptured
   };
 });
 class BodyScrollLock {
@@ -2927,94 +3005,97 @@ class BodyScrollLock {
     this.#restoreScrollDelay = restoreScrollDelay;
     this.#countState = bodyLockStackCount.get();
     if (!this.#countState) return;
-    this.#countState.map.set(this.#id, this.#initialState ?? false);
-    this.locked = box.with(() => this.#countState.map.get(this.#id) ?? false, (v) => this.#countState.map.set(this.#id, v));
+    this.#countState.cancelPendingCleanup();
+    this.#countState.ensureInitialStyleCaptured();
+    this.#countState.lockMap.set(this.#id, this.#initialState ?? false);
+    this.locked = boxWith(() => this.#countState.lockMap.get(this.#id) ?? false, (v) => this.#countState.lockMap.set(this.#id, v));
   }
 }
-function Scroll_lock($$payload, $$props) {
-  push();
-  let { preventScroll = true, restoreScrollDelay = null } = $$props;
-  if (preventScroll) {
-    new BodyScrollLock(preventScroll, () => restoreScrollDelay);
+function isAnyLocked(map) {
+  for (const [_, value] of map) {
+    if (value) return true;
   }
-  pop();
+  return false;
 }
-function shouldEnableFocusTrap({ forceMount, present, open }) {
-  if (forceMount)
-    return open;
-  return present && open;
-}
-function Dialog_overlay($$payload, $$props) {
-  push();
-  const uid = props_id($$payload);
-  let {
-    id = createId(uid),
-    forceMount = false,
-    child,
-    children,
-    ref = null,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const overlayState = DialogOverlayState.create({
-    id: box.with(() => id),
-    ref: box.with(() => ref, (v) => ref = v)
+function Scroll_lock($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { preventScroll = true, restoreScrollDelay = null } = $$props;
+    if (preventScroll) {
+      new BodyScrollLock(preventScroll, () => restoreScrollDelay);
+    }
   });
-  const mergedProps = mergeProps(restProps, overlayState.props);
-  {
-    let presence = function($$payload2) {
-      if (child) {
-        $$payload2.out.push("<!--[-->");
-        child($$payload2, { props: mergeProps(mergedProps), ...overlayState.snippetProps });
-        $$payload2.out.push(`<!---->`);
-      } else {
-        $$payload2.out.push("<!--[!-->");
-        $$payload2.out.push(`<div${spread_attributes({ ...mergeProps(mergedProps) })}>`);
-        children?.($$payload2, overlayState.snippetProps);
-        $$payload2.out.push(`<!----></div>`);
-      }
-      $$payload2.out.push(`<!--]-->`);
-    };
-    Presence_layer($$payload, {
-      open: overlayState.root.opts.open.current || forceMount,
-      ref: overlayState.opts.ref,
-      presence
+}
+function Dialog_overlay($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    const uid = props_id($$renderer2);
+    let {
+      id = createId(uid),
+      forceMount = false,
+      child,
+      children,
+      ref = null,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const overlayState = DialogOverlayState.create({
+      id: boxWith(() => id),
+      ref: boxWith(() => ref, (v) => ref = v)
     });
-  }
-  bind_props($$props, { ref });
-  pop();
-}
-function Dialog_description($$payload, $$props) {
-  push();
-  const uid = props_id($$payload);
-  let {
-    id = createId(uid),
-    children,
-    child,
-    ref = null,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const descriptionState = DialogDescriptionState.create({
-    id: box.with(() => id),
-    ref: box.with(() => ref, (v) => ref = v)
+    const mergedProps = derived(() => mergeProps(restProps, overlayState.props));
+    if (overlayState.shouldRender || forceMount) {
+      $$renderer2.push("<!--[0-->");
+      if (child) {
+        $$renderer2.push("<!--[0-->");
+        child($$renderer2, {
+          props: mergeProps(mergedProps()),
+          ...overlayState.snippetProps
+        });
+        $$renderer2.push(`<!---->`);
+      } else {
+        $$renderer2.push("<!--[-1-->");
+        $$renderer2.push(`<div${attributes({ ...mergeProps(mergedProps()) })}>`);
+        children?.($$renderer2, overlayState.snippetProps);
+        $$renderer2.push(`<!----></div>`);
+      }
+      $$renderer2.push(`<!--]-->`);
+    } else {
+      $$renderer2.push("<!--[-1-->");
+    }
+    $$renderer2.push(`<!--]-->`);
+    bind_props($$props, { ref });
   });
-  const mergedProps = mergeProps(restProps, descriptionState.props);
-  if (child) {
-    $$payload.out.push("<!--[-->");
-    child($$payload, { props: mergedProps });
-    $$payload.out.push(`<!---->`);
-  } else {
-    $$payload.out.push("<!--[!-->");
-    $$payload.out.push(`<div${spread_attributes({ ...mergedProps })}>`);
-    children?.($$payload);
-    $$payload.out.push(`<!----></div>`);
-  }
-  $$payload.out.push(`<!--]-->`);
-  bind_props($$props, { ref });
-  pop();
+}
+function Dialog_description($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    const uid = props_id($$renderer2);
+    let {
+      id = createId(uid),
+      children,
+      child,
+      ref = null,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const descriptionState = DialogDescriptionState.create({
+      id: boxWith(() => id),
+      ref: boxWith(() => ref, (v) => ref = v)
+    });
+    const mergedProps = derived(() => mergeProps(restProps, descriptionState.props));
+    if (child) {
+      $$renderer2.push("<!--[0-->");
+      child($$renderer2, { props: mergedProps() });
+      $$renderer2.push(`<!---->`);
+    } else {
+      $$renderer2.push("<!--[-1-->");
+      $$renderer2.push(`<div${attributes({ ...mergedProps() })}>`);
+      children?.($$renderer2);
+      $$renderer2.push(`<!----></div>`);
+    }
+    $$renderer2.push(`<!--]-->`);
+    bind_props($$props, { ref });
+  });
 }
 function get(valueOrGetValue) {
   return typeof valueOrGetValue === "function" ? valueOrGetValue() : valueOrGetValue;
@@ -3038,25 +3119,26 @@ function getFloatingContentCSSVars(name) {
   };
 }
 function useFloating(options) {
-  const openOption = get(options.open) ?? true;
-  const middlewareOption = get(options.middleware);
-  const transformOption = get(options.transform) ?? true;
-  const placementOption = get(options.placement) ?? "bottom";
-  const strategyOption = get(options.strategy) ?? "absolute";
-  const sideOffsetOption = get(options.sideOffset) ?? 0;
-  const alignOffsetOption = get(options.alignOffset) ?? 0;
+  const openOption = derived(() => get(options.open) ?? true);
+  const middlewareOption = derived(() => get(options.middleware));
+  const transformOption = derived(() => get(options.transform) ?? true);
+  const placementOption = derived(() => get(options.placement) ?? "bottom");
+  const strategyOption = derived(() => get(options.strategy) ?? "absolute");
+  const sideOffsetOption = derived(() => get(options.sideOffset) ?? 0);
+  const alignOffsetOption = derived(() => get(options.alignOffset) ?? 0);
   const reference = options.reference;
   let x = 0;
   let y = 0;
-  const floating = box(null);
-  let strategy = strategyOption;
-  let placement = placementOption;
+  const floating = simpleBox(null);
+  let strategy = strategyOption();
+  let placement = placementOption();
   let middlewareData = {};
   let isPositioned = false;
-  const floatingStyles = (() => {
+  let updateRequestId = 0;
+  const floatingStyles = derived(() => {
     const xVal = floating.current ? roundByDPR(floating.current, x) : x;
     const yVal = floating.current ? roundByDPR(floating.current, y) : y;
-    if (transformOption) {
+    if (transformOption()) {
       return {
         position: strategy,
         left: "0",
@@ -3066,16 +3148,33 @@ function useFloating(options) {
       };
     }
     return { position: strategy, left: `${xVal}px`, top: `${yVal}px` };
-  })();
+  });
   function update() {
     if (reference.current === null || floating.current === null) return;
-    computePosition(reference.current, floating.current, {
-      middleware: middlewareOption,
-      placement: placementOption,
-      strategy: strategyOption
+    const referenceNode = reference.current;
+    const floatingNode = floating.current;
+    const requestId = ++updateRequestId;
+    computePosition(referenceNode, floatingNode, {
+      middleware: middlewareOption(),
+      placement: placementOption(),
+      strategy: strategyOption()
     }).then((position) => {
-      if (!openOption && x !== 0 && y !== 0) {
-        const maxExpectedOffset = Math.max(Math.abs(sideOffsetOption), Math.abs(alignOffsetOption), 15);
+      if (requestId !== updateRequestId) return;
+      if (reference.current !== referenceNode || floating.current !== floatingNode) return;
+      const referenceHidden = isReferenceHidden(referenceNode);
+      if (referenceHidden) {
+        middlewareData = {
+          ...middlewareData,
+          hide: {
+            // oxlint-disable-next-line no-explicit-any
+            ...middlewareData.hide,
+            referenceHidden: true
+          }
+        };
+        return;
+      }
+      if (!openOption() && x !== 0 && y !== 0) {
+        const maxExpectedOffset = Math.max(Math.abs(sideOffsetOption()), Math.abs(alignOffsetOption()), 15);
         if (position.x <= maxExpectedOffset && position.y <= maxExpectedOffset) return;
       }
       x = position.x;
@@ -3102,12 +3201,18 @@ function useFloating(options) {
       return isPositioned;
     },
     get floatingStyles() {
-      return floatingStyles;
+      return floatingStyles();
     },
     get update() {
       return update;
     }
   };
+}
+function isReferenceHidden(node) {
+  if (!(node instanceof Element)) return false;
+  if (!node.isConnected) return true;
+  if (node instanceof HTMLElement && node.hidden) return true;
+  return node.getClientRects().length === 0;
 }
 const OPPOSITE_SIDE = { top: "bottom", right: "left", bottom: "top", left: "right" };
 const FloatingRootContext = new Context("Floating.Root");
@@ -3117,9 +3222,9 @@ class FloatingRootState {
   static create(tooltip = false) {
     return tooltip ? FloatingTooltipRootContext.set(new FloatingRootState()) : FloatingRootContext.set(new FloatingRootState());
   }
-  anchorNode = box(null);
-  customAnchorNode = box(null);
-  triggerNode = box(null);
+  anchorNode = simpleBox(null);
+  customAnchorNode = simpleBox(null);
+  triggerNode = simpleBox(null);
   constructor() {
   }
 }
@@ -3130,14 +3235,14 @@ class FloatingContentState {
   opts;
   root;
   // nodes
-  contentRef = box(null);
-  wrapperRef = box(null);
-  arrowRef = box(null);
+  contentRef = simpleBox(null);
+  wrapperRef = simpleBox(null);
+  arrowRef = simpleBox(null);
   contentAttachment = attachRef(this.contentRef);
   wrapperAttachment = attachRef(this.wrapperRef);
   arrowAttachment = attachRef(this.arrowRef);
   // ids
-  arrowId = box(useId());
+  arrowId = simpleBox(useId());
   #transformedStyle = derived(() => {
     if (typeof this.opts.style === "string") return cssToStyleObj(this.opts.style);
     if (!this.opts.style) return {};
@@ -3312,6 +3417,7 @@ class FloatingContentState {
   constructor(opts, root) {
     this.opts = opts;
     this.root = root;
+    this.#updatePositionStrategy = opts.updatePositionStrategy;
     if (opts.customAnchor) {
       this.root.customAnchorNode.current = opts.customAnchor.current;
     }
@@ -3328,9 +3434,18 @@ class FloatingContentState {
       alignOffset: () => this.opts.alignOffset.current
     });
     watch(() => this.contentRef.current, (contentNode) => {
-      if (!contentNode) return;
+      if (!contentNode || !this.opts.enabled.current) return;
       const win = getWindow(contentNode);
-      this.contentZIndex = win.getComputedStyle(contentNode).zIndex;
+      const rafId = win.requestAnimationFrame(() => {
+        if (this.contentRef.current !== contentNode || !this.opts.enabled.current) return;
+        const zIndex = win.getComputedStyle(contentNode).zIndex;
+        if (zIndex !== this.contentZIndex) {
+          this.contentZIndex = zIndex;
+        }
+      });
+      return () => {
+        win.cancelAnimationFrame(rafId);
+      };
     });
   }
 }
@@ -3355,22 +3470,6 @@ class FloatingArrowState {
   }
   set props($$value) {
     return this.#props($$value);
-  }
-}
-class FloatingAnchorState {
-  static create(opts, tooltip = false) {
-    return tooltip ? new FloatingAnchorState(opts, FloatingTooltipRootContext.get()) : new FloatingAnchorState(opts, FloatingRootContext.get());
-  }
-  opts;
-  root;
-  constructor(opts, root) {
-    this.opts = opts;
-    this.root = root;
-    if (opts.virtualEl && opts.virtualEl.current) {
-      root.triggerNode = box.from(opts.virtualEl.current);
-    } else {
-      root.triggerNode = opts.ref;
-    }
   }
 }
 function transformOrigin(options) {
@@ -3416,156 +3515,120 @@ function getSideFromPlacement(placement) {
 function getAlignFromPlacement(placement) {
   return getSideAndAlignFromPlacement(placement)[1];
 }
-function Floating_layer($$payload, $$props) {
-  push();
-  let { children, tooltip = false } = $$props;
-  FloatingRootState.create(tooltip);
-  children?.($$payload);
-  $$payload.out.push(`<!---->`);
-  pop();
-}
-const defaultOptions = { afterMs: 1e4, onChange: noop };
-function boxAutoReset(defaultValue, options) {
-  const { afterMs, onChange, getWindow: getWindow2 } = { ...defaultOptions, ...options };
-  let timeout = null;
-  let value = defaultValue;
-  function resetAfter() {
-    return getWindow2().setTimeout(
-      () => {
-        value = defaultValue;
-        onChange?.(defaultValue);
-      },
-      afterMs
-    );
-  }
-  return box.with(() => value, (v) => {
-    value = v;
-    onChange?.(v);
-    if (timeout) getWindow2().clearTimeout(timeout);
-    timeout = resetAfter();
+function Floating_layer($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { children, tooltip = false } = $$props;
+    FloatingRootState.create(tooltip);
+    children?.($$renderer2);
+    $$renderer2.push(`<!---->`);
   });
 }
-function Floating_layer_anchor($$payload, $$props) {
-  push();
-  let { id, children, virtualEl, ref, tooltip = false } = $$props;
-  FloatingAnchorState.create(
-    {
-      id: box.with(() => id),
-      virtualEl: box.with(() => virtualEl),
-      ref
-    },
-    tooltip
-  );
-  children?.($$payload);
-  $$payload.out.push(`<!---->`);
-  pop();
-}
-function Arrow($$payload, $$props) {
-  push();
-  let {
-    id = useId(),
-    children,
-    child,
-    width = 10,
-    height = 5,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const mergedProps = mergeProps(restProps, { id });
-  if (child) {
-    $$payload.out.push("<!--[-->");
-    child($$payload, { props: mergedProps });
-    $$payload.out.push(`<!---->`);
-  } else {
-    $$payload.out.push("<!--[!-->");
-    $$payload.out.push(`<span${spread_attributes({ ...mergedProps })}>`);
-    if (children) {
-      $$payload.out.push("<!--[-->");
-      children?.($$payload);
-      $$payload.out.push(`<!---->`);
+function Arrow($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      id = useId(),
+      children,
+      child,
+      width = 10,
+      height = 5,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const mergedProps = derived(() => mergeProps(restProps, { id }));
+    if (child) {
+      $$renderer2.push("<!--[0-->");
+      child($$renderer2, { props: mergedProps() });
+      $$renderer2.push(`<!---->`);
     } else {
-      $$payload.out.push("<!--[!-->");
-      $$payload.out.push(`<svg${attr("width", width)}${attr("height", height)} viewBox="0 0 30 10" preserveAspectRatio="none" data-arrow=""><polygon points="0,0 30,0 15,10" fill="currentColor"></polygon></svg>`);
+      $$renderer2.push("<!--[-1-->");
+      $$renderer2.push(`<span${attributes({ ...mergedProps() })}>`);
+      if (children) {
+        $$renderer2.push("<!--[0-->");
+        children?.($$renderer2);
+        $$renderer2.push(`<!---->`);
+      } else {
+        $$renderer2.push("<!--[-1-->");
+        $$renderer2.push(`<svg${attr("width", width)}${attr("height", height)} viewBox="0 0 30 10" preserveAspectRatio="none" data-arrow=""><polygon points="0,0 30,0 15,10" fill="currentColor"></polygon></svg>`);
+      }
+      $$renderer2.push(`<!--]--></span>`);
     }
-    $$payload.out.push(`<!--]--></span>`);
-  }
-  $$payload.out.push(`<!--]-->`);
-  pop();
-}
-function Floating_layer_arrow($$payload, $$props) {
-  push();
-  let { id = useId(), ref = null, $$slots, $$events, ...restProps } = $$props;
-  const arrowState = FloatingArrowState.create({
-    id: box.with(() => id),
-    ref: box.with(() => ref, (v) => ref = v)
+    $$renderer2.push(`<!--]-->`);
   });
-  const mergedProps = mergeProps(restProps, arrowState.props);
-  Arrow($$payload, spread_props([mergedProps]));
-  bind_props($$props, { ref });
-  pop();
 }
-function Floating_layer_content($$payload, $$props) {
-  push();
-  let {
-    content,
-    side = "bottom",
-    sideOffset = 0,
-    align = "center",
-    alignOffset = 0,
-    id,
-    arrowPadding = 0,
-    avoidCollisions = true,
-    collisionBoundary = [],
-    collisionPadding = 0,
-    hideWhenDetached = false,
-    onPlaced = () => {
-    },
-    sticky = "partial",
-    updatePositionStrategy = "optimized",
-    strategy = "fixed",
-    dir = "ltr",
-    style = {},
-    wrapperId = useId(),
-    customAnchor = null,
-    enabled,
-    tooltip = false
-  } = $$props;
-  const contentState = FloatingContentState.create(
-    {
-      side: box.with(() => side),
-      sideOffset: box.with(() => sideOffset),
-      align: box.with(() => align),
-      alignOffset: box.with(() => alignOffset),
-      id: box.with(() => id),
-      arrowPadding: box.with(() => arrowPadding),
-      avoidCollisions: box.with(() => avoidCollisions),
-      collisionBoundary: box.with(() => collisionBoundary),
-      collisionPadding: box.with(() => collisionPadding),
-      hideWhenDetached: box.with(() => hideWhenDetached),
-      onPlaced: box.with(() => onPlaced),
-      sticky: box.with(() => sticky),
-      updatePositionStrategy: box.with(() => updatePositionStrategy),
-      strategy: box.with(() => strategy),
-      dir: box.with(() => dir),
-      style: box.with(() => style),
-      enabled: box.with(() => enabled),
-      wrapperId: box.with(() => wrapperId),
-      customAnchor: box.with(() => customAnchor)
-    },
-    tooltip
-  );
-  const mergedProps = mergeProps(contentState.wrapperProps, { style: { pointerEvents: "auto" } });
-  content?.($$payload, { props: contentState.props, wrapperProps: mergedProps });
-  $$payload.out.push(`<!---->`);
-  pop();
+function Floating_layer_arrow($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { id = useId(), ref = null, $$slots, $$events, ...restProps } = $$props;
+    const arrowState = FloatingArrowState.create({
+      id: boxWith(() => id),
+      ref: boxWith(() => ref, (v) => ref = v)
+    });
+    const mergedProps = derived(() => mergeProps(restProps, arrowState.props));
+    Arrow($$renderer2, spread_props([mergedProps()]));
+    bind_props($$props, { ref });
+  });
 }
-function Floating_layer_content_static($$payload, $$props) {
-  push();
-  let { content } = $$props;
-  content?.($$payload, { props: {}, wrapperProps: {} });
-  $$payload.out.push(`<!---->`);
-  pop();
+function Floating_layer_content($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      content,
+      side = "bottom",
+      sideOffset = 0,
+      align = "center",
+      alignOffset = 0,
+      id,
+      arrowPadding = 0,
+      avoidCollisions = true,
+      collisionBoundary = [],
+      collisionPadding = 0,
+      hideWhenDetached = false,
+      onPlaced = () => {
+      },
+      sticky = "partial",
+      updatePositionStrategy = "optimized",
+      strategy = "fixed",
+      dir = "ltr",
+      style = {},
+      wrapperId = useId(),
+      customAnchor = null,
+      enabled,
+      tooltip = false
+    } = $$props;
+    const contentState = FloatingContentState.create(
+      {
+        side: boxWith(() => side),
+        sideOffset: boxWith(() => sideOffset),
+        align: boxWith(() => align),
+        alignOffset: boxWith(() => alignOffset),
+        id: boxWith(() => id),
+        arrowPadding: boxWith(() => arrowPadding),
+        avoidCollisions: boxWith(() => avoidCollisions),
+        collisionBoundary: boxWith(() => collisionBoundary),
+        collisionPadding: boxWith(() => collisionPadding),
+        hideWhenDetached: boxWith(() => hideWhenDetached),
+        onPlaced: boxWith(() => onPlaced),
+        sticky: boxWith(() => sticky),
+        updatePositionStrategy: boxWith(() => updatePositionStrategy),
+        strategy: boxWith(() => strategy),
+        dir: boxWith(() => dir),
+        style: boxWith(() => style),
+        enabled: boxWith(() => enabled),
+        wrapperId: boxWith(() => wrapperId),
+        customAnchor: boxWith(() => customAnchor)
+      },
+      tooltip
+    );
+    const mergedProps = derived(() => mergeProps(contentState.wrapperProps, { style: { pointerEvents: "auto" } }));
+    content?.($$renderer2, { props: contentState.props, wrapperProps: mergedProps() });
+    $$renderer2.push(`<!---->`);
+  });
+}
+function Floating_layer_content_static($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { content } = $$props;
+    content?.($$renderer2, { props: {}, wrapperProps: {} });
+    $$renderer2.push(`<!---->`);
+  });
 }
 const separatorAttrs = createBitsAttrs({ component: "separator", parts: ["root"] });
 class SeparatorRootState {
@@ -3581,9 +3644,9 @@ class SeparatorRootState {
   #props = derived(() => ({
     id: this.opts.id.current,
     role: this.opts.decorative.current ? "none" : "separator",
-    "aria-orientation": getAriaOrientation(this.opts.orientation.current),
-    "aria-hidden": getAriaHidden(this.opts.decorative.current),
-    "data-orientation": getDataOrientation(this.opts.orientation.current),
+    "aria-orientation": this.opts.orientation.current,
+    "aria-hidden": boolToStrTrueOrUndef(this.opts.decorative.current),
+    "data-orientation": this.opts.orientation.current,
     [separatorAttrs.root]: "",
     ...this.attachment
   }));
@@ -3594,42 +3657,42 @@ class SeparatorRootState {
     return this.#props($$value);
   }
 }
-function Separator$1($$payload, $$props) {
-  push();
-  const uid = props_id($$payload);
-  let {
-    id = createId(uid),
-    ref = null,
-    child,
-    children,
-    decorative = false,
-    orientation = "horizontal",
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const rootState = SeparatorRootState.create({
-    ref: box.with(() => ref, (v) => ref = v),
-    id: box.with(() => id),
-    decorative: box.with(() => decorative),
-    orientation: box.with(() => orientation)
+function Separator$1($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    const uid = props_id($$renderer2);
+    let {
+      id = createId(uid),
+      ref = null,
+      child,
+      children,
+      decorative = false,
+      orientation = "horizontal",
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const rootState = SeparatorRootState.create({
+      ref: boxWith(() => ref, (v) => ref = v),
+      id: boxWith(() => id),
+      decorative: boxWith(() => decorative),
+      orientation: boxWith(() => orientation)
+    });
+    const mergedProps = derived(() => mergeProps(restProps, rootState.props));
+    if (child) {
+      $$renderer2.push("<!--[0-->");
+      child($$renderer2, { props: mergedProps() });
+      $$renderer2.push(`<!---->`);
+    } else {
+      $$renderer2.push("<!--[-1-->");
+      $$renderer2.push(`<div${attributes({ ...mergedProps() })}>`);
+      children?.($$renderer2);
+      $$renderer2.push(`<!----></div>`);
+    }
+    $$renderer2.push(`<!--]-->`);
+    bind_props($$props, { ref });
   });
-  const mergedProps = mergeProps(restProps, rootState.props);
-  if (child) {
-    $$payload.out.push("<!--[-->");
-    child($$payload, { props: mergedProps });
-    $$payload.out.push(`<!---->`);
-  } else {
-    $$payload.out.push("<!--[!-->");
-    $$payload.out.push(`<div${spread_attributes({ ...mergedProps })}>`);
-    children?.($$payload);
-    $$payload.out.push(`<!----></div>`);
-  }
-  $$payload.out.push(`<!--]-->`);
-  bind_props($$props, { ref });
-  pop();
 }
-function Popper_content($$payload, $$props) {
+function Popper_content($$renderer, $$props) {
   let {
     content,
     isStatic = false,
@@ -3639,130 +3702,24 @@ function Popper_content($$payload, $$props) {
     ...restProps
   } = $$props;
   if (isStatic) {
-    $$payload.out.push("<!--[-->");
-    Floating_layer_content_static($$payload, { content });
+    $$renderer.push("<!--[0-->");
+    Floating_layer_content_static($$renderer, { content });
   } else {
-    $$payload.out.push("<!--[!-->");
-    Floating_layer_content($$payload, spread_props([{ content, onPlaced }, restProps]));
+    $$renderer.push("<!--[-1-->");
+    Floating_layer_content($$renderer, spread_props([{ content, onPlaced }, restProps]));
   }
-  $$payload.out.push(`<!--]-->`);
+  $$renderer.push(`<!--]-->`);
 }
-function Popper_layer_inner($$payload, $$props) {
-  push();
-  let {
-    popper,
-    onEscapeKeydown,
-    escapeKeydownBehavior,
-    preventOverflowTextSelection,
-    id,
-    onPointerDown,
-    onPointerUp,
-    side,
-    sideOffset,
-    align,
-    alignOffset,
-    arrowPadding,
-    avoidCollisions,
-    collisionBoundary,
-    collisionPadding,
-    sticky,
-    hideWhenDetached,
-    updatePositionStrategy,
-    strategy,
-    dir,
-    preventScroll,
-    wrapperId,
-    style,
-    onPlaced,
-    onInteractOutside,
-    onCloseAutoFocus,
-    onOpenAutoFocus,
-    onFocusOutside,
-    interactOutsideBehavior = "close",
-    loop,
-    trapFocus = true,
-    isValidEvent: isValidEvent2 = () => false,
-    customAnchor = null,
-    isStatic = false,
-    enabled,
-    ref,
-    tooltip = false,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  {
-    let content = function($$payload2, { props: floatingProps, wrapperProps }) {
-      if (restProps.forceMount && enabled) {
-        $$payload2.out.push("<!--[-->");
-        Scroll_lock($$payload2, { preventScroll });
-      } else {
-        $$payload2.out.push("<!--[!-->");
-        if (!restProps.forceMount) {
-          $$payload2.out.push("<!--[-->");
-          Scroll_lock($$payload2, { preventScroll });
-        } else {
-          $$payload2.out.push("<!--[!-->");
-        }
-        $$payload2.out.push(`<!--]-->`);
-      }
-      $$payload2.out.push(`<!--]--> `);
-      {
-        let focusScope = function($$payload3, { props: focusScopeProps }) {
-          Escape_layer($$payload3, {
-            onEscapeKeydown,
-            escapeKeydownBehavior,
-            enabled,
-            ref,
-            children: ($$payload4) => {
-              {
-                let children = function($$payload5, { props: dismissibleProps }) {
-                  Text_selection_layer($$payload5, {
-                    id,
-                    preventOverflowTextSelection,
-                    onPointerDown,
-                    onPointerUp,
-                    enabled,
-                    ref,
-                    children: ($$payload6) => {
-                      popper?.($$payload6, {
-                        props: mergeProps(restProps, floatingProps, dismissibleProps, focusScopeProps, { style: { pointerEvents: "auto" } }),
-                        wrapperProps
-                      });
-                      $$payload6.out.push(`<!---->`);
-                    }
-                  });
-                };
-                Dismissible_layer($$payload4, {
-                  id,
-                  onInteractOutside,
-                  onFocusOutside,
-                  interactOutsideBehavior,
-                  isValidEvent: isValidEvent2,
-                  enabled,
-                  ref,
-                  children
-                });
-              }
-            }
-          });
-        };
-        Focus_scope($$payload2, {
-          onOpenAutoFocus,
-          onCloseAutoFocus,
-          loop,
-          enabled,
-          trapFocus,
-          forceMount: restProps.forceMount,
-          ref,
-          focusScope
-        });
-      }
-      $$payload2.out.push(`<!---->`);
-    };
-    Popper_content($$payload, {
-      isStatic,
+function Popper_layer_inner($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      popper,
+      onEscapeKeydown,
+      escapeKeydownBehavior,
+      preventOverflowTextSelection,
       id,
+      onPointerDown,
+      onPointerUp,
       side,
       sideOffset,
       align,
@@ -3776,19 +3733,124 @@ function Popper_layer_inner($$payload, $$props) {
       updatePositionStrategy,
       strategy,
       dir,
+      preventScroll,
       wrapperId,
       style,
       onPlaced,
-      customAnchor,
+      onInteractOutside,
+      onCloseAutoFocus,
+      onOpenAutoFocus,
+      onFocusOutside,
+      interactOutsideBehavior = "close",
+      loop,
+      trapFocus = true,
+      isValidEvent: isValidEvent2 = () => false,
+      customAnchor = null,
+      isStatic = false,
       enabled,
-      tooltip,
-      content,
-      $$slots: { content: true }
-    });
-  }
-  pop();
+      ref,
+      tooltip = false,
+      contentPointerEvents = "auto",
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const resolvedPreventScroll = derived(() => preventScroll ?? true);
+    const effectiveStrategy = derived(() => strategy ?? (resolvedPreventScroll() ? "fixed" : "absolute"));
+    {
+      let content = function($$renderer3, { props: floatingProps, wrapperProps }) {
+        if (restProps.forceMount && enabled) {
+          $$renderer3.push("<!--[0-->");
+          Scroll_lock($$renderer3, { preventScroll: resolvedPreventScroll() });
+        } else if (!restProps.forceMount) {
+          $$renderer3.push("<!--[1-->");
+          Scroll_lock($$renderer3, { preventScroll: resolvedPreventScroll() });
+        } else {
+          $$renderer3.push("<!--[-1-->");
+        }
+        $$renderer3.push(`<!--]--> `);
+        {
+          let focusScope = function($$renderer4, { props: focusScopeProps }) {
+            Escape_layer($$renderer4, {
+              onEscapeKeydown,
+              escapeKeydownBehavior,
+              enabled,
+              ref,
+              children: ($$renderer5) => {
+                {
+                  let children = function($$renderer6, { props: dismissibleProps }) {
+                    Text_selection_layer($$renderer6, {
+                      id,
+                      preventOverflowTextSelection,
+                      onPointerDown,
+                      onPointerUp,
+                      enabled,
+                      ref,
+                      children: ($$renderer7) => {
+                        popper?.($$renderer7, {
+                          props: mergeProps(restProps, floatingProps, dismissibleProps, focusScopeProps, { style: { pointerEvents: contentPointerEvents } }),
+                          wrapperProps
+                        });
+                        $$renderer7.push(`<!---->`);
+                      }
+                    });
+                  };
+                  Dismissible_layer($$renderer5, {
+                    id,
+                    onInteractOutside,
+                    onFocusOutside,
+                    interactOutsideBehavior,
+                    isValidEvent: isValidEvent2,
+                    enabled,
+                    ref,
+                    children
+                  });
+                }
+              }
+            });
+          };
+          Focus_scope($$renderer3, {
+            onOpenAutoFocus,
+            onCloseAutoFocus,
+            loop,
+            enabled,
+            trapFocus,
+            forceMount: restProps.forceMount,
+            ref,
+            focusScope
+          });
+        }
+        $$renderer3.push(`<!---->`);
+      };
+      Popper_content($$renderer2, {
+        isStatic,
+        id,
+        side,
+        sideOffset,
+        align,
+        alignOffset,
+        arrowPadding,
+        avoidCollisions,
+        collisionBoundary,
+        collisionPadding,
+        sticky,
+        hideWhenDetached,
+        updatePositionStrategy,
+        strategy: effectiveStrategy(),
+        dir,
+        wrapperId,
+        style,
+        onPlaced,
+        customAnchor,
+        enabled,
+        tooltip,
+        content,
+        $$slots: { content: true }
+      });
+    }
+  });
 }
-function Popper_layer($$payload, $$props) {
+function Popper_layer($$renderer, $$props) {
   let {
     popper,
     open,
@@ -3826,59 +3888,61 @@ function Popper_layer($$payload, $$props) {
     customAnchor = null,
     isStatic = false,
     ref,
+    shouldRender,
     $$slots,
     $$events,
     ...restProps
   } = $$props;
-  {
-    let presence = function($$payload2) {
-      Popper_layer_inner($$payload2, spread_props([
-        {
-          popper,
-          onEscapeKeydown,
-          escapeKeydownBehavior,
-          preventOverflowTextSelection,
-          id,
-          onPointerDown,
-          onPointerUp,
-          side,
-          sideOffset,
-          align,
-          alignOffset,
-          arrowPadding,
-          avoidCollisions,
-          collisionBoundary,
-          collisionPadding,
-          sticky,
-          hideWhenDetached,
-          updatePositionStrategy,
-          strategy,
-          dir,
-          preventScroll,
-          wrapperId,
-          style,
-          onPlaced,
-          customAnchor,
-          isStatic,
-          enabled: open,
-          onInteractOutside,
-          onCloseAutoFocus,
-          onOpenAutoFocus,
-          interactOutsideBehavior,
-          loop,
-          trapFocus,
-          isValidEvent: isValidEvent2,
-          onFocusOutside,
-          forceMount: false,
-          ref
-        },
-        restProps
-      ]));
-    };
-    Presence_layer($$payload, { open, ref, presence });
+  if (shouldRender) {
+    $$renderer.push("<!--[0-->");
+    Popper_layer_inner($$renderer, spread_props([
+      {
+        popper,
+        onEscapeKeydown,
+        escapeKeydownBehavior,
+        preventOverflowTextSelection,
+        id,
+        onPointerDown,
+        onPointerUp,
+        side,
+        sideOffset,
+        align,
+        alignOffset,
+        arrowPadding,
+        avoidCollisions,
+        collisionBoundary,
+        collisionPadding,
+        sticky,
+        hideWhenDetached,
+        updatePositionStrategy,
+        strategy,
+        dir,
+        preventScroll,
+        wrapperId,
+        style,
+        onPlaced,
+        customAnchor,
+        isStatic,
+        enabled: open,
+        onInteractOutside,
+        onCloseAutoFocus,
+        onOpenAutoFocus,
+        interactOutsideBehavior,
+        loop,
+        trapFocus,
+        isValidEvent: isValidEvent2,
+        onFocusOutside,
+        forceMount: false,
+        ref
+      },
+      restProps
+    ]));
+  } else {
+    $$renderer.push("<!--[-1-->");
   }
+  $$renderer.push(`<!--]-->`);
 }
-function Popper_layer_force_mount($$payload, $$props) {
+function Popper_layer_force_mount($$renderer, $$props) {
   let {
     popper,
     onEscapeKeydown,
@@ -3919,7 +3983,7 @@ function Popper_layer_force_mount($$payload, $$props) {
     $$events,
     ...restProps
   } = $$props;
-  Popper_layer_inner($$payload, spread_props([
+  Popper_layer_inner($$renderer, spread_props([
     {
       popper,
       onEscapeKeydown,
@@ -3961,285 +4025,424 @@ function Popper_layer_force_mount($$payload, $$props) {
     { forceMount: true }
   ]));
 }
-function Mounted($$payload, $$props) {
-  push();
-  let { mounted = false, onMountedChange = noop } = $$props;
-  bind_props($$props, { mounted });
-  pop();
-}
-function getTabbableCandidates(container) {
-  const nodes = [];
-  const doc = getDocument(container);
-  const walker = doc.createTreeWalker(container, NodeFilter.SHOW_ELEMENT, {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    acceptNode: (node) => {
-      const isHiddenInput = node.tagName === "INPUT" && node.type === "hidden";
-      if (node.disabled || node.hidden || isHiddenInput)
-        return NodeFilter.FILTER_SKIP;
-      return node.tabIndex >= 0 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
-    }
+function Mounted($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { mounted = false, onMountedChange = noop } = $$props;
+    bind_props($$props, { mounted });
   });
-  while (walker.nextNode())
-    nodes.push(walker.currentNode);
-  return nodes;
-}
-class GraceArea {
-  #opts;
-  #enabled;
-  #isPointerInTransit;
-  #pointerGraceArea = null;
-  constructor(opts) {
-    this.#opts = opts;
-    this.#enabled = derived(() => this.#opts.enabled());
-    this.#isPointerInTransit = boxAutoReset(false, {
-      afterMs: opts.transitTimeout ?? 300,
-      onChange: (value) => {
-        if (!this.#enabled()) return;
-        this.#opts.setIsPointerInTransit?.(value);
-      },
-      getWindow: () => getWindow(this.#opts.triggerNode())
-    });
-    watch([opts.triggerNode, opts.contentNode, opts.enabled], ([triggerNode, contentNode, enabled]) => {
-      if (!triggerNode || !contentNode || !enabled) return;
-      const handleTriggerLeave = (e) => {
-        this.#createGraceArea(e, contentNode);
-      };
-      const handleContentLeave = (e) => {
-        this.#createGraceArea(e, triggerNode);
-      };
-      return executeCallbacks(on(triggerNode, "pointerleave", handleTriggerLeave), on(contentNode, "pointerleave", handleContentLeave));
-    });
-    watch(() => this.#pointerGraceArea, () => {
-      const handleTrackPointerGrace = (e) => {
-        if (!this.#pointerGraceArea) return;
-        const target = e.target;
-        if (!isElement(target)) return;
-        const pointerPosition = { x: e.clientX, y: e.clientY };
-        const hasEnteredTarget = opts.triggerNode()?.contains(target) || opts.contentNode()?.contains(target);
-        const isPointerOutsideGraceArea = !isPointInPolygon(pointerPosition, this.#pointerGraceArea);
-        if (hasEnteredTarget) {
-          this.#removeGraceArea();
-        } else if (isPointerOutsideGraceArea) {
-          this.#removeGraceArea();
-          opts.onPointerExit();
-        }
-      };
-      const doc = getDocument(opts.triggerNode() ?? opts.contentNode());
-      if (!doc) return;
-      return on(doc, "pointermove", handleTrackPointerGrace);
-    });
-  }
-  #removeGraceArea() {
-    this.#pointerGraceArea = null;
-    this.#isPointerInTransit.current = false;
-  }
-  #createGraceArea(e, hoverTarget) {
-    const currentTarget = e.currentTarget;
-    if (!isHTMLElement(currentTarget)) return;
-    const exitPoint = { x: e.clientX, y: e.clientY };
-    const exitSide = getExitSideFromRect(exitPoint, currentTarget.getBoundingClientRect());
-    const paddedExitPoints = getPaddedExitPoints(exitPoint, exitSide);
-    const hoverTargetPoints = getPointsFromRect(hoverTarget.getBoundingClientRect());
-    const graceArea = getHull([...paddedExitPoints, ...hoverTargetPoints]);
-    this.#pointerGraceArea = graceArea;
-    this.#isPointerInTransit.current = true;
-  }
-}
-function getExitSideFromRect(point, rect) {
-  const top = Math.abs(rect.top - point.y);
-  const bottom = Math.abs(rect.bottom - point.y);
-  const right = Math.abs(rect.right - point.x);
-  const left = Math.abs(rect.left - point.x);
-  switch (Math.min(top, bottom, right, left)) {
-    case left:
-      return "left";
-    case right:
-      return "right";
-    case top:
-      return "top";
-    case bottom:
-      return "bottom";
-    default:
-      throw new Error("unreachable");
-  }
-}
-function getPaddedExitPoints(exitPoint, exitSide, padding = 5) {
-  const tipPadding = padding * 1.5;
-  switch (exitSide) {
-    case "top":
-      return [
-        { x: exitPoint.x - padding, y: exitPoint.y + padding },
-        { x: exitPoint.x, y: exitPoint.y - tipPadding },
-        { x: exitPoint.x + padding, y: exitPoint.y + padding }
-      ];
-    case "bottom":
-      return [
-        { x: exitPoint.x - padding, y: exitPoint.y - padding },
-        { x: exitPoint.x, y: exitPoint.y + tipPadding },
-        { x: exitPoint.x + padding, y: exitPoint.y - padding }
-      ];
-    case "left":
-      return [
-        { x: exitPoint.x + padding, y: exitPoint.y - padding },
-        { x: exitPoint.x - tipPadding, y: exitPoint.y },
-        { x: exitPoint.x + padding, y: exitPoint.y + padding }
-      ];
-    case "right":
-      return [
-        { x: exitPoint.x - padding, y: exitPoint.y - padding },
-        { x: exitPoint.x + tipPadding, y: exitPoint.y },
-        { x: exitPoint.x - padding, y: exitPoint.y + padding }
-      ];
-  }
-}
-function getPointsFromRect(rect) {
-  const { top, right, bottom, left } = rect;
-  return [
-    { x: left, y: top },
-    { x: right, y: top },
-    { x: right, y: bottom },
-    { x: left, y: bottom }
-  ];
 }
 function isPointInPolygon(point, polygon) {
-  const { x, y } = point;
-  let inside = false;
-  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-    const xi = polygon[i].x;
-    const yi = polygon[i].y;
-    const xj = polygon[j].x;
-    const yj = polygon[j].y;
-    const intersect = yi > y !== yj > y && x < (xj - xi) * (y - yi) / (yj - yi) + xi;
-    if (intersect) inside = !inside;
-  }
-  return inside;
-}
-function getHull(points) {
-  const newPoints = points.slice();
-  newPoints.sort((a, b) => {
-    if (a.x < b.x) return -1;
-    else if (a.x > b.x) return 1;
-    else if (a.y < b.y) return -1;
-    else if (a.y > b.y) return 1;
-    else return 0;
-  });
-  return getHullPresorted(newPoints);
-}
-function getHullPresorted(points) {
-  if (points.length <= 1) return points.slice();
-  const upperHull = [];
-  for (let i = 0; i < points.length; i++) {
-    const p = points[i];
-    while (upperHull.length >= 2) {
-      const q = upperHull[upperHull.length - 1];
-      const r = upperHull[upperHull.length - 2];
-      if ((q.x - r.x) * (p.y - r.y) >= (q.y - r.y) * (p.x - r.x)) upperHull.pop();
-      else break;
+  const [x, y] = point;
+  let isInside = false;
+  const length = polygon.length;
+  for (let i = 0, j = length - 1; i < length; j = i++) {
+    const [xi, yi] = polygon[i] ?? [0, 0];
+    const [xj, yj] = polygon[j] ?? [0, 0];
+    const intersect = yi >= y !== yj >= y && x <= (xj - xi) * (y - yi) / (yj - yi) + xi;
+    if (intersect) {
+      isInside = !isInside;
     }
-    upperHull.push(p);
   }
-  upperHull.pop();
-  const lowerHull = [];
-  for (let i = points.length - 1; i >= 0; i--) {
-    const p = points[i];
-    while (lowerHull.length >= 2) {
-      const q = lowerHull[lowerHull.length - 1];
-      const r = lowerHull[lowerHull.length - 2];
-      if ((q.x - r.x) * (p.y - r.y) >= (q.y - r.y) * (p.x - r.x)) lowerHull.pop();
-      else break;
+  return isInside;
+}
+function isInsideRect(point, rect) {
+  return point[0] >= rect.left && point[0] <= rect.right && point[1] >= rect.top && point[1] <= rect.bottom;
+}
+function getSide(triggerRect, contentRect) {
+  const triggerCenterX = triggerRect.left + triggerRect.width / 2;
+  const triggerCenterY = triggerRect.top + triggerRect.height / 2;
+  const contentCenterX = contentRect.left + contentRect.width / 2;
+  const contentCenterY = contentRect.top + contentRect.height / 2;
+  const deltaX = contentCenterX - triggerCenterX;
+  const deltaY = contentCenterY - triggerCenterY;
+  if (Math.abs(deltaX) > Math.abs(deltaY)) {
+    return deltaX > 0 ? "right" : "left";
+  }
+  return deltaY > 0 ? "bottom" : "top";
+}
+class SafePolygon {
+  #opts;
+  #buffer;
+  #transitIntentTimeout;
+  // tracks the cursor position when leaving trigger or content
+  #exitPoint = null;
+  // tracks what we're moving toward: "content" when leaving trigger, "trigger" when leaving content
+  #exitTarget = null;
+  #transitTargets = [];
+  #trackedTriggerNode = null;
+  #leaveFallbackRafId = null;
+  #transitIntentTimeoutId = null;
+  #cancelLeaveFallback() {
+    if (this.#leaveFallbackRafId !== null) {
+      cancelAnimationFrame(this.#leaveFallbackRafId);
+      this.#leaveFallbackRafId = null;
     }
-    lowerHull.push(p);
   }
-  lowerHull.pop();
-  if (upperHull.length === 1 && lowerHull.length === 1 && upperHull[0].x === lowerHull[0].x && upperHull[0].y === lowerHull[0].y) return upperHull;
-  else return upperHull.concat(lowerHull);
-}
-function Dialog($$payload, $$props) {
-  push();
-  let {
-    open = false,
-    onOpenChange = noop,
-    onOpenChangeComplete = noop,
-    children
-  } = $$props;
-  DialogRootState.create({
-    variant: box.with(() => "dialog"),
-    open: box.with(() => open, (v) => {
-      open = v;
-      onOpenChange(v);
-    }),
-    onOpenChangeComplete: box.with(() => onOpenChangeComplete)
-  });
-  children?.($$payload);
-  $$payload.out.push(`<!---->`);
-  bind_props($$props, { open });
-  pop();
-}
-function Dialog_close($$payload, $$props) {
-  push();
-  const uid = props_id($$payload);
-  let {
-    children,
-    child,
-    id = createId(uid),
-    ref = null,
-    disabled = false,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const closeState = DialogCloseState.create({
-    variant: box.with(() => "close"),
-    id: box.with(() => id),
-    ref: box.with(() => ref, (v) => ref = v),
-    disabled: box.with(() => Boolean(disabled))
-  });
-  const mergedProps = mergeProps(restProps, closeState.props);
-  if (child) {
-    $$payload.out.push("<!--[-->");
-    child($$payload, { props: mergedProps });
-    $$payload.out.push(`<!---->`);
-  } else {
-    $$payload.out.push("<!--[!-->");
-    $$payload.out.push(`<button${spread_attributes({ ...mergedProps })}>`);
-    children?.($$payload);
-    $$payload.out.push(`<!----></button>`);
+  #scheduleLeaveFallback() {
+    this.#cancelLeaveFallback();
+    this.#leaveFallbackRafId = requestAnimationFrame(() => {
+      this.#leaveFallbackRafId = null;
+      if (!this.#exitPoint || !this.#exitTarget) return;
+      this.#clearTracking();
+      this.#opts.onPointerExit();
+    });
   }
-  $$payload.out.push(`<!--]-->`);
-  bind_props($$props, { ref });
-  pop();
+  #cancelTransitIntentTimeout() {
+    if (this.#transitIntentTimeoutId !== null) {
+      clearTimeout(this.#transitIntentTimeoutId);
+      this.#transitIntentTimeoutId = null;
+    }
+  }
+  #scheduleTransitIntentTimeout() {
+    if (this.#transitIntentTimeout === null) return;
+    this.#cancelTransitIntentTimeout();
+    this.#transitIntentTimeoutId = window.setTimeout(
+      () => {
+        this.#transitIntentTimeoutId = null;
+        if (!this.#exitPoint || !this.#exitTarget) return;
+        this.#clearTracking();
+        this.#opts.onPointerExit();
+      },
+      this.#transitIntentTimeout
+    );
+  }
+  constructor(opts) {
+    this.#opts = opts;
+    this.#buffer = opts.buffer ?? 1;
+    const transitIntentTimeout = opts.transitIntentTimeout;
+    this.#transitIntentTimeout = typeof transitIntentTimeout === "number" && transitIntentTimeout > 0 ? transitIntentTimeout : null;
+    watch([opts.triggerNode, opts.contentNode, opts.enabled], ([triggerNode, contentNode, enabled]) => {
+      if (!triggerNode || !contentNode || !enabled) {
+        this.#trackedTriggerNode = null;
+        this.#clearTracking();
+        return;
+      }
+      if (this.#trackedTriggerNode && this.#trackedTriggerNode !== triggerNode) {
+        this.#clearTracking();
+      }
+      this.#trackedTriggerNode = triggerNode;
+      const doc = getDocument(triggerNode);
+      const handlePointerMove = (e) => {
+        this.#onPointerMove([e.clientX, e.clientY], triggerNode, contentNode);
+      };
+      const handleTriggerLeave = (e) => {
+        const target = e.relatedTarget;
+        if (isElement(target) && contentNode.contains(target)) {
+          return;
+        }
+        const ignoredTargets = this.#opts.ignoredTargets?.() ?? [];
+        if (isElement(target) && ignoredTargets.some((n) => n === target || n.contains(target))) {
+          return;
+        }
+        this.#transitTargets = isElement(target) && ignoredTargets.length > 0 ? ignoredTargets.filter((n) => target.contains(n)) : [];
+        this.#exitPoint = [e.clientX, e.clientY];
+        this.#exitTarget = "content";
+        this.#scheduleLeaveFallback();
+      };
+      const handleTriggerEnter = () => {
+        this.#clearTracking();
+      };
+      const handleContentEnter = () => {
+        this.#clearTracking();
+      };
+      const handleContentLeave = (e) => {
+        const target = e.relatedTarget;
+        if (isElement(target) && triggerNode.contains(target)) {
+          return;
+        }
+        this.#exitPoint = [e.clientX, e.clientY];
+        this.#exitTarget = "trigger";
+        this.#scheduleLeaveFallback();
+      };
+      return [
+        on(doc, "pointermove", handlePointerMove),
+        on(triggerNode, "pointerleave", handleTriggerLeave),
+        on(triggerNode, "pointerenter", handleTriggerEnter),
+        on(contentNode, "pointerenter", handleContentEnter),
+        on(contentNode, "pointerleave", handleContentLeave)
+      ].reduce(
+        (acc, cleanup) => () => {
+          acc();
+          cleanup();
+        },
+        () => {
+        }
+      );
+    });
+  }
+  #onPointerMove(clientPoint, triggerNode, contentNode) {
+    if (!this.#exitPoint || !this.#exitTarget) return;
+    this.#cancelLeaveFallback();
+    this.#scheduleTransitIntentTimeout();
+    const triggerRect = triggerNode.getBoundingClientRect();
+    const contentRect = contentNode.getBoundingClientRect();
+    if (this.#exitTarget === "content" && isInsideRect(clientPoint, contentRect)) {
+      this.#clearTracking();
+      return;
+    }
+    if (this.#exitTarget === "trigger" && isInsideRect(clientPoint, triggerRect)) {
+      this.#clearTracking();
+      return;
+    }
+    if (this.#exitTarget === "content" && this.#transitTargets.length > 0) {
+      for (const transitTarget of this.#transitTargets) {
+        const transitRect = transitTarget.getBoundingClientRect();
+        if (isInsideRect(clientPoint, transitRect)) return;
+        const transitSide = getSide(triggerRect, transitRect);
+        const transitCorridor = this.#getCorridorPolygon(triggerRect, transitRect, transitSide);
+        if (transitCorridor && isPointInPolygon(clientPoint, transitCorridor)) return;
+      }
+    }
+    const side = getSide(triggerRect, contentRect);
+    const corridorPoly = this.#getCorridorPolygon(triggerRect, contentRect, side);
+    if (corridorPoly && isPointInPolygon(clientPoint, corridorPoly)) {
+      return;
+    }
+    const targetRect = this.#exitTarget === "content" ? contentRect : triggerRect;
+    const safePoly = this.#getSafePolygon(this.#exitPoint, targetRect, side, this.#exitTarget);
+    if (isPointInPolygon(clientPoint, safePoly)) {
+      return;
+    }
+    this.#clearTracking();
+    this.#opts.onPointerExit();
+  }
+  #clearTracking() {
+    this.#exitPoint = null;
+    this.#exitTarget = null;
+    this.#transitTargets = [];
+    this.#cancelLeaveFallback();
+    this.#cancelTransitIntentTimeout();
+  }
+  /**
+   * Creates a rectangular corridor between trigger and content
+   * This prevents closing when cursor is in the gap between them
+   */
+  #getCorridorPolygon(triggerRect, contentRect, side) {
+    const buffer = this.#buffer;
+    switch (side) {
+      case "top":
+        return [
+          [
+            Math.min(triggerRect.left, contentRect.left) - buffer,
+            triggerRect.top
+          ],
+          [
+            Math.min(triggerRect.left, contentRect.left) - buffer,
+            contentRect.bottom
+          ],
+          [
+            Math.max(triggerRect.right, contentRect.right) + buffer,
+            contentRect.bottom
+          ],
+          [
+            Math.max(triggerRect.right, contentRect.right) + buffer,
+            triggerRect.top
+          ]
+        ];
+      case "bottom":
+        return [
+          [
+            Math.min(triggerRect.left, contentRect.left) - buffer,
+            triggerRect.bottom
+          ],
+          [
+            Math.min(triggerRect.left, contentRect.left) - buffer,
+            contentRect.top
+          ],
+          [
+            Math.max(triggerRect.right, contentRect.right) + buffer,
+            contentRect.top
+          ],
+          [
+            Math.max(triggerRect.right, contentRect.right) + buffer,
+            triggerRect.bottom
+          ]
+        ];
+      case "left":
+        return [
+          [
+            triggerRect.left,
+            Math.min(triggerRect.top, contentRect.top) - buffer
+          ],
+          [
+            contentRect.right,
+            Math.min(triggerRect.top, contentRect.top) - buffer
+          ],
+          [
+            contentRect.right,
+            Math.max(triggerRect.bottom, contentRect.bottom) + buffer
+          ],
+          [
+            triggerRect.left,
+            Math.max(triggerRect.bottom, contentRect.bottom) + buffer
+          ]
+        ];
+      case "right":
+        return [
+          [
+            triggerRect.right,
+            Math.min(triggerRect.top, contentRect.top) - buffer
+          ],
+          [
+            contentRect.left,
+            Math.min(triggerRect.top, contentRect.top) - buffer
+          ],
+          [
+            contentRect.left,
+            Math.max(triggerRect.bottom, contentRect.bottom) + buffer
+          ],
+          [
+            triggerRect.right,
+            Math.max(triggerRect.bottom, contentRect.bottom) + buffer
+          ]
+        ];
+    }
+  }
+  /**
+   * Creates a triangular/trapezoidal safe zone from the exit point to the target
+   */
+  #getSafePolygon(exitPoint, targetRect, side, exitTarget) {
+    const buffer = this.#buffer * 4;
+    const [x, y] = exitPoint;
+    const effectiveSide = exitTarget === "trigger" ? this.#flipSide(side) : side;
+    switch (effectiveSide) {
+      case "top":
+        return [
+          [x - buffer, y + buffer],
+          [x + buffer, y + buffer],
+          [targetRect.right + buffer, targetRect.bottom],
+          [targetRect.right + buffer, targetRect.top],
+          [targetRect.left - buffer, targetRect.top],
+          [targetRect.left - buffer, targetRect.bottom]
+        ];
+      case "bottom":
+        return [
+          [x - buffer, y - buffer],
+          [x + buffer, y - buffer],
+          [targetRect.right + buffer, targetRect.top],
+          [targetRect.right + buffer, targetRect.bottom],
+          [targetRect.left - buffer, targetRect.bottom],
+          [targetRect.left - buffer, targetRect.top]
+        ];
+      case "left":
+        return [
+          [x + buffer, y - buffer],
+          [x + buffer, y + buffer],
+          [targetRect.right, targetRect.bottom + buffer],
+          [targetRect.left, targetRect.bottom + buffer],
+          [targetRect.left, targetRect.top - buffer],
+          [targetRect.right, targetRect.top - buffer]
+        ];
+      case "right":
+        return [
+          [x - buffer, y - buffer],
+          [x - buffer, y + buffer],
+          [targetRect.left, targetRect.bottom + buffer],
+          [targetRect.right, targetRect.bottom + buffer],
+          [targetRect.right, targetRect.top - buffer],
+          [targetRect.left, targetRect.top - buffer]
+        ];
+    }
+  }
+  #flipSide(side) {
+    switch (side) {
+      case "top":
+        return "bottom";
+      case "bottom":
+        return "top";
+      case "left":
+        return "right";
+      case "right":
+        return "left";
+    }
+  }
 }
-function Dialog_content($$payload, $$props) {
-  push();
-  const uid = props_id($$payload);
-  let {
-    id = createId(uid),
-    children,
-    child,
-    ref = null,
-    forceMount = false,
-    onCloseAutoFocus = noop,
-    onOpenAutoFocus = noop,
-    onEscapeKeydown = noop,
-    onInteractOutside = noop,
-    trapFocus = true,
-    preventScroll = true,
-    restoreScrollDelay = null,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const contentState = DialogContentState.create({
-    id: box.with(() => id),
-    ref: box.with(() => ref, (v) => ref = v)
+function Dialog($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      open = false,
+      onOpenChange = noop,
+      onOpenChangeComplete = noop,
+      children
+    } = $$props;
+    DialogRootState.create({
+      variant: boxWith(() => "dialog"),
+      open: boxWith(() => open, (v) => {
+        open = v;
+        onOpenChange(v);
+      }),
+      onOpenChangeComplete: boxWith(() => onOpenChangeComplete)
+    });
+    children?.($$renderer2);
+    $$renderer2.push(`<!---->`);
+    bind_props($$props, { open });
   });
-  const mergedProps = mergeProps(restProps, contentState.props);
-  {
-    let presence = function($$payload2) {
+}
+function Dialog_close($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    const uid = props_id($$renderer2);
+    let {
+      children,
+      child,
+      id = createId(uid),
+      ref = null,
+      disabled = false,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const closeState = DialogCloseState.create({
+      variant: boxWith(() => "close"),
+      id: boxWith(() => id),
+      ref: boxWith(() => ref, (v) => ref = v),
+      disabled: boxWith(() => Boolean(disabled))
+    });
+    const mergedProps = derived(() => mergeProps(restProps, closeState.props));
+    if (child) {
+      $$renderer2.push("<!--[0-->");
+      child($$renderer2, { props: mergedProps() });
+      $$renderer2.push(`<!---->`);
+    } else {
+      $$renderer2.push("<!--[-1-->");
+      $$renderer2.push(`<button${attributes({ ...mergedProps() })}>`);
+      children?.($$renderer2);
+      $$renderer2.push(`<!----></button>`);
+    }
+    $$renderer2.push(`<!--]-->`);
+    bind_props($$props, { ref });
+  });
+}
+function Dialog_content($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    const uid = props_id($$renderer2);
+    let {
+      id = createId(uid),
+      children,
+      child,
+      ref = null,
+      forceMount = false,
+      onCloseAutoFocus = noop,
+      onOpenAutoFocus = noop,
+      onEscapeKeydown = noop,
+      onInteractOutside = noop,
+      trapFocus = true,
+      preventScroll = true,
+      restoreScrollDelay = null,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const contentState = DialogContentState.create({
+      id: boxWith(() => id),
+      ref: boxWith(() => ref, (v) => ref = v)
+    });
+    const mergedProps = derived(() => mergeProps(restProps, contentState.props));
+    if (contentState.shouldRender || forceMount) {
+      $$renderer2.push("<!--[0-->");
       {
-        let focusScope = function($$payload3, { props: focusScopeProps }) {
-          Escape_layer($$payload3, spread_props([
-            mergedProps,
+        let focusScope = function($$renderer3, { props: focusScopeProps }) {
+          Escape_layer($$renderer3, spread_props([
+            mergedProps(),
             {
               enabled: contentState.root.opts.open.current,
               ref: contentState.opts.ref,
@@ -4248,9 +4451,9 @@ function Dialog_content($$payload, $$props) {
                 if (e.defaultPrevented) return;
                 contentState.root.handleClose();
               },
-              children: ($$payload4) => {
-                Dismissible_layer($$payload4, spread_props([
-                  mergedProps,
+              children: ($$renderer4) => {
+                Dismissible_layer($$renderer4, spread_props([
+                  mergedProps(),
                   {
                     ref: contentState.opts.ref,
                     enabled: contentState.root.opts.open.current,
@@ -4259,35 +4462,35 @@ function Dialog_content($$payload, $$props) {
                       if (e.defaultPrevented) return;
                       contentState.root.handleClose();
                     },
-                    children: ($$payload5) => {
-                      Text_selection_layer($$payload5, spread_props([
-                        mergedProps,
+                    children: ($$renderer5) => {
+                      Text_selection_layer($$renderer5, spread_props([
+                        mergedProps(),
                         {
                           ref: contentState.opts.ref,
                           enabled: contentState.root.opts.open.current,
-                          children: ($$payload6) => {
+                          children: ($$renderer6) => {
                             if (child) {
-                              $$payload6.out.push("<!--[-->");
+                              $$renderer6.push("<!--[0-->");
                               if (contentState.root.opts.open.current) {
-                                $$payload6.out.push("<!--[-->");
-                                Scroll_lock($$payload6, { preventScroll, restoreScrollDelay });
+                                $$renderer6.push("<!--[0-->");
+                                Scroll_lock($$renderer6, { preventScroll, restoreScrollDelay });
                               } else {
-                                $$payload6.out.push("<!--[!-->");
+                                $$renderer6.push("<!--[-1-->");
                               }
-                              $$payload6.out.push(`<!--]--> `);
-                              child($$payload6, {
-                                props: mergeProps(mergedProps, focusScopeProps),
+                              $$renderer6.push(`<!--]--> `);
+                              child($$renderer6, {
+                                props: mergeProps(mergedProps(), focusScopeProps),
                                 ...contentState.snippetProps
                               });
-                              $$payload6.out.push(`<!---->`);
+                              $$renderer6.push(`<!---->`);
                             } else {
-                              $$payload6.out.push("<!--[!-->");
-                              Scroll_lock($$payload6, { preventScroll });
-                              $$payload6.out.push(`<!----> <div${spread_attributes({ ...mergeProps(mergedProps, focusScopeProps) })}>`);
-                              children?.($$payload6);
-                              $$payload6.out.push(`<!----></div>`);
+                              $$renderer6.push("<!--[-1-->");
+                              Scroll_lock($$renderer6, { preventScroll });
+                              $$renderer6.push(`<!----> <div${attributes({ ...mergeProps(mergedProps(), focusScopeProps) })}>`);
+                              children?.($$renderer6);
+                              $$renderer6.push(`<!----></div>`);
                             }
-                            $$payload6.out.push(`<!--]-->`);
+                            $$renderer6.push(`<!--]-->`);
                           },
                           $$slots: { default: true }
                         }
@@ -4301,38 +4504,22 @@ function Dialog_content($$payload, $$props) {
             }
           ]));
         };
-        Focus_scope($$payload2, {
+        Focus_scope($$renderer2, {
           ref: contentState.opts.ref,
           loop: true,
           trapFocus,
-          enabled: shouldEnableFocusTrap({
-            forceMount,
-            present: contentState.root.opts.open.current,
-            open: contentState.root.opts.open.current
-          }),
+          enabled: contentState.root.opts.open.current,
           onOpenAutoFocus,
-          onCloseAutoFocus: (e) => {
-            onCloseAutoFocus(e);
-            if (e.defaultPrevented) return;
-            afterSleep(1, () => contentState.root.triggerNode?.focus());
-          },
+          onCloseAutoFocus,
           focusScope
         });
       }
-    };
-    Presence_layer($$payload, spread_props([
-      mergedProps,
-      {
-        forceMount,
-        open: contentState.root.opts.open.current || forceMount,
-        ref: contentState.opts.ref,
-        presence,
-        $$slots: { presence: true }
-      }
-    ]));
-  }
-  bind_props($$props, { ref });
-  pop();
+    } else {
+      $$renderer2.push("<!--[-1-->");
+    }
+    $$renderer2.push(`<!--]-->`);
+    bind_props($$props, { ref });
+  });
 }
 class SvelteResizeObserver {
   #node;
@@ -4380,8 +4567,8 @@ class NavigationMenuProviderState {
     return NavigationMenuProviderContext.set(new NavigationMenuProviderState(opts));
   }
   opts;
-  indicatorTrackRef = box(null);
-  viewportRef = box(null);
+  indicatorTrackRef = simpleBox(null);
+  viewportRef = simpleBox(null);
   viewportContent = new SvelteMap();
   onTriggerEnter;
   onTriggerLeave = noop;
@@ -4412,12 +4599,12 @@ class NavigationMenuRootState {
   opts;
   attachment;
   provider;
-  previousValue = box("");
+  previousValue = simpleBox("");
   isDelaySkipped;
   #derivedDelay = derived(() => {
     const isOpen = this.opts?.value?.current !== "";
     if (isOpen || this.isDelaySkipped.current) {
-      return 100;
+      return 150;
     } else {
       return this.opts.delayDuration.current;
     }
@@ -4486,7 +4673,7 @@ class NavigationMenuRootState {
   };
   #props = derived(() => ({
     id: this.opts.id.current,
-    "data-orientation": getDataOrientation(this.opts.orientation.current),
+    "data-orientation": this.opts.orientation.current,
     dir: this.opts.dir.current,
     [navigationMenuAttrs.root]: "",
     [navigationMenuAttrs.menu]: "",
@@ -4503,8 +4690,8 @@ class NavigationMenuListState {
   static create(opts) {
     return NavigationMenuListContext.set(new NavigationMenuListState(opts, NavigationMenuProviderContext.get()));
   }
-  wrapperId = box(useId());
-  wrapperRef = box(null);
+  wrapperId = simpleBox(useId());
+  wrapperRef = simpleBox(null);
   opts;
   context;
   attachment;
@@ -4519,7 +4706,7 @@ class NavigationMenuListState {
     this.rovingFocusGroup = new RovingFocusGroup({
       rootNode: opts.ref,
       candidateSelector: `${navigationMenuAttrs.selector("trigger")}:not([data-disabled]), ${navigationMenuAttrs.selector("link")}:not([data-disabled])`,
-      loop: box.with(() => false),
+      loop: boxWith(() => false),
       orientation: this.context.opts.orientation
     });
   }
@@ -4538,7 +4725,7 @@ class NavigationMenuListState {
   }
   #props = derived(() => ({
     id: this.opts.id.current,
-    "data-orientation": getDataOrientation(this.context.opts.orientation.current),
+    "data-orientation": this.context.opts.orientation.current,
     [navigationMenuAttrs.list]: "",
     ...this.attachment
   }));
@@ -4575,9 +4762,9 @@ class NavigationMenuItemState {
   set triggerId($$value) {
     return this.#triggerId($$value);
   }
-  contentChildren = box(void 0);
-  contentChild = box(void 0);
-  contentProps = box({});
+  contentChildren = simpleBox(void 0);
+  contentChild = simpleBox(void 0);
+  contentProps = simpleBox({});
   domContext;
   constructor(opts, listContext) {
     this.opts = opts;
@@ -4679,7 +4866,7 @@ class NavigationMenuViewportState {
   #props = derived(() => ({
     id: this.opts.id.current,
     "data-state": getDataOpenClosed(this.open),
-    "data-orientation": getDataOrientation(this.context.opts.orientation.current),
+    "data-orientation": this.context.opts.orientation.current,
     style: {
       pointerEvents: !this.open && this.context.opts.isRootMenu ? "none" : void 0,
       "--bits-navigation-menu-viewport-width": this.viewportWidth,
@@ -4717,225 +4904,295 @@ function removeFromTabOrder(candidates) {
     });
   };
 }
-function Navigation_menu$1($$payload, $$props) {
-  push();
-  const uid = props_id($$payload);
-  let {
-    child,
-    children,
-    id = createId(uid),
-    ref = null,
-    value = "",
-    onValueChange = noop,
-    delayDuration = 200,
-    skipDelayDuration = 300,
-    dir = "ltr",
-    orientation = "horizontal",
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const rootState = NavigationMenuRootState.create({
-    id: box.with(() => id),
-    value: box.with(() => value, (v) => {
-      value = v;
-      onValueChange(v);
-    }),
-    delayDuration: box.with(() => delayDuration),
-    skipDelayDuration: box.with(() => skipDelayDuration),
-    dir: box.with(() => dir),
-    orientation: box.with(() => orientation),
-    ref: box.with(() => ref, (v) => ref = v)
-  });
-  const mergedProps = mergeProps({ "aria-label": "main" }, restProps, rootState.props);
-  if (child) {
-    $$payload.out.push("<!--[-->");
-    child($$payload, { props: mergedProps });
-    $$payload.out.push(`<!---->`);
-  } else {
-    $$payload.out.push("<!--[!-->");
-    $$payload.out.push(`<nav${spread_attributes({ ...mergedProps })}>`);
-    children?.($$payload);
-    $$payload.out.push(`<!----></nav>`);
-  }
-  $$payload.out.push(`<!--]-->`);
-  bind_props($$props, { ref, value });
-  pop();
-}
-function Navigation_menu_item$1($$payload, $$props) {
-  push();
-  const uid = props_id($$payload);
-  const defaultId = createId(uid);
-  let {
-    id = defaultId,
-    value = defaultId,
-    ref = null,
-    child,
-    children,
-    openOnHover = true,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const itemState = NavigationMenuItemState.create({
-    id: box.with(() => id),
-    ref: box.with(() => ref, (v) => ref = v),
-    value: box.with(() => value),
-    openOnHover: box.with(() => openOnHover)
-  });
-  const mergedProps = mergeProps(restProps, itemState.props);
-  if (child) {
-    $$payload.out.push("<!--[-->");
-    child($$payload, { props: mergedProps });
-    $$payload.out.push(`<!---->`);
-  } else {
-    $$payload.out.push("<!--[!-->");
-    $$payload.out.push(`<li${spread_attributes({ ...mergedProps })}>`);
-    children?.($$payload);
-    $$payload.out.push(`<!----></li>`);
-  }
-  $$payload.out.push(`<!--]-->`);
-  bind_props($$props, { ref });
-  pop();
-}
-function Navigation_menu_list$1($$payload, $$props) {
-  push();
-  const uid = props_id($$payload);
-  let {
-    id = createId(uid),
-    children,
-    child,
-    ref = null,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const listState = NavigationMenuListState.create({
-    id: box.with(() => id),
-    ref: box.with(() => ref, (v) => ref = v)
-  });
-  const mergedProps = mergeProps(restProps, listState.props);
-  const wrapperProps = mergeProps(listState.wrapperProps);
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
+function Navigation_menu$1($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    const uid = props_id($$renderer2);
+    let {
+      child,
+      children,
+      id = createId(uid),
+      ref = null,
+      value = "",
+      onValueChange = noop,
+      delayDuration = 200,
+      skipDelayDuration = 300,
+      dir = "ltr",
+      orientation = "horizontal",
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const rootState = NavigationMenuRootState.create({
+      id: boxWith(() => id),
+      value: boxWith(() => value, (v) => {
+        value = v;
+        onValueChange(v);
+      }),
+      delayDuration: boxWith(() => delayDuration),
+      skipDelayDuration: boxWith(() => skipDelayDuration),
+      dir: boxWith(() => dir),
+      orientation: boxWith(() => orientation),
+      ref: boxWith(() => ref, (v) => ref = v)
+    });
+    const mergedProps = derived(() => mergeProps({ "aria-label": "main" }, restProps, rootState.props));
     if (child) {
-      $$payload2.out.push("<!--[-->");
-      child($$payload2, { props: mergedProps, wrapperProps });
-      $$payload2.out.push(`<!----> `);
-      Mounted($$payload2, {
-        get mounted() {
-          return listState.wrapperMounted;
-        },
-        set mounted($$value) {
-          listState.wrapperMounted = $$value;
-          $$settled = false;
-        }
-      });
-      $$payload2.out.push(`<!---->`);
+      $$renderer2.push("<!--[0-->");
+      child($$renderer2, { props: mergedProps() });
+      $$renderer2.push(`<!---->`);
     } else {
-      $$payload2.out.push("<!--[!-->");
-      $$payload2.out.push(`<div${spread_attributes({ ...wrapperProps })}><ul${spread_attributes({ ...mergedProps })}>`);
-      children?.($$payload2);
-      $$payload2.out.push(`<!----></ul></div> `);
-      Mounted($$payload2, {
-        get mounted() {
-          return listState.wrapperMounted;
-        },
-        set mounted($$value) {
-          listState.wrapperMounted = $$value;
-          $$settled = false;
-        }
-      });
-      $$payload2.out.push(`<!---->`);
+      $$renderer2.push("<!--[-1-->");
+      $$renderer2.push(`<nav${attributes({ ...mergedProps() })}>`);
+      children?.($$renderer2);
+      $$renderer2.push(`<!----></nav>`);
     }
-    $$payload2.out.push(`<!--]-->`);
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
-}
-function Navigation_menu_viewport$1($$payload, $$props) {
-  push();
-  const uid = props_id($$payload);
-  let {
-    id = createId(uid),
-    ref = null,
-    forceMount = false,
-    child,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const viewportState = NavigationMenuViewportState.create({
-    id: box.with(() => id),
-    ref: box.with(() => ref, (v) => ref = v)
+    $$renderer2.push(`<!--]-->`);
+    bind_props($$props, { ref, value });
   });
-  const mergedProps = mergeProps(restProps, viewportState.props);
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    {
-      let presence = function($$payload3) {
-        if (child) {
-          $$payload3.out.push("<!--[-->");
-          child($$payload3, { props: mergedProps });
-          $$payload3.out.push(`<!---->`);
-        } else {
-          $$payload3.out.push("<!--[!-->");
-          $$payload3.out.push(`<div${spread_attributes({ ...mergedProps })}>`);
-          children?.($$payload3);
-          $$payload3.out.push(`<!----></div>`);
+}
+class Presence {
+  opts;
+  present;
+  #afterAnimations;
+  #isPresent = false;
+  #hasMounted = false;
+  #transitionStatus = void 0;
+  #transitionFrame = null;
+  constructor(opts) {
+    this.opts = opts;
+    this.present = this.opts.open;
+    this.#isPresent = opts.open.current;
+    this.#afterAnimations = new AnimationsComplete({ ref: this.opts.ref, afterTick: this.opts.open });
+    watch(() => this.present.current, (isOpen) => {
+      if (!this.#hasMounted) {
+        this.#hasMounted = true;
+        return;
+      }
+      this.#clearTransitionFrame();
+      if (isOpen) {
+        this.#isPresent = true;
+      }
+      this.#transitionStatus = isOpen ? "starting" : "ending";
+      if (isOpen) {
+        this.#transitionFrame = window.requestAnimationFrame(() => {
+          this.#transitionFrame = null;
+          if (this.present.current) {
+            this.#transitionStatus = void 0;
+          }
+        });
+      }
+      this.#afterAnimations.run(() => {
+        if (isOpen !== this.present.current) return;
+        if (!isOpen) {
+          this.#isPresent = false;
         }
-        $$payload3.out.push(`<!--]--> `);
-        Mounted($$payload3, {
+        this.#transitionStatus = void 0;
+      });
+    });
+  }
+  #_isPresent = derived(() => {
+    return this.#isPresent;
+  });
+  get isPresent() {
+    return this.#_isPresent();
+  }
+  set isPresent($$value) {
+    return this.#_isPresent($$value);
+  }
+  get transitionStatus() {
+    return this.#transitionStatus;
+  }
+  #clearTransitionFrame() {
+    if (this.#transitionFrame === null) return;
+    window.cancelAnimationFrame(this.#transitionFrame);
+    this.#transitionFrame = null;
+  }
+}
+function Presence_layer($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { open, forceMount, presence, ref } = $$props;
+    const presenceState = new Presence({ open: boxWith(() => open), ref });
+    if (forceMount || open || presenceState.isPresent) {
+      $$renderer2.push("<!--[0-->");
+      presence?.($$renderer2, {
+        present: presenceState.isPresent,
+        transitionStatus: presenceState.transitionStatus
+      });
+      $$renderer2.push(`<!---->`);
+    } else {
+      $$renderer2.push("<!--[-1-->");
+    }
+    $$renderer2.push(`<!--]-->`);
+  });
+}
+function Navigation_menu_item$1($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    const uid = props_id($$renderer2);
+    const defaultId = createId(uid);
+    let {
+      id = defaultId,
+      value = defaultId,
+      ref = null,
+      child,
+      children,
+      openOnHover = true,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const itemState = NavigationMenuItemState.create({
+      id: boxWith(() => id),
+      ref: boxWith(() => ref, (v) => ref = v),
+      value: boxWith(() => value),
+      openOnHover: boxWith(() => openOnHover)
+    });
+    const mergedProps = derived(() => mergeProps(restProps, itemState.props));
+    if (child) {
+      $$renderer2.push("<!--[0-->");
+      child($$renderer2, { props: mergedProps() });
+      $$renderer2.push(`<!---->`);
+    } else {
+      $$renderer2.push("<!--[-1-->");
+      $$renderer2.push(`<li${attributes({ ...mergedProps() })}>`);
+      children?.($$renderer2);
+      $$renderer2.push(`<!----></li>`);
+    }
+    $$renderer2.push(`<!--]-->`);
+    bind_props($$props, { ref });
+  });
+}
+function Navigation_menu_list$1($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    const uid = props_id($$renderer2);
+    let {
+      id = createId(uid),
+      children,
+      child,
+      ref = null,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const listState = NavigationMenuListState.create({
+      id: boxWith(() => id),
+      ref: boxWith(() => ref, (v) => ref = v)
+    });
+    const mergedProps = derived(() => mergeProps(restProps, listState.props));
+    const wrapperProps = derived(() => mergeProps(listState.wrapperProps));
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      if (child) {
+        $$renderer3.push("<!--[0-->");
+        child($$renderer3, { props: mergedProps(), wrapperProps: wrapperProps() });
+        $$renderer3.push(`<!----> `);
+        Mounted($$renderer3, {
           get mounted() {
-            return viewportState.mounted;
+            return listState.wrapperMounted;
           },
           set mounted($$value) {
-            viewportState.mounted = $$value;
+            listState.wrapperMounted = $$value;
             $$settled = false;
           }
         });
-        $$payload3.out.push(`<!---->`);
-      };
-      Presence_layer($$payload2, {
-        open: forceMount || viewportState.open,
-        ref: viewportState.opts.ref,
-        presence
-      });
+        $$renderer3.push(`<!---->`);
+      } else {
+        $$renderer3.push("<!--[-1-->");
+        $$renderer3.push(`<div${attributes({ ...wrapperProps() })}><ul${attributes({ ...mergedProps() })}>`);
+        children?.($$renderer3);
+        $$renderer3.push(`<!----></ul></div> `);
+        Mounted($$renderer3, {
+          get mounted() {
+            return listState.wrapperMounted;
+          },
+          set mounted($$value) {
+            listState.wrapperMounted = $$value;
+            $$settled = false;
+          }
+        });
+        $$renderer3.push(`<!---->`);
+      }
+      $$renderer3.push(`<!--]-->`);
     }
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
 }
-const defaultOpts = {
-  immediate: true
-};
+function Navigation_menu_viewport$1($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    const uid = props_id($$renderer2);
+    let {
+      id = createId(uid),
+      ref = null,
+      forceMount = false,
+      child,
+      children,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const viewportState = NavigationMenuViewportState.create({
+      id: boxWith(() => id),
+      ref: boxWith(() => ref, (v) => ref = v)
+    });
+    const mergedProps = derived(() => mergeProps(restProps, viewportState.props));
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      {
+        let presence = function($$renderer4, { transitionStatus }) {
+          const presenceProps = getDataTransitionAttrs(transitionStatus);
+          if (child) {
+            $$renderer4.push("<!--[0-->");
+            child($$renderer4, { props: mergeProps(mergedProps(), presenceProps) });
+            $$renderer4.push(`<!---->`);
+          } else {
+            $$renderer4.push("<!--[-1-->");
+            $$renderer4.push(`<div${attributes({ ...mergeProps(mergedProps(), presenceProps) })}>`);
+            children?.($$renderer4);
+            $$renderer4.push(`<!----></div>`);
+          }
+          $$renderer4.push(`<!--]--> `);
+          Mounted($$renderer4, {
+            get mounted() {
+              return viewportState.mounted;
+            },
+            set mounted($$value) {
+              viewportState.mounted = $$value;
+              $$settled = false;
+            }
+          });
+          $$renderer4.push(`<!---->`);
+        };
+        Presence_layer($$renderer3, {
+          open: forceMount || viewportState.open,
+          ref: viewportState.opts.ref,
+          presence
+        });
+      }
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
+}
 class TimeoutFn {
-  #opts;
   #interval;
   #cb;
   #timer = null;
-  constructor(cb, interval, opts = {}) {
+  constructor(cb, interval) {
     this.#cb = cb;
     this.#interval = interval;
-    this.#opts = { ...defaultOpts, ...opts };
     this.stop = this.stop.bind(this);
     this.start = this.start.bind(this);
-    if (this.#opts.immediate && BROWSER) ;
     onDestroyEffect(this.stop);
   }
   #clear() {
@@ -4958,13 +5215,89 @@ class TimeoutFn {
 const tooltipAttrs = createBitsAttrs({ component: "tooltip", parts: ["content", "trigger"] });
 const TooltipProviderContext = new Context("Tooltip.Provider");
 const TooltipRootContext = new Context("Tooltip.Root");
+class TooltipTriggerRegistryState {
+  triggers = /* @__PURE__ */ new Map();
+  activeTriggerId = null;
+  #activeTriggerNode = derived(() => {
+    const activeTriggerId = this.activeTriggerId;
+    if (activeTriggerId === null) return null;
+    return this.triggers.get(activeTriggerId)?.node ?? null;
+  });
+  get activeTriggerNode() {
+    return this.#activeTriggerNode();
+  }
+  set activeTriggerNode($$value) {
+    return this.#activeTriggerNode($$value);
+  }
+  #activePayload = derived(() => {
+    const activeTriggerId = this.activeTriggerId;
+    if (activeTriggerId === null) return null;
+    return this.triggers.get(activeTriggerId)?.payload ?? null;
+  });
+  get activePayload() {
+    return this.#activePayload();
+  }
+  set activePayload($$value) {
+    return this.#activePayload($$value);
+  }
+  register = (record) => {
+    const next = new Map(this.triggers);
+    next.set(record.id, record);
+    this.triggers = next;
+    this.#coerceActiveTrigger();
+  };
+  update = (record) => {
+    const next = new Map(this.triggers);
+    next.set(record.id, record);
+    this.triggers = next;
+    this.#coerceActiveTrigger();
+  };
+  unregister = (id) => {
+    if (!this.triggers.has(id)) return;
+    const next = new Map(this.triggers);
+    next.delete(id);
+    this.triggers = next;
+    if (this.activeTriggerId === id) {
+      this.activeTriggerId = null;
+    }
+  };
+  setActiveTrigger = (id) => {
+    if (id === null) {
+      this.activeTriggerId = null;
+      return;
+    }
+    if (!this.triggers.has(id)) {
+      this.activeTriggerId = null;
+      return;
+    }
+    this.activeTriggerId = id;
+  };
+  get = (id) => {
+    return this.triggers.get(id);
+  };
+  has = (id) => {
+    return this.triggers.has(id);
+  };
+  getFirstTriggerId = () => {
+    const firstEntry = this.triggers.entries().next();
+    if (firstEntry.done) return null;
+    return firstEntry.value[0];
+  };
+  #coerceActiveTrigger = () => {
+    const activeTriggerId = this.activeTriggerId;
+    if (activeTriggerId === null) return;
+    if (!this.triggers.has(activeTriggerId)) {
+      this.activeTriggerId = null;
+    }
+  };
+}
 class TooltipProviderState {
   static create(opts) {
     return TooltipProviderContext.set(new TooltipProviderState(opts));
   }
   opts;
   isOpenDelayed = true;
-  isPointerInTransit = box(false);
+  isPointerInTransit = simpleBox(false);
   #timerFn;
   #openTooltip = null;
   constructor(opts) {
@@ -4973,13 +5306,13 @@ class TooltipProviderState {
       () => {
         this.isOpenDelayed = true;
       },
-      this.opts.skipDelayDuration.current,
-      { immediate: false }
+      this.opts.skipDelayDuration.current
     );
   }
   #startTimer = () => {
     const skipDuration = this.opts.skipDelayDuration.current;
     if (skipDuration === 0) {
+      this.isOpenDelayed = true;
       return;
     } else {
       this.#timerFn.start();
@@ -4999,8 +5332,8 @@ class TooltipProviderState {
   onClose = (tooltip) => {
     if (this.#openTooltip === tooltip) {
       this.#openTooltip = null;
+      this.#startTimer();
     }
-    this.#startTimer();
   };
   isTooltipOpen = (tooltip) => {
     return this.#openTooltip === tooltip;
@@ -5047,8 +5380,10 @@ class TooltipRootState {
   set ignoreNonKeyboardFocus($$value) {
     return this.#ignoreNonKeyboardFocus($$value);
   }
+  registry;
+  tether;
   contentNode = null;
-  triggerNode = null;
+  contentPresence;
   #wasOpenDelayed = false;
   #timerFn;
   #stateAttr = derived(() => {
@@ -5064,17 +5399,21 @@ class TooltipRootState {
   constructor(opts, provider) {
     this.opts = opts;
     this.provider = provider;
+    this.tether = opts.tether.current?.state ?? null;
+    this.registry = this.tether?.registry ?? new TooltipTriggerRegistryState();
     this.#timerFn = new TimeoutFn(
       () => {
         this.#wasOpenDelayed = true;
         this.opts.open.current = true;
       },
-      this.delayDuration ?? 0,
-      { immediate: false }
+      this.delayDuration ?? 0
     );
-    new OpenChangeComplete({
+    if (this.tether) {
+      this.tether.root = this;
+    }
+    this.contentPresence = new PresenceManager({
       open: this.opts.open,
-      ref: box.with(() => this.contentNode),
+      ref: boxWith(() => this.contentNode),
       onComplete: () => {
         this.opts.onOpenChangeComplete.current(this.opts.open.current);
       }
@@ -5086,21 +5425,34 @@ class TooltipRootState {
           this.#wasOpenDelayed = true;
           this.opts.open.current = true;
         },
-        this.delayDuration,
-        { immediate: false }
+        this.delayDuration
       );
     });
-    watch(() => this.opts.open.current, (isOpen) => {
-      if (isOpen) {
-        this.provider.onOpen(this);
-      } else {
-        this.provider.onClose(this);
-      }
+    watch(
+      () => this.opts.open.current,
+      (isOpen) => {
+        if (isOpen) {
+          this.ensureActiveTrigger();
+          this.provider.onOpen(this);
+        } else {
+          this.provider.onClose(this);
+        }
+      },
+      { lazy: true }
+    );
+    watch(() => this.opts.triggerId.current, (triggerId) => {
+      if (triggerId === this.registry.activeTriggerId) return;
+      this.registry.setActiveTrigger(triggerId);
+    });
+    watch(() => this.registry.activeTriggerId, (activeTriggerId) => {
+      if (this.opts.triggerId.current === activeTriggerId) return;
+      this.opts.triggerId.current = activeTriggerId;
     });
   }
   handleOpen = () => {
     this.#timerFn.stop();
     this.#wasOpenDelayed = false;
+    this.ensureActiveTrigger();
     this.opts.open.current = true;
   };
   handleClose = () => {
@@ -5112,13 +5464,14 @@ class TooltipRootState {
     const shouldSkipDelay = !this.provider.isOpenDelayed;
     const delayDuration = this.delayDuration ?? 0;
     if (shouldSkipDelay || delayDuration === 0) {
-      this.#wasOpenDelayed = delayDuration > 0 && shouldSkipDelay;
+      this.#wasOpenDelayed = false;
       this.opts.open.current = true;
     } else {
       this.#timerFn.start();
     }
   };
-  onTriggerEnter = () => {
+  onTriggerEnter = (triggerId) => {
+    this.setActiveTrigger(triggerId);
     this.#handleDelayedOpen();
   };
   onTriggerLeave = () => {
@@ -5128,24 +5481,131 @@ class TooltipRootState {
       this.#timerFn.stop();
     }
   };
+  ensureActiveTrigger = () => {
+    if (this.registry.activeTriggerId !== null && this.registry.has(this.registry.activeTriggerId)) {
+      return;
+    }
+    if (this.opts.triggerId.current !== null && this.registry.has(this.opts.triggerId.current)) {
+      this.registry.setActiveTrigger(this.opts.triggerId.current);
+      return;
+    }
+    const firstTriggerId = this.registry.getFirstTriggerId();
+    this.registry.setActiveTrigger(firstTriggerId);
+  };
+  setActiveTrigger = (triggerId) => {
+    this.registry.setActiveTrigger(triggerId);
+  };
+  registerTrigger = (trigger) => {
+    this.registry.register(trigger);
+    if (trigger.disabled && this.registry.activeTriggerId === trigger.id && this.opts.open.current) {
+      this.handleClose();
+    }
+  };
+  updateTrigger = (trigger) => {
+    this.registry.update(trigger);
+    if (trigger.disabled && this.registry.activeTriggerId === trigger.id && this.opts.open.current) {
+      this.handleClose();
+    }
+  };
+  unregisterTrigger = (id) => {
+    const isActive = this.registry.activeTriggerId === id;
+    this.registry.unregister(id);
+    if (isActive && this.opts.open.current) {
+      this.handleClose();
+    }
+  };
+  isActiveTrigger = (triggerId) => {
+    return this.registry.activeTriggerId === triggerId;
+  };
+  get triggerNode() {
+    return this.registry.activeTriggerNode;
+  }
+  get activePayload() {
+    return this.registry.activePayload;
+  }
+  get activeTriggerId() {
+    return this.registry.activeTriggerId;
+  }
 }
 class TooltipTriggerState {
   static create(opts) {
-    return new TooltipTriggerState(opts, TooltipRootContext.get());
+    if (opts.tether.current) {
+      return new TooltipTriggerState(opts, null, opts.tether.current.state);
+    }
+    return new TooltipTriggerState(opts, TooltipRootContext.get(), null);
   }
   opts;
   root;
+  tether;
   attachment;
-  #isPointerDown = box(false);
+  #isPointerDown = simpleBox(false);
   #hasPointerMoveOpened = false;
-  #isDisabled = derived(() => this.opts.disabled.current || this.root.disabled);
   domContext;
-  constructor(opts, root) {
+  #transitCheckTimeout = null;
+  #mounted = false;
+  #lastRegisteredId = null;
+  constructor(opts, root, tether) {
     this.opts = opts;
     this.root = root;
+    this.tether = tether;
     this.domContext = new DOMContext(opts.ref);
-    this.attachment = attachRef(this.opts.ref, (v) => this.root.triggerNode = v);
+    this.attachment = attachRef(this.opts.ref, (v) => this.#register(v));
+    watch(() => this.opts.id.current, () => {
+      this.#register(this.opts.ref.current);
+    });
+    watch(() => this.opts.payload.current, () => {
+      this.#register(this.opts.ref.current);
+    });
+    watch(() => this.opts.disabled.current, () => {
+      this.#register(this.opts.ref.current);
+    });
   }
+  #getRoot = () => {
+    return this.tether?.root ?? this.root;
+  };
+  #isDisabled = () => {
+    const root = this.#getRoot();
+    return this.opts.disabled.current || Boolean(root?.disabled);
+  };
+  #register = (node) => {
+    if (!this.#mounted) return;
+    const id = this.opts.id.current;
+    const payload = this.opts.payload.current;
+    const disabled = this.opts.disabled.current;
+    if (this.#lastRegisteredId && this.#lastRegisteredId !== id) {
+      const root2 = this.#getRoot();
+      if (this.tether) {
+        this.tether.registry.unregister(this.#lastRegisteredId);
+      } else {
+        root2?.unregisterTrigger(this.#lastRegisteredId);
+      }
+    }
+    const triggerRecord = { id, node, payload, disabled };
+    const root = this.#getRoot();
+    if (this.tether) {
+      if (this.tether.registry.has(id)) {
+        this.tether.registry.update(triggerRecord);
+      } else {
+        this.tether.registry.register(triggerRecord);
+      }
+      if (disabled && this.tether.registry.activeTriggerId === id && root?.opts.open.current) {
+        root.handleClose();
+      }
+    } else {
+      if (root?.registry.has(id)) {
+        root.updateTrigger(triggerRecord);
+      } else {
+        root?.registerTrigger(triggerRecord);
+      }
+    }
+    this.#lastRegisteredId = id;
+  };
+  #clearTransitCheck = () => {
+    if (this.#transitCheckTimeout !== null) {
+      clearTimeout(this.#transitCheckTimeout);
+      this.#transitCheckTimeout = null;
+    }
+  };
   handlePointerUp = () => {
     this.#isPointerDown.current = false;
   };
@@ -5164,50 +5624,122 @@ class TooltipTriggerState {
       { once: true }
     );
   };
-  #onpointermove = (e) => {
-    if (this.#isDisabled()) return;
+  #onpointerenter = (e) => {
+    const root = this.#getRoot();
+    if (!root) return;
+    if (this.#isDisabled()) {
+      if (root.opts.open.current) {
+        root.handleClose();
+      }
+      return;
+    }
     if (e.pointerType === "touch") return;
-    if (this.#hasPointerMoveOpened) return;
-    if (this.root.provider.isPointerInTransit.current) return;
-    this.root.onTriggerEnter();
+    if (root.provider.isPointerInTransit.current) {
+      this.#clearTransitCheck();
+      this.#transitCheckTimeout = window.setTimeout(
+        () => {
+          if (root.provider.isPointerInTransit.current) {
+            root.provider.isPointerInTransit.current = false;
+            root.onTriggerEnter(this.opts.id.current);
+            this.#hasPointerMoveOpened = true;
+          }
+        },
+        250
+      );
+      return;
+    }
+    root.onTriggerEnter(this.opts.id.current);
     this.#hasPointerMoveOpened = true;
   };
-  #onpointerleave = () => {
+  #onpointermove = (e) => {
+    const root = this.#getRoot();
+    if (!root) return;
+    if (this.#isDisabled()) {
+      if (root.opts.open.current) {
+        root.handleClose();
+      }
+      return;
+    }
+    if (e.pointerType === "touch") return;
+    if (this.#hasPointerMoveOpened) return;
+    this.#clearTransitCheck();
+    root.provider.isPointerInTransit.current = false;
+    root.onTriggerEnter(this.opts.id.current);
+    this.#hasPointerMoveOpened = true;
+  };
+  #onpointerleave = (e) => {
+    const root = this.#getRoot();
+    if (!root) return;
     if (this.#isDisabled()) return;
-    this.root.onTriggerLeave();
+    this.#clearTransitCheck();
+    if (!root.isActiveTrigger(this.opts.id.current)) {
+      this.#hasPointerMoveOpened = false;
+      return;
+    }
+    const relatedTarget = e.relatedTarget;
+    if (isElement(relatedTarget)) {
+      for (const record of root.registry.triggers.values()) {
+        if (record.node !== relatedTarget) continue;
+        if (root.provider.opts.skipDelayDuration.current > 0) {
+          this.#hasPointerMoveOpened = false;
+          return;
+        }
+        root.handleClose();
+        this.#hasPointerMoveOpened = false;
+        return;
+      }
+    }
+    root.onTriggerLeave();
     this.#hasPointerMoveOpened = false;
   };
   #onfocus = (e) => {
-    if (this.#isPointerDown.current || this.#isDisabled()) return;
-    if (this.root.ignoreNonKeyboardFocus && !isFocusVisible(e.currentTarget)) return;
-    this.root.handleOpen();
+    const root = this.#getRoot();
+    if (!root) return;
+    if (this.#isPointerDown.current) return;
+    if (this.#isDisabled()) {
+      if (root.opts.open.current) {
+        root.handleClose();
+      }
+      return;
+    }
+    if (root.ignoreNonKeyboardFocus && !isFocusVisible(e.currentTarget)) return;
+    root.setActiveTrigger(this.opts.id.current);
+    root.handleOpen();
   };
   #onblur = () => {
-    if (this.#isDisabled()) return;
-    this.root.handleClose();
+    const root = this.#getRoot();
+    if (!root || this.#isDisabled()) return;
+    root.handleClose();
   };
   #onclick = () => {
-    if (this.root.disableCloseOnTriggerClick || this.#isDisabled()) return;
-    this.root.handleClose();
+    const root = this.#getRoot();
+    if (!root || root.disableCloseOnTriggerClick || this.#isDisabled()) return;
+    root.handleClose();
   };
-  #props = derived(() => ({
-    id: this.opts.id.current,
-    "aria-describedby": this.root.opts.open.current ? this.root.contentNode?.id : void 0,
-    "data-state": this.root.stateAttr,
-    "data-disabled": getDataDisabled(this.#isDisabled()),
-    "data-delay-duration": `${this.root.delayDuration}`,
-    [tooltipAttrs.trigger]: "",
-    tabindex: this.#isDisabled() ? void 0 : 0,
-    disabled: this.opts.disabled.current,
-    onpointerup: this.#onpointerup,
-    onpointerdown: this.#onpointerdown,
-    onpointermove: this.#onpointermove,
-    onpointerleave: this.#onpointerleave,
-    onfocus: this.#onfocus,
-    onblur: this.#onblur,
-    onclick: this.#onclick,
-    ...this.attachment
-  }));
+  #props = derived(() => {
+    const root = this.#getRoot();
+    const isOpenForTrigger = Boolean(root?.opts.open.current && root.isActiveTrigger(this.opts.id.current));
+    const isDisabled = this.#isDisabled();
+    return {
+      id: this.opts.id.current,
+      "aria-describedby": isOpenForTrigger ? root?.contentNode?.id : void 0,
+      "data-state": isOpenForTrigger ? root?.stateAttr : "closed",
+      "data-disabled": boolToEmptyStrOrUndef(isDisabled),
+      "data-delay-duration": `${root?.delayDuration ?? 0}`,
+      [tooltipAttrs.trigger]: "",
+      tabindex: isDisabled ? void 0 : this.opts.tabindex.current,
+      disabled: this.opts.disabled.current,
+      onpointerup: this.#onpointerup,
+      onpointerdown: this.#onpointerdown,
+      onpointerenter: this.#onpointerenter,
+      onpointermove: this.#onpointermove,
+      onpointerleave: this.#onpointerleave,
+      onfocus: this.#onfocus,
+      onblur: this.#onblur,
+      onclick: this.#onclick,
+      ...this.attachment
+    };
+  });
   get props() {
     return this.#props();
   }
@@ -5226,19 +5758,27 @@ class TooltipContentState {
     this.opts = opts;
     this.root = root;
     this.attachment = attachRef(this.opts.ref, (v) => this.root.contentNode = v);
-    new GraceArea({
+    new SafePolygon({
       triggerNode: () => this.root.triggerNode,
       contentNode: () => this.root.contentNode,
       enabled: () => this.root.opts.open.current && !this.root.disableHoverableContent,
+      transitIntentTimeout: 180,
+      ignoredTargets: () => {
+        if (this.root.provider.opts.skipDelayDuration.current === 0) return [];
+        const nodes = [];
+        const activeTriggerNode = this.root.triggerNode;
+        for (const record of this.root.registry.triggers.values()) {
+          if (record.node && record.node !== activeTriggerNode) {
+            nodes.push(record.node);
+          }
+        }
+        return nodes;
+      },
       onPointerExit: () => {
         if (this.root.provider.isTooltipOpen(this.root)) {
           this.root.handleClose();
         }
-      },
-      setIsPointerInTransit: (value) => {
-        this.root.provider.isPointerInTransit.current = value;
-      },
-      transitTimeout: this.root.provider.opts.skipDelayDuration.current
+      }
     });
   }
   onInteractOutside = (e) => {
@@ -5261,6 +5801,9 @@ class TooltipContentState {
   onCloseAutoFocus = (e) => {
     e.preventDefault();
   };
+  get shouldRender() {
+    return this.root.contentPresence.shouldRender;
+  }
   #snippetProps = derived(() => ({ open: this.root.opts.open.current }));
   get snippetProps() {
     return this.#snippetProps();
@@ -5271,8 +5814,9 @@ class TooltipContentState {
   #props = derived(() => ({
     id: this.opts.id.current,
     "data-state": this.root.stateAttr,
-    "data-disabled": getDataDisabled(this.root.disabled),
-    style: { pointerEvents: "auto", outline: "none" },
+    "data-disabled": boolToEmptyStrOrUndef(this.root.disabled),
+    ...getDataTransitionAttrs(this.root.contentPresence.transitionStatus),
+    style: { outline: "none" },
     [tooltipAttrs.content]: "",
     ...this.attachment
   }));
@@ -5289,144 +5833,159 @@ class TooltipContentState {
     onCloseAutoFocus: this.onCloseAutoFocus
   };
 }
-function Tooltip($$payload, $$props) {
-  push();
-  let {
-    open = false,
-    onOpenChange = noop,
-    onOpenChangeComplete = noop,
-    disabled,
-    delayDuration,
-    disableCloseOnTriggerClick,
-    disableHoverableContent,
-    ignoreNonKeyboardFocus,
-    children
-  } = $$props;
-  TooltipRootState.create({
-    open: box.with(() => open, (v) => {
-      open = v;
-      onOpenChange(v);
-    }),
-    delayDuration: box.with(() => delayDuration),
-    disableCloseOnTriggerClick: box.with(() => disableCloseOnTriggerClick),
-    disableHoverableContent: box.with(() => disableHoverableContent),
-    ignoreNonKeyboardFocus: box.with(() => ignoreNonKeyboardFocus),
-    disabled: box.with(() => disabled),
-    onOpenChangeComplete: box.with(() => onOpenChangeComplete)
+function Tooltip($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      open = false,
+      triggerId = null,
+      onOpenChange = noop,
+      onOpenChangeComplete = noop,
+      disabled,
+      delayDuration,
+      disableCloseOnTriggerClick,
+      disableHoverableContent,
+      ignoreNonKeyboardFocus,
+      tether,
+      children
+    } = $$props;
+    const rootState = TooltipRootState.create({
+      open: boxWith(() => open, (v) => {
+        open = v;
+        onOpenChange(v);
+      }),
+      triggerId: boxWith(() => triggerId, (v) => {
+        triggerId = v;
+      }),
+      delayDuration: boxWith(() => delayDuration),
+      disableCloseOnTriggerClick: boxWith(() => disableCloseOnTriggerClick),
+      disableHoverableContent: boxWith(() => disableHoverableContent),
+      ignoreNonKeyboardFocus: boxWith(() => ignoreNonKeyboardFocus),
+      disabled: boxWith(() => disabled),
+      onOpenChangeComplete: boxWith(() => onOpenChangeComplete),
+      tether: boxWith(() => tether)
+    });
+    Floating_layer($$renderer2, {
+      tooltip: true,
+      children: ($$renderer3) => {
+        children?.($$renderer3, {
+          open: rootState.opts.open.current,
+          triggerId: rootState.activeTriggerId,
+          payload: rootState.activePayload
+        });
+        $$renderer3.push(`<!---->`);
+      }
+    });
+    bind_props($$props, { open, triggerId });
   });
-  Floating_layer($$payload, {
-    tooltip: true,
-    children: ($$payload2) => {
-      children?.($$payload2);
-      $$payload2.out.push(`<!---->`);
-    }
-  });
-  bind_props($$props, { open });
-  pop();
 }
-function Tooltip_content$1($$payload, $$props) {
-  push();
-  const uid = props_id($$payload);
-  let {
-    children,
-    child,
-    id = createId(uid),
-    ref = null,
-    side = "top",
-    sideOffset = 0,
-    align = "center",
-    avoidCollisions = true,
-    arrowPadding = 0,
-    sticky = "partial",
-    hideWhenDetached = false,
-    collisionPadding = 0,
-    onInteractOutside = noop,
-    onEscapeKeydown = noop,
-    forceMount = false,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const contentState = TooltipContentState.create({
-    id: box.with(() => id),
-    ref: box.with(() => ref, (v) => ref = v),
-    onInteractOutside: box.with(() => onInteractOutside),
-    onEscapeKeydown: box.with(() => onEscapeKeydown)
-  });
-  const floatingProps = {
-    side,
-    sideOffset,
-    align,
-    avoidCollisions,
-    arrowPadding,
-    sticky,
-    hideWhenDetached,
-    collisionPadding
-  };
-  const mergedProps = mergeProps(restProps, floatingProps, contentState.props);
-  if (forceMount) {
-    $$payload.out.push("<!--[-->");
-    {
-      let popper = function($$payload2, { props, wrapperProps }) {
-        const mergedProps2 = mergeProps(props, { style: getFloatingContentCSSVars("tooltip") });
-        if (child) {
-          $$payload2.out.push("<!--[-->");
-          child($$payload2, {
-            props: mergedProps2,
-            wrapperProps,
-            ...contentState.snippetProps
-          });
-          $$payload2.out.push(`<!---->`);
-        } else {
-          $$payload2.out.push("<!--[!-->");
-          $$payload2.out.push(`<div${spread_attributes({ ...wrapperProps })}><div${spread_attributes({ ...mergedProps2 })}>`);
-          children?.($$payload2);
-          $$payload2.out.push(`<!----></div></div>`);
-        }
-        $$payload2.out.push(`<!--]-->`);
-      };
-      Popper_layer_force_mount($$payload, spread_props([
-        mergedProps,
-        contentState.popperProps,
-        {
-          enabled: contentState.root.opts.open.current,
-          id,
-          trapFocus: false,
-          loop: false,
-          preventScroll: false,
-          forceMount: true,
-          ref: contentState.opts.ref,
-          tooltip: true,
-          popper,
-          $$slots: { popper: true }
-        }
-      ]));
-    }
-  } else {
-    $$payload.out.push("<!--[!-->");
-    if (!forceMount) {
-      $$payload.out.push("<!--[-->");
+function Tooltip_content$1($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    const uid = props_id($$renderer2);
+    let {
+      children,
+      child,
+      id = createId(uid),
+      ref = null,
+      side = "top",
+      sideOffset = 0,
+      align = "center",
+      avoidCollisions = true,
+      arrowPadding = 0,
+      sticky = "partial",
+      strategy,
+      hideWhenDetached = false,
+      customAnchor,
+      collisionPadding = 0,
+      onInteractOutside = noop,
+      onEscapeKeydown = noop,
+      forceMount = false,
+      style,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const contentState = TooltipContentState.create({
+      id: boxWith(() => id),
+      ref: boxWith(() => ref, (v) => ref = v),
+      onInteractOutside: boxWith(() => onInteractOutside),
+      onEscapeKeydown: boxWith(() => onEscapeKeydown)
+    });
+    const floatingProps = derived(() => ({
+      side,
+      sideOffset,
+      align,
+      avoidCollisions,
+      arrowPadding,
+      sticky,
+      hideWhenDetached,
+      collisionPadding,
+      strategy,
+      customAnchor: customAnchor ?? contentState.root.triggerNode
+    }));
+    const mergedProps = derived(() => mergeProps(restProps, floatingProps(), contentState.props));
+    if (forceMount) {
+      $$renderer2.push("<!--[0-->");
       {
-        let popper = function($$payload2, { props, wrapperProps }) {
-          const mergedProps2 = mergeProps(props, { style: getFloatingContentCSSVars("tooltip") });
+        let popper = function($$renderer3, { props, wrapperProps }) {
+          const finalProps = mergeProps(props, { style: getFloatingContentCSSVars("tooltip") }, { style });
           if (child) {
-            $$payload2.out.push("<!--[-->");
-            child($$payload2, {
-              props: mergedProps2,
+            $$renderer3.push("<!--[0-->");
+            child($$renderer3, {
+              props: finalProps,
               wrapperProps,
               ...contentState.snippetProps
             });
-            $$payload2.out.push(`<!---->`);
+            $$renderer3.push(`<!---->`);
           } else {
-            $$payload2.out.push("<!--[!-->");
-            $$payload2.out.push(`<div${spread_attributes({ ...wrapperProps })}><div${spread_attributes({ ...mergedProps2 })}>`);
-            children?.($$payload2);
-            $$payload2.out.push(`<!----></div></div>`);
+            $$renderer3.push("<!--[-1-->");
+            $$renderer3.push(`<div${attributes({ ...wrapperProps })}><div${attributes({ ...finalProps })}>`);
+            children?.($$renderer3);
+            $$renderer3.push(`<!----></div></div>`);
           }
-          $$payload2.out.push(`<!--]-->`);
+          $$renderer3.push(`<!--]-->`);
         };
-        Popper_layer($$payload, spread_props([
-          mergedProps,
+        Popper_layer_force_mount($$renderer2, spread_props([
+          mergedProps(),
+          contentState.popperProps,
+          {
+            enabled: contentState.root.opts.open.current,
+            id,
+            trapFocus: false,
+            loop: false,
+            preventScroll: false,
+            forceMount: true,
+            ref: contentState.opts.ref,
+            tooltip: true,
+            shouldRender: contentState.shouldRender,
+            contentPointerEvents: contentState.root.disableHoverableContent ? "none" : "auto",
+            popper,
+            $$slots: { popper: true }
+          }
+        ]));
+      }
+    } else if (!forceMount) {
+      $$renderer2.push("<!--[1-->");
+      {
+        let popper = function($$renderer3, { props, wrapperProps }) {
+          const finalProps = mergeProps(props, { style: getFloatingContentCSSVars("tooltip") }, { style });
+          if (child) {
+            $$renderer3.push("<!--[0-->");
+            child($$renderer3, {
+              props: finalProps,
+              wrapperProps,
+              ...contentState.snippetProps
+            });
+            $$renderer3.push(`<!---->`);
+          } else {
+            $$renderer3.push("<!--[-1-->");
+            $$renderer3.push(`<div${attributes({ ...wrapperProps })}><div${attributes({ ...finalProps })}>`);
+            children?.($$renderer3);
+            $$renderer3.push(`<!----></div></div>`);
+          }
+          $$renderer3.push(`<!--]-->`);
+        };
+        Popper_layer($$renderer2, spread_props([
+          mergedProps(),
           contentState.popperProps,
           {
             open: contentState.root.opts.open.current,
@@ -5437,286 +5996,307 @@ function Tooltip_content$1($$payload, $$props) {
             forceMount: false,
             ref: contentState.opts.ref,
             tooltip: true,
+            shouldRender: contentState.shouldRender,
+            contentPointerEvents: contentState.root.disableHoverableContent ? "none" : "auto",
             popper,
             $$slots: { popper: true }
           }
         ]));
       }
     } else {
-      $$payload.out.push("<!--[!-->");
+      $$renderer2.push("<!--[-1-->");
     }
-    $$payload.out.push(`<!--]-->`);
-  }
-  $$payload.out.push(`<!--]-->`);
-  bind_props($$props, { ref });
-  pop();
-}
-function Tooltip_trigger$1($$payload, $$props) {
-  push();
-  const uid = props_id($$payload);
-  let {
-    children,
-    child,
-    id = createId(uid),
-    disabled = false,
-    type = "button",
-    ref = null,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const triggerState = TooltipTriggerState.create({
-    id: box.with(() => id),
-    disabled: box.with(() => disabled ?? false),
-    ref: box.with(() => ref, (v) => ref = v)
+    $$renderer2.push(`<!--]-->`);
+    bind_props($$props, { ref });
   });
-  const mergedProps = mergeProps(restProps, triggerState.props, { type });
-  Floating_layer_anchor($$payload, {
-    id,
-    ref: triggerState.opts.ref,
-    tooltip: true,
-    children: ($$payload2) => {
-      if (child) {
-        $$payload2.out.push("<!--[-->");
-        child($$payload2, { props: mergedProps });
-        $$payload2.out.push(`<!---->`);
-      } else {
-        $$payload2.out.push("<!--[!-->");
-        $$payload2.out.push(`<button${spread_attributes({ ...mergedProps })}>`);
-        children?.($$payload2);
-        $$payload2.out.push(`<!----></button>`);
-      }
-      $$payload2.out.push(`<!--]-->`);
+}
+function Tooltip_trigger$1($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    const uid = props_id($$renderer2);
+    let {
+      children,
+      child,
+      id = createId(uid),
+      disabled = false,
+      payload,
+      tether,
+      type = "button",
+      tabindex = 0,
+      ref = null,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const triggerState = TooltipTriggerState.create({
+      id: boxWith(() => id),
+      disabled: boxWith(() => disabled ?? false),
+      tabindex: boxWith(() => tabindex ?? 0),
+      payload: boxWith(() => payload),
+      tether: boxWith(() => tether),
+      ref: boxWith(() => ref, (v) => ref = v)
+    });
+    const mergedProps = derived(() => mergeProps(restProps, triggerState.props, { type }));
+    if (child) {
+      $$renderer2.push("<!--[0-->");
+      child($$renderer2, { props: mergedProps() });
+      $$renderer2.push(`<!---->`);
+    } else {
+      $$renderer2.push("<!--[-1-->");
+      $$renderer2.push(`<button${attributes({ ...mergedProps() })}>`);
+      children?.($$renderer2);
+      $$renderer2.push(`<!----></button>`);
     }
+    $$renderer2.push(`<!--]-->`);
+    bind_props($$props, { ref });
   });
-  bind_props($$props, { ref });
-  pop();
 }
-function Tooltip_arrow($$payload, $$props) {
-  push();
-  let { ref = null, $$slots, $$events, ...restProps } = $$props;
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    Floating_layer_arrow($$payload2, spread_props([
-      restProps,
-      {
-        get ref() {
-          return ref;
-        },
-        set ref($$value) {
-          ref = $$value;
-          $$settled = false;
-        }
-      }
-    ]));
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
-}
-function Tooltip_provider($$payload, $$props) {
-  push();
-  let {
-    children,
-    delayDuration = 700,
-    disableCloseOnTriggerClick = false,
-    disableHoverableContent = false,
-    disabled = false,
-    ignoreNonKeyboardFocus = false,
-    skipDelayDuration = 300
-  } = $$props;
-  TooltipProviderState.create({
-    delayDuration: box.with(() => delayDuration),
-    disableCloseOnTriggerClick: box.with(() => disableCloseOnTriggerClick),
-    disableHoverableContent: box.with(() => disableHoverableContent),
-    disabled: box.with(() => disabled),
-    ignoreNonKeyboardFocus: box.with(() => ignoreNonKeyboardFocus),
-    skipDelayDuration: box.with(() => skipDelayDuration)
-  });
-  children?.($$payload);
-  $$payload.out.push(`<!---->`);
-  pop();
-}
-function Navigation_menu_viewport($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    $$payload2.out.push(`<div${attr_class(clsx$1(cn("absolute left-0 top-full isolate z-50 flex justify-center")))}><!---->`);
-    Navigation_menu_viewport$1($$payload2, spread_props([
-      {
-        "data-slot": "navigation-menu-viewport",
-        class: cn("origin-top-center bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 relative mt-1.5 h-[var(--bits-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border shadow md:w-[var(--bits-navigation-menu-viewport-width)]", className)
-      },
-      restProps,
-      {
-        get ref() {
-          return ref;
-        },
-        set ref($$value) {
-          ref = $$value;
-          $$settled = false;
-        }
-      }
-    ]));
-    $$payload2.out.push(`<!----></div>`);
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
-}
-function Navigation_menu($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    viewport = true,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    $$payload2.out.push(`<!---->`);
-    Navigation_menu$1($$payload2, spread_props([
-      {
-        "data-slot": "navigation-menu",
-        "data-viewport": viewport,
-        class: cn("group/navigation-menu relative flex max-w-max flex-1 items-center justify-center", className)
-      },
-      restProps,
-      {
-        get ref() {
-          return ref;
-        },
-        set ref($$value) {
-          ref = $$value;
-          $$settled = false;
-        },
-        children: ($$payload3) => {
-          children?.($$payload3);
-          $$payload3.out.push(`<!----> `);
-          if (viewport) {
-            $$payload3.out.push("<!--[-->");
-            Navigation_menu_viewport($$payload3, {});
-          } else {
-            $$payload3.out.push("<!--[!-->");
+function Tooltip_arrow($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { ref = null, $$slots, $$events, ...restProps } = $$props;
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      Floating_layer_arrow($$renderer3, spread_props([
+        restProps,
+        {
+          get ref() {
+            return ref;
+          },
+          set ref($$value) {
+            ref = $$value;
+            $$settled = false;
           }
-          $$payload3.out.push(`<!--]-->`);
-        },
-        $$slots: { default: true }
-      }
-    ]));
-    $$payload2.out.push(`<!---->`);
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
-}
-function Navigation_menu_item($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    $$payload2.out.push(`<!---->`);
-    Navigation_menu_item$1($$payload2, spread_props([
-      {
-        "data-slot": "navigation-menu-item",
-        class: cn("relative", className)
-      },
-      restProps,
-      {
-        get ref() {
-          return ref;
-        },
-        set ref($$value) {
-          ref = $$value;
-          $$settled = false;
         }
-      }
-    ]));
-    $$payload2.out.push(`<!---->`);
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
+      ]));
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
 }
-function Navigation_menu_list($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    $$payload2.out.push(`<!---->`);
-    Navigation_menu_list$1($$payload2, spread_props([
-      {
-        "data-slot": "navigation-menu-list",
-        class: cn("group flex flex-1 list-none items-center justify-center gap-1", className)
-      },
-      restProps,
-      {
-        get ref() {
-          return ref;
-        },
-        set ref($$value) {
-          ref = $$value;
-          $$settled = false;
-        }
+function Tooltip_provider($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      children,
+      delayDuration = 700,
+      disableCloseOnTriggerClick = false,
+      disableHoverableContent = false,
+      disabled = false,
+      ignoreNonKeyboardFocus = false,
+      skipDelayDuration = 300
+    } = $$props;
+    TooltipProviderState.create({
+      delayDuration: boxWith(() => delayDuration),
+      disableCloseOnTriggerClick: boxWith(() => disableCloseOnTriggerClick),
+      disableHoverableContent: boxWith(() => disableHoverableContent),
+      disabled: boxWith(() => disabled),
+      ignoreNonKeyboardFocus: boxWith(() => ignoreNonKeyboardFocus),
+      skipDelayDuration: boxWith(() => skipDelayDuration)
+    });
+    children?.($$renderer2);
+    $$renderer2.push(`<!---->`);
+  });
+}
+function Navigation_menu_viewport($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      $$renderer3.push(`<div${attr_class(clsx$1(cn("absolute left-0 top-full isolate z-50 flex justify-center")))}>`);
+      if (Navigation_menu_viewport$1) {
+        $$renderer3.push("<!--[-->");
+        Navigation_menu_viewport$1($$renderer3, spread_props([
+          {
+            "data-slot": "navigation-menu-viewport",
+            class: cn("origin-top-center bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 relative mt-1.5 h-[var(--bits-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border shadow md:w-[var(--bits-navigation-menu-viewport-width)]", className)
+          },
+          restProps,
+          {
+            get ref() {
+              return ref;
+            },
+            set ref($$value) {
+              ref = $$value;
+              $$settled = false;
+            }
+          }
+        ]));
+        $$renderer3.push("<!--]-->");
+      } else {
+        $$renderer3.push("<!--[!-->");
+        $$renderer3.push("<!--]-->");
       }
-    ]));
-    $$payload2.out.push(`<!---->`);
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
+      $$renderer3.push(`</div>`);
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
+}
+function Navigation_menu($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      viewport = true,
+      children,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      if (Navigation_menu$1) {
+        $$renderer3.push("<!--[-->");
+        Navigation_menu$1($$renderer3, spread_props([
+          {
+            "data-slot": "navigation-menu",
+            "data-viewport": viewport,
+            class: cn("group/navigation-menu relative flex max-w-max flex-1 items-center justify-center", className)
+          },
+          restProps,
+          {
+            get ref() {
+              return ref;
+            },
+            set ref($$value) {
+              ref = $$value;
+              $$settled = false;
+            },
+            children: ($$renderer4) => {
+              children?.($$renderer4);
+              $$renderer4.push(`<!----> `);
+              if (viewport) {
+                $$renderer4.push("<!--[0-->");
+                Navigation_menu_viewport($$renderer4, {});
+              } else {
+                $$renderer4.push("<!--[-1-->");
+              }
+              $$renderer4.push(`<!--]-->`);
+            },
+            $$slots: { default: true }
+          }
+        ]));
+        $$renderer3.push("<!--]-->");
+      } else {
+        $$renderer3.push("<!--[!-->");
+        $$renderer3.push("<!--]-->");
+      }
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
+}
+function Navigation_menu_item($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      if (Navigation_menu_item$1) {
+        $$renderer3.push("<!--[-->");
+        Navigation_menu_item$1($$renderer3, spread_props([
+          {
+            "data-slot": "navigation-menu-item",
+            class: cn("relative", className)
+          },
+          restProps,
+          {
+            get ref() {
+              return ref;
+            },
+            set ref($$value) {
+              ref = $$value;
+              $$settled = false;
+            }
+          }
+        ]));
+        $$renderer3.push("<!--]-->");
+      } else {
+        $$renderer3.push("<!--[!-->");
+        $$renderer3.push("<!--]-->");
+      }
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
+}
+function Navigation_menu_list($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      if (Navigation_menu_list$1) {
+        $$renderer3.push("<!--[-->");
+        Navigation_menu_list$1($$renderer3, spread_props([
+          {
+            "data-slot": "navigation-menu-list",
+            class: cn("group flex flex-1 list-none items-center justify-center gap-1", className)
+          },
+          restProps,
+          {
+            get ref() {
+              return ref;
+            },
+            set ref($$value) {
+              ref = $$value;
+              $$settled = false;
+            }
+          }
+        ]));
+        $$renderer3.push("<!--]-->");
+      } else {
+        $$renderer3.push("<!--[!-->");
+        $$renderer3.push("<!--]-->");
+      }
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
 }
 const defaultAttributes = {
   xmlns: "http://www.w3.org/2000/svg",
@@ -5729,46 +6309,46 @@ const defaultAttributes = {
   "stroke-linecap": "round",
   "stroke-linejoin": "round"
 };
-function Icon($$payload, $$props) {
-  push();
-  const {
-    name,
-    color = "currentColor",
-    size: size2 = 24,
-    strokeWidth = 2,
-    absoluteStrokeWidth = false,
-    iconNode = [],
-    children,
-    $$slots,
-    $$events,
-    ...props
-  } = $$props;
-  const each_array = ensure_array_like(iconNode);
-  $$payload.out.push(`<svg${spread_attributes(
-    {
-      ...defaultAttributes,
-      ...props,
-      width: size2,
-      height: size2,
-      stroke: color,
-      "stroke-width": absoluteStrokeWidth ? Number(strokeWidth) * 24 / Number(size2) : strokeWidth,
-      class: clsx$1(["lucide-icon lucide", name && `lucide-${name}`, props.class])
-    },
-    null,
-    void 0,
-    void 0,
-    3
-  )}><!--[-->`);
-  for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
-    let [tag, attrs] = each_array[$$index];
-    element($$payload, tag, () => {
-      $$payload.out.push(`${spread_attributes({ ...attrs }, null, void 0, void 0, 3)}`);
-    });
-  }
-  $$payload.out.push(`<!--]-->`);
-  children?.($$payload);
-  $$payload.out.push(`<!----></svg>`);
-  pop();
+function Icon($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    const {
+      name,
+      color = "currentColor",
+      size: size2 = 24,
+      strokeWidth = 2,
+      absoluteStrokeWidth = false,
+      iconNode = [],
+      children,
+      $$slots,
+      $$events,
+      ...props
+    } = $$props;
+    $$renderer2.push(`<svg${attributes(
+      {
+        ...defaultAttributes,
+        ...props,
+        width: size2,
+        height: size2,
+        stroke: color,
+        "stroke-width": absoluteStrokeWidth ? Number(strokeWidth) * 24 / Number(size2) : strokeWidth,
+        class: clsx$1(["lucide-icon lucide", name && `lucide-${name}`, props.class])
+      },
+      void 0,
+      void 0,
+      void 0,
+      3
+    )}><!--[-->`);
+    const each_array = ensure_array_like(iconNode);
+    for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+      let [tag, attrs] = each_array[$$index];
+      element($$renderer2, tag, () => {
+        $$renderer2.push(`${attributes({ ...attrs }, void 0, void 0, void 0, 3)}`);
+      });
+    }
+    $$renderer2.push(`<!--]-->`);
+    children?.($$renderer2);
+    $$renderer2.push(`<!----></svg>`);
+  });
 }
 const buttonVariants = tv({
   base: "focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none transition-all focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
@@ -5790,25 +6370,24 @@ const buttonVariants = tv({
   },
   defaultVariants: { variant: "default", size: "default" }
 });
-function Button($$payload, $$props) {
-  push();
-  let {
-    class: className,
-    variant = "default",
-    size: size2 = "default",
-    ref = null,
-    href = void 0,
-    type = "button",
-    disabled,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  if (href) {
-    $$payload.out.push("<!--[-->");
-    $$payload.out.push(`<a${spread_attributes(
-      {
+function Button($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      class: className,
+      variant = "default",
+      size: size2 = "default",
+      ref = null,
+      href = void 0,
+      type = "button",
+      disabled,
+      children,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    if (href) {
+      $$renderer2.push("<!--[0-->");
+      $$renderer2.push(`<a${attributes({
         "data-slot": "button",
         class: clsx$1(cn(buttonVariants({ variant, size: size2 }), className)),
         href: disabled ? void 0 : href,
@@ -5816,142 +6395,144 @@ function Button($$payload, $$props) {
         role: disabled ? "link" : void 0,
         tabindex: disabled ? -1 : void 0,
         ...restProps
-      }
-    )}>`);
-    children?.($$payload);
-    $$payload.out.push(`<!----></a>`);
-  } else {
-    $$payload.out.push("<!--[!-->");
-    $$payload.out.push(`<button${spread_attributes(
-      {
+      })}>`);
+      children?.($$renderer2);
+      $$renderer2.push(`<!----></a>`);
+    } else {
+      $$renderer2.push("<!--[-1-->");
+      $$renderer2.push(`<button${attributes({
         "data-slot": "button",
         class: clsx$1(cn(buttonVariants({ variant, size: size2 }), className)),
         type,
         disabled,
         ...restProps
-      }
-    )}>`);
-    children?.($$payload);
-    $$payload.out.push(`<!----></button>`);
-  }
-  $$payload.out.push(`<!--]-->`);
-  bind_props($$props, { ref });
-  pop();
+      })}>`);
+      children?.($$renderer2);
+      $$renderer2.push(`<!----></button>`);
+    }
+    $$renderer2.push(`<!--]-->`);
+    bind_props($$props, { ref });
+  });
 }
-function Separator($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    $$payload2.out.push(`<!---->`);
-    Separator$1($$payload2, spread_props([
+function Separator($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      if (Separator$1) {
+        $$renderer3.push("<!--[-->");
+        Separator$1($$renderer3, spread_props([
+          {
+            "data-slot": "separator",
+            class: cn("bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=vertical]:h-full data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px", className)
+          },
+          restProps,
+          {
+            get ref() {
+              return ref;
+            },
+            set ref($$value) {
+              ref = $$value;
+              $$settled = false;
+            }
+          }
+        ]));
+        $$renderer3.push("<!--]-->");
+      } else {
+        $$renderer3.push("<!--[!-->");
+        $$renderer3.push("<!--]-->");
+      }
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
+}
+function Sun($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { $$slots, $$events, ...props } = $$props;
+    const iconNode = [
+      ["circle", { "cx": "12", "cy": "12", "r": "4" }],
+      ["path", { "d": "M12 2v2" }],
+      ["path", { "d": "M12 20v2" }],
+      ["path", { "d": "m4.93 4.93 1.41 1.41" }],
+      ["path", { "d": "m17.66 17.66 1.41 1.41" }],
+      ["path", { "d": "M2 12h2" }],
+      ["path", { "d": "M20 12h2" }],
+      ["path", { "d": "m6.34 17.66-1.41 1.41" }],
+      ["path", { "d": "m19.07 4.93-1.41 1.41" }]
+    ];
+    Icon($$renderer2, spread_props([
+      { name: "sun" },
+      /**
+       * @component @name Sun
+       * @description Lucide SVG icon component, renders SVG Element with children.
+       *
+       * @preview ![img](data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6ICNmZmY7IGJvcmRlci1yYWRpdXM6IDJweCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI0IiAvPgogIDxwYXRoIGQ9Ik0xMiAydjIiIC8+CiAgPHBhdGggZD0iTTEyIDIwdjIiIC8+CiAgPHBhdGggZD0ibTQuOTMgNC45MyAxLjQxIDEuNDEiIC8+CiAgPHBhdGggZD0ibTE3LjY2IDE3LjY2IDEuNDEgMS40MSIgLz4KICA8cGF0aCBkPSJNMiAxMmgyIiAvPgogIDxwYXRoIGQ9Ik0yMCAxMmgyIiAvPgogIDxwYXRoIGQ9Im02LjM0IDE3LjY2LTEuNDEgMS40MSIgLz4KICA8cGF0aCBkPSJtMTkuMDcgNC45My0xLjQxIDEuNDEiIC8+Cjwvc3ZnPgo=) - https://lucide.dev/icons/sun
+       * @see https://lucide.dev/guide/packages/lucide-svelte - Documentation
+       *
+       * @param {Object} props - Lucide icons props and any valid SVG attribute
+       * @returns {FunctionalComponent} Svelte component
+       *
+       */
+      props,
       {
-        "data-slot": "separator",
-        class: cn("bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=vertical]:h-full data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px", className)
-      },
-      restProps,
-      {
-        get ref() {
-          return ref;
+        iconNode,
+        children: ($$renderer3) => {
+          props.children?.($$renderer3);
+          $$renderer3.push(`<!---->`);
         },
-        set ref($$value) {
-          ref = $$value;
-          $$settled = false;
-        }
+        $$slots: { default: true }
       }
     ]));
-    $$payload2.out.push(`<!---->`);
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
+  });
 }
-function Sun($$payload, $$props) {
-  push();
-  let { $$slots, $$events, ...props } = $$props;
-  const iconNode = [
-    ["circle", { "cx": "12", "cy": "12", "r": "4" }],
-    ["path", { "d": "M12 2v2" }],
-    ["path", { "d": "M12 20v2" }],
-    ["path", { "d": "m4.93 4.93 1.41 1.41" }],
-    ["path", { "d": "m17.66 17.66 1.41 1.41" }],
-    ["path", { "d": "M2 12h2" }],
-    ["path", { "d": "M20 12h2" }],
-    ["path", { "d": "m6.34 17.66-1.41 1.41" }],
-    ["path", { "d": "m19.07 4.93-1.41 1.41" }]
-  ];
-  Icon($$payload, spread_props([
-    { name: "sun" },
-    /**
-     * @component @name Sun
-     * @description Lucide SVG icon component, renders SVG Element with children.
-     *
-     * @preview ![img](data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6ICNmZmY7IGJvcmRlci1yYWRpdXM6IDJweCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI0IiAvPgogIDxwYXRoIGQ9Ik0xMiAydjIiIC8+CiAgPHBhdGggZD0iTTEyIDIwdjIiIC8+CiAgPHBhdGggZD0ibTQuOTMgNC45MyAxLjQxIDEuNDEiIC8+CiAgPHBhdGggZD0ibTE3LjY2IDE3LjY2IDEuNDEgMS40MSIgLz4KICA8cGF0aCBkPSJNMiAxMmgyIiAvPgogIDxwYXRoIGQ9Ik0yMCAxMmgyIiAvPgogIDxwYXRoIGQ9Im02LjM0IDE3LjY2LTEuNDEgMS40MSIgLz4KICA8cGF0aCBkPSJtMTkuMDcgNC45My0xLjQxIDEuNDEiIC8+Cjwvc3ZnPgo=) - https://lucide.dev/icons/sun
-     * @see https://lucide.dev/guide/packages/lucide-svelte - Documentation
-     *
-     * @param {Object} props - Lucide icons props and any valid SVG attribute
-     * @returns {FunctionalComponent} Svelte component
-     *
-     */
-    props,
-    {
-      iconNode,
-      children: ($$payload2) => {
-        props.children?.($$payload2);
-        $$payload2.out.push(`<!---->`);
-      },
-      $$slots: { default: true }
-    }
-  ]));
-  pop();
-}
-function Moon($$payload, $$props) {
-  push();
-  let { $$slots, $$events, ...props } = $$props;
-  const iconNode = [
-    [
-      "path",
+function Moon($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { $$slots, $$events, ...props } = $$props;
+    const iconNode = [
+      [
+        "path",
+        {
+          "d": "M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+        }
+      ]
+    ];
+    Icon($$renderer2, spread_props([
+      { name: "moon" },
+      /**
+       * @component @name Moon
+       * @description Lucide SVG icon component, renders SVG Element with children.
+       *
+       * @preview ![img](data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6ICNmZmY7IGJvcmRlci1yYWRpdXM6IDJweCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cGF0aCBkPSJNMjAuOTg1IDEyLjQ4NmE5IDkgMCAxIDEtOS40NzMtOS40NzJjLjQwNS0uMDIyLjYxNy40Ni40MDIuODAzYTYgNiAwIDAgMCA4LjI2OCA4LjI2OGMuMzQ0LS4yMTUuODI1LS4wMDQuODAzLjQwMSIgLz4KPC9zdmc+Cg==) - https://lucide.dev/icons/moon
+       * @see https://lucide.dev/guide/packages/lucide-svelte - Documentation
+       *
+       * @param {Object} props - Lucide icons props and any valid SVG attribute
+       * @returns {FunctionalComponent} Svelte component
+       *
+       */
+      props,
       {
-        "d": "M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+        iconNode,
+        children: ($$renderer3) => {
+          props.children?.($$renderer3);
+          $$renderer3.push(`<!---->`);
+        },
+        $$slots: { default: true }
       }
-    ]
-  ];
-  Icon($$payload, spread_props([
-    { name: "moon" },
-    /**
-     * @component @name Moon
-     * @description Lucide SVG icon component, renders SVG Element with children.
-     *
-     * @preview ![img](data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6ICNmZmY7IGJvcmRlci1yYWRpdXM6IDJweCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cGF0aCBkPSJNMjAuOTg1IDEyLjQ4NmE5IDkgMCAxIDEtOS40NzMtOS40NzJjLjQwNS0uMDIyLjYxNy40Ni40MDIuODAzYTYgNiAwIDAgMCA4LjI2OCA4LjI2OGMuMzQ0LS4yMTUuODI1LS4wMDQuODAzLjQwMSIgLz4KPC9zdmc+Cg==) - https://lucide.dev/icons/moon
-     * @see https://lucide.dev/guide/packages/lucide-svelte - Documentation
-     *
-     * @param {Object} props - Lucide icons props and any valid SVG attribute
-     * @returns {FunctionalComponent} Svelte component
-     *
-     */
-    props,
-    {
-      iconNode,
-      children: ($$payload2) => {
-        props.children?.($$payload2);
-        $$payload2.out.push(`<!---->`);
-      },
-      $$slots: { default: true }
-    }
-  ]));
-  pop();
+    ]));
+  });
 }
 const DEFAULT_MOBILE_BREAKPOINT = 768;
 class IsMobile extends MediaQuery {
@@ -6015,186 +6596,130 @@ function setSidebar(props) {
 function useSidebar() {
   return getContext(Symbol.for(SYMBOL_KEY));
 }
-function Sidebar_content($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  $$payload.out.push(`<div${spread_attributes(
-    {
+function Sidebar_content($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      children,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    $$renderer2.push(`<div${attributes({
       "data-slot": "sidebar-content",
       "data-sidebar": "content",
       class: clsx$1(cn("flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden", className)),
       ...restProps
-    }
-  )}>`);
-  children?.($$payload);
-  $$payload.out.push(`<!----></div>`);
-  bind_props($$props, { ref });
-  pop();
+    })}>`);
+    children?.($$renderer2);
+    $$renderer2.push(`<!----></div>`);
+    bind_props($$props, { ref });
+  });
 }
-function Sidebar_group_content($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  $$payload.out.push(`<div${spread_attributes(
-    {
+function Sidebar_group_content($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      children,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    $$renderer2.push(`<div${attributes({
       "data-slot": "sidebar-group-content",
       "data-sidebar": "group-content",
       class: clsx$1(cn("w-full text-sm", className)),
       ...restProps
+    })}>`);
+    children?.($$renderer2);
+    $$renderer2.push(`<!----></div>`);
+    bind_props($$props, { ref });
+  });
+}
+function Sidebar_group_label($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      children,
+      child,
+      class: className,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const mergedProps = derived(() => ({
+      class: cn("text-sidebar-foreground/70 ring-sidebar-ring outline-hidden flex h-8 shrink-0 items-center rounded-md px-2 text-xs font-medium transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0", "group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0", className),
+      "data-slot": "sidebar-group-label",
+      "data-sidebar": "group-label",
+      ...restProps
+    }));
+    if (child) {
+      $$renderer2.push("<!--[0-->");
+      child($$renderer2, { props: mergedProps() });
+      $$renderer2.push(`<!---->`);
+    } else {
+      $$renderer2.push("<!--[-1-->");
+      $$renderer2.push(`<div${attributes({ ...mergedProps() })}>`);
+      children?.($$renderer2);
+      $$renderer2.push(`<!----></div>`);
     }
-  )}>`);
-  children?.($$payload);
-  $$payload.out.push(`<!----></div>`);
-  bind_props($$props, { ref });
-  pop();
+    $$renderer2.push(`<!--]-->`);
+    bind_props($$props, { ref });
+  });
 }
-function Sidebar_group_label($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    children,
-    child,
-    class: className,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const mergedProps = {
-    class: cn("text-sidebar-foreground/70 ring-sidebar-ring outline-hidden flex h-8 shrink-0 items-center rounded-md px-2 text-xs font-medium transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0", "group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0", className),
-    "data-slot": "sidebar-group-label",
-    "data-sidebar": "group-label",
-    ...restProps
-  };
-  if (child) {
-    $$payload.out.push("<!--[-->");
-    child($$payload, { props: mergedProps });
-    $$payload.out.push(`<!---->`);
-  } else {
-    $$payload.out.push("<!--[!-->");
-    $$payload.out.push(`<div${spread_attributes({ ...mergedProps })}>`);
-    children?.($$payload);
-    $$payload.out.push(`<!----></div>`);
-  }
-  $$payload.out.push(`<!--]-->`);
-  bind_props($$props, { ref });
-  pop();
-}
-function Sidebar_group($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  $$payload.out.push(`<div${spread_attributes(
-    {
+function Sidebar_group($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      children,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    $$renderer2.push(`<div${attributes({
       "data-slot": "sidebar-group",
       "data-sidebar": "group",
       class: clsx$1(cn("relative flex w-full min-w-0 flex-col p-2", className)),
       ...restProps
-    }
-  )}>`);
-  children?.($$payload);
-  $$payload.out.push(`<!----></div>`);
-  bind_props($$props, { ref });
-  pop();
+    })}>`);
+    children?.($$renderer2);
+    $$renderer2.push(`<!----></div>`);
+    bind_props($$props, { ref });
+  });
 }
-function Sidebar_inset($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  $$payload.out.push(`<main${spread_attributes(
-    {
+function Sidebar_inset($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      children,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    $$renderer2.push(`<main${attributes({
       "data-slot": "sidebar-inset",
       class: clsx$1(cn("bg-background relative flex w-full flex-1 flex-col", "md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-sm", className)),
       ...restProps
-    }
-  )}>`);
-  children?.($$payload);
-  $$payload.out.push(`<!----></main>`);
-  bind_props($$props, { ref });
-  pop();
+    })}>`);
+    children?.($$renderer2);
+    $$renderer2.push(`<!----></main>`);
+    bind_props($$props, { ref });
+  });
 }
-function Tooltip_trigger($$payload, $$props) {
-  push();
-  let { ref = null, $$slots, $$events, ...restProps } = $$props;
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    $$payload2.out.push(`<!---->`);
-    Tooltip_trigger$1($$payload2, spread_props([
-      { "data-slot": "tooltip-trigger" },
-      restProps,
-      {
-        get ref() {
-          return ref;
-        },
-        set ref($$value) {
-          ref = $$value;
-          $$settled = false;
-        }
-      }
-    ]));
-    $$payload2.out.push(`<!---->`);
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
-}
-function Tooltip_content($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    sideOffset = 0,
-    side = "top",
-    children,
-    arrowClasses,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    $$payload2.out.push(`<!---->`);
-    Portal($$payload2, {
-      children: ($$payload3) => {
-        $$payload3.out.push(`<!---->`);
-        Tooltip_content$1($$payload3, spread_props([
-          {
-            "data-slot": "tooltip-content",
-            sideOffset,
-            side,
-            class: cn("bg-primary text-primary-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-(--bits-tooltip-content-transform-origin) z-50 w-fit text-balance rounded-md px-3 py-1.5 text-xs", className)
-          },
+function Tooltip_trigger($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { ref = null, $$slots, $$events, ...restProps } = $$props;
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      if (Tooltip_trigger$1) {
+        $$renderer3.push("<!--[-->");
+        Tooltip_trigger$1($$renderer3, spread_props([
+          { "data-slot": "tooltip-trigger" },
           restProps,
           {
             get ref() {
@@ -6203,39 +6728,106 @@ function Tooltip_content($$payload, $$props) {
             set ref($$value) {
               ref = $$value;
               $$settled = false;
-            },
-            children: ($$payload4) => {
-              children?.($$payload4);
-              $$payload4.out.push(`<!----> <!---->`);
-              {
-                let child = function($$payload5, { props }) {
-                  $$payload5.out.push(`<div${spread_attributes(
-                    {
-                      class: clsx$1(cn("bg-primary z-50 size-2.5 rotate-45 rounded-[2px]", "data-[side=top]:translate-x-1/2 data-[side=top]:translate-y-[calc(-50%_+_2px)]", "data-[side=bottom]:-translate-x-1/2 data-[side=bottom]:-translate-y-[calc(-50%_+_1px)]", "data-[side=right]:translate-x-[calc(50%_+_2px)] data-[side=right]:translate-y-1/2", "data-[side=left]:-translate-y-[calc(50%_-_3px)]", arrowClasses)),
-                      ...props
-                    }
-                  )}></div>`);
-                };
-                Tooltip_arrow($$payload4, { child, $$slots: { child: true } });
-              }
-              $$payload4.out.push(`<!---->`);
-            },
-            $$slots: { default: true }
+            }
           }
         ]));
-        $$payload3.out.push(`<!---->`);
+        $$renderer3.push("<!--]-->");
+      } else {
+        $$renderer3.push("<!--[!-->");
+        $$renderer3.push("<!--]-->");
       }
-    });
-    $$payload2.out.push(`<!---->`);
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
+}
+function Tooltip_content($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      sideOffset = 0,
+      side = "top",
+      children,
+      arrowClasses,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      if (Portal) {
+        $$renderer3.push("<!--[-->");
+        Portal($$renderer3, {
+          children: ($$renderer4) => {
+            if (Tooltip_content$1) {
+              $$renderer4.push("<!--[-->");
+              Tooltip_content$1($$renderer4, spread_props([
+                {
+                  "data-slot": "tooltip-content",
+                  sideOffset,
+                  side,
+                  class: cn("bg-primary text-primary-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-(--bits-tooltip-content-transform-origin) z-50 w-fit text-balance rounded-md px-3 py-1.5 text-xs", className)
+                },
+                restProps,
+                {
+                  get ref() {
+                    return ref;
+                  },
+                  set ref($$value) {
+                    ref = $$value;
+                    $$settled = false;
+                  },
+                  children: ($$renderer5) => {
+                    children?.($$renderer5);
+                    $$renderer5.push(`<!----> `);
+                    {
+                      let child = function($$renderer6, { props }) {
+                        $$renderer6.push(`<div${attributes({
+                          class: clsx$1(cn("bg-primary z-50 size-2.5 rotate-45 rounded-[2px]", "data-[side=top]:translate-x-1/2 data-[side=top]:translate-y-[calc(-50%_+_2px)]", "data-[side=bottom]:-translate-x-1/2 data-[side=bottom]:-translate-y-[calc(-50%_+_1px)]", "data-[side=right]:translate-x-[calc(50%_+_2px)] data-[side=right]:translate-y-1/2", "data-[side=left]:-translate-y-[calc(50%_-_3px)]", arrowClasses)),
+                          ...props
+                        })}></div>`);
+                      };
+                      if (Tooltip_arrow) {
+                        $$renderer5.push("<!--[-->");
+                        Tooltip_arrow($$renderer5, { child, $$slots: { child: true } });
+                        $$renderer5.push("<!--]-->");
+                      } else {
+                        $$renderer5.push("<!--[!-->");
+                        $$renderer5.push("<!--]-->");
+                      }
+                    }
+                  },
+                  $$slots: { default: true }
+                }
+              ]));
+              $$renderer4.push("<!--]-->");
+            } else {
+              $$renderer4.push("<!--[!-->");
+              $$renderer4.push("<!--]-->");
+            }
+          }
+        });
+        $$renderer3.push("<!--]-->");
+      } else {
+        $$renderer3.push("<!--[!-->");
+        $$renderer3.push("<!--]-->");
+      }
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
 }
 const Root$1 = Tooltip;
 const Provider = Tooltip_provider;
@@ -6254,325 +6846,342 @@ const sidebarMenuButtonVariants = tv({
   },
   defaultVariants: { variant: "default", size: "default" }
 });
-function Sidebar_menu_button($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    children,
-    child,
-    variant = "default",
-    size: size2 = "default",
-    isActive = false,
-    tooltipContent,
-    tooltipContentProps,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const sidebar = useSidebar();
-  const buttonProps = {
-    class: cn(sidebarMenuButtonVariants({ variant, size: size2 }), className),
-    "data-slot": "sidebar-menu-button",
-    "data-sidebar": "menu-button",
-    "data-size": size2,
-    "data-active": isActive,
-    ...restProps
-  };
-  function Button2($$payload2, { props }) {
-    const mergedProps = mergeProps(buttonProps, props);
-    if (child) {
-      $$payload2.out.push("<!--[-->");
-      child($$payload2, { props: mergedProps });
-      $$payload2.out.push(`<!---->`);
-    } else {
-      $$payload2.out.push("<!--[!-->");
-      $$payload2.out.push(`<button${spread_attributes({ ...mergedProps })}>`);
-      children?.($$payload2);
-      $$payload2.out.push(`<!----></button>`);
+function Sidebar_menu_button($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      children,
+      child,
+      variant = "default",
+      size: size2 = "default",
+      isActive = false,
+      tooltipContent,
+      tooltipContentProps,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const sidebar = useSidebar();
+    const buttonProps = derived(() => ({
+      class: cn(sidebarMenuButtonVariants({ variant, size: size2 }), className),
+      "data-slot": "sidebar-menu-button",
+      "data-sidebar": "menu-button",
+      "data-size": size2,
+      "data-active": isActive,
+      ...restProps
+    }));
+    function Button2($$renderer3, { props }) {
+      const mergedProps = mergeProps(buttonProps(), props);
+      if (child) {
+        $$renderer3.push("<!--[0-->");
+        child($$renderer3, { props: mergedProps });
+        $$renderer3.push(`<!---->`);
+      } else {
+        $$renderer3.push("<!--[-1-->");
+        $$renderer3.push(`<button${attributes({ ...mergedProps })}>`);
+        children?.($$renderer3);
+        $$renderer3.push(`<!----></button>`);
+      }
+      $$renderer3.push(`<!--]-->`);
     }
-    $$payload2.out.push(`<!--]-->`);
-  }
-  if (!tooltipContent) {
-    $$payload.out.push("<!--[-->");
-    Button2($$payload, {});
-  } else {
-    $$payload.out.push("<!--[!-->");
-    $$payload.out.push(`<!---->`);
-    Root$1($$payload, {
-      children: ($$payload2) => {
-        $$payload2.out.push(`<!---->`);
-        {
-          let child2 = function($$payload3, { props }) {
-            Button2($$payload3, { props });
-          };
-          Tooltip_trigger($$payload2, { child: child2, $$slots: { child: true } });
-        }
-        $$payload2.out.push(`<!----> <!---->`);
-        Tooltip_content($$payload2, spread_props([
-          {
-            side: "right",
-            align: "center",
-            hidden: sidebar.state !== "collapsed" || sidebar.isMobile
-          },
-          tooltipContentProps,
-          {
-            children: ($$payload3) => {
-              if (typeof tooltipContent === "string") {
-                $$payload3.out.push("<!--[-->");
-                $$payload3.out.push(`${escape_html(tooltipContent)}`);
+    if (!tooltipContent) {
+      $$renderer2.push("<!--[0-->");
+      Button2($$renderer2, {});
+    } else {
+      $$renderer2.push("<!--[-1-->");
+      if (Root$1) {
+        $$renderer2.push("<!--[-->");
+        Root$1($$renderer2, {
+          children: ($$renderer3) => {
+            {
+              let child2 = function($$renderer4, { props }) {
+                Button2($$renderer4, { props });
+              };
+              if (Tooltip_trigger) {
+                $$renderer3.push("<!--[-->");
+                Tooltip_trigger($$renderer3, { child: child2, $$slots: { child: true } });
+                $$renderer3.push("<!--]-->");
               } else {
-                $$payload3.out.push("<!--[!-->");
-                if (tooltipContent) {
-                  $$payload3.out.push("<!--[-->");
-                  tooltipContent($$payload3);
-                  $$payload3.out.push(`<!---->`);
-                } else {
-                  $$payload3.out.push("<!--[!-->");
-                }
-                $$payload3.out.push(`<!--]-->`);
+                $$renderer3.push("<!--[!-->");
+                $$renderer3.push("<!--]-->");
               }
-              $$payload3.out.push(`<!--]-->`);
-            },
-            $$slots: { default: true }
-          }
-        ]));
-        $$payload2.out.push(`<!---->`);
-      },
-      $$slots: { default: true }
-    });
-    $$payload.out.push(`<!---->`);
-  }
-  $$payload.out.push(`<!--]-->`);
-  bind_props($$props, { ref });
-  pop();
+            }
+            $$renderer3.push(` `);
+            if (Tooltip_content) {
+              $$renderer3.push("<!--[-->");
+              Tooltip_content($$renderer3, spread_props([
+                {
+                  side: "right",
+                  align: "center",
+                  hidden: sidebar.state !== "collapsed" || sidebar.isMobile
+                },
+                tooltipContentProps,
+                {
+                  children: ($$renderer4) => {
+                    if (typeof tooltipContent === "string") {
+                      $$renderer4.push("<!--[0-->");
+                      $$renderer4.push(`${escape_html(tooltipContent)}`);
+                    } else if (tooltipContent) {
+                      $$renderer4.push("<!--[1-->");
+                      tooltipContent($$renderer4);
+                      $$renderer4.push(`<!---->`);
+                    } else {
+                      $$renderer4.push("<!--[-1-->");
+                    }
+                    $$renderer4.push(`<!--]-->`);
+                  },
+                  $$slots: { default: true }
+                }
+              ]));
+              $$renderer3.push("<!--]-->");
+            } else {
+              $$renderer3.push("<!--[!-->");
+              $$renderer3.push("<!--]-->");
+            }
+          },
+          $$slots: { default: true }
+        });
+        $$renderer2.push("<!--]-->");
+      } else {
+        $$renderer2.push("<!--[!-->");
+        $$renderer2.push("<!--]-->");
+      }
+    }
+    $$renderer2.push(`<!--]-->`);
+    bind_props($$props, { ref });
+  });
 }
-function Sidebar_menu_item($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  $$payload.out.push(`<li${spread_attributes(
-    {
+function Sidebar_menu_item($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      children,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    $$renderer2.push(`<li${attributes({
       "data-slot": "sidebar-menu-item",
       "data-sidebar": "menu-item",
       class: clsx$1(cn("group/menu-item relative", className)),
       ...restProps
-    }
-  )}>`);
-  children?.($$payload);
-  $$payload.out.push(`<!----></li>`);
-  bind_props($$props, { ref });
-  pop();
+    })}>`);
+    children?.($$renderer2);
+    $$renderer2.push(`<!----></li>`);
+    bind_props($$props, { ref });
+  });
 }
-function Sidebar_menu($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  $$payload.out.push(`<ul${spread_attributes(
-    {
+function Sidebar_menu($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      children,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    $$renderer2.push(`<ul${attributes({
       "data-slot": "sidebar-menu",
       "data-sidebar": "menu",
       class: clsx$1(cn("flex w-full min-w-0 flex-col gap-1", className)),
       ...restProps
-    }
-  )}>`);
-  children?.($$payload);
-  $$payload.out.push(`<!----></ul>`);
-  bind_props($$props, { ref });
-  pop();
-}
-function Sidebar_provider($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    open = true,
-    onOpenChange = () => {
-    },
-    class: className,
-    style,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  setSidebar({
-    open: () => open,
-    setOpen: (value) => {
-      open = value;
-      onOpenChange(value);
-      document.cookie = `${SIDEBAR_COOKIE_NAME}=${open}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
-    }
+    })}>`);
+    children?.($$renderer2);
+    $$renderer2.push(`<!----></ul>`);
+    bind_props($$props, { ref });
   });
-  $$payload.out.push(`<!---->`);
-  Provider($$payload, {
-    delayDuration: 0,
-    children: ($$payload2) => {
-      $$payload2.out.push(`<div${spread_attributes(
-        {
-          "data-slot": "sidebar-wrapper",
-          style: `--sidebar-width: ${stringify(SIDEBAR_WIDTH)}; --sidebar-width-icon: ${stringify(SIDEBAR_WIDTH_ICON)}; ${stringify(style)}`,
-          class: clsx$1(cn("group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full", className)),
-          ...restProps
-        }
-      )}>`);
-      children?.($$payload2);
-      $$payload2.out.push(`<!----></div>`);
-    }
-  });
-  $$payload.out.push(`<!---->`);
-  bind_props($$props, { ref, open });
-  pop();
 }
-function Menu($$payload, $$props) {
-  push();
-  let { $$slots, $$events, ...props } = $$props;
-  const iconNode = [
-    ["path", { "d": "M4 12h16" }],
-    ["path", { "d": "M4 18h16" }],
-    ["path", { "d": "M4 6h16" }]
-  ];
-  Icon($$payload, spread_props([
-    { name: "menu" },
-    /**
-     * @component @name Menu
-     * @description Lucide SVG icon component, renders SVG Element with children.
-     *
-     * @preview ![img](data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6ICNmZmY7IGJvcmRlci1yYWRpdXM6IDJweCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cGF0aCBkPSJNNCAxMmgxNiIgLz4KICA8cGF0aCBkPSJNNCAxOGgxNiIgLz4KICA8cGF0aCBkPSJNNCA2aDE2IiAvPgo8L3N2Zz4K) - https://lucide.dev/icons/menu
-     * @see https://lucide.dev/guide/packages/lucide-svelte - Documentation
-     *
-     * @param {Object} props - Lucide icons props and any valid SVG attribute
-     * @returns {FunctionalComponent} Svelte component
-     *
-     */
-    props,
-    {
-      iconNode,
-      children: ($$payload2) => {
-        props.children?.($$payload2);
-        $$payload2.out.push(`<!---->`);
+function Sidebar_provider($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      open = true,
+      onOpenChange = () => {
       },
-      $$slots: { default: true }
-    }
-  ]));
-  pop();
-}
-function Sidebar_trigger($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    onclick,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const sidebar = useSidebar();
-  Button($$payload, spread_props([
-    {
-      "data-sidebar": "trigger",
-      "data-slot": "sidebar-trigger",
-      variant: "ghost",
-      type: "button",
-      onclick: (e) => {
-        onclick?.(e);
-        sidebar.toggle();
+      class: className,
+      style,
+      children,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    setSidebar({
+      open: () => open,
+      setOpen: (value) => {
+        open = value;
+        onOpenChange(value);
+        document.cookie = `${SIDEBAR_COOKIE_NAME}=${open}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
       }
-    },
-    restProps,
-    {
-      children: ($$payload2) => {
-        Menu($$payload2, {});
-        $$payload2.out.push(`<!----> Menu <span class="sr-only">Toggle Sidebar</span>`);
-      },
-      $$slots: { default: true }
+    });
+    if (Provider) {
+      $$renderer2.push("<!--[-->");
+      Provider($$renderer2, {
+        delayDuration: 0,
+        children: ($$renderer3) => {
+          $$renderer3.push(`<div${attributes({
+            "data-slot": "sidebar-wrapper",
+            style: `--sidebar-width: ${stringify(SIDEBAR_WIDTH)}; --sidebar-width-icon: ${stringify(SIDEBAR_WIDTH_ICON)}; ${stringify(style)}`,
+            class: clsx$1(cn("group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full", className)),
+            ...restProps
+          })}>`);
+          children?.($$renderer3);
+          $$renderer3.push(`<!----></div>`);
+        }
+      });
+      $$renderer2.push("<!--]-->");
+    } else {
+      $$renderer2.push("<!--[!-->");
+      $$renderer2.push("<!--]-->");
     }
-  ]));
-  bind_props($$props, { ref });
-  pop();
+    bind_props($$props, { ref, open });
+  });
 }
-function Sheet_overlay($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    $$payload2.out.push(`<!---->`);
-    Dialog_overlay($$payload2, spread_props([
+function Menu($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { $$slots, $$events, ...props } = $$props;
+    const iconNode = [
+      ["path", { "d": "M4 12h16" }],
+      ["path", { "d": "M4 18h16" }],
+      ["path", { "d": "M4 6h16" }]
+    ];
+    Icon($$renderer2, spread_props([
+      { name: "menu" },
+      /**
+       * @component @name Menu
+       * @description Lucide SVG icon component, renders SVG Element with children.
+       *
+       * @preview ![img](data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6ICNmZmY7IGJvcmRlci1yYWRpdXM6IDJweCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cGF0aCBkPSJNNCAxMmgxNiIgLz4KICA8cGF0aCBkPSJNNCAxOGgxNiIgLz4KICA8cGF0aCBkPSJNNCA2aDE2IiAvPgo8L3N2Zz4K) - https://lucide.dev/icons/menu
+       * @see https://lucide.dev/guide/packages/lucide-svelte - Documentation
+       *
+       * @param {Object} props - Lucide icons props and any valid SVG attribute
+       * @returns {FunctionalComponent} Svelte component
+       *
+       */
+      props,
       {
-        "data-slot": "sheet-overlay",
-        class: cn("data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50", className)
+        iconNode,
+        children: ($$renderer3) => {
+          props.children?.($$renderer3);
+          $$renderer3.push(`<!---->`);
+        },
+        $$slots: { default: true }
+      }
+    ]));
+  });
+}
+function Sidebar_trigger($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      onclick,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const sidebar = useSidebar();
+    Button($$renderer2, spread_props([
+      {
+        "data-sidebar": "trigger",
+        "data-slot": "sidebar-trigger",
+        variant: "ghost",
+        type: "button",
+        onclick: (e) => {
+          onclick?.(e);
+          sidebar.toggle();
+        }
       },
       restProps,
       {
-        get ref() {
-          return ref;
+        children: ($$renderer3) => {
+          Menu($$renderer3, {});
+          $$renderer3.push(`<!----> Menu <span class="sr-only">Toggle Sidebar</span>`);
         },
-        set ref($$value) {
-          ref = $$value;
-          $$settled = false;
-        }
+        $$slots: { default: true }
       }
     ]));
-    $$payload2.out.push(`<!---->`);
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
+    bind_props($$props, { ref });
+  });
 }
-function X($$payload, $$props) {
-  push();
-  let { $$slots, $$events, ...props } = $$props;
-  const iconNode = [
-    ["path", { "d": "M18 6 6 18" }],
-    ["path", { "d": "m6 6 12 12" }]
-  ];
-  Icon($$payload, spread_props([
-    { name: "x" },
-    /**
-     * @component @name X
-     * @description Lucide SVG icon component, renders SVG Element with children.
-     *
-     * @preview ![img](data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6ICNmZmY7IGJvcmRlci1yYWRpdXM6IDJweCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cGF0aCBkPSJNMTggNiA2IDE4IiAvPgogIDxwYXRoIGQ9Im02IDYgMTIgMTIiIC8+Cjwvc3ZnPgo=) - https://lucide.dev/icons/x
-     * @see https://lucide.dev/guide/packages/lucide-svelte - Documentation
-     *
-     * @param {Object} props - Lucide icons props and any valid SVG attribute
-     * @returns {FunctionalComponent} Svelte component
-     *
-     */
-    props,
-    {
-      iconNode,
-      children: ($$payload2) => {
-        props.children?.($$payload2);
-        $$payload2.out.push(`<!---->`);
-      },
-      $$slots: { default: true }
+function Sheet_overlay($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      if (Dialog_overlay) {
+        $$renderer3.push("<!--[-->");
+        Dialog_overlay($$renderer3, spread_props([
+          {
+            "data-slot": "sheet-overlay",
+            class: cn("data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50", className)
+          },
+          restProps,
+          {
+            get ref() {
+              return ref;
+            },
+            set ref($$value) {
+              ref = $$value;
+              $$settled = false;
+            }
+          }
+        ]));
+        $$renderer3.push("<!--]-->");
+      } else {
+        $$renderer3.push("<!--[!-->");
+        $$renderer3.push("<!--]-->");
+      }
     }
-  ]));
-  pop();
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
+}
+function X($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { $$slots, $$events, ...props } = $$props;
+    const iconNode = [
+      ["path", { "d": "M18 6 6 18" }],
+      ["path", { "d": "m6 6 12 12" }]
+    ];
+    Icon($$renderer2, spread_props([
+      { name: "x" },
+      /**
+       * @component @name X
+       * @description Lucide SVG icon component, renders SVG Element with children.
+       *
+       * @preview ![img](data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6ICNmZmY7IGJvcmRlci1yYWRpdXM6IDJweCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cGF0aCBkPSJNMTggNiA2IDE4IiAvPgogIDxwYXRoIGQ9Im02IDYgMTIgMTIiIC8+Cjwvc3ZnPgo=) - https://lucide.dev/icons/x
+       * @see https://lucide.dev/guide/packages/lucide-svelte - Documentation
+       *
+       * @param {Object} props - Lucide icons props and any valid SVG attribute
+       * @returns {FunctionalComponent} Svelte component
+       *
+       */
+      props,
+      {
+        iconNode,
+        children: ($$renderer3) => {
+          props.children?.($$renderer3);
+          $$renderer3.push(`<!---->`);
+        },
+        $$slots: { default: true }
+      }
+    ]));
+  });
 }
 const sheetVariants = tv({
   base: "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
@@ -6586,303 +7195,365 @@ const sheetVariants = tv({
   },
   defaultVariants: { side: "right" }
 });
-function Sheet_content($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    side = "right",
-    portalProps,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    $$payload2.out.push(`<!---->`);
-    Portal($$payload2, spread_props([
+function Sheet_content($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      side = "right",
       portalProps,
-      {
-        children: ($$payload3) => {
-          Sheet_overlay($$payload3, {});
-          $$payload3.out.push(`<!----> <!---->`);
-          Dialog_content($$payload3, spread_props([
-            {
-              "data-slot": "sheet-content",
-              class: cn(sheetVariants({ side }), className)
-            },
-            restProps,
-            {
-              get ref() {
-                return ref;
-              },
-              set ref($$value) {
-                ref = $$value;
-                $$settled = false;
-              },
-              children: ($$payload4) => {
-                children?.($$payload4);
-                $$payload4.out.push(`<!----> <!---->`);
-                Dialog_close($$payload4, {
-                  class: "ring-offset-background focus-visible:ring-ring rounded-xs focus-visible:outline-hidden absolute right-4 top-4 opacity-70 transition-opacity hover:opacity-100 focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none",
-                  children: ($$payload5) => {
-                    X($$payload5, { class: "size-4" });
-                    $$payload5.out.push(`<!----> <span class="sr-only">Close</span>`);
-                  },
-                  $$slots: { default: true }
-                });
-                $$payload4.out.push(`<!---->`);
-              },
-              $$slots: { default: true }
-            }
-          ]));
-          $$payload3.out.push(`<!---->`);
-        },
-        $$slots: { default: true }
-      }
-    ]));
-    $$payload2.out.push(`<!---->`);
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
-}
-function Sheet_header($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  $$payload.out.push(`<div${spread_attributes(
-    {
-      "data-slot": "sheet-header",
-      class: clsx$1(cn("flex flex-col gap-1.5 p-4", className)),
+      children,
+      $$slots,
+      $$events,
       ...restProps
-    }
-  )}>`);
-  children?.($$payload);
-  $$payload.out.push(`<!----></div>`);
-  bind_props($$props, { ref });
-  pop();
-}
-function Sheet_title($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    $$payload2.out.push(`<!---->`);
-    Dialog_title($$payload2, spread_props([
-      {
-        "data-slot": "sheet-title",
-        class: cn("text-foreground font-semibold", className)
-      },
-      restProps,
-      {
-        get ref() {
-          return ref;
-        },
-        set ref($$value) {
-          ref = $$value;
-          $$settled = false;
-        }
-      }
-    ]));
-    $$payload2.out.push(`<!---->`);
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
-}
-function Sheet_description($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    class: className,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    $$payload2.out.push(`<!---->`);
-    Dialog_description($$payload2, spread_props([
-      {
-        "data-slot": "sheet-description",
-        class: cn("text-muted-foreground text-sm", className)
-      },
-      restProps,
-      {
-        get ref() {
-          return ref;
-        },
-        set ref($$value) {
-          ref = $$value;
-          $$settled = false;
-        }
-      }
-    ]));
-    $$payload2.out.push(`<!---->`);
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
-}
-const Root = Dialog;
-function Sidebar($$payload, $$props) {
-  push();
-  let {
-    ref = null,
-    side = "left",
-    variant = "sidebar",
-    collapsible = "offcanvas",
-    class: className,
-    children,
-    $$slots,
-    $$events,
-    ...restProps
-  } = $$props;
-  const sidebar = useSidebar();
-  let $$settled = true;
-  let $$inner_payload;
-  function $$render_inner($$payload2) {
-    if (collapsible === "none") {
-      $$payload2.out.push("<!--[-->");
-      $$payload2.out.push(`<div${spread_attributes(
-        {
-          class: clsx$1(cn("bg-sidebar text-sidebar-foreground w-(--sidebar-width) flex h-full flex-col", className)),
-          ...restProps
-        }
-      )}>`);
-      children?.($$payload2);
-      $$payload2.out.push(`<!----></div>`);
-    } else {
-      $$payload2.out.push("<!--[!-->");
-      if (sidebar.isMobile) {
-        $$payload2.out.push("<!--[-->");
-        var bind_get = () => sidebar.openMobile;
-        var bind_set = (v) => sidebar.setOpenMobile(v);
-        $$payload2.out.push(`<!---->`);
-        Root($$payload2, spread_props([
+    } = $$props;
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      if (Portal) {
+        $$renderer3.push("<!--[-->");
+        Portal($$renderer3, spread_props([
+          portalProps,
           {
-            get open() {
-              return bind_get();
-            },
-            set open($$value) {
-              bind_set($$value);
-            }
-          },
-          restProps,
-          {
-            children: ($$payload3) => {
-              $$payload3.out.push(`<!---->`);
-              Sheet_content($$payload3, {
-                "data-sidebar": "sidebar",
-                "data-slot": "sidebar",
-                "data-mobile": "true",
-                class: "bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden",
-                style: `--sidebar-width: ${stringify(SIDEBAR_WIDTH_MOBILE)};`,
-                side,
-                children: ($$payload4) => {
-                  $$payload4.out.push(`<!---->`);
-                  Sheet_header($$payload4, {
-                    class: "sr-only",
-                    children: ($$payload5) => {
-                      $$payload5.out.push(`<!---->`);
-                      Sheet_title($$payload5, {
-                        children: ($$payload6) => {
-                          $$payload6.out.push(`<!---->Sidebar`);
-                        },
-                        $$slots: { default: true }
-                      });
-                      $$payload5.out.push(`<!----> <!---->`);
-                      Sheet_description($$payload5, {
-                        children: ($$payload6) => {
-                          $$payload6.out.push(`<!---->Displays the mobile sidebar.`);
-                        },
-                        $$slots: { default: true }
-                      });
-                      $$payload5.out.push(`<!---->`);
+            children: ($$renderer4) => {
+              Sheet_overlay($$renderer4, {});
+              $$renderer4.push(`<!----> `);
+              if (Dialog_content) {
+                $$renderer4.push("<!--[-->");
+                Dialog_content($$renderer4, spread_props([
+                  {
+                    "data-slot": "sheet-content",
+                    class: cn(sheetVariants({ side }), className)
+                  },
+                  restProps,
+                  {
+                    get ref() {
+                      return ref;
+                    },
+                    set ref($$value) {
+                      ref = $$value;
+                      $$settled = false;
+                    },
+                    children: ($$renderer5) => {
+                      children?.($$renderer5);
+                      $$renderer5.push(`<!----> `);
+                      if (Dialog_close) {
+                        $$renderer5.push("<!--[-->");
+                        Dialog_close($$renderer5, {
+                          class: "ring-offset-background focus-visible:ring-ring rounded-xs focus-visible:outline-hidden absolute right-4 top-4 opacity-70 transition-opacity hover:opacity-100 focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none",
+                          children: ($$renderer6) => {
+                            X($$renderer6, { class: "size-4" });
+                            $$renderer6.push(`<!----> <span class="sr-only">Close</span>`);
+                          },
+                          $$slots: { default: true }
+                        });
+                        $$renderer5.push("<!--]-->");
+                      } else {
+                        $$renderer5.push("<!--[!-->");
+                        $$renderer5.push("<!--]-->");
+                      }
                     },
                     $$slots: { default: true }
-                  });
-                  $$payload4.out.push(`<!----> <div class="flex h-full w-full flex-col">`);
-                  children?.($$payload4);
-                  $$payload4.out.push(`<!----></div>`);
-                },
-                $$slots: { default: true }
-              });
-              $$payload3.out.push(`<!---->`);
+                  }
+                ]));
+                $$renderer4.push("<!--]-->");
+              } else {
+                $$renderer4.push("<!--[!-->");
+                $$renderer4.push("<!--]-->");
+              }
             },
             $$slots: { default: true }
           }
         ]));
-        $$payload2.out.push(`<!---->`);
+        $$renderer3.push("<!--]-->");
       } else {
-        $$payload2.out.push("<!--[!-->");
-        $$payload2.out.push(`<div class="text-sidebar-foreground group peer hidden md:block"${attr("data-state", sidebar.state)}${attr("data-collapsible", sidebar.state === "collapsed" ? collapsible : "")}${attr("data-variant", variant)}${attr("data-side", side)} data-slot="sidebar"><div data-slot="sidebar-gap"${attr_class(clsx$1(cn("w-(--sidebar-width) relative bg-transparent transition-[width] duration-200 ease-linear", "group-data-[collapsible=offcanvas]:w-0", "group-data-[side=right]:rotate-180", variant === "floating" || variant === "inset" ? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]" : "group-data-[collapsible=icon]:w-(--sidebar-width-icon)")))}></div> <div${spread_attributes(
-          {
-            "data-slot": "sidebar-container",
-            class: clsx$1(cn(
-              "w-(--sidebar-width) fixed inset-y-0 z-10 hidden h-svh transition-[left,right,width] duration-200 ease-linear md:flex",
-              side === "left" ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]" : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
-              variant === "floating" || variant === "inset" ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]" : "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l",
-              className
-            )),
-            ...restProps
-          }
-        )}><div data-sidebar="sidebar" data-slot="sidebar-inner" class="bg-sidebar group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm">`);
-        children?.($$payload2);
-        $$payload2.out.push(`<!----></div></div></div>`);
+        $$renderer3.push("<!--[!-->");
+        $$renderer3.push("<!--]-->");
       }
-      $$payload2.out.push(`<!--]-->`);
     }
-    $$payload2.out.push(`<!--]-->`);
-  }
-  do {
-    $$settled = true;
-    $$inner_payload = copy_payload($$payload);
-    $$render_inner($$inner_payload);
-  } while (!$$settled);
-  assign_payload($$payload, $$inner_payload);
-  bind_props($$props, { ref });
-  pop();
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
 }
-function App_sidebar($$payload) {
+function Sheet_header($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      children,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    $$renderer2.push(`<div${attributes({
+      "data-slot": "sheet-header",
+      class: clsx$1(cn("flex flex-col gap-1.5 p-4", className)),
+      ...restProps
+    })}>`);
+    children?.($$renderer2);
+    $$renderer2.push(`<!----></div>`);
+    bind_props($$props, { ref });
+  });
+}
+function Sheet_title($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      if (Dialog_title) {
+        $$renderer3.push("<!--[-->");
+        Dialog_title($$renderer3, spread_props([
+          {
+            "data-slot": "sheet-title",
+            class: cn("text-foreground font-semibold", className)
+          },
+          restProps,
+          {
+            get ref() {
+              return ref;
+            },
+            set ref($$value) {
+              ref = $$value;
+              $$settled = false;
+            }
+          }
+        ]));
+        $$renderer3.push("<!--]-->");
+      } else {
+        $$renderer3.push("<!--[!-->");
+        $$renderer3.push("<!--]-->");
+      }
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
+}
+function Sheet_description($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      if (Dialog_description) {
+        $$renderer3.push("<!--[-->");
+        Dialog_description($$renderer3, spread_props([
+          {
+            "data-slot": "sheet-description",
+            class: cn("text-muted-foreground text-sm", className)
+          },
+          restProps,
+          {
+            get ref() {
+              return ref;
+            },
+            set ref($$value) {
+              ref = $$value;
+              $$settled = false;
+            }
+          }
+        ]));
+        $$renderer3.push("<!--]-->");
+      } else {
+        $$renderer3.push("<!--[!-->");
+        $$renderer3.push("<!--]-->");
+      }
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
+}
+const Root = Dialog;
+function Sidebar($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      side = "left",
+      variant = "sidebar",
+      collapsible = "offcanvas",
+      class: className,
+      children,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const sidebar = useSidebar();
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      if (collapsible === "none") {
+        $$renderer3.push("<!--[0-->");
+        $$renderer3.push(`<div${attributes({
+          class: clsx$1(cn("bg-sidebar text-sidebar-foreground w-(--sidebar-width) flex h-full flex-col", className)),
+          ...restProps
+        })}>`);
+        children?.($$renderer3);
+        $$renderer3.push(`<!----></div>`);
+      } else if (sidebar.isMobile) {
+        $$renderer3.push("<!--[1-->");
+        var bind_get = () => sidebar.openMobile;
+        var bind_set = (v) => sidebar.setOpenMobile(v);
+        if (Root) {
+          $$renderer3.push("<!--[-->");
+          Root($$renderer3, spread_props([
+            {
+              get open() {
+                return bind_get();
+              },
+              set open($$value) {
+                bind_set($$value);
+              }
+            },
+            restProps,
+            {
+              children: ($$renderer4) => {
+                if (Sheet_content) {
+                  $$renderer4.push("<!--[-->");
+                  Sheet_content($$renderer4, {
+                    "data-sidebar": "sidebar",
+                    "data-slot": "sidebar",
+                    "data-mobile": "true",
+                    class: "bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden",
+                    style: `--sidebar-width: ${stringify(SIDEBAR_WIDTH_MOBILE)};`,
+                    side,
+                    children: ($$renderer5) => {
+                      if (Sheet_header) {
+                        $$renderer5.push("<!--[-->");
+                        Sheet_header($$renderer5, {
+                          class: "sr-only",
+                          children: ($$renderer6) => {
+                            if (Sheet_title) {
+                              $$renderer6.push("<!--[-->");
+                              Sheet_title($$renderer6, {
+                                children: ($$renderer7) => {
+                                  $$renderer7.push(`<!---->Sidebar`);
+                                },
+                                $$slots: { default: true }
+                              });
+                              $$renderer6.push("<!--]-->");
+                            } else {
+                              $$renderer6.push("<!--[!-->");
+                              $$renderer6.push("<!--]-->");
+                            }
+                            $$renderer6.push(` `);
+                            if (Sheet_description) {
+                              $$renderer6.push("<!--[-->");
+                              Sheet_description($$renderer6, {
+                                children: ($$renderer7) => {
+                                  $$renderer7.push(`<!---->Displays the mobile sidebar.`);
+                                },
+                                $$slots: { default: true }
+                              });
+                              $$renderer6.push("<!--]-->");
+                            } else {
+                              $$renderer6.push("<!--[!-->");
+                              $$renderer6.push("<!--]-->");
+                            }
+                          },
+                          $$slots: { default: true }
+                        });
+                        $$renderer5.push("<!--]-->");
+                      } else {
+                        $$renderer5.push("<!--[!-->");
+                        $$renderer5.push("<!--]-->");
+                      }
+                      $$renderer5.push(` <div class="flex h-full w-full flex-col">`);
+                      children?.($$renderer5);
+                      $$renderer5.push(`<!----></div>`);
+                    },
+                    $$slots: { default: true }
+                  });
+                  $$renderer4.push("<!--]-->");
+                } else {
+                  $$renderer4.push("<!--[!-->");
+                  $$renderer4.push("<!--]-->");
+                }
+              },
+              $$slots: { default: true }
+            }
+          ]));
+          $$renderer3.push("<!--]-->");
+        } else {
+          $$renderer3.push("<!--[!-->");
+          $$renderer3.push("<!--]-->");
+        }
+      } else {
+        $$renderer3.push("<!--[-1-->");
+        $$renderer3.push(`<div class="text-sidebar-foreground group peer hidden md:block"${attr("data-state", sidebar.state)}${attr("data-collapsible", sidebar.state === "collapsed" ? collapsible : "")}${attr("data-variant", variant)}${attr("data-side", side)} data-slot="sidebar"><div data-slot="sidebar-gap"${attr_class(clsx$1(cn("w-(--sidebar-width) relative bg-transparent transition-[width] duration-200 ease-linear", "group-data-[collapsible=offcanvas]:w-0", "group-data-[side=right]:rotate-180", variant === "floating" || variant === "inset" ? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]" : "group-data-[collapsible=icon]:w-(--sidebar-width-icon)")))}></div> <div${attributes({
+          "data-slot": "sidebar-container",
+          class: clsx$1(cn(
+            "w-(--sidebar-width) fixed inset-y-0 z-10 hidden h-svh transition-[left,right,width] duration-200 ease-linear md:flex",
+            side === "left" ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]" : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
+            variant === "floating" || variant === "inset" ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]" : "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l",
+            className
+          )),
+          ...restProps
+        })}><div data-sidebar="sidebar" data-slot="sidebar-inner" class="bg-sidebar group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm">`);
+        children?.($$renderer3);
+        $$renderer3.push(`<!----></div></div></div>`);
+      }
+      $$renderer3.push(`<!--]-->`);
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
+}
+function App_sidebar($$renderer) {
   const General = [
     { title: "Home", url: "/" },
     { title: "Direct Downloads", url: base + "/General/ddl" },
     { title: "Torrents", url: base + "/General/torrents" },
     { title: "Preservation", url: base + "/General/preservation" },
     { title: "Other", url: base + "/General/other" }
+  ];
+  const populars = [
+    {
+      title: "About RVZ files",
+      url: base + "/Populars/about-rvz-files"
+    },
+    { title: "Metroid", url: base + "/Populars/metroid" },
+    { title: "Mario", url: base + "/Populars/mario" },
+    { title: "Fire Emblem", url: base + "/Populars/fire-emblem" },
+    { title: "The Legend of Zelda", url: base + "/Populars/zelda" },
+    { title: "Pokemon", url: base + "/Populars/pokemon" },
+    { title: "Persona", url: base + "/Populars/persona" },
+    {
+      title: "Super Smash Bros",
+      url: base + "/Populars/super-smash-bros"
+    },
+    { title: "Xenoblade", url: base + "/Populars/xenoblade" }
   ];
   const Nintendo = [
     {
@@ -6953,339 +7624,380 @@ function App_sidebar($$payload) {
     { title: "BIOS Sets", url: base + "/Miscellaneous/bios-sets" },
     { title: "Other", url: base + "/Miscellaneous/other" }
   ];
-  Sidebar($$payload, {
+  Sidebar($$renderer, {
     collapsible: "offcanvas",
-    children: ($$payload2) => {
-      Sidebar_content($$payload2, {
-        children: ($$payload3) => {
-          Sidebar_group($$payload3, {
-            children: ($$payload4) => {
-              Sidebar_group_label($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->General`);
+    children: ($$renderer2) => {
+      Sidebar_content($$renderer2, {
+        children: ($$renderer3) => {
+          Sidebar_group($$renderer3, {
+            children: ($$renderer4) => {
+              Sidebar_group_label($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->General`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Sidebar_group_content($$payload4, {
-                children: ($$payload5) => {
-                  Sidebar_menu($$payload5, {
-                    children: ($$payload6) => {
+              $$renderer4.push(`<!----> `);
+              Sidebar_group_content($$renderer4, {
+                children: ($$renderer5) => {
+                  Sidebar_menu($$renderer5, {
+                    children: ($$renderer6) => {
+                      $$renderer6.push(`<!--[-->`);
                       const each_array = ensure_array_like(General);
-                      $$payload6.out.push(`<!--[-->`);
                       for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
                         let item = each_array[$$index];
-                        Sidebar_menu_item($$payload6, {
-                          children: ($$payload7) => {
+                        Sidebar_menu_item($$renderer6, {
+                          children: ($$renderer7) => {
                             {
-                              let child = function($$payload8, { props }) {
-                                $$payload8.out.push(`<a${spread_attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
+                              let child = function($$renderer8, { props }) {
+                                $$renderer8.push(`<a${attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
                               };
-                              Sidebar_menu_button($$payload7, { child, $$slots: { child: true } });
+                              Sidebar_menu_button($$renderer7, { child, $$slots: { child: true } });
                             }
                           },
                           $$slots: { default: true }
                         });
                       }
-                      $$payload6.out.push(`<!--]-->`);
+                      $$renderer6.push(`<!--]-->`);
                     },
                     $$slots: { default: true }
                   });
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!----> `);
-          Sidebar_group($$payload3, {
-            children: ($$payload4) => {
-              Sidebar_group_label($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Nintendo`);
+          $$renderer3.push(`<!----> `);
+          Sidebar_group($$renderer3, {
+            children: ($$renderer4) => {
+              Sidebar_group_label($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Popular`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Sidebar_group_content($$payload4, {
-                children: ($$payload5) => {
-                  Sidebar_menu($$payload5, {
-                    children: ($$payload6) => {
-                      const each_array_1 = ensure_array_like(Nintendo);
-                      $$payload6.out.push(`<!--[-->`);
+              $$renderer4.push(`<!----> `);
+              Sidebar_group_content($$renderer4, {
+                children: ($$renderer5) => {
+                  Sidebar_menu($$renderer5, {
+                    children: ($$renderer6) => {
+                      $$renderer6.push(`<!--[-->`);
+                      const each_array_1 = ensure_array_like(populars);
                       for (let $$index_1 = 0, $$length = each_array_1.length; $$index_1 < $$length; $$index_1++) {
                         let item = each_array_1[$$index_1];
-                        Sidebar_menu_item($$payload6, {
-                          children: ($$payload7) => {
+                        Sidebar_menu_item($$renderer6, {
+                          children: ($$renderer7) => {
                             {
-                              let child = function($$payload8, { props }) {
-                                $$payload8.out.push(`<a${spread_attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
+                              let child = function($$renderer8, { props }) {
+                                $$renderer8.push(`<a${attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
                               };
-                              Sidebar_menu_button($$payload7, { child, $$slots: { child: true } });
+                              Sidebar_menu_button($$renderer7, { child, $$slots: { child: true } });
                             }
                           },
                           $$slots: { default: true }
                         });
                       }
-                      $$payload6.out.push(`<!--]-->`);
+                      $$renderer6.push(`<!--]-->`);
                     },
                     $$slots: { default: true }
                   });
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!----> `);
-          Sidebar_group($$payload3, {
-            children: ($$payload4) => {
-              Sidebar_group_label($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Sony`);
+          $$renderer3.push(`<!----> `);
+          Sidebar_group($$renderer3, {
+            children: ($$renderer4) => {
+              Sidebar_group_label($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Nintendo`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Sidebar_group_content($$payload4, {
-                children: ($$payload5) => {
-                  Sidebar_menu($$payload5, {
-                    children: ($$payload6) => {
-                      const each_array_2 = ensure_array_like(sony);
-                      $$payload6.out.push(`<!--[-->`);
+              $$renderer4.push(`<!----> `);
+              Sidebar_group_content($$renderer4, {
+                children: ($$renderer5) => {
+                  Sidebar_menu($$renderer5, {
+                    children: ($$renderer6) => {
+                      $$renderer6.push(`<!--[-->`);
+                      const each_array_2 = ensure_array_like(Nintendo);
                       for (let $$index_2 = 0, $$length = each_array_2.length; $$index_2 < $$length; $$index_2++) {
                         let item = each_array_2[$$index_2];
-                        Sidebar_menu_item($$payload6, {
-                          children: ($$payload7) => {
+                        Sidebar_menu_item($$renderer6, {
+                          children: ($$renderer7) => {
                             {
-                              let child = function($$payload8, { props }) {
-                                $$payload8.out.push(`<a${spread_attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
+                              let child = function($$renderer8, { props }) {
+                                $$renderer8.push(`<a${attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
                               };
-                              Sidebar_menu_button($$payload7, { child, $$slots: { child: true } });
+                              Sidebar_menu_button($$renderer7, { child, $$slots: { child: true } });
                             }
                           },
                           $$slots: { default: true }
                         });
                       }
-                      $$payload6.out.push(`<!--]-->`);
+                      $$renderer6.push(`<!--]-->`);
                     },
                     $$slots: { default: true }
                   });
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!----> `);
-          Sidebar_group($$payload3, {
-            children: ($$payload4) => {
-              Sidebar_group_label($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Microsoft`);
+          $$renderer3.push(`<!----> `);
+          Sidebar_group($$renderer3, {
+            children: ($$renderer4) => {
+              Sidebar_group_label($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Sony`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Sidebar_group_content($$payload4, {
-                children: ($$payload5) => {
-                  Sidebar_menu($$payload5, {
-                    children: ($$payload6) => {
-                      const each_array_3 = ensure_array_like(microsoft);
-                      $$payload6.out.push(`<!--[-->`);
+              $$renderer4.push(`<!----> `);
+              Sidebar_group_content($$renderer4, {
+                children: ($$renderer5) => {
+                  Sidebar_menu($$renderer5, {
+                    children: ($$renderer6) => {
+                      $$renderer6.push(`<!--[-->`);
+                      const each_array_3 = ensure_array_like(sony);
                       for (let $$index_3 = 0, $$length = each_array_3.length; $$index_3 < $$length; $$index_3++) {
                         let item = each_array_3[$$index_3];
-                        Sidebar_menu_item($$payload6, {
-                          children: ($$payload7) => {
+                        Sidebar_menu_item($$renderer6, {
+                          children: ($$renderer7) => {
                             {
-                              let child = function($$payload8, { props }) {
-                                $$payload8.out.push(`<a${spread_attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
+                              let child = function($$renderer8, { props }) {
+                                $$renderer8.push(`<a${attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
                               };
-                              Sidebar_menu_button($$payload7, { child, $$slots: { child: true } });
+                              Sidebar_menu_button($$renderer7, { child, $$slots: { child: true } });
                             }
                           },
                           $$slots: { default: true }
                         });
                       }
-                      $$payload6.out.push(`<!--]-->`);
+                      $$renderer6.push(`<!--]-->`);
                     },
                     $$slots: { default: true }
                   });
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!----> `);
-          Sidebar_group($$payload3, {
-            children: ($$payload4) => {
-              Sidebar_group_label($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Sega`);
+          $$renderer3.push(`<!----> `);
+          Sidebar_group($$renderer3, {
+            children: ($$renderer4) => {
+              Sidebar_group_label($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Microsoft`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Sidebar_group_content($$payload4, {
-                children: ($$payload5) => {
-                  Sidebar_menu($$payload5, {
-                    children: ($$payload6) => {
-                      const each_array_4 = ensure_array_like(sega);
-                      $$payload6.out.push(`<!--[-->`);
+              $$renderer4.push(`<!----> `);
+              Sidebar_group_content($$renderer4, {
+                children: ($$renderer5) => {
+                  Sidebar_menu($$renderer5, {
+                    children: ($$renderer6) => {
+                      $$renderer6.push(`<!--[-->`);
+                      const each_array_4 = ensure_array_like(microsoft);
                       for (let $$index_4 = 0, $$length = each_array_4.length; $$index_4 < $$length; $$index_4++) {
                         let item = each_array_4[$$index_4];
-                        Sidebar_menu_item($$payload6, {
-                          children: ($$payload7) => {
+                        Sidebar_menu_item($$renderer6, {
+                          children: ($$renderer7) => {
                             {
-                              let child = function($$payload8, { props }) {
-                                $$payload8.out.push(`<a${spread_attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
+                              let child = function($$renderer8, { props }) {
+                                $$renderer8.push(`<a${attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
                               };
-                              Sidebar_menu_button($$payload7, { child, $$slots: { child: true } });
+                              Sidebar_menu_button($$renderer7, { child, $$slots: { child: true } });
                             }
                           },
                           $$slots: { default: true }
                         });
                       }
-                      $$payload6.out.push(`<!--]-->`);
+                      $$renderer6.push(`<!--]-->`);
                     },
                     $$slots: { default: true }
                   });
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!----> `);
-          Sidebar_group($$payload3, {
-            children: ($$payload4) => {
-              Sidebar_group_label($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Retro &amp; Arcade`);
+          $$renderer3.push(`<!----> `);
+          Sidebar_group($$renderer3, {
+            children: ($$renderer4) => {
+              Sidebar_group_label($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Sega`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Sidebar_group_content($$payload4, {
-                children: ($$payload5) => {
-                  Sidebar_menu($$payload5, {
-                    children: ($$payload6) => {
-                      const each_array_5 = ensure_array_like(retroArcade);
-                      $$payload6.out.push(`<!--[-->`);
+              $$renderer4.push(`<!----> `);
+              Sidebar_group_content($$renderer4, {
+                children: ($$renderer5) => {
+                  Sidebar_menu($$renderer5, {
+                    children: ($$renderer6) => {
+                      $$renderer6.push(`<!--[-->`);
+                      const each_array_5 = ensure_array_like(sega);
                       for (let $$index_5 = 0, $$length = each_array_5.length; $$index_5 < $$length; $$index_5++) {
                         let item = each_array_5[$$index_5];
-                        Sidebar_menu_item($$payload6, {
-                          children: ($$payload7) => {
+                        Sidebar_menu_item($$renderer6, {
+                          children: ($$renderer7) => {
                             {
-                              let child = function($$payload8, { props }) {
-                                $$payload8.out.push(`<a${spread_attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
+                              let child = function($$renderer8, { props }) {
+                                $$renderer8.push(`<a${attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
                               };
-                              Sidebar_menu_button($$payload7, { child, $$slots: { child: true } });
+                              Sidebar_menu_button($$renderer7, { child, $$slots: { child: true } });
                             }
                           },
                           $$slots: { default: true }
                         });
                       }
-                      $$payload6.out.push(`<!--]-->`);
+                      $$renderer6.push(`<!--]-->`);
                     },
                     $$slots: { default: true }
                   });
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!----> `);
-          Sidebar_group($$payload3, {
-            children: ($$payload4) => {
-              Sidebar_group_label($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->PC`);
+          $$renderer3.push(`<!----> `);
+          Sidebar_group($$renderer3, {
+            children: ($$renderer4) => {
+              Sidebar_group_label($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Retro &amp; Arcade`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Sidebar_group_content($$payload4, {
-                children: ($$payload5) => {
-                  Sidebar_menu($$payload5, {
-                    children: ($$payload6) => {
-                      const each_array_6 = ensure_array_like(pc);
-                      $$payload6.out.push(`<!--[-->`);
+              $$renderer4.push(`<!----> `);
+              Sidebar_group_content($$renderer4, {
+                children: ($$renderer5) => {
+                  Sidebar_menu($$renderer5, {
+                    children: ($$renderer6) => {
+                      $$renderer6.push(`<!--[-->`);
+                      const each_array_6 = ensure_array_like(retroArcade);
                       for (let $$index_6 = 0, $$length = each_array_6.length; $$index_6 < $$length; $$index_6++) {
                         let item = each_array_6[$$index_6];
-                        Sidebar_menu_item($$payload6, {
-                          children: ($$payload7) => {
+                        Sidebar_menu_item($$renderer6, {
+                          children: ($$renderer7) => {
                             {
-                              let child = function($$payload8, { props }) {
-                                $$payload8.out.push(`<a${spread_attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
+                              let child = function($$renderer8, { props }) {
+                                $$renderer8.push(`<a${attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
                               };
-                              Sidebar_menu_button($$payload7, { child, $$slots: { child: true } });
+                              Sidebar_menu_button($$renderer7, { child, $$slots: { child: true } });
                             }
                           },
                           $$slots: { default: true }
                         });
                       }
-                      $$payload6.out.push(`<!--]-->`);
+                      $$renderer6.push(`<!--]-->`);
                     },
                     $$slots: { default: true }
                   });
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!----> `);
-          Sidebar_group($$payload3, {
-            children: ($$payload4) => {
-              Sidebar_group_label($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Miscellaneous`);
+          $$renderer3.push(`<!----> `);
+          Sidebar_group($$renderer3, {
+            children: ($$renderer4) => {
+              Sidebar_group_label($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->PC`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Sidebar_group_content($$payload4, {
-                children: ($$payload5) => {
-                  Sidebar_menu($$payload5, {
-                    children: ($$payload6) => {
-                      const each_array_7 = ensure_array_like(misc);
-                      $$payload6.out.push(`<!--[-->`);
+              $$renderer4.push(`<!----> `);
+              Sidebar_group_content($$renderer4, {
+                children: ($$renderer5) => {
+                  Sidebar_menu($$renderer5, {
+                    children: ($$renderer6) => {
+                      $$renderer6.push(`<!--[-->`);
+                      const each_array_7 = ensure_array_like(pc);
                       for (let $$index_7 = 0, $$length = each_array_7.length; $$index_7 < $$length; $$index_7++) {
                         let item = each_array_7[$$index_7];
-                        Sidebar_menu_item($$payload6, {
-                          children: ($$payload7) => {
+                        Sidebar_menu_item($$renderer6, {
+                          children: ($$renderer7) => {
                             {
-                              let child = function($$payload8, { props }) {
-                                $$payload8.out.push(`<a${spread_attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
+                              let child = function($$renderer8, { props }) {
+                                $$renderer8.push(`<a${attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
                               };
-                              Sidebar_menu_button($$payload7, { child, $$slots: { child: true } });
+                              Sidebar_menu_button($$renderer7, { child, $$slots: { child: true } });
                             }
                           },
                           $$slots: { default: true }
                         });
                       }
-                      $$payload6.out.push(`<!--]-->`);
+                      $$renderer6.push(`<!--]-->`);
                     },
                     $$slots: { default: true }
                   });
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!---->`);
+          $$renderer3.push(`<!----> `);
+          Sidebar_group($$renderer3, {
+            children: ($$renderer4) => {
+              Sidebar_group_label($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Miscellaneous`);
+                },
+                $$slots: { default: true }
+              });
+              $$renderer4.push(`<!----> `);
+              Sidebar_group_content($$renderer4, {
+                children: ($$renderer5) => {
+                  Sidebar_menu($$renderer5, {
+                    children: ($$renderer6) => {
+                      $$renderer6.push(`<!--[-->`);
+                      const each_array_8 = ensure_array_like(misc);
+                      for (let $$index_8 = 0, $$length = each_array_8.length; $$index_8 < $$length; $$index_8++) {
+                        let item = each_array_8[$$index_8];
+                        Sidebar_menu_item($$renderer6, {
+                          children: ($$renderer7) => {
+                            {
+                              let child = function($$renderer8, { props }) {
+                                $$renderer8.push(`<a${attributes({ href: item.url, ...props })}><span>${escape_html(item.title)}</span></a>`);
+                              };
+                              Sidebar_menu_button($$renderer7, { child, $$slots: { child: true } });
+                            }
+                          },
+                          $$slots: { default: true }
+                        });
+                      }
+                      $$renderer6.push(`<!--]-->`);
+                    },
+                    $$slots: { default: true }
+                  });
+                },
+                $$slots: { default: true }
+              });
+              $$renderer4.push(`<!---->`);
+            },
+            $$slots: { default: true }
+          });
+          $$renderer3.push(`<!---->`);
         },
         $$slots: { default: true }
       });
@@ -7293,83 +8005,117 @@ function App_sidebar($$payload) {
     $$slots: { default: true }
   });
 }
-function _layout($$payload, $$props) {
+function _layout($$renderer, $$props) {
   let pageTitle = "/r/Roms Megathread";
   let { children } = $$props;
-  head($$payload, ($$payload2) => {
-    $$payload2.title = `<title>/r/Roms Megathread</title>`;
+  head("12qhfyh", $$renderer, ($$renderer2) => {
+    $$renderer2.title(($$renderer3) => {
+      $$renderer3.push(`<title>/r/Roms Megathread</title>`);
+    });
   });
-  $$payload.out.push(`<meta property="og:title"${attr("content", pageTitle)}/> <div class="mx-8 my-4 space-y-8 md:mx-16 lg:mx-24 xl:mx-32"><!---->`);
-  Sidebar_provider($$payload, {
-    children: ($$payload2) => {
-      App_sidebar($$payload2);
-      $$payload2.out.push(`<!----> <!---->`);
-      Sidebar_inset($$payload2, {
-        children: ($$payload3) => {
-          $$payload3.out.push(`<header class="flex h-16 shrink-0 items-center gap-2 border-b px-4 sticky bg-background"><!---->`);
-          Navigation_menu($$payload3, {
-            viewport: false,
-            children: ($$payload4) => {
-              $$payload4.out.push(`<!---->`);
-              Navigation_menu_list($$payload4, {
-                children: ($$payload5) => {
-                  Navigation_menu_item($$payload5, {});
-                  $$payload5.out.push(`<!----> <!---->`);
-                  Sidebar_trigger($$payload5, {});
-                  $$payload5.out.push(`<!----> `);
-                  Navigation_menu_item($$payload5, {
-                    children: ($$payload6) => {
-                      Button($$payload6, {
-                        variant: "ghost",
-                        href: "/",
-                        children: ($$payload7) => {
-                          $$payload7.out.push(`<!---->/r/Roms Megathread`);
+  $$renderer.push(`<meta property="og:title"${attr("content", pageTitle)}/> <div class="mx-8 my-4 space-y-8 md:mx-16 lg:mx-24 xl:mx-32">`);
+  if (Sidebar_provider) {
+    $$renderer.push("<!--[-->");
+    Sidebar_provider($$renderer, {
+      children: ($$renderer2) => {
+        App_sidebar($$renderer2);
+        $$renderer2.push(`<!----> `);
+        if (Sidebar_inset) {
+          $$renderer2.push("<!--[-->");
+          Sidebar_inset($$renderer2, {
+            children: ($$renderer3) => {
+              $$renderer3.push(`<header class="flex h-16 shrink-0 items-center gap-2 border-b px-4 sticky bg-background">`);
+              if (Navigation_menu) {
+                $$renderer3.push("<!--[-->");
+                Navigation_menu($$renderer3, {
+                  viewport: false,
+                  children: ($$renderer4) => {
+                    if (Navigation_menu_list) {
+                      $$renderer4.push("<!--[-->");
+                      Navigation_menu_list($$renderer4, {
+                        children: ($$renderer5) => {
+                          Navigation_menu_item($$renderer5, {});
+                          $$renderer5.push(`<!----> `);
+                          if (Sidebar_trigger) {
+                            $$renderer5.push("<!--[-->");
+                            Sidebar_trigger($$renderer5, {});
+                            $$renderer5.push("<!--]-->");
+                          } else {
+                            $$renderer5.push("<!--[!-->");
+                            $$renderer5.push("<!--]-->");
+                          }
+                          $$renderer5.push(` `);
+                          Navigation_menu_item($$renderer5, {
+                            children: ($$renderer6) => {
+                              Button($$renderer6, {
+                                variant: "ghost",
+                                href: "/",
+                                children: ($$renderer7) => {
+                                  $$renderer7.push(`<!---->/r/Roms Megathread`);
+                                },
+                                $$slots: { default: true }
+                              });
+                            },
+                            $$slots: { default: true }
+                          });
+                          $$renderer5.push(`<!----> `);
+                          Button($$renderer5, {
+                            onclick: toggleMode,
+                            variant: "outline",
+                            size: "icon",
+                            children: ($$renderer6) => {
+                              Sun($$renderer6, {
+                                class: "h-[1.2rem] w-[1.2rem] rotate-0 scale-100 !transition-all dark:-rotate-90 dark:scale-0"
+                              });
+                              $$renderer6.push(`<!----> `);
+                              Moon($$renderer6, {
+                                class: "absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 !transition-all dark:rotate-0 dark:scale-100"
+                              });
+                              $$renderer6.push(`<!----> <span class="sr-only">Toggle theme</span>`);
+                            },
+                            $$slots: { default: true }
+                          });
+                          $$renderer5.push(`<!---->`);
                         },
                         $$slots: { default: true }
                       });
-                    },
-                    $$slots: { default: true }
-                  });
-                  $$payload5.out.push(`<!----> `);
-                  Button($$payload5, {
-                    onclick: toggleMode,
-                    variant: "outline",
-                    size: "icon",
-                    children: ($$payload6) => {
-                      Sun($$payload6, {
-                        class: "h-[1.2rem] w-[1.2rem] rotate-0 scale-100 !transition-all dark:-rotate-90 dark:scale-0"
-                      });
-                      $$payload6.out.push(`<!----> `);
-                      Moon($$payload6, {
-                        class: "absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 !transition-all dark:rotate-0 dark:scale-100"
-                      });
-                      $$payload6.out.push(`<!----> <span class="sr-only">Toggle theme</span>`);
-                    },
-                    $$slots: { default: true }
-                  });
-                  $$payload5.out.push(`<!---->`);
-                },
-                $$slots: { default: true }
-              });
-              $$payload4.out.push(`<!---->`);
+                      $$renderer4.push("<!--]-->");
+                    } else {
+                      $$renderer4.push("<!--[!-->");
+                      $$renderer4.push("<!--]-->");
+                    }
+                  },
+                  $$slots: { default: true }
+                });
+                $$renderer3.push("<!--]-->");
+              } else {
+                $$renderer3.push("<!--[!-->");
+                $$renderer3.push("<!--]-->");
+              }
+              $$renderer3.push(`</header> <main>`);
+              children?.($$renderer3);
+              $$renderer3.push(`<!----></main> <footer class="flex flex-col items-center justify-center gap-2 p-4">`);
+              Separator($$renderer3, {});
+              $$renderer3.push(`<!----> <p class="text-sm text-primary">© 2025 /r/Roms Megathread. GPL-3.0 license.</p> <p class="text-xs text-muted-foreground">Designed by  <a href="https://www.ashleehee.com/" class="text-primary underline underline-offset-4 hover:bg-primary hover:text-primary-foreground">AshLee</a></p></footer>`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!----></header> <main>`);
-          children?.($$payload3);
-          $$payload3.out.push(`<!----></main> <footer class="flex flex-col items-center justify-center gap-2 p-4">`);
-          Separator($$payload3, {});
-          $$payload3.out.push(`<!----> <p class="text-sm text-primary">© 2025 /r/Roms Megathread. GPL-3.0 license.</p> <p class="text-xs text-muted-foreground">Designed by  <a href="https://www.ashleehee.com/" class="text-primary underline underline-offset-4 hover:bg-primary hover:text-primary-foreground">AshLee</a></p></footer>`);
-        },
-        $$slots: { default: true }
-      });
-      $$payload2.out.push(`<!---->`);
-    },
-    $$slots: { default: true }
-  });
-  $$payload.out.push(`<!----> `);
-  Mode_watcher($$payload, {});
-  $$payload.out.push(`<!----></div>`);
+          $$renderer2.push("<!--]-->");
+        } else {
+          $$renderer2.push("<!--[!-->");
+          $$renderer2.push("<!--]-->");
+        }
+      },
+      $$slots: { default: true }
+    });
+    $$renderer.push("<!--]-->");
+  } else {
+    $$renderer.push("<!--[!-->");
+    $$renderer.push("<!--]-->");
+  }
+  $$renderer.push(` `);
+  Mode_watcher($$renderer, {});
+  $$renderer.push(`<!----></div>`);
 }
 export {
   _layout as default
