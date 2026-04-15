@@ -1,6 +1,7 @@
 import { Pagination as PaginationPrimitive } from "bits-ui";
-import { type Props } from "../button/index.js";
-type $$ComponentProps = PaginationPrimitive.PageProps & Props & {
+import { type ButtonSize } from "../button/index.js";
+type $$ComponentProps = PaginationPrimitive.PageProps & {
+    size?: ButtonSize;
     isActive: boolean;
 };
 declare const PaginationLink: import("svelte").Component<$$ComponentProps, {}, "ref">;

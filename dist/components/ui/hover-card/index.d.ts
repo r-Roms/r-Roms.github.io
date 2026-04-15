@@ -1,4 +1,5 @@
+import Root from "./hover-card.svelte";
 import Content from "./hover-card-content.svelte";
 import Trigger from "./hover-card-trigger.svelte";
-declare const Root: import("svelte").Component<import("bits-ui").LinkPreviewRootPropsWithoutHTML, {}, "open">;
-export { Root, Content, Trigger, Root as HoverCard, Content as HoverCardContent, Trigger as HoverCardTrigger, };
+import Portal from "./hover-card-portal.svelte";
+export { Root, Content, Trigger, Portal, Root as HoverCard, Content as HoverCardContent, Trigger as HoverCardTrigger, Portal as HoverCardPortal, };

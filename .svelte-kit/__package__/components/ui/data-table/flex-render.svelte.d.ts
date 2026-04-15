@@ -1,10 +1,13 @@
 import type { CellContext, ColumnDefTemplate, HeaderContext } from "@tanstack/table-core";
+import type { Attachment } from "svelte/attachments";
 declare function $$render<TData, TValue, TContext extends HeaderContext<TData, TValue> | CellContext<TData, TValue>>(): {
     props: {
         /** The cell or header field of the current cell's column definition. */
         content?: TContext extends HeaderContext<TData, TValue> ? ColumnDefTemplate<HeaderContext<TData, TValue>> : TContext extends CellContext<TData, TValue> ? ColumnDefTemplate<CellContext<TData, TValue>> : never;
         /** The result of the `getContext()` function of the header or cell */
         context: TContext;
+        /** Used to pass attachments that can't be gotten through context */
+        attach?: Attachment;
     };
     exports: {};
     bindings: "";

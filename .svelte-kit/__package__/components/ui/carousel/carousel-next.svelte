@@ -1,15 +1,16 @@
 <script lang="ts">
-	import ArrowRightIcon from "@lucide/svelte/icons/arrow-right";
 	import type { WithoutChildren } from "bits-ui";
 	import { getEmblaContext } from "./context.js";
 	import { cn } from "../../../utils.js";
 	import { Button, type Props } from "../button/index.js";
+	import { HugeiconsIcon } from "@hugeicons/svelte"
+	import { ArrowRight01Icon } from '@hugeicons/core-free-icons';
 
 	let {
 		ref = $bindable(null),
 		class: className,
 		variant = "outline",
-		size = "icon",
+		size = "icon-sm",
 		...restProps
 	}: WithoutChildren<Props> = $props();
 
@@ -21,11 +22,12 @@
 	{variant}
 	{size}
 	aria-disabled={!emblaCtx.canScrollNext}
+	disabled={!emblaCtx.canScrollNext}
 	class={cn(
-		"absolute size-8 rounded-full",
+		"rounded-full absolute touch-manipulation",
 		emblaCtx.orientation === "horizontal"
-			? "-right-12 top-1/2 -translate-y-1/2"
-			: "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
+			? "-end-12 top-1/2 -translate-y-1/2"
+			: "start-1/2 -bottom-12 -translate-x-1/2 rotate-90",
 		className
 	)}
 	onclick={emblaCtx.scrollNext}
@@ -33,6 +35,6 @@
 	bind:ref
 	{...restProps}
 >
-	<ArrowRightIcon class="size-4" />
+	<HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2}  />
 	<span class="sr-only">Next slide</span>
 </Button>
