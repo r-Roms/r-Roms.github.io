@@ -1,7 +1,8 @@
 <script lang="ts">
-	import EllipsisIcon from "@lucide/svelte/icons/ellipsis";
 	import type { HTMLAttributes } from "svelte/elements";
 	import { cn, type WithElementRef, type WithoutChildren } from "$lib/utils.js";
+	import { HugeiconsIcon } from "@hugeicons/svelte"
+	import { MoreHorizontalCircle01Icon } from '@hugeicons/core-free-icons';
 
 	let {
 		ref = $bindable(null),
@@ -15,9 +16,9 @@
 	data-slot="breadcrumb-ellipsis"
 	role="presentation"
 	aria-hidden="true"
-	class={cn("flex size-9 items-center justify-center", className)}
+	class={cn("size-5 [&>svg]:size-4 flex items-center justify-center", className)}
 	{...restProps}
 >
-	<EllipsisIcon class="size-4" />
+	<HugeiconsIcon icon={MoreHorizontalCircle01Icon} strokeWidth={2}  />
 	<span class="sr-only">More</span>
 </span>

@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { Pagination as PaginationPrimitive } from "bits-ui";
-	import ChevronRightIcon from "@lucide/svelte/icons/chevron-right";
-	import { buttonVariants } from "$lib/components/ui/button/index.js";
+	import { HugeiconsIcon } from "@hugeicons/svelte"
+	import { ArrowRightIcon } from '@hugeicons/core-free-icons';
 	import { cn } from "$lib/utils.js";
+	import { buttonVariants } from "../button/index.js";
 
 	let {
 		ref = $bindable(null),
@@ -14,20 +15,18 @@
 
 {#snippet Fallback()}
 	<span>Next</span>
-	<ChevronRightIcon class="size-4" />
+	<HugeiconsIcon icon={ArrowRightIcon} strokeWidth={2} class={cn("size-4", className)} />
 {/snippet}
 
 <PaginationPrimitive.NextButton
 	bind:ref
 	aria-label="Go to next page"
-	class={cn(
-		buttonVariants({
-			size: "default",
-			variant: "ghost",
-			class: "gap-1 px-2.5 sm:pr-2.5",
-		}),
-		className
-	)}
-	children={children || Fallback}
+	class={cn(buttonVariants({ variant: "ghost" }), "pr-1.5!", className)}
 	{...restProps}
-/>
+>
+	{#if children}
+		{@render children?.()}
+	{:else}
+		{@render Fallback()}
+	{/if}
+</PaginationPrimitive.NextButton>

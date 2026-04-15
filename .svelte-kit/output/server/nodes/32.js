@@ -3,6 +3,6 @@
 export const index = 32;
 let component_cache;
 export const component = async () => component_cache ??= (await import('../entries/pages/Populars/zelda/_page.svelte.js')).default;
-export const imports = ["_app/immutable/nodes/32.DJtSpqjr.js","_app/immutable/chunks/Bc9IkHl1.js","_app/immutable/chunks/BhSJA8DS.js","_app/immutable/chunks/CX9ytsJo.js","_app/immutable/chunks/D4ObKp_W.js","_app/immutable/chunks/BMMjpYXf.js","_app/immutable/chunks/D10uRadN.js","_app/immutable/chunks/C7xSpPu_.js","_app/immutable/chunks/DxyZH2Cy.js"];
+export const imports = ["_app/immutable/nodes/32.BUkU6qnh.js","_app/immutable/chunks/BT67T6ZV.js","_app/immutable/chunks/DvbCUzh1.js","_app/immutable/chunks/upkV7Jlt.js","_app/immutable/chunks/BvyifrTT.js","_app/immutable/chunks/Xlr4DbZf.js","_app/immutable/chunks/BRGNEY6a.js","_app/immutable/chunks/D8DN96_N.js","_app/immutable/chunks/D1PIupWv.js"];
 export const stylesheets = [];
 export const fonts = [];

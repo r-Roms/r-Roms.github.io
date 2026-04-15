@@ -8096,7 +8096,7 @@ function _layout($$renderer, $$props) {
               children?.($$renderer3);
               $$renderer3.push(`<!----></main> <footer class="flex flex-col items-center justify-center gap-2 p-4">`);
               Separator($$renderer3, {});
-              $$renderer3.push(`<!----> <p class="text-sm text-primary">© 2025 /r/Roms Megathread. GPL-3.0 license.</p> <p class="text-xs text-muted-foreground">Designed by  <a href="https://www.ashleehee.com/" class="text-primary underline underline-offset-4 hover:bg-primary hover:text-primary-foreground">AshLee</a></p></footer>`);
+              $$renderer3.push(`<!----> <p class="text-sm text-primary">© 2025-2026 /r/Roms Megathread. GPL-3.0 license.</p> <p class="text-xs text-muted-foreground">Designed by  <a href="https://www.ashleehee.com/" class="text-primary underline underline-offset-4 hover:bg-primary hover:text-primary-foreground">AshLee</a></p></footer>`);
             },
             $$slots: { default: true }
           });
