@@ -122,6 +122,30 @@
     "file": "chunks/utils2.js",
     "name": "utils"
   },
+  "node_modules/@fontsource-variable/geist-mono/files/geist-mono-cyrillic-wght-normal.woff2": {
+    "file": "_app/immutable/assets/geist-mono-cyrillic-wght-normal.BZdD_g9V.woff2",
+    "src": "node_modules/@fontsource-variable/geist-mono/files/geist-mono-cyrillic-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/geist-mono/files/geist-mono-latin-ext-wght-normal.woff2": {
+    "file": "_app/immutable/assets/geist-mono-latin-ext-wght-normal.b6lpi8_2.woff2",
+    "src": "node_modules/@fontsource-variable/geist-mono/files/geist-mono-latin-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2": {
+    "file": "_app/immutable/assets/geist-mono-latin-wght-normal.Cjtb1TV-.woff2",
+    "src": "node_modules/@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/geist/files/geist-cyrillic-wght-normal.woff2": {
+    "file": "_app/immutable/assets/geist-cyrillic-wght-normal.CHSlOQsW.woff2",
+    "src": "node_modules/@fontsource-variable/geist/files/geist-cyrillic-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/geist/files/geist-latin-ext-wght-normal.woff2": {
+    "file": "_app/immutable/assets/geist-latin-ext-wght-normal.DMtmJ5ZE.woff2",
+    "src": "node_modules/@fontsource-variable/geist/files/geist-latin-ext-wght-normal.woff2"
+  },
+  "node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2": {
+    "file": "_app/immutable/assets/geist-latin-wght-normal.Dm3htQBi.woff2",
+    "src": "node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2"
+  },
   "node_modules/@sveltejs/kit/src/runtime/app/server/remote/index.js": {
     "file": "remote-entry.js",
     "name": "remote-entry",
@@ -193,7 +217,15 @@
       "_url.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.C_2ie7h_.css"
+      "_app/immutable/assets/_layout.CG23-Zp9.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/geist-mono-cyrillic-wght-normal.BZdD_g9V.woff2",
+      "_app/immutable/assets/geist-mono-latin-ext-wght-normal.b6lpi8_2.woff2",
+      "_app/immutable/assets/geist-mono-latin-wght-normal.Cjtb1TV-.woff2",
+      "_app/immutable/assets/geist-cyrillic-wght-normal.CHSlOQsW.woff2",
+      "_app/immutable/assets/geist-latin-ext-wght-normal.DMtmJ5ZE.woff2",
+      "_app/immutable/assets/geist-latin-wght-normal.Dm3htQBi.woff2"
     ]
   },
   "src/routes/+page.svelte": {

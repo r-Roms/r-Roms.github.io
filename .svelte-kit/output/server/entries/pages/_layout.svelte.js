@@ -8,6 +8,7 @@ import { r as run, e as escape_html } from "../../chunks/escaping.js";
 import { l as lifecycle_function_unavailable } from "../../chunks/render-context.js";
 import { tv } from "tailwind-variants";
 import { Q as on } from "../../chunks/events.js";
+import { SidebarLeftIcon, Cancel01Icon } from "@hugeicons/core-free-icons";
 import { computePosition, offset, shift, limitShift, flip, size, arrow, hide } from "@floating-ui/dom";
 import { tabbable, focusable, isFocusable } from "tabbable";
 import { b as base } from "../../chunks/server.js";
@@ -5833,7 +5834,7 @@ class TooltipContentState {
     onCloseAutoFocus: this.onCloseAutoFocus
   };
 }
-function Tooltip($$renderer, $$props) {
+function Tooltip$1($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let {
       open = false,
@@ -6078,7 +6079,7 @@ function Tooltip_arrow($$renderer, $$props) {
     bind_props($$props, { ref });
   });
 }
-function Tooltip_provider($$renderer, $$props) {
+function Tooltip_provider$1($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let {
       children,
@@ -6113,13 +6114,13 @@ function Navigation_menu_viewport($$renderer, $$props) {
     let $$settled = true;
     let $$inner_renderer;
     function $$render_inner($$renderer3) {
-      $$renderer3.push(`<div${attr_class(clsx$1(cn("absolute left-0 top-full isolate z-50 flex justify-center")))}>`);
+      $$renderer3.push(`<div${attr_class(clsx$1(cn("absolute start-0 top-full isolate z-50 flex justify-center")))}>`);
       if (Navigation_menu_viewport$1) {
         $$renderer3.push("<!--[-->");
         Navigation_menu_viewport$1($$renderer3, spread_props([
           {
             "data-slot": "navigation-menu-viewport",
-            class: cn("origin-top-center bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 relative mt-1.5 h-[var(--bits-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border shadow md:w-[var(--bits-navigation-menu-viewport-width)]", className)
+            class: cn("bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:zoom-out-90 data-open:zoom-in-90 ring-foreground/10 rounded-lg shadow ring-1 duration-100 origin-top-center relative mt-1.5 h-[calc(var(--bits-navigation-menu-viewport-height)+1rem)] w-full overflow-hidden md:w-[calc(var(--bits-navigation-menu-viewport-width)+1rem)]", className)
           },
           restProps,
           {
@@ -6168,7 +6169,7 @@ function Navigation_menu($$renderer, $$props) {
           {
             "data-slot": "navigation-menu",
             "data-viewport": viewport,
-            class: cn("group/navigation-menu relative flex max-w-max flex-1 items-center justify-center", className)
+            class: cn("max-w-max group/navigation-menu relative flex max-w-max flex-1 items-center justify-center", className)
           },
           restProps,
           {
@@ -6225,7 +6226,7 @@ function Navigation_menu_item($$renderer, $$props) {
         Navigation_menu_item$1($$renderer3, spread_props([
           {
             "data-slot": "navigation-menu-item",
-            class: cn("relative", className)
+            class: cn("cn-navigation-menu-item relative", className)
           },
           restProps,
           {
@@ -6270,7 +6271,155 @@ function Navigation_menu_list($$renderer, $$props) {
         Navigation_menu_list$1($$renderer3, spread_props([
           {
             "data-slot": "navigation-menu-list",
-            class: cn("group flex flex-1 list-none items-center justify-center gap-1", className)
+            class: cn("gap-0 group flex flex-1 list-none items-center justify-center", className)
+          },
+          restProps,
+          {
+            get ref() {
+              return ref;
+            },
+            set ref($$value) {
+              ref = $$value;
+              $$settled = false;
+            }
+          }
+        ]));
+        $$renderer3.push("<!--]-->");
+      } else {
+        $$renderer3.push("<!--[!-->");
+        $$renderer3.push("<!--]-->");
+      }
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { ref });
+  });
+}
+function HugeiconsIcon($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      icon,
+      altIcon,
+      size: size2 = 24,
+      strokeWidth,
+      absoluteStrokeWidth = false,
+      color = "currentColor",
+      showAlt = false,
+      class: className = "",
+      className: legacyClassName = "",
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    const finalClassName = derived(() => className || legacyClassName);
+    $$renderer2.push(`<svg${attributes(
+      {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: size2,
+        height: size2,
+        viewBox: "0 0 24 24",
+        fill: "none",
+        class: clsx$1(finalClassName()),
+        ...restProps
+      },
+      void 0,
+      void 0,
+      void 0,
+      3
+    )}></svg>`);
+  });
+}
+const buttonVariants = tv({
+  base: "focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:aria-invalid:border-destructive/50 rounded-lg border border-transparent bg-clip-padding text-sm font-medium focus-visible:ring-3 active:not-aria-[haspopup]:translate-y-px aria-invalid:ring-3 [&_svg:not([class*='size-'])]:size-4 group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  variants: {
+    variant: {
+      default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
+      outline: "border-border bg-background hover:bg-muted hover:text-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 aria-expanded:bg-muted aria-expanded:text-foreground",
+      secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+      ghost: "hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 aria-expanded:bg-muted aria-expanded:text-foreground",
+      destructive: "bg-destructive/10 hover:bg-destructive/20 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/20 text-destructive focus-visible:border-destructive/40 dark:hover:bg-destructive/30",
+      link: "text-primary underline-offset-4 hover:underline"
+    },
+    size: {
+      default: "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+      xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
+      sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
+      lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+      icon: "size-8",
+      "icon-xs": "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
+      "icon-sm": "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
+      "icon-lg": "size-9"
+    }
+  },
+  defaultVariants: { variant: "default", size: "default" }
+});
+function Button($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      class: className,
+      variant = "default",
+      size: size2 = "default",
+      ref = null,
+      href = void 0,
+      type = "button",
+      disabled,
+      children,
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    if (href) {
+      $$renderer2.push("<!--[0-->");
+      $$renderer2.push(`<a${attributes({
+        "data-slot": "button",
+        class: clsx$1(cn(buttonVariants({ variant, size: size2 }), className)),
+        href: disabled ? void 0 : href,
+        "aria-disabled": disabled,
+        role: disabled ? "link" : void 0,
+        tabindex: disabled ? -1 : void 0,
+        ...restProps
+      })}>`);
+      children?.($$renderer2);
+      $$renderer2.push(`<!----></a>`);
+    } else {
+      $$renderer2.push("<!--[-1-->");
+      $$renderer2.push(`<button${attributes({
+        "data-slot": "button",
+        class: clsx$1(cn(buttonVariants({ variant, size: size2 }), className)),
+        type,
+        disabled,
+        ...restProps
+      })}>`);
+      children?.($$renderer2);
+      $$renderer2.push(`<!----></button>`);
+    }
+    $$renderer2.push(`<!--]-->`);
+    bind_props($$props, { ref });
+  });
+}
+function Separator($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let {
+      ref = null,
+      class: className,
+      "data-slot": dataSlot = "separator",
+      $$slots,
+      $$events,
+      ...restProps
+    } = $$props;
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      if (Separator$1) {
+        $$renderer3.push("<!--[-->");
+        Separator$1($$renderer3, spread_props([
+          {
+            "data-slot": dataSlot,
+            class: cn("bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px", "data-[orientation=vertical]:h-full", className)
           },
           restProps,
           {
@@ -6348,115 +6497,6 @@ function Icon($$renderer, $$props) {
     $$renderer2.push(`<!--]-->`);
     children?.($$renderer2);
     $$renderer2.push(`<!----></svg>`);
-  });
-}
-const buttonVariants = tv({
-  base: "focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none transition-all focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
-  variants: {
-    variant: {
-      default: "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
-      destructive: "bg-destructive shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60 text-white",
-      outline: "bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 border",
-      secondary: "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
-      ghost: "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-      link: "text-primary underline-offset-4 hover:underline"
-    },
-    size: {
-      default: "h-9 px-4 py-2 has-[>svg]:px-3",
-      sm: "h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5",
-      lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-      icon: "size-9"
-    }
-  },
-  defaultVariants: { variant: "default", size: "default" }
-});
-function Button($$renderer, $$props) {
-  $$renderer.component(($$renderer2) => {
-    let {
-      class: className,
-      variant = "default",
-      size: size2 = "default",
-      ref = null,
-      href = void 0,
-      type = "button",
-      disabled,
-      children,
-      $$slots,
-      $$events,
-      ...restProps
-    } = $$props;
-    if (href) {
-      $$renderer2.push("<!--[0-->");
-      $$renderer2.push(`<a${attributes({
-        "data-slot": "button",
-        class: clsx$1(cn(buttonVariants({ variant, size: size2 }), className)),
-        href: disabled ? void 0 : href,
-        "aria-disabled": disabled,
-        role: disabled ? "link" : void 0,
-        tabindex: disabled ? -1 : void 0,
-        ...restProps
-      })}>`);
-      children?.($$renderer2);
-      $$renderer2.push(`<!----></a>`);
-    } else {
-      $$renderer2.push("<!--[-1-->");
-      $$renderer2.push(`<button${attributes({
-        "data-slot": "button",
-        class: clsx$1(cn(buttonVariants({ variant, size: size2 }), className)),
-        type,
-        disabled,
-        ...restProps
-      })}>`);
-      children?.($$renderer2);
-      $$renderer2.push(`<!----></button>`);
-    }
-    $$renderer2.push(`<!--]-->`);
-    bind_props($$props, { ref });
-  });
-}
-function Separator($$renderer, $$props) {
-  $$renderer.component(($$renderer2) => {
-    let {
-      ref = null,
-      class: className,
-      $$slots,
-      $$events,
-      ...restProps
-    } = $$props;
-    let $$settled = true;
-    let $$inner_renderer;
-    function $$render_inner($$renderer3) {
-      if (Separator$1) {
-        $$renderer3.push("<!--[-->");
-        Separator$1($$renderer3, spread_props([
-          {
-            "data-slot": "separator",
-            class: cn("bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=vertical]:h-full data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px", className)
-          },
-          restProps,
-          {
-            get ref() {
-              return ref;
-            },
-            set ref($$value) {
-              ref = $$value;
-              $$settled = false;
-            }
-          }
-        ]));
-        $$renderer3.push("<!--]-->");
-      } else {
-        $$renderer3.push("<!--[!-->");
-        $$renderer3.push("<!--]-->");
-      }
-    }
-    do {
-      $$settled = true;
-      $$inner_renderer = $$renderer2.copy();
-      $$render_inner($$inner_renderer);
-    } while (!$$settled);
-    $$renderer2.subsume($$inner_renderer);
-    bind_props($$props, { ref });
   });
 }
 function Sun($$renderer, $$props) {
@@ -6609,7 +6649,7 @@ function Sidebar_content($$renderer, $$props) {
     $$renderer2.push(`<div${attributes({
       "data-slot": "sidebar-content",
       "data-sidebar": "content",
-      class: clsx$1(cn("flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden", className)),
+      class: clsx$1(cn("no-scrollbar gap-0 flex min-h-0 flex-1 flex-col overflow-auto group-data-[collapsible=icon]:overflow-hidden", className)),
       ...restProps
     })}>`);
     children?.($$renderer2);
@@ -6630,7 +6670,7 @@ function Sidebar_group_content($$renderer, $$props) {
     $$renderer2.push(`<div${attributes({
       "data-slot": "sidebar-group-content",
       "data-sidebar": "group-content",
-      class: clsx$1(cn("w-full text-sm", className)),
+      class: clsx$1(cn("text-sm w-full", className)),
       ...restProps
     })}>`);
     children?.($$renderer2);
@@ -6650,7 +6690,7 @@ function Sidebar_group_label($$renderer, $$props) {
       ...restProps
     } = $$props;
     const mergedProps = derived(() => ({
-      class: cn("text-sidebar-foreground/70 ring-sidebar-ring outline-hidden flex h-8 shrink-0 items-center rounded-md px-2 text-xs font-medium transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0", "group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0", className),
+      class: cn("text-sidebar-foreground/70 ring-sidebar-ring h-8 rounded-md px-2 text-xs font-medium transition-[margin,opacity] duration-200 ease-linear group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0 focus-visible:ring-2 [&>svg]:size-4 flex shrink-0 items-center outline-hidden [&>svg]:shrink-0", className),
       "data-slot": "sidebar-group-label",
       "data-sidebar": "group-label",
       ...restProps
@@ -6682,7 +6722,7 @@ function Sidebar_group($$renderer, $$props) {
     $$renderer2.push(`<div${attributes({
       "data-slot": "sidebar-group",
       "data-sidebar": "group",
-      class: clsx$1(cn("relative flex w-full min-w-0 flex-col p-2", className)),
+      class: clsx$1(cn("p-2 relative flex w-full min-w-0 flex-col", className)),
       ...restProps
     })}>`);
     children?.($$renderer2);
@@ -6702,12 +6742,47 @@ function Sidebar_inset($$renderer, $$props) {
     } = $$props;
     $$renderer2.push(`<main${attributes({
       "data-slot": "sidebar-inset",
-      class: clsx$1(cn("bg-background relative flex w-full flex-1 flex-col", "md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-sm", className)),
+      class: clsx$1(cn("bg-background md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-sm md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2 relative flex w-full flex-1 flex-col", className)),
       ...restProps
     })}>`);
     children?.($$renderer2);
     $$renderer2.push(`<!----></main>`);
     bind_props($$props, { ref });
+  });
+}
+function Tooltip($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { open = false, $$slots, $$events, ...restProps } = $$props;
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      if (Tooltip$1) {
+        $$renderer3.push("<!--[-->");
+        Tooltip$1($$renderer3, spread_props([
+          restProps,
+          {
+            get open() {
+              return open;
+            },
+            set open($$value) {
+              open = $$value;
+              $$settled = false;
+            }
+          }
+        ]));
+        $$renderer3.push("<!--]-->");
+      } else {
+        $$renderer3.push("<!--[!-->");
+        $$renderer3.push("<!--]-->");
+      }
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { open });
   });
 }
 function Tooltip_trigger($$renderer, $$props) {
@@ -6746,6 +6821,17 @@ function Tooltip_trigger($$renderer, $$props) {
     bind_props($$props, { ref });
   });
 }
+function Tooltip_portal($$renderer, $$props) {
+  let { $$slots, $$events, ...restProps } = $$props;
+  if (Portal) {
+    $$renderer.push("<!--[-->");
+    Portal($$renderer, spread_props([restProps]));
+    $$renderer.push("<!--]-->");
+  } else {
+    $$renderer.push("<!--[!-->");
+    $$renderer.push("<!--]-->");
+  }
+}
 function Tooltip_content($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let {
@@ -6755,6 +6841,7 @@ function Tooltip_content($$renderer, $$props) {
       side = "top",
       children,
       arrowClasses,
+      portalProps,
       $$slots,
       $$events,
       ...restProps
@@ -6762,9 +6849,9 @@ function Tooltip_content($$renderer, $$props) {
     let $$settled = true;
     let $$inner_renderer;
     function $$render_inner($$renderer3) {
-      if (Portal) {
-        $$renderer3.push("<!--[-->");
-        Portal($$renderer3, {
+      Tooltip_portal($$renderer3, spread_props([
+        portalProps,
+        {
           children: ($$renderer4) => {
             if (Tooltip_content$1) {
               $$renderer4.push("<!--[-->");
@@ -6773,7 +6860,7 @@ function Tooltip_content($$renderer, $$props) {
                   "data-slot": "tooltip-content",
                   sideOffset,
                   side,
-                  class: cn("bg-primary text-primary-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-(--bits-tooltip-content-transform-origin) z-50 w-fit text-balance rounded-md px-3 py-1.5 text-xs", className)
+                  class: cn("data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs has-data-[slot=kbd]:pr-1.5 **:data-[slot=kbd]:relative **:data-[slot=kbd]:isolate **:data-[slot=kbd]:z-50 **:data-[slot=kbd]:rounded-sm bg-foreground text-background z-50 w-fit max-w-xs origin-(--bits-tooltip-content-transform-origin)", className)
                 },
                 restProps,
                 {
@@ -6790,7 +6877,7 @@ function Tooltip_content($$renderer, $$props) {
                     {
                       let child = function($$renderer6, { props }) {
                         $$renderer6.push(`<div${attributes({
-                          class: clsx$1(cn("bg-primary z-50 size-2.5 rotate-45 rounded-[2px]", "data-[side=top]:translate-x-1/2 data-[side=top]:translate-y-[calc(-50%_+_2px)]", "data-[side=bottom]:-translate-x-1/2 data-[side=bottom]:-translate-y-[calc(-50%_+_1px)]", "data-[side=right]:translate-x-[calc(50%_+_2px)] data-[side=right]:translate-y-1/2", "data-[side=left]:-translate-y-[calc(50%_-_3px)]", arrowClasses)),
+                          class: clsx$1(cn("size-2.5 translate-y-[calc(-50%-2px)] rotate-45 rounded-[2px] bg-foreground fill-foreground z-50", "data-[side=top]:translate-x-1/2 data-[side=top]:translate-y-[calc(-50%+2px)]", "data-[side=bottom]:-translate-x-1/2 data-[side=bottom]:-translate-y-[calc(-50%+1px)]", "data-[side=right]:translate-x-[calc(50%+2px)] data-[side=right]:translate-y-1/2", "data-[side=left]:-translate-y-[calc(50%-3px)]", arrowClasses)),
                           ...props
                         })}></div>`);
                       };
@@ -6812,13 +6899,10 @@ function Tooltip_content($$renderer, $$props) {
               $$renderer4.push("<!--[!-->");
               $$renderer4.push("<!--]-->");
             }
-          }
-        });
-        $$renderer3.push("<!--]-->");
-      } else {
-        $$renderer3.push("<!--[!-->");
-        $$renderer3.push("<!--]-->");
-      }
+          },
+          $$slots: { default: true }
+        }
+      ]));
     }
     do {
       $$settled = true;
@@ -6829,19 +6913,28 @@ function Tooltip_content($$renderer, $$props) {
     bind_props($$props, { ref });
   });
 }
-const Root$1 = Tooltip;
-const Provider = Tooltip_provider;
+function Tooltip_provider($$renderer, $$props) {
+  let { delayDuration = 0, $$slots, $$events, ...restProps } = $$props;
+  if (Tooltip_provider$1) {
+    $$renderer.push("<!--[-->");
+    Tooltip_provider$1($$renderer, spread_props([{ delayDuration }, restProps]));
+    $$renderer.push("<!--]-->");
+  } else {
+    $$renderer.push("<!--[!-->");
+    $$renderer.push("<!--]-->");
+  }
+}
 const sidebarMenuButtonVariants = tv({
-  base: "peer/menu-button outline-hidden ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent active:text-sidebar-accent-foreground group-has-data-[sidebar=menu-action]/menu-item:pr-8 data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm transition-[width,height,padding] focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:font-medium [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
+  base: "ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent active:text-sidebar-accent-foreground data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground data-open:hover:bg-sidebar-accent data-open:hover:text-sidebar-accent-foreground gap-2 rounded-md p-2 text-left text-sm transition-[width,height,padding] group-has-data-[sidebar=menu-action]/menu-item:pr-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! focus-visible:ring-2 data-active:font-medium peer/menu-button group/menu-button flex w-full items-center overflow-hidden outline-hidden disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0 [&>span:last-child]:truncate",
   variants: {
     variant: {
       default: "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
-      outline: "bg-background hover:bg-sidebar-accent hover:text-sidebar-accent-foreground shadow-[0_0_0_1px_var(--sidebar-border)] hover:shadow-[0_0_0_1px_var(--sidebar-accent)]"
+      outline: "bg-background hover:bg-sidebar-accent hover:text-sidebar-accent-foreground shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]"
     },
     size: {
       default: "h-8 text-sm",
       sm: "h-7 text-xs",
-      lg: "group-data-[collapsible=icon]:p-0! h-12 text-sm"
+      lg: "h-12 text-sm group-data-[collapsible=icon]:p-0!"
     }
   },
   defaultVariants: { variant: "default", size: "default" }
@@ -6890,9 +6983,9 @@ function Sidebar_menu_button($$renderer, $$props) {
       Button2($$renderer2, {});
     } else {
       $$renderer2.push("<!--[-1-->");
-      if (Root$1) {
+      if (Tooltip) {
         $$renderer2.push("<!--[-->");
-        Root$1($$renderer2, {
+        Tooltip($$renderer2, {
           children: ($$renderer3) => {
             {
               let child2 = function($$renderer4, { props }) {
@@ -6986,7 +7079,7 @@ function Sidebar_menu($$renderer, $$props) {
     $$renderer2.push(`<ul${attributes({
       "data-slot": "sidebar-menu",
       "data-sidebar": "menu",
-      class: clsx$1(cn("flex w-full min-w-0 flex-col gap-1", className)),
+      class: clsx$1(cn("gap-0 flex w-full min-w-0 flex-col", className)),
       ...restProps
     })}>`);
     children?.($$renderer2);
@@ -7016,9 +7109,9 @@ function Sidebar_provider($$renderer, $$props) {
         document.cookie = `${SIDEBAR_COOKIE_NAME}=${open}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
       }
     });
-    if (Provider) {
+    if (Tooltip_provider) {
       $$renderer2.push("<!--[-->");
-      Provider($$renderer2, {
+      Tooltip_provider($$renderer2, {
         delayDuration: 0,
         children: ($$renderer3) => {
           $$renderer3.push(`<div${attributes({
@@ -7029,7 +7122,8 @@ function Sidebar_provider($$renderer, $$props) {
           })}>`);
           children?.($$renderer3);
           $$renderer3.push(`<!----></div>`);
-        }
+        },
+        $$slots: { default: true }
       });
       $$renderer2.push("<!--]-->");
     } else {
@@ -7037,39 +7131,6 @@ function Sidebar_provider($$renderer, $$props) {
       $$renderer2.push("<!--]-->");
     }
     bind_props($$props, { ref, open });
-  });
-}
-function Menu($$renderer, $$props) {
-  $$renderer.component(($$renderer2) => {
-    let { $$slots, $$events, ...props } = $$props;
-    const iconNode = [
-      ["path", { "d": "M4 12h16" }],
-      ["path", { "d": "M4 18h16" }],
-      ["path", { "d": "M4 6h16" }]
-    ];
-    Icon($$renderer2, spread_props([
-      { name: "menu" },
-      /**
-       * @component @name Menu
-       * @description Lucide SVG icon component, renders SVG Element with children.
-       *
-       * @preview ![img](data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6ICNmZmY7IGJvcmRlci1yYWRpdXM6IDJweCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cGF0aCBkPSJNNCAxMmgxNiIgLz4KICA8cGF0aCBkPSJNNCAxOGgxNiIgLz4KICA8cGF0aCBkPSJNNCA2aDE2IiAvPgo8L3N2Zz4K) - https://lucide.dev/icons/menu
-       * @see https://lucide.dev/guide/packages/lucide-svelte - Documentation
-       *
-       * @param {Object} props - Lucide icons props and any valid SVG attribute
-       * @returns {FunctionalComponent} Svelte component
-       *
-       */
-      props,
-      {
-        iconNode,
-        children: ($$renderer3) => {
-          props.children?.($$renderer3);
-          $$renderer3.push(`<!---->`);
-        },
-        $$slots: { default: true }
-      }
-    ]));
   });
 }
 function Sidebar_trigger($$renderer, $$props) {
@@ -7083,28 +7144,93 @@ function Sidebar_trigger($$renderer, $$props) {
       ...restProps
     } = $$props;
     const sidebar = useSidebar();
-    Button($$renderer2, spread_props([
-      {
-        "data-sidebar": "trigger",
-        "data-slot": "sidebar-trigger",
-        variant: "ghost",
-        type: "button",
-        onclick: (e) => {
-          onclick?.(e);
-          sidebar.toggle();
-        }
-      },
-      restProps,
-      {
-        children: ($$renderer3) => {
-          Menu($$renderer3, {});
-          $$renderer3.push(`<!----> Menu <span class="sr-only">Toggle Sidebar</span>`);
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      Button($$renderer3, spread_props([
+        {
+          "data-sidebar": "trigger",
+          "data-slot": "sidebar-trigger",
+          variant: "ghost",
+          size: "icon-sm",
+          class: cn("cn-sidebar-trigger", className),
+          type: "button",
+          onclick: (e) => {
+            onclick?.(e);
+            sidebar.toggle();
+          }
         },
-        $$slots: { default: true }
-      }
-    ]));
+        restProps,
+        {
+          get ref() {
+            return ref;
+          },
+          set ref($$value) {
+            ref = $$value;
+            $$settled = false;
+          },
+          children: ($$renderer4) => {
+            HugeiconsIcon($$renderer4, { icon: SidebarLeftIcon, strokeWidth: 2 });
+            $$renderer4.push(`<!----> <span class="sr-only">Toggle Sidebar</span>`);
+          },
+          $$slots: { default: true }
+        }
+      ]));
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
     bind_props($$props, { ref });
   });
+}
+function Sheet($$renderer, $$props) {
+  $$renderer.component(($$renderer2) => {
+    let { open = false, $$slots, $$events, ...restProps } = $$props;
+    let $$settled = true;
+    let $$inner_renderer;
+    function $$render_inner($$renderer3) {
+      if (Dialog) {
+        $$renderer3.push("<!--[-->");
+        Dialog($$renderer3, spread_props([
+          restProps,
+          {
+            get open() {
+              return open;
+            },
+            set open($$value) {
+              open = $$value;
+              $$settled = false;
+            }
+          }
+        ]));
+        $$renderer3.push("<!--]-->");
+      } else {
+        $$renderer3.push("<!--[!-->");
+        $$renderer3.push("<!--]-->");
+      }
+    }
+    do {
+      $$settled = true;
+      $$inner_renderer = $$renderer2.copy();
+      $$render_inner($$inner_renderer);
+    } while (!$$settled);
+    $$renderer2.subsume($$inner_renderer);
+    bind_props($$props, { open });
+  });
+}
+function Sheet_portal($$renderer, $$props) {
+  let { $$slots, $$events, ...restProps } = $$props;
+  if (Portal) {
+    $$renderer.push("<!--[-->");
+    Portal($$renderer, spread_props([restProps]));
+    $$renderer.push("<!--]-->");
+  } else {
+    $$renderer.push("<!--[!-->");
+    $$renderer.push("<!--]-->");
+  }
 }
 function Sheet_overlay($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
@@ -7123,7 +7249,7 @@ function Sheet_overlay($$renderer, $$props) {
         Dialog_overlay($$renderer3, spread_props([
           {
             "data-slot": "sheet-overlay",
-            class: cn("data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50", className)
+            class: cn("bg-black/10 supports-backdrop-filter:backdrop-blur-xs fixed inset-0 z-50", className)
           },
           restProps,
           {
@@ -7151,56 +7277,13 @@ function Sheet_overlay($$renderer, $$props) {
     bind_props($$props, { ref });
   });
 }
-function X($$renderer, $$props) {
-  $$renderer.component(($$renderer2) => {
-    let { $$slots, $$events, ...props } = $$props;
-    const iconNode = [
-      ["path", { "d": "M18 6 6 18" }],
-      ["path", { "d": "m6 6 12 12" }]
-    ];
-    Icon($$renderer2, spread_props([
-      { name: "x" },
-      /**
-       * @component @name X
-       * @description Lucide SVG icon component, renders SVG Element with children.
-       *
-       * @preview ![img](data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogIHdpZHRoPSIyNCIKICBoZWlnaHQ9IjI0IgogIHZpZXdCb3g9IjAgMCAyNCAyNCIKICBmaWxsPSJub25lIgogIHN0cm9rZT0iIzAwMCIgc3R5bGU9ImJhY2tncm91bmQtY29sb3I6ICNmZmY7IGJvcmRlci1yYWRpdXM6IDJweCIKICBzdHJva2Utd2lkdGg9IjIiCiAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogIHN0cm9rZS1saW5lam9pbj0icm91bmQiCj4KICA8cGF0aCBkPSJNMTggNiA2IDE4IiAvPgogIDxwYXRoIGQ9Im02IDYgMTIgMTIiIC8+Cjwvc3ZnPgo=) - https://lucide.dev/icons/x
-       * @see https://lucide.dev/guide/packages/lucide-svelte - Documentation
-       *
-       * @param {Object} props - Lucide icons props and any valid SVG attribute
-       * @returns {FunctionalComponent} Svelte component
-       *
-       */
-      props,
-      {
-        iconNode,
-        children: ($$renderer3) => {
-          props.children?.($$renderer3);
-          $$renderer3.push(`<!---->`);
-        },
-        $$slots: { default: true }
-      }
-    ]));
-  });
-}
-const sheetVariants = tv({
-  base: "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
-  variants: {
-    side: {
-      top: "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b",
-      bottom: "data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto border-t",
-      left: "data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left inset-y-0 left-0 h-full w-3/4 border-r sm:max-w-sm",
-      right: "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 border-l sm:max-w-sm"
-    }
-  },
-  defaultVariants: { side: "right" }
-});
 function Sheet_content($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let {
       ref = null,
       class: className,
       side = "right",
+      showCloseButton = true,
       portalProps,
       children,
       $$slots,
@@ -7210,66 +7293,78 @@ function Sheet_content($$renderer, $$props) {
     let $$settled = true;
     let $$inner_renderer;
     function $$render_inner($$renderer3) {
-      if (Portal) {
-        $$renderer3.push("<!--[-->");
-        Portal($$renderer3, spread_props([
-          portalProps,
-          {
-            children: ($$renderer4) => {
-              Sheet_overlay($$renderer4, {});
-              $$renderer4.push(`<!----> `);
-              if (Dialog_content) {
-                $$renderer4.push("<!--[-->");
-                Dialog_content($$renderer4, spread_props([
-                  {
-                    "data-slot": "sheet-content",
-                    class: cn(sheetVariants({ side }), className)
+      Sheet_portal($$renderer3, spread_props([
+        portalProps,
+        {
+          children: ($$renderer4) => {
+            Sheet_overlay($$renderer4, {});
+            $$renderer4.push(`<!----> `);
+            if (Dialog_content) {
+              $$renderer4.push("<!--[-->");
+              Dialog_content($$renderer4, spread_props([
+                {
+                  "data-slot": "sheet-content",
+                  "data-side": side,
+                  class: cn("bg-popover text-popover-foreground fixed z-50 flex flex-col gap-4 bg-clip-padding text-sm shadow-lg transition duration-200 ease-in-out data-[side=bottom]:inset-x-0 data-[side=bottom]:bottom-0 data-[side=bottom]:h-auto data-[side=bottom]:border-t data-[side=left]:inset-y-0 data-[side=left]:left-0 data-[side=left]:h-full data-[side=left]:w-3/4 data-[side=left]:border-r data-[side=right]:inset-y-0 data-[side=right]:right-0 data-[side=right]:h-full data-[side=right]:w-3/4 data-[side=right]:border-l data-[side=top]:inset-x-0 data-[side=top]:top-0 data-[side=top]:h-auto data-[side=top]:border-b data-[side=left]:sm:max-w-sm data-[side=right]:sm:max-w-sm data-open:animate-in data-open:fade-in-0 data-[side=bottom]:data-open:slide-in-from-bottom-10 data-[side=left]:data-open:slide-in-from-left-10 data-[side=right]:data-open:slide-in-from-right-10 data-[side=top]:data-open:slide-in-from-top-10 data-closed:animate-out data-closed:fade-out-0 data-[side=bottom]:data-closed:slide-out-to-bottom-10 data-[side=left]:data-closed:slide-out-to-left-10 data-[side=right]:data-closed:slide-out-to-right-10 data-[side=top]:data-closed:slide-out-to-top-10", className)
+                },
+                restProps,
+                {
+                  get ref() {
+                    return ref;
                   },
-                  restProps,
-                  {
-                    get ref() {
-                      return ref;
-                    },
-                    set ref($$value) {
-                      ref = $$value;
-                      $$settled = false;
-                    },
-                    children: ($$renderer5) => {
-                      children?.($$renderer5);
-                      $$renderer5.push(`<!----> `);
-                      if (Dialog_close) {
-                        $$renderer5.push("<!--[-->");
-                        Dialog_close($$renderer5, {
-                          class: "ring-offset-background focus-visible:ring-ring rounded-xs focus-visible:outline-hidden absolute right-4 top-4 opacity-70 transition-opacity hover:opacity-100 focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none",
-                          children: ($$renderer6) => {
-                            X($$renderer6, { class: "size-4" });
-                            $$renderer6.push(`<!----> <span class="sr-only">Close</span>`);
-                          },
-                          $$slots: { default: true }
-                        });
-                        $$renderer5.push("<!--]-->");
-                      } else {
-                        $$renderer5.push("<!--[!-->");
-                        $$renderer5.push("<!--]-->");
+                  set ref($$value) {
+                    ref = $$value;
+                    $$settled = false;
+                  },
+                  children: ($$renderer5) => {
+                    children?.($$renderer5);
+                    $$renderer5.push(`<!----> `);
+                    if (showCloseButton) {
+                      $$renderer5.push("<!--[0-->");
+                      {
+                        let child = function($$renderer6, { props }) {
+                          Button($$renderer6, spread_props([
+                            {
+                              variant: "ghost",
+                              class: "absolute top-3 right-3",
+                              size: "icon-sm"
+                            },
+                            props,
+                            {
+                              children: ($$renderer7) => {
+                                HugeiconsIcon($$renderer7, { icon: Cancel01Icon, strokeWidth: 2 });
+                                $$renderer7.push(`<!----> <span class="sr-only">Close</span>`);
+                              },
+                              $$slots: { default: true }
+                            }
+                          ]));
+                        };
+                        if (Dialog_close) {
+                          $$renderer5.push("<!--[-->");
+                          Dialog_close($$renderer5, { "data-slot": "sheet-close", child, $$slots: { child: true } });
+                          $$renderer5.push("<!--]-->");
+                        } else {
+                          $$renderer5.push("<!--[!-->");
+                          $$renderer5.push("<!--]-->");
+                        }
                       }
-                    },
-                    $$slots: { default: true }
-                  }
-                ]));
-                $$renderer4.push("<!--]-->");
-              } else {
-                $$renderer4.push("<!--[!-->");
-                $$renderer4.push("<!--]-->");
-              }
-            },
-            $$slots: { default: true }
-          }
-        ]));
-        $$renderer3.push("<!--]-->");
-      } else {
-        $$renderer3.push("<!--[!-->");
-        $$renderer3.push("<!--]-->");
-      }
+                    } else {
+                      $$renderer5.push("<!--[-1-->");
+                    }
+                    $$renderer5.push(`<!--]-->`);
+                  },
+                  $$slots: { default: true }
+                }
+              ]));
+              $$renderer4.push("<!--]-->");
+            } else {
+              $$renderer4.push("<!--[!-->");
+              $$renderer4.push("<!--]-->");
+            }
+          },
+          $$slots: { default: true }
+        }
+      ]));
     }
     do {
       $$settled = true;
@@ -7292,7 +7387,7 @@ function Sheet_header($$renderer, $$props) {
     } = $$props;
     $$renderer2.push(`<div${attributes({
       "data-slot": "sheet-header",
-      class: clsx$1(cn("flex flex-col gap-1.5 p-4", className)),
+      class: clsx$1(cn("gap-0.5 p-4 flex flex-col", className)),
       ...restProps
     })}>`);
     children?.($$renderer2);
@@ -7317,7 +7412,7 @@ function Sheet_title($$renderer, $$props) {
         Dialog_title($$renderer3, spread_props([
           {
             "data-slot": "sheet-title",
-            class: cn("text-foreground font-semibold", className)
+            class: cn("text-foreground text-base font-medium", className)
           },
           restProps,
           {
@@ -7390,7 +7485,6 @@ function Sheet_description($$renderer, $$props) {
     bind_props($$props, { ref });
   });
 }
-const Root = Dialog;
 function Sidebar($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let {
@@ -7411,7 +7505,7 @@ function Sidebar($$renderer, $$props) {
       if (collapsible === "none") {
         $$renderer3.push("<!--[0-->");
         $$renderer3.push(`<div${attributes({
-          class: clsx$1(cn("bg-sidebar text-sidebar-foreground w-(--sidebar-width) flex h-full flex-col", className)),
+          class: clsx$1(cn("bg-sidebar text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col", className)),
           ...restProps
         })}>`);
         children?.($$renderer3);
@@ -7420,9 +7514,9 @@ function Sidebar($$renderer, $$props) {
         $$renderer3.push("<!--[1-->");
         var bind_get = () => sidebar.openMobile;
         var bind_set = (v) => sidebar.setOpenMobile(v);
-        if (Root) {
+        if (Sheet) {
           $$renderer3.push("<!--[-->");
-          Root($$renderer3, spread_props([
+          Sheet($$renderer3, spread_props([
             {
               get open() {
                 return bind_get();
@@ -7440,9 +7534,16 @@ function Sidebar($$renderer, $$props) {
                     "data-sidebar": "sidebar",
                     "data-slot": "sidebar",
                     "data-mobile": "true",
-                    class: "bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden",
+                    class: cn("bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden", className),
                     style: `--sidebar-width: ${stringify(SIDEBAR_WIDTH_MOBILE)};`,
                     side,
+                    get ref() {
+                      return ref;
+                    },
+                    set ref($$value) {
+                      ref = $$value;
+                      $$settled = false;
+                    },
                     children: ($$renderer5) => {
                       if (Sheet_header) {
                         $$renderer5.push("<!--[-->");
@@ -7506,16 +7607,16 @@ function Sidebar($$renderer, $$props) {
         }
       } else {
         $$renderer3.push("<!--[-1-->");
-        $$renderer3.push(`<div class="text-sidebar-foreground group peer hidden md:block"${attr("data-state", sidebar.state)}${attr("data-collapsible", sidebar.state === "collapsed" ? collapsible : "")}${attr("data-variant", variant)}${attr("data-side", side)} data-slot="sidebar"><div data-slot="sidebar-gap"${attr_class(clsx$1(cn("w-(--sidebar-width) relative bg-transparent transition-[width] duration-200 ease-linear", "group-data-[collapsible=offcanvas]:w-0", "group-data-[side=right]:rotate-180", variant === "floating" || variant === "inset" ? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]" : "group-data-[collapsible=icon]:w-(--sidebar-width-icon)")))}></div> <div${attributes({
+        $$renderer3.push(`<div class="text-sidebar-foreground group peer hidden md:block"${attr("data-state", sidebar.state)}${attr("data-collapsible", sidebar.state === "collapsed" ? collapsible : "")}${attr("data-variant", variant)}${attr("data-side", side)} data-slot="sidebar"><div data-slot="sidebar-gap"${attr_class(clsx$1(cn("transition-[width] duration-200 ease-linear relative w-(--sidebar-width) bg-transparent", "group-data-[collapsible=offcanvas]:w-0", "group-data-[side=right]:rotate-180", variant === "floating" || variant === "inset" ? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4)))]" : "group-data-[collapsible=icon]:w-(--sidebar-width-icon)")))}></div> <div${attributes({
           "data-slot": "sidebar-container",
           class: clsx$1(cn(
-            "w-(--sidebar-width) fixed inset-y-0 z-10 hidden h-svh transition-[left,right,width] duration-200 ease-linear md:flex",
-            side === "left" ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]" : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]",
-            variant === "floating" || variant === "inset" ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]" : "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l",
+            "fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex",
+            side === "left" ? "start-0 group-data-[collapsible=offcanvas]:start-[calc(var(--sidebar-width)*-1)]" : "end-0 group-data-[collapsible=offcanvas]:end-[calc(var(--sidebar-width)*-1)]",
+            variant === "floating" || variant === "inset" ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]" : "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-e group-data-[side=right]:border-s",
             className
           )),
           ...restProps
-        })}><div data-sidebar="sidebar" data-slot="sidebar-inner" class="bg-sidebar group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm">`);
+        })}><div data-sidebar="sidebar" data-slot="sidebar-inner" class="bg-sidebar group-data-[variant=floating]:ring-sidebar-border group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:shadow-sm group-data-[variant=floating]:ring-1 flex size-full flex-col">`);
         children?.($$renderer3);
         $$renderer3.push(`<!----></div></div></div>`);
       }
