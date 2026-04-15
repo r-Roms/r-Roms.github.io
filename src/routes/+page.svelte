@@ -1,16 +1,4 @@
 <script lang="ts">
-    import {
-        Table,
-        TableBody,
-        TableCell,
-        TableHead,
-        TableHeader,
-        TableRow,
-    } from "$lib/components/ui/table/index.js";
-    import img1 from "$lib/img/internetarchivelock.png";
-    import img2 from "$lib/img/internetarchivelockfile1.png";
-    import img3 from "$lib/img/internetarchivelockfile2.png";
-    import img4 from "$lib/img/internetarchivemetadata.png";
     import { on } from "svelte/events";
 </script>
 

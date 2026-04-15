@@ -2,7 +2,7 @@
 
 export const index = 36;
 let component_cache;
-export const component = async () => component_cache ??= (await import('../entries/pages/Sony/sony-playstation-portable/_page.svelte.js')).default;
-export const imports = ["_app/immutable/nodes/36.DXc6mw3y.js","_app/immutable/chunks/DsnmJJEf.js","_app/immutable/chunks/tD9sc2xJ.js","_app/immutable/chunks/Dzp75J2T.js","_app/immutable/chunks/V7l7X-v7.js","_app/immutable/chunks/XmN0OgFk.js","_app/immutable/chunks/Dwefem8K.js","_app/immutable/chunks/hkqgSeLz.js"];
+export const component = async () => component_cache ??= (await import('../entries/pages/Sega/_page.svelte.js')).default;
+export const imports = ["_app/immutable/nodes/36.9xs9J_Ac.js","_app/immutable/chunks/BT67T6ZV.js","_app/immutable/chunks/DvbCUzh1.js","_app/immutable/chunks/upkV7Jlt.js"];
 export const stylesheets = [];
 export const fonts = [];

@@ -10,7 +10,7 @@ return {
 	assets: new Set(["favicon.ico","favicon.svg"]),
 	mimeTypes: {".svg":"image/svg+xml"},
 	_: {
-		client: {start:"_app/immutable/entry/start.DKufkwwB.js",app:"_app/immutable/entry/app.DF4rl1U7.js",imports:["_app/immutable/entry/start.DKufkwwB.js","_app/immutable/chunks/BbHWw4KR.js","_app/immutable/chunks/DwhgW4sl.js","_app/immutable/chunks/Dzp75J2T.js","_app/immutable/chunks/XmN0OgFk.js","_app/immutable/chunks/CeX8PlzG.js","_app/immutable/entry/app.DF4rl1U7.js","_app/immutable/chunks/Dzp75J2T.js","_app/immutable/chunks/DwhgW4sl.js","_app/immutable/chunks/XmN0OgFk.js","_app/immutable/chunks/DsnmJJEf.js","_app/immutable/chunks/BJEGr7ib.js","_app/immutable/chunks/hkqgSeLz.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
+		client: {start:"_app/immutable/entry/start.Czm0P4QG.js",app:"_app/immutable/entry/app.DTt7mihd.js",imports:["_app/immutable/entry/start.Czm0P4QG.js","_app/immutable/chunks/42flrP5H.js","_app/immutable/chunks/DvbCUzh1.js","_app/immutable/chunks/BBJoz-b7.js","_app/immutable/chunks/CvcEM1tI.js","_app/immutable/entry/app.DTt7mihd.js","_app/immutable/chunks/DvbCUzh1.js","_app/immutable/chunks/DU3rpZct.js","_app/immutable/chunks/D1PIupWv.js","_app/immutable/chunks/BT67T6ZV.js","_app/immutable/chunks/CvcEM1tI.js","_app/immutable/chunks/CEF-uAPk.js","_app/immutable/chunks/BRGNEY6a.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
 			__memo(() => import('./nodes/1.js')),
@@ -49,8 +49,21 @@ return {
 			__memo(() => import('./nodes/34.js')),
 			__memo(() => import('./nodes/35.js')),
 			__memo(() => import('./nodes/36.js')),
-			__memo(() => import('./nodes/37.js'))
+			__memo(() => import('./nodes/37.js')),
+			__memo(() => import('./nodes/38.js')),
+			__memo(() => import('./nodes/39.js')),
+			__memo(() => import('./nodes/40.js')),
+			__memo(() => import('./nodes/41.js')),
+			__memo(() => import('./nodes/42.js')),
+			__memo(() => import('./nodes/43.js')),
+			__memo(() => import('./nodes/44.js')),
+			__memo(() => import('./nodes/45.js')),
+			__memo(() => import('./nodes/46.js')),
+			__memo(() => import('./nodes/47.js'))
 		],
+		remotes: {
+			
+		},
 		routes: [
 			{
 				id: "/",
@@ -200,108 +213,178 @@ return {
 				endpoint: null
 			},
 			{
+				id: "/Populars",
+				pattern: /^\/Populars\/?$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 23 },
+				endpoint: null
+			},
+			{
+				id: "/Populars/about-rvz-files",
+				pattern: /^\/Populars\/about-rvz-files\/?$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 24 },
+				endpoint: null
+			},
+			{
+				id: "/Populars/fire-emblem",
+				pattern: /^\/Populars\/fire-emblem\/?$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 25 },
+				endpoint: null
+			},
+			{
+				id: "/Populars/mario",
+				pattern: /^\/Populars\/mario\/?$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 26 },
+				endpoint: null
+			},
+			{
+				id: "/Populars/metroid",
+				pattern: /^\/Populars\/metroid\/?$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 27 },
+				endpoint: null
+			},
+			{
+				id: "/Populars/persona",
+				pattern: /^\/Populars\/persona\/?$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 28 },
+				endpoint: null
+			},
+			{
+				id: "/Populars/pokemon",
+				pattern: /^\/Populars\/pokemon\/?$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 29 },
+				endpoint: null
+			},
+			{
+				id: "/Populars/super-smash-bros",
+				pattern: /^\/Populars\/super-smash-bros\/?$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 30 },
+				endpoint: null
+			},
+			{
+				id: "/Populars/xenoblade",
+				pattern: /^\/Populars\/xenoblade\/?$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 31 },
+				endpoint: null
+			},
+			{
+				id: "/Populars/zelda",
+				pattern: /^\/Populars\/zelda\/?$/,
+				params: [],
+				page: { layouts: [0,], errors: [1,], leaf: 32 },
+				endpoint: null
+			},
+			{
 				id: "/Retro & Arcade",
 				pattern: /^\/Retro & Arcade\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 23 },
+				page: { layouts: [0,], errors: [1,], leaf: 33 },
 				endpoint: null
 			},
 			{
 				id: "/Retro & Arcade/arcade",
 				pattern: /^\/Retro & Arcade\/arcade\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 24 },
+				page: { layouts: [0,], errors: [1,], leaf: 34 },
 				endpoint: null
 			},
 			{
 				id: "/Retro & Arcade/retro-games",
 				pattern: /^\/Retro & Arcade\/retro-games\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 25 },
+				page: { layouts: [0,], errors: [1,], leaf: 35 },
 				endpoint: null
 			},
 			{
 				id: "/Sega",
 				pattern: /^\/Sega\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 26 },
+				page: { layouts: [0,], errors: [1,], leaf: 36 },
 				endpoint: null
 			},
 			{
 				id: "/Sega/sega-cd",
 				pattern: /^\/Sega\/sega-cd\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 27 },
+				page: { layouts: [0,], errors: [1,], leaf: 37 },
 				endpoint: null
 			},
 			{
 				id: "/Sega/sega-dreamcast",
 				pattern: /^\/Sega\/sega-dreamcast\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 28 },
+				page: { layouts: [0,], errors: [1,], leaf: 38 },
 				endpoint: null
 			},
 			{
 				id: "/Sega/sega-games",
 				pattern: /^\/Sega\/sega-games\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 29 },
+				page: { layouts: [0,], errors: [1,], leaf: 39 },
 				endpoint: null
 			},
 			{
 				id: "/Sega/sega-saturn",
 				pattern: /^\/Sega\/sega-saturn\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 30 },
+				page: { layouts: [0,], errors: [1,], leaf: 40 },
 				endpoint: null
 			},
 			{
 				id: "/Sony",
 				pattern: /^\/Sony\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 31 },
+				page: { layouts: [0,], errors: [1,], leaf: 41 },
 				endpoint: null
 			},
 			{
 				id: "/Sony/nopaystation",
 				pattern: /^\/Sony\/nopaystation\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 32 },
+				page: { layouts: [0,], errors: [1,], leaf: 42 },
 				endpoint: null
 			},
 			{
 				id: "/Sony/sony-playstation-2",
 				pattern: /^\/Sony\/sony-playstation-2\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 34 },
+				page: { layouts: [0,], errors: [1,], leaf: 44 },
 				endpoint: null
 			},
 			{
 				id: "/Sony/sony-playstation-3",
 				pattern: /^\/Sony\/sony-playstation-3\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 35 },
+				page: { layouts: [0,], errors: [1,], leaf: 45 },
 				endpoint: null
 			},
 			{
 				id: "/Sony/sony-playstation-portable",
 				pattern: /^\/Sony\/sony-playstation-portable\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 36 },
+				page: { layouts: [0,], errors: [1,], leaf: 46 },
 				endpoint: null
 			},
 			{
 				id: "/Sony/sony-playstation-vita",
 				pattern: /^\/Sony\/sony-playstation-vita\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 37 },
+				page: { layouts: [0,], errors: [1,], leaf: 47 },
 				endpoint: null
 			},
 			{
 				id: "/Sony/sony-playstation",
 				pattern: /^\/Sony\/sony-playstation\/?$/,
 				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 33 },
+				page: { layouts: [0,], errors: [1,], leaf: 43 },
 				endpoint: null
 			}
 		],

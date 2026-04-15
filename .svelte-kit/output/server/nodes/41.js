@@ -1,0 +1,8 @@
+
+
+export const index = 41;
+let component_cache;
+export const component = async () => component_cache ??= (await import('../entries/pages/Sony/_page.svelte.js')).default;
+export const imports = ["_app/immutable/nodes/41.CVtqD4Gp.js","_app/immutable/chunks/BT67T6ZV.js","_app/immutable/chunks/DvbCUzh1.js","_app/immutable/chunks/upkV7Jlt.js"];
+export const stylesheets = [];
+export const fonts = [];

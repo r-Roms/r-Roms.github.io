@@ -18,5 +18,5 @@
 	)}
 	{...restProps}
 >
-	<div class="bg-border relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm shadow-md"></div>
+	<div class="bg-border rounded-tl-sm shadow-md relative top-[60%] h-2 w-2 rotate-45"></div>
 </NavigationMenuPrimitive.Indicator>

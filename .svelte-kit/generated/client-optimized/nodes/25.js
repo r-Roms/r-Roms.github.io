@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/Retro & Arcade/retro-games/+page.svelte";
+export { default as component } from "../../../../src/routes/Populars/fire-emblem/+page.svelte";

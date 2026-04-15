@@ -1,89 +1,91 @@
 import "clsx";
+import "../../../../chunks/url.js";
+import "@sveltejs/kit/internal/server";
 import { T as Table, a as Table_header, b as Table_row, c as Table_head, d as Table_body, e as Table_cell } from "../../../../chunks/table-row.js";
-function _page($$payload) {
-  $$payload.out.push(`<div class="mx-8 mb-8 mt-8 space-y-4 bg-background"><h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">Torrents</h1> <p class="leading-7 [&amp;:not(:first-child)]:mt-6">This page provides general resources related to downloading files
+function _page($$renderer) {
+  $$renderer.push(`<div class="mx-8 mb-8 mt-8 space-y-4 bg-background"><h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">Torrents</h1> <p class="leading-7 [&amp;:not(:first-child)]:mt-6">This page provides general resources related to downloading files
         via torrent. This will require manual setup by the user to
         download and seed files.</p> <h2 class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">Sites</h2> <div class="my-6 w-full overflow-y-auto">`);
-  Table($$payload, {
-    children: ($$payload2) => {
-      Table_header($$payload2, {
-        children: ($$payload3) => {
-          Table_row($$payload3, {
-            children: ($$payload4) => {
-              Table_head($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Website`);
+  Table($$renderer, {
+    children: ($$renderer2) => {
+      Table_header($$renderer2, {
+        children: ($$renderer3) => {
+          Table_row($$renderer3, {
+            children: ($$renderer4) => {
+              Table_head($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Website`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_head($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Notes`);
+              $$renderer4.push(`<!----> `);
+              Table_head($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Notes`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
         },
         $$slots: { default: true }
       });
-      $$payload2.out.push(`<!----> `);
-      Table_body($$payload2, {
-        children: ($$payload3) => {
-          Table_row($$payload3, {
-            children: ($$payload4) => {
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://fmhy.net/gaming#rom-sites" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">FMHY</a>`);
+      $$renderer2.push(`<!----> `);
+      Table_body($$renderer2, {
+        children: ($$renderer3) => {
+          Table_row($$renderer3, {
+            children: ($$renderer4) => {
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<a href="https://fmhy.net/gaming#rom-sites" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">FMHY</a>`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->A large collection of sites related to acquiring free media of all types.`);
+              $$renderer4.push(`<!----> `);
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->A large collection of sites related to acquiring free media of all types.`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!----> `);
-          Table_row($$payload3, {
-            children: ($$payload4) => {
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://minerva-archive.org" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Minerva</a><br/> <a href="https://cdn.minerva-archive.org/torrents/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Minerva Torrent Index</a>`);
+          $$renderer3.push(`<!----> `);
+          Table_row($$renderer3, {
+            children: ($$renderer4) => {
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<a href="https://minerva-archive.org" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Minerva</a><br/> <a href="https://cdn.minerva-archive.org/torrents/" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Minerva Torrent Index</a>`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->A torrent-based mirror of the original Myrient archive.
+              $$renderer4.push(`<!----> `);
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->A torrent-based mirror of the original Myrient archive.
                         Torrents are provided as larger collections. Your
                         client should be capable of individually selecting
                         files to download.<br/> <a href="https://discord.com/invite/MiNERVA-archive" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Discord</a>`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!---->`);
+          $$renderer3.push(`<!---->`);
         },
         $$slots: { default: true }
       });
-      $$payload2.out.push(`<!---->`);
+      $$renderer2.push(`<!---->`);
     },
     $$slots: { default: true }
   });
-  $$payload.out.push(`<!----></div> <h2 class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">What is a Torrent</h2> <p class="leading-7 [&amp;:not(:first-child)]:mt-6">Torrents are peer-to-peer (P2P) file distribution systems, in which
+  $$renderer.push(`<!----></div> <h2 class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">What is a Torrent</h2> <p class="leading-7 [&amp;:not(:first-child)]:mt-6">Torrents are peer-to-peer (P2P) file distribution systems, in which
         individual users download files from each other in a group commonly
         referred to as a "swarm". This type of distribution decentralizes
         the cost of centrally managing files (such as direct downloads). Users
@@ -125,348 +127,348 @@ function _page($$payload) {
         available for you to access immediately. Note that torrents are
         typically not seeded permanently using a Debrid Service.</p> <h2 class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">Summary</h2> <ol class="my-6 ml-6 font-medium list-decimal [&amp;>li]:mt-2"><li>A torrent client is required to connect to a swarm for file transfer</li> <li>You may require a VPN to connect safely, depending on your location</li> <li>If you require a VPN, you must bind your client to use the VPN network</li> <li>It is recommended to use a VPN provider that allows for port forwarding
             and ensure it is setup correctly</li> <li>It is never recommended to use a free VPN.</li></ol> <h2 class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">Recommendations</h2> <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">Torrent Clients</h3> <div class="my-6 w-full overflow-y-auto">`);
-  Table($$payload, {
-    children: ($$payload2) => {
-      Table_header($$payload2, {
-        children: ($$payload3) => {
-          Table_row($$payload3, {
-            children: ($$payload4) => {
-              Table_head($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Name`);
+  Table($$renderer, {
+    children: ($$renderer2) => {
+      Table_header($$renderer2, {
+        children: ($$renderer3) => {
+          Table_row($$renderer3, {
+            children: ($$renderer4) => {
+              Table_head($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Name`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_head($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Supported Systems`);
+              $$renderer4.push(`<!----> `);
+              Table_head($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Supported Systems`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
         },
         $$slots: { default: true }
       });
-      $$payload2.out.push(`<!----> `);
-      Table_body($$payload2, {
-        children: ($$payload3) => {
-          Table_row($$payload3, {
-            children: ($$payload4) => {
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://www.qbittorrent.org" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">qBittorrent</a>`);
+      $$renderer2.push(`<!----> `);
+      Table_body($$renderer2, {
+        children: ($$renderer3) => {
+          Table_row($$renderer3, {
+            children: ($$renderer4) => {
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<a href="https://www.qbittorrent.org" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">qBittorrent</a>`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Windows, MacOS, Linux`);
+              $$renderer4.push(`<!----> `);
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Windows, MacOS, Linux`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!----> `);
-          Table_row($$payload3, {
-            children: ($$payload4) => {
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://gitlab.com/proninyaroslav/libretorrent" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">LibreTorrent</a>`);
+          $$renderer3.push(`<!----> `);
+          Table_row($$renderer3, {
+            children: ($$renderer4) => {
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<a href="https://gitlab.com/proninyaroslav/libretorrent" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">LibreTorrent</a>`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Android`);
+              $$renderer4.push(`<!----> `);
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Android`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!---->`);
+          $$renderer3.push(`<!---->`);
         },
         $$slots: { default: true }
       });
-      $$payload2.out.push(`<!---->`);
+      $$renderer2.push(`<!---->`);
     },
     $$slots: { default: true }
   });
-  $$payload.out.push(`<!----></div> <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">VPN Providers</h3> <div class="my-6 w-full overflow-y-auto">`);
-  Table($$payload, {
-    children: ($$payload2) => {
-      Table_header($$payload2, {
-        children: ($$payload3) => {
-          Table_row($$payload3, {
-            children: ($$payload4) => {
-              Table_head($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Name`);
+  $$renderer.push(`<!----></div> <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">VPN Providers</h3> <div class="my-6 w-full overflow-y-auto">`);
+  Table($$renderer, {
+    children: ($$renderer2) => {
+      Table_header($$renderer2, {
+        children: ($$renderer3) => {
+          Table_row($$renderer3, {
+            children: ($$renderer4) => {
+              Table_head($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Name`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_head($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Supported Systems`);
+              $$renderer4.push(`<!----> `);
+              Table_head($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Supported Systems`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_head($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Port Forwarding`);
+              $$renderer4.push(`<!----> `);
+              Table_head($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Port Forwarding`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_head($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Protocols`);
+              $$renderer4.push(`<!----> `);
+              Table_head($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Protocols`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
         },
         $$slots: { default: true }
       });
-      $$payload2.out.push(`<!----> `);
-      Table_body($$payload2, {
-        children: ($$payload3) => {
-          Table_row($$payload3, {
-            children: ($$payload4) => {
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://airvpn.org" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">AirVPN</a>`);
+      $$renderer2.push(`<!----> `);
+      Table_body($$renderer2, {
+        children: ($$renderer3) => {
+          Table_row($$renderer3, {
+            children: ($$renderer4) => {
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<a href="https://airvpn.org" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">AirVPN</a>`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Windows, Linux, MacOS, Android`);
+              $$renderer4.push(`<!----> `);
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Windows, Linux, MacOS, Android`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Allowed`);
+              $$renderer4.push(`<!----> `);
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Allowed`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->OpenVPN, Wireguard`);
+              $$renderer4.push(`<!----> `);
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->OpenVPN, Wireguard`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!----> `);
-          Table_row($$payload3, {
-            children: ($$payload4) => {
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://windscribe.net" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Windscribe</a>`);
+          $$renderer3.push(`<!----> `);
+          Table_row($$renderer3, {
+            children: ($$renderer4) => {
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<a href="https://windscribe.net" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Windscribe</a>`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Windows, Linux, MacOS, Android`);
+              $$renderer4.push(`<!----> `);
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Windows, Linux, MacOS, Android`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Allowed`);
+              $$renderer4.push(`<!----> `);
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Allowed`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->OpenVPN, Wireguard`);
+              $$renderer4.push(`<!----> `);
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->OpenVPN, Wireguard`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!----> `);
-          Table_row($$payload3, {
-            children: ($$payload4) => {
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://protonvpn.com" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">ProtonVPN</a>`);
+          $$renderer3.push(`<!----> `);
+          Table_row($$renderer3, {
+            children: ($$renderer4) => {
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<a href="https://protonvpn.com" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">ProtonVPN</a>`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Windows, Linux, MacOS, Android`);
+              $$renderer4.push(`<!----> `);
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Windows, Linux, MacOS, Android`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Allowed`);
+              $$renderer4.push(`<!----> `);
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Allowed`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->OpenVPN, Wireguard`);
+              $$renderer4.push(`<!----> `);
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->OpenVPN, Wireguard`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
-          $$payload3.out.push(`<!---->`);
+          $$renderer3.push(`<!---->`);
         },
         $$slots: { default: true }
       });
-      $$payload2.out.push(`<!---->`);
+      $$renderer2.push(`<!---->`);
     },
     $$slots: { default: true }
   });
-  $$payload.out.push(`<!----></div> <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">Seedboxes</h3> <div class="my-6 w-full overflow-y-auto">`);
-  Table($$payload, {
-    children: ($$payload2) => {
-      Table_header($$payload2, {
-        children: ($$payload3) => {
-          Table_row($$payload3, {
-            children: ($$payload4) => {
-              Table_head($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Name`);
+  $$renderer.push(`<!----></div> <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">Seedboxes</h3> <div class="my-6 w-full overflow-y-auto">`);
+  Table($$renderer, {
+    children: ($$renderer2) => {
+      Table_header($$renderer2, {
+        children: ($$renderer3) => {
+          Table_row($$renderer3, {
+            children: ($$renderer4) => {
+              Table_head($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Name`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_head($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Notes`);
+              $$renderer4.push(`<!----> `);
+              Table_head($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Notes`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
         },
         $$slots: { default: true }
       });
-      $$payload2.out.push(`<!----> `);
-      Table_body($$payload2, {
-        children: ($$payload3) => {
-          Table_row($$payload3, {
-            children: ($$payload4) => {
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://www.seedr.cc" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Seedr</a>`);
+      $$renderer2.push(`<!----> `);
+      Table_body($$renderer2, {
+        children: ($$renderer3) => {
+          Table_row($$renderer3, {
+            children: ($$renderer4) => {
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<a href="https://www.seedr.cc" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Seedr</a>`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->TBD`);
+              $$renderer4.push(`<!----> `);
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->TBD`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
         },
         $$slots: { default: true }
       });
-      $$payload2.out.push(`<!---->`);
+      $$renderer2.push(`<!---->`);
     },
     $$slots: { default: true }
   });
-  $$payload.out.push(`<!----></div> <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">Debrid Services</h3> <div class="my-6 w-full overflow-y-auto">`);
-  Table($$payload, {
-    children: ($$payload2) => {
-      Table_header($$payload2, {
-        children: ($$payload3) => {
-          Table_row($$payload3, {
-            children: ($$payload4) => {
-              Table_head($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Name`);
+  $$renderer.push(`<!----></div> <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">Debrid Services</h3> <div class="my-6 w-full overflow-y-auto">`);
+  Table($$renderer, {
+    children: ($$renderer2) => {
+      Table_header($$renderer2, {
+        children: ($$renderer3) => {
+          Table_row($$renderer3, {
+            children: ($$renderer4) => {
+              Table_head($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Name`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_head($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->Notes`);
+              $$renderer4.push(`<!----> `);
+              Table_head($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->Notes`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
         },
         $$slots: { default: true }
       });
-      $$payload2.out.push(`<!----> `);
-      Table_body($$payload2, {
-        children: ($$payload3) => {
-          Table_row($$payload3, {
-            children: ($$payload4) => {
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<a href="https://torbox.app" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Torbox</a>`);
+      $$renderer2.push(`<!----> `);
+      Table_body($$renderer2, {
+        children: ($$renderer3) => {
+          Table_row($$renderer3, {
+            children: ($$renderer4) => {
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<a href="https://torbox.app" class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground">Torbox</a>`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!----> `);
-              Table_cell($$payload4, {
-                children: ($$payload5) => {
-                  $$payload5.out.push(`<!---->TBD`);
+              $$renderer4.push(`<!----> `);
+              Table_cell($$renderer4, {
+                children: ($$renderer5) => {
+                  $$renderer5.push(`<!---->TBD`);
                 },
                 $$slots: { default: true }
               });
-              $$payload4.out.push(`<!---->`);
+              $$renderer4.push(`<!---->`);
             },
             $$slots: { default: true }
           });
         },
         $$slots: { default: true }
       });
-      $$payload2.out.push(`<!---->`);
+      $$renderer2.push(`<!---->`);
     },
     $$slots: { default: true }
   });
-  $$payload.out.push(`<!----></div></div>`);
+  $$renderer.push(`<!----></div></div>`);
 }
 export {
   _page as default

@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { Calendar as CalendarPrimitive } from "bits-ui";
 	import { cn, type WithoutChildrenOrChild } from "../../../utils.js";
-	import ChevronDownIcon from "@lucide/svelte/icons/chevron-down";
+	import { HugeiconsIcon } from "@hugeicons/svelte"
+	import { ArrowDownIcon } from '@hugeicons/core-free-icons';
 
 	let {
 		ref = $bindable(null),
@@ -13,11 +14,15 @@
 
 <span
 	class={cn(
-		"has-focus:border-ring border-input shadow-xs has-focus:ring-ring/50 has-focus:ring-[3px] relative flex rounded-md border",
+		"has-focus:border-ring border-input has-focus:ring-ring/50 relative flex rounded-md border shadow-xs has-focus:ring-[3px]",
 		className
 	)}
 >
-	<CalendarPrimitive.YearSelect bind:ref class="absolute inset-0 opacity-0" {...restProps}>
+	<CalendarPrimitive.YearSelect
+		bind:ref
+		class="dark:bg-popover dark:text-popover-foreground absolute inset-0 opacity-0"
+		{...restProps}
+	>
 		{#snippet child({ props, yearItems, selectedYearItem })}
 			<select {...props} {value}>
 				{#each yearItems as yearItem (yearItem.value)}
@@ -32,11 +37,11 @@
 				{/each}
 			</select>
 			<span
-				class="[&>svg]:text-muted-foreground flex h-8 select-none items-center gap-1 rounded-md pl-2 pr-1 text-sm font-medium [&>svg]:size-3.5"
+				class="[&>svg]:text-muted-foreground flex h-(--cell-size) items-center gap-1 rounded-md ps-2 pe-1 text-sm font-medium select-none [&>svg]:size-3.5"
 				aria-hidden="true"
 			>
 				{yearItems.find((item) => item.value === value)?.label || selectedYearItem.label}
-				<ChevronDownIcon class="size-4" />
+				<HugeiconsIcon icon={ArrowDownIcon} strokeWidth={2} class={cn("size-4", className)} />
 			</span>
 		{/snippet}
 	</CalendarPrimitive.YearSelect>

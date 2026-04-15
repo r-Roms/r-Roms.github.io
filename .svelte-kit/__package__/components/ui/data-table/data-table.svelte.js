@@ -37,10 +37,9 @@ export function createSvelteTable(options) {
     const table = createTable(resolvedOptions);
     let state = $state(table.initialState);
     function updateOptions() {
-        table.setOptions((prev) => {
-            return mergeObjects(prev, options, {
+        table.setOptions(() => {
+            return mergeObjects(resolvedOptions, options, {
                 state: mergeObjects(state, options.state || {}),
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 onStateChange: (updater) => {
                     if (updater instanceof Function)
                         state = updater(state);
@@ -83,6 +82,7 @@ export function mergeObjects(...sources) {
             return !!findSourceWithKey(key);
         },
         ownKeys() {
+            // eslint-disable-next-line svelte/prefer-svelte-reactivity
             const all = new Set();
             for (const s of sources) {
                 const obj = resolve(s);

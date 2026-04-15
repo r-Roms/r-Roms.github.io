@@ -4,7 +4,8 @@ type $$ComponentProps = WithoutChild<ScrollAreaPrimitive.RootProps> & {
     orientation?: "vertical" | "horizontal" | "both" | undefined;
     scrollbarXClasses?: string | undefined;
     scrollbarYClasses?: string | undefined;
+    viewportRef?: HTMLElement | null;
 };
-declare const ScrollArea: import("svelte").Component<$$ComponentProps, {}, "ref">;
+declare const ScrollArea: import("svelte").Component<$$ComponentProps, {}, "ref" | "viewportRef">;
 type ScrollArea = ReturnType<typeof ScrollArea>;
 export default ScrollArea;
