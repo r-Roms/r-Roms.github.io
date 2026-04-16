@@ -1,1 +1,0 @@
-export { default as component } from "../../../../src/routes/Populars/super-smash-bros/+page.svelte";
