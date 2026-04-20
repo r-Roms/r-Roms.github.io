@@ -11,14 +11,14 @@
 </script>
 
 <!-- Home page for the ROMs megathread -->
-<div class="mx-8 mb-8 mt-8 space-y-4 bg-background">
-    <h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">
+<div class="page-container">
+    <h1 class="header1">
         Other Information
     </h1>
-    <h2 class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+    <h2 class="header2">
         Archive Files
     </h2>
-    <p class="leading-7 [&:not(:first-child)]:mt-6">
+    <p class="text">
         Archives are used to store the content of one or more files within a
         single file. Archives are commonly compressed to reduce disk and
         network usage. Archives may need to be extracted depending on
@@ -26,8 +26,7 @@
         for ROMs are .zip and .7z, among several others. The following is a
         small set of recommendations on archive programs.
     </p>    
-
-    <div class="my-6 w-full overflow-y-auto">
+    <div class="table-container">
         <Table>
             <TableHeader>
                 <TableRow>
@@ -41,7 +40,7 @@
                     <TableCell>
                         <a
                             href="https://peazip.github.io"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >PeaZip</a
                         >
                     </TableCell>
@@ -52,7 +51,7 @@
                     <TableCell>
                         <a
                             href="https://www.7-zip.org"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >7Zip</a
                         >
                     </TableCell>
@@ -75,16 +74,16 @@
             </TableBody>
         </Table>
     </div>
-    <h2 class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+    <h2 class="header2">
         Adblock
     </h2>
-    <p class="leading-7 [&:not(:first-child)]:mt-6">
+    <p class="text">
         An adblocker is recommended when accessing certain links on this
         megathread and the Internet in general. This can be installed as
         an extension in your browser. Some browsers come with an adblocker
         integrated.
     </p>
-    <div class="my-6 w-full overflow-y-auto">
+    <div class="table-container">
         <Table>
             <TableHeader>
                 <TableRow>
@@ -98,7 +97,7 @@
                     <TableCell>
                         <a
                             href="https://vivaldi.com"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Vivaldi</a
                         >
                     </TableCell>
@@ -108,7 +107,7 @@
                     <TableCell>
                         <a
                             href="https://brave.com"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Brave</a
                         >
                     </TableCell>
@@ -118,7 +117,7 @@
                     <TableCell>
                         <a
                             href="https://helium.computer"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Helium</a
                         >
                     </TableCell>
@@ -129,24 +128,24 @@
                     <TableCell>
                         <a
                             href="https://ublockorigin.com"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >uBlock Origin</a
                         >
                     </TableCell>
                     <TableCell>
                         <a
                             href="https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Chrome</a
                         >
                         <a
                             href="https://addons.mozilla.org/en-US/android/addon/ublock-origin/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Firefox</a
                         >
                         <a
                             href="https://addons.opera.com/en/extensions/details/ublock/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Opera</a
                         >
                     </TableCell>
@@ -154,27 +153,25 @@
             </TableBody>
         </Table>
     </div>
-    <p class="leading-7 [&:not(:first-child)]:mt-6">
+    <p class="text">
         For Android: Download Firefox from the Play Store, locate the Addons
         menu and select uBlock Origin. Add it to Firefox and remember to only
         use Firefox to download ROMs.
     </p>
-    <h2
-        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
-    >
+    <h2 class="header2">
         Bypassing Download Limits
     </h2>
-    <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
+    <h3 class="header3">
         Google Drive
     </h3>
-    <p class="leading-7 [&:not(:first-child)]:mt-6">
+    <p class="text">
         From time to time when trying to download a file, you may see an
         error message saying “Download quota exceeded, so you can’t download
         this file at this time”. The steps to bypass the download quota limit
         are as follows:
     </p>
 
-    <ol class="my-6 ml-6 font-medium list-decimal [&>li]:mt-2">
+    <ol class="list-numbered">
         <li>
             Sign in to your Google account or create one, if you have not
             already.
@@ -195,16 +192,16 @@
         </li>
         <li>A .zip file with the file(s) you selected starts downloading.</li>
     </ol>
-    <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
+    <h3 class="header3">
         MEGA
     </h3>
-    <p class="leading-7 [&:not(:first-child)]:mt-6">
+    <p class="text">
         MEGA has a 5 GB download limit every 24 hours. To bypass MEGA's download
         limits, you will need either a VPN or a list of proxies. If you are
         using a VPN, simply connect to it. If you are using a list of proxies,
         download <a
             href="https://github.com/tonikelope/megabasterd"
-            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+            class="link"
             >MegaBasterd</a
         > and configure it with the list of proxies.
     </p>

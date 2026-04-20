@@ -10,11 +10,11 @@
 </script>
 
 <!-- Home page for the ROMs megathread -->
-<div class="mx-8 mb-8 mt-8 space-y-4 bg-background">
-    <h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">
+<div class="page-container">
+    <h1 class="header1">
         Nintendo DS
     </h1>
-    <div class="my-6 w-full overflow-y-auto">
+    <div class="table-container">
         <Table>
             <TableHeader>
                 <TableRow>
@@ -30,7 +30,7 @@
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Decrypted)/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Download</a
                         >
                     </TableCell>
@@ -42,7 +42,7 @@
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Encrypted)/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Download</a
                         >
                     </TableCell>
@@ -56,7 +56,7 @@
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Download%20Play)/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Download</a
                         >
                     </TableCell>
@@ -68,7 +68,7 @@
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DSi%20(Decrypted)/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Download</a
                         >
                     </TableCell>
@@ -80,7 +80,7 @@
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DSi%20(Encrypted)/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Download</a
                         >
                     </TableCell>
@@ -92,7 +92,7 @@
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20DSi%20(Digital)/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Download</a
                         >
                     </TableCell>
@@ -105,14 +105,14 @@
                     <TableCell>
                         <a
                             href="https://archive.org/download/MarioCubeLite/DSiWare/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Download</a
                         >
                     </TableCell>
                     <TableCell>
                         <a
                             href="https://repo.mariocube.com/DSiWare/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Download</a
                         >
                     </TableCell>
@@ -125,7 +125,7 @@
                     <TableCell>
                         <a
                             href="https://archive.org/download/No-Intro-nintendo-nintendo-ds-download-play_202207"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Download</a
                         >
                     </TableCell>
@@ -136,14 +136,14 @@
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/Internet%20Archive/chadmaster/nds_apfix/apfix/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Download</a
                         >
                     </TableCell>
                     <TableCell>
                         <a
                             href="https://archive.org/download/nds_apfix/apfix/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Download</a
                         >
                     </TableCell>
