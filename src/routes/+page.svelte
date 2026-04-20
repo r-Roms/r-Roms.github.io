@@ -114,64 +114,6 @@
         </code>.
     </p>
     <h2
-        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
-    >
-        Blocking Ads with uBlock Origin
-    </h2>
-    <p class="leading-7 [&:not(:first-child)]:mt-6">
-        uBlock Origin is recommended when accessing certain links on this
-        megathread and the Internet in general. It blocks ads,
-        trackers,and much more. <br /> Below are links to download and install
-        it for certain web browsers.
-    </p>
-    <div class="my-6 w-full overflow-y-auto">
-        <Table>
-            <TableHeader>
-                <TableRow>
-                    <TableHead>Store Name</TableHead>
-                    <TableHead>Links</TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                <TableRow>
-                    <TableCell>Chrome Web Store</TableCell>
-                    <TableCell>
-                        <a
-                            href="https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Link</a
-                        >
-                    </TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>Firefox Add-ons</TableCell>
-                    <TableCell>
-                        <a
-                            href="https://addons.mozilla.org/en-US/android/addon/ublock-origin/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Link</a
-                        >
-                    </TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>Opera Add-ons</TableCell>
-                    <TableCell>
-                        <a
-                            href="https://addons.opera.com/en/extensions/details/ublock/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Link</a
-                        >
-                    </TableCell>
-                </TableRow>
-            </TableBody>
-        </Table>
-    </div>
-    <p class="leading-7 [&:not(:first-child)]:mt-6">
-        For Android: Download Firefox from the Play Store, locate the Addons
-        menu and select uBlock Origin. Add it to Firefox and remember to only
-        use Firefox to download ROMs.
-    </p>
-    <h2
         class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
         Designer Shoutout
     </h2>
