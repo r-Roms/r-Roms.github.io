@@ -68,7 +68,21 @@
                         accessed without an account to minimize takedowns and
                         abuse. These items are shown with a lock icon beside
                         the file name in the item's file listing. Accounts
-                        are free to create.
+                        are free to create.<br> Items hosted by the Internet
+                        Archive have metadata files ending in extensions such
+                        as <code
+                            class="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
+                        >
+                            .xml
+                        </code>
+                        and
+                        <code
+                            class="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
+                        >
+                            .sqlite
+                        </code>. These files are not important to download but
+                        are used by the website to store information about the
+                        item and the files the items contain.
                     </TableCell>
                 </TableRow>
                 <TableRow>

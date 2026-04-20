@@ -70,6 +70,26 @@
                         >
                     </TableCell>
                 </TableRow>
+<TableRow>
+                    <TableCell>
+                        <a
+                            href="https://archive.org"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Internet Archive</a
+                        >
+                    </TableCell>
+                    <TableCell>
+                        Some Internet Archive items are available for
+                        torrenting by downloading the <code
+                            class="bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
+                        >
+                            .torrent
+                        </code>
+                        file. This is not recommended as the torrent's file
+                        list is usually incomplete compared to downloading
+                        directly from the website.
+                    </TableCell>
+                </TableRow>
             </TableBody>
         </Table>
     </div>
