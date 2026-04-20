@@ -23,18 +23,4 @@
         <img src={img1} alt="" class="h-full w-full rounded-md object-cover" />
         <img src={img2} alt="" class="h-full w-full rounded-md object-cover" />
     </p>
-    <!-- svelte-ignore a11y_media_has_caption -->
-    <video
-        controls
-        class="h-full w-full rounded-md object-cover"
-        autoplay
-        muted
-        playsinline
-        preload="metadata"
-        style="aspect-ratio: 16 / 9"
-        ><source
-            src="https://myrient.erista.me/assets/rvz.mp4"
-            type="video/mp4"
-        /></video
-    >
 </div>
