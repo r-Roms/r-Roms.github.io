@@ -83,7 +83,6 @@
             .sqlite
         </code>. These files are not important to download but are meant for the
         website to know what files to display and the reviews of the item.
-        <img src={img4} alt="" class="h-full w-full rounded-md object-cover" />
     </p>
     <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
         Internet Archive Torrents
