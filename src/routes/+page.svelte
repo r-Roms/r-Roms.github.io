@@ -59,11 +59,6 @@
         without an account to decrease the likelihood of takedowns and to
         prevent abuse. This is shown with a lock icon beside the file name in
         the item's file listing.
-        <img src={img1} alt="" class="h-full w-full rounded-md object-cover" />
-        When accessing the file directly, one of the following errors is shown.
-        <img src={img2} alt="" class="h-full w-full rounded-md object-cover" />
-        <br />
-        <img src={img3} alt="" class="h-full w-full rounded-md object-cover" />
         To download locked items or files, register an
         <a
             href="https://archive.org/account/signup"
