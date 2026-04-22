@@ -11,17 +11,17 @@
 </script>
 
 <!-- Home page for the ROMs megathread -->
-<div class="mx-8 mb-8 mt-8 space-y-4 bg-background">
-    <h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">
+<div class="page-container">
+    <h1 class="header1">
         Preservation Databases
     </h1>
-    <p class="leading-7 [&:not(:first-child)]:mt-6">
+    <p class="text">
         Many online groups serve to aggregate accurate information related to
         Video Games, ROM files, BIOS files, media, and more. This is done to
         ensure users can verify files for emulation and provide various types
         of metadata and media for presentation.
     </p>
-       <div class="my-6 w-full overflow-y-auto">
+       <div class="table-container">
         <Table>
             <TableHeader>
                 <TableRow>
@@ -34,7 +34,7 @@
                     <TableCell>
                         <a
                             href="https://no-intro.org"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >No-Intro</a
                         >
                     </TableCell>
@@ -44,7 +44,7 @@
                     <TableCell>
                         <a
                             href="http://redump.org"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Redump</a
                         >
                     </TableCell>
@@ -54,7 +54,7 @@
                     <TableCell>
                         <a
                             href="https://www.tosecdev.org"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >TOSEC</a
                         >
                     </TableCell>
@@ -66,7 +66,7 @@
                     <TableCell>
                         <a
                             href="https://hasheous.org"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Hasheous</a
                         >
                     </TableCell>
@@ -76,7 +76,7 @@
                     <TableCell>
                         <a
                             href="https://www.igdb.com"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >IGDB</a
                         >
                     </TableCell>
@@ -86,7 +86,7 @@
                     <TableCell>
                         <a
                             href="https://www.screenscraper.fr"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >Screenscraper</a
                         >
                     </TableCell>
@@ -96,7 +96,7 @@
                     <TableCell>
                         <a
                             href="https://retroachievements.org"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >RetroAchievements</a
                         >
                     </TableCell>
@@ -106,7 +106,7 @@
                     <TableCell>
                         <a
                             href="https://www.steamgriddb.com"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >SteamGridDB</a
                         >
                     </TableCell>
@@ -116,7 +116,7 @@
                     <TableCell>
                         <a
                             href="https://howlongtobeat.com"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            class="link"
                             >HowLongToBeat</a
                         >
                     </TableCell>

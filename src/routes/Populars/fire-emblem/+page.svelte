@@ -7,6 +7,7 @@
         TableHeader,
         TableRow,
     } from "$lib/components/ui/table/index.js";
+    import Disclaimer from "$lib/components/popular-disclaimer.svelte";
 </script>
 
 <!-- Home page for the ROMs megathread -->
@@ -14,6 +15,7 @@
     <h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">
         Fire Emblem
     </h1>
+    <Disclaimer />
     <div class="my-6 w-full overflow-y-auto">
         <Table>
             <TableHeader>

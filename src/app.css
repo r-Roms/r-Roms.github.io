@@ -134,3 +134,53 @@
 		@apply font-sans;
   }
 }
+
+@layer components {
+    .page-container {
+        @apply mx-8 mb-8 mt-8 space-y-4 bg-background;
+    }
+
+    .page-description {
+        @apply text-muted-foreground text-xl leading-7 [&:not(:first-child)]:mt-6;
+    }
+
+    .header1 {
+        @apply scroll-m-20 text-balance text-4xl font-extrabold tracking-tight;
+    }
+
+    .header2 {
+        @apply mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0;
+    }
+
+    .header3 {
+        @apply mt-8 scroll-m-20 text-2xl font-semibold tracking-tight;
+    }
+
+    .text {
+        @apply leading-7 [&:not(:first-child)]:mt-6;
+    }
+
+    .text-emphasis {
+        @apply font-bold leading-7 [&:not(:first-child)]:mt-6;
+    }
+
+    .link {
+        @apply text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground transition-colors;
+    }
+
+    .inline-code {
+        @apply bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+    }
+  
+    .list-numbered {
+        @apply my-6 ml-6 list-decimal [&>li]:mt-2;
+    }
+
+    .table-container {
+        @apply my-6 w-full overflow-y-auto;
+    }
+
+    .table-container {
+        @apply h-full w-full rounded-md object-cover;
+    }
+}
