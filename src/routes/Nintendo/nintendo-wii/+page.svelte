@@ -41,7 +41,7 @@
         {
             title: "WiiWare, VC, DLC, Channels & IOS",
             downloads: [
-                { label: "MarioCube", url: "https://repo.mariocube.com/WADs/_WiiWare,%20VC,%20DLC,%20Channels%20&amp;%20IOS/" },
+                { label: "MarioCube", url: "https://repo.mariocube.com/WADs/_WiiWare%2C%20VC%2C%20DLC%2C%20Channels%20%26%20IOS/" },
                 { label: "Internet Archive", url: "https://archive.org/download/MarioCubeLite/WADs/_WiiWare%2C%20VC%2C%20DLC%2C%20Channels%20%26%20IOS/" }
             ],
             torrents: []

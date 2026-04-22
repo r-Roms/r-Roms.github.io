@@ -30,18 +30,8 @@
             torrents: [{ label: "Minerva", url: "https://minerva-archive.org/browse/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/" }]
         },
         {
-            title: "Redump - GC - RVZ - USA",
-            downloads: [{ label: "Internet Archive", url: "https://archive.org/download/rvz-gc-usa-redump/RVZ-GC-USA-REDUMP/" }],
-            torrents: []
-        },
-        {
-            title: "Redump - GC - RVZ - Europe",
-            downloads: [{ label: "Internet Archive", url: "https://archive.org/download/rvz-gc-europe-redump/RVZ-GC-EUROPE-REDUMP/" }],
-            torrents: []
-        },
-        {
-            title: "Redump - GC - RVZ - Asia",
-            downloads: [{ label: "Internet Archive", url: "https://archive.org/download/rvz-gc-asia-redump/RVZ-GC-ASIA-REDUMP/" }],
+            title: "GC - RVZ",
+            downloads: [{ label: "Internet Archive", url: "https://archive.org/details/CentralArquivista-NintendoGameCube-US" }],
             torrents: []
         },
         {
