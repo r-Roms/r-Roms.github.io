@@ -179,4 +179,8 @@
     .table-container {
         @apply my-6 w-full overflow-y-auto;
     }
+
+    .table-container {
+        @apply h-full w-full rounded-md object-cover;
+    }
 }

@@ -16,65 +16,6 @@
         Other Information
     </h1>
     <h2 class="header2">
-        Archive Files
-    </h2>
-    <p class="text">
-        Archives are used to store the content of one or more files within a
-        single file. Archives are commonly compressed to reduce disk and
-        network usage. Archives may need to be extracted depending on
-        your emulator and the ROM file type inside. The most common archives
-        for ROMs are .zip and .7z, among several others. The following is a
-        small set of recommendations on archive programs.
-    </p>    
-    <div class="table-container">
-        <Table>
-            <TableHeader>
-                <TableRow>
-                    <TableHead>Program</TableHead>
-                    <TableHead>Supported Systems</TableHead>
-                    <TableHead>Supported Archive Types</TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                <TableRow>
-                    <TableCell>
-                        <a
-                            href="https://peazip.github.io"
-                            class="link"
-                            >PeaZip</a
-                        >
-                    </TableCell>
-                    <TableCell>Windows, MacOS, Linux</TableCell>
-                    <TableCell>Most</TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>
-                        <a
-                            href="https://www.7-zip.org"
-                            class="link"
-                            >7Zip</a
-                        >
-                    </TableCell>
-                    <TableCell>Windows</TableCell>
-                    <TableCell>Most</TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>Files (iOS)</TableCell>
-                    <TableCell>iOS</TableCell>
-                    <TableCell>
-                        .zip<br>
-                        Can rename .7z to .zip
-                    </TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>Windows Explorer</TableCell>
-                    <TableCell>Windows</TableCell>
-                    <TableCell>.zip</TableCell>
-                </TableRow>
-            </TableBody>
-        </Table>
-    </div>
-    <h2 class="header2">
         Adblock
     </h2>
     <p class="text">

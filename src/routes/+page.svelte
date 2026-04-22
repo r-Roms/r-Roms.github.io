@@ -14,20 +14,9 @@
         <HugeiconsIcon icon={SidebarLeftIcon} size={18} strokeWidth={2} class="inline-block align-middle" />
         at the top of the page to navigate the site for all information.
     </p>
-    <h2 class="header2">
-        Quick Links
-    </h2>
     <p class="text">
-        <a
-            href="./General/ddl"
-            class="link"
-            >Information for standard downloads</a
-        ><br>
-        <a
-            href="./General/torrents"
-            class="link"
-            >Information for torrenting</a
-        >
+        <a href="./General/downloads" class="link"
+        >For information on standard downloads</a>
     </p>
     <h2 class="header2">
         Issues
@@ -36,8 +25,7 @@
         Any issues found on this site should be posted to the
         <a
             href="https://github.com/r-Roms/r-Roms.github.io/issues?q=sort%3Aupdated-desc+is%3Aissue+is%3Aopen"
-            class="link"
-            >GitHub Issues page</a
+            class="link" >GitHub Issues page</a
         >.
     </p>
     <h2 class="header2">
@@ -47,11 +35,6 @@
         The Megathread consists of aggregated links hosted on many sites.
         Keeping these files available require the support of users. Please
         consider making donations to your favorite sites if they allow it.
-    </p>
-    <p class="text">
-        If you are downloading via torrent you can also contribute by seeding
-        files back to the torrent swarm. This ensures both availability and
-        speed for files.
     </p>
     <h2 class="header2">
         Additional Information

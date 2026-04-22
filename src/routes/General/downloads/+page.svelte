@@ -16,7 +16,9 @@
         Direct Downloads
     </h1>
     <p class="text">
-        This page provides general resources related to downloading files direct from websites.
+        Direct downloads, as the name implies, are links to download files
+        directly from a single source. This is the most common way to download
+        files online.
     </p>
     <h2 class="header2">
         Sites

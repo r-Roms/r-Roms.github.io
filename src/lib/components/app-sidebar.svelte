@@ -16,9 +16,9 @@
         {
             label: "General",
             items: [
-                { title: "Home", url: "/" },
-                { title: "Direct Downloads", url: base + "/General/ddl" },
+                { title: "Downloads", url: base + "/General/downloads" },
                 { title: "Torrents", url: base + "/General/torrents" },
+                { title: "File Types", url: base + "/General/file-types" },
                 { title: "Preservation", url: base + "/General/preservation" },
                 { title: "Other", url: base + "/General/other" },
             ]
@@ -26,7 +26,6 @@
         {
             label: "Popular",
             items: [
-                { title: "About RVZ files", url: base + "/Populars/about-rvz-files" },
                 { title: "Metroid", url: base + "/Populars/metroid" },
                 { title: "Mario", url: base + "/Populars/mario" },
                 { title: "Fire Emblem", url: base + "/Populars/fire-emblem" },

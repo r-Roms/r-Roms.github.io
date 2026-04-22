@@ -16,9 +16,10 @@
         Torrents
     </h1>
     <p class="text">
-        This page provides general resources related to downloading files
-        via torrent. This will require manual setup by the user to
-        download and seed files.
+        Torrents are a distributed, peer-to-peer file distribution system.
+        Rather than direct downloads which use a single source, torrents
+        download from other users connected to the same torrent. Use of
+        torrents require user setup, described below.
     </p>
     <h2 class="header2">
         Sites

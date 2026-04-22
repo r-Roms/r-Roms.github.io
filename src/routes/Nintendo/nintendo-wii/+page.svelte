@@ -8,117 +8,92 @@
         TableHeader,
         TableRow,
     } from "$lib/components/ui/table/index.js";
+    import Rvz from "$lib/components/rvz.svelte";
+
+    interface Link {
+        label: string;
+        url: string;
+    }
+
+    interface DownloadRow {
+        title: string;
+        downloads: Link[];
+        torrents: Link[];
+    }
+
+    const headers = ["Title", "Download", "Torrent"];
+
+    const downloads: DownloadRow[] = [
+        {
+            title: "Redump - Wii - NKit RVZ [zstd-19-128k]",
+            downloads: [],
+            torrents: [{ label: "Minerva", url: "https://minerva-archive.org/browse/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20%5Bzstd-19-128k%5D/" }]
+        },
+        {
+            title: "Wii - WBFS by Ghostware",
+            downloads: [],
+            torrents: [
+                { label: "Minerva Part 1", url: "https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/WiiRomSetByGhostware/" },
+                { label: "Minerva Part 2", url: "https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/WiiRomSetByGhostwarePart2/" },
+                { label: "Minerva Part 3", url: "https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/WiiRomSetByGhostwarePart3/" }
+            ]
+        },
+        {
+            title: "WiiWare, VC, DLC, Channels & IOS",
+            downloads: [
+                { label: "MarioCube", url: "https://repo.mariocube.com/WADs/_WiiWare,%20VC,%20DLC,%20Channels%20&amp;%20IOS/" },
+                { label: "Internet Archive", url: "https://archive.org/download/MarioCubeLite/WADs/_WiiWare%2C%20VC%2C%20DLC%2C%20Channels%20%26%20IOS/" }
+            ],
+            torrents: []
+        },
+        {
+            title: "NKit Fully Loaded (NKit recovery only)",
+            downloads: [{ label: "Internet Archive", url: "https://archive.org/download/NKitFullyLoaded2020429" }],
+            torrents: [{ label: "Minerva", url: "https://minerva-archive.org/browse/Internet%20Archive/bingbong294/NKitFullyLoaded2020429/" }]
+        }
+    ];
+
+    const linkClass = "text-primary font-medium underline underline-offset-4 hover:text-foreground";
 </script>
 
 <!-- Home page for the ROMs megathread -->
-<div class="mx-8 mb-8 mt-8 space-y-4 bg-background">
-    <h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">
+<div class="page-container">
+    <h1 class="header1">
         Nintendo Wii
     </h1>
-    <p class="leading-7 [&:not(:first-child)]:mt-6">
-        The RVZ format is recommended for use in the Dolphin Emulator, not real
-        hardware. RVZ is compressed, saving bandwidth and disk space. If you
-        require an ISO for real hardware or patching, you can convert using
-        Dolphin Emulator.
-    </p>
-    <div class="my-6 w-full overflow-y-auto">
+    <h2 class="header2">
+        Links
+    </h2>
+
+    <div class="table-container">
         <Table>
             <TableHeader>
                 <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Minerva (Torrent Based)</TableHead>
-                    <TableHead>Internet Archive</TableHead>
-                    <TableHead>Open Directory</TableHead>
+                    {#each headers as header}
+                        <TableHead>{header}</TableHead>
+                    {/each}
                 </TableRow>
             </TableHeader>
             <TableBody>
-                <TableRow>
-                    <TableCell>
-                        Nintendo - Wii - NKit RVZ [zstd-19-128k]
-                    </TableCell>
-                    <TableCell>
-                        <a
-                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20%5Bzstd-19-128k%5D/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
-                    <TableCell></TableCell>
-                    <TableCell></TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>Wii Rom Set By Ghostware Part 1</TableCell>
-                    <TableCell
-                        ><a
-                            href="https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/WiiRomSetByGhostware/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        ></TableCell
-                    >
-                    <TableCell></TableCell>
-                    <TableCell></TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>Wii Rom Set By Ghostware Part 2</TableCell>
-                    <TableCell
-                        ><a
-                            href="https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/WiiRomSetByGhostwarePart2/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        ></TableCell
-                    >
-                    <TableCell></TableCell>
-                    <TableCell></TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>Wii Rom Set By Ghostware Part 3</TableCell>
-                    <TableCell
-                        ><a
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://minerva-archive.org/browse/Internet%20Archive/kodi_amp_spmc_canada/WiiRomSetByGhostwarePart3/"
-                            >Download</a
-                        ></TableCell
-                    >
-                    <TableCell></TableCell>
-                    <TableCell></TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>WiiWare, VC, DLC, Channels &amp; IOS</TableCell>
-                    <TableCell></TableCell>
-                    <TableCell
-                        ><a
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://repo.mariocube.com/WADs/_WiiWare,%20VC,%20DLC,%20Channels%20&amp;%20IOS/"
-                            >Download</a
-                        ></TableCell
-                    >
-                    <TableCell
-                        ><a
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://archive.org/download/MarioCubeLite/WADs/_WiiWare%2C%20VC%2C%20DLC%2C%20Channels%20%26%20IOS/"
-                            >Download</a
-                        ></TableCell
-                    >
-                </TableRow>
-                <TableRow>
-                    <TableCell>NKit Fully Loaded</TableCell>
-                    <TableCell
-                        ><a
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://minerva-archive.org/browse/Internet%20Archive/bingbong294/NKitFullyLoaded2020429/"
-                            >Download</a
-                        ></TableCell
-                    >
-                    <TableCell
-                        ><a
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            href="https://archive.org/download/NKitFullyLoaded2020429/NKit%202020.4.29"
-                            >Download</a
-                        ></TableCell
-                    >
-                    <TableCell></TableCell>
-                </TableRow>
+                {#each downloads as row}
+                    <TableRow>
+                        <TableCell>{row.title}</TableCell>
+                        <TableCell>
+                            {#each row.downloads as link, i}
+                                <a href={link.url} class=link>{link.label}</a>
+                                {#if i < row.downloads.length - 1} <br> {/if}
+                            {/each}
+                        </TableCell>
+                        <TableCell>
+                            {#each row.torrents as link, i}
+                                <a href={link.url} class=link>{link.label}</a>
+                                {#if i < row.torrents.length - 1} <br> {/if}
+                            {/each}
+                        </TableCell>
+                    </TableRow>
+                {/each}
             </TableBody>
         </Table>
     </div>
+    <Rvz />
 </div>
