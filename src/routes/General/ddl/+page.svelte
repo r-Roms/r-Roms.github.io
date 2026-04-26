@@ -84,16 +84,6 @@
                 <TableRow>
                     <TableCell>
                         <a
-                            href="https://romheaven.com"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >RomHeaven</a
-                        >  
-                    </TableCell>
-                    <TableCell></TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>
-                        <a
                             href="https://startgame.world"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >StartGame</a
