@@ -4,21 +4,32 @@ export type Link = {
     description?: string;
 };
 
-export type Console = {
-    manufacturer: string;
+export type LinkSystem = {
     name: string;
-    emulators: Emulator[];
-    fileTypes: FileType[];
+    url: string;
+    image: string;
 };
+export function extendSite(base: Link, subPath?: string, name?: string): Link {
+    const baseUrl = base.url.endsWith('/') ? base.url : `${base.url}/`;
+    return {
+        ...base,
+        url: subPath ? `${baseUrl}${subPath}` : base.url,
+        name: name || base.name
+    };
+}
 
-export type Emulator = {
+export type Console = {
     name: string;
-    platforms: string[];
-    url?: string;
-};
+}
+
+export type DownloadRow = {
+    title: string;
+    downloads: Link[];
+    torrents: Link[];
+}
 
 export type FileType = {
-    name: string;
-    compressed: boolean;
-    encrypted: boolean
-};
+    extension: string;
+    recommended?: boolean;
+    notes?: string
+}

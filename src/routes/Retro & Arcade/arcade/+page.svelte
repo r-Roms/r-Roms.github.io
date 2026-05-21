@@ -23,7 +23,19 @@
                     <TableHead>Internet Archive</TableHead>
                 </TableRow>
             </TableHeader>
+            
             <TableBody>
+                <TableRow>
+                    <TableCell>Pleasuredome (MAME 0.287 ROMs & DATs)</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell>
+                        ><a
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            href="https://pleasuredome.github.io/pleasuredome/mame/"
+                            >Pleasuredome</a
+                        ></TableCell
+                    >
+                </TableRow>
                 <TableRow>
                     <TableCell>Arcade - Konami - FireBeat</TableCell>
                     <TableCell

@@ -1,5 +1,6 @@
 <script lang="ts">
-    let pageTitle = "/r/Roms Megathread";
+    import type { PageData } from "./$types.js";
+    import { page } from "$app/state";
     import "../app.css";
     import { ModeWatcher } from "mode-watcher";
     import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
@@ -57,15 +58,14 @@
     import * as Sidebar from "$lib/components/ui/sidebar/index.js";
     import AppSidebar from "$lib/components/app-sidebar.svelte";
     import { resolve } from "$app/paths";
-
-    let { children } = $props();
+    let { children, data }: { children: any, data: PageData} = $props();
 </script>
 
 <svelte:head>
-    <title>{pageTitle}</title>
+    <title>{data.pagetitle}</title>
 </svelte:head>
 
-<meta property="og:title" content={pageTitle} />
+<meta property="og:title" content={data.pagetitle} />
 
 <div class="mx-8 my-4 space-y-8 md:mx-16 lg:mx-24 xl:mx-32">
     <Sidebar.Provider>
@@ -80,7 +80,7 @@
                         <Sidebar.Trigger />
                         <NavigationMenuItem>
                             <Button variant="ghost" href={resolve("/")}
-                                >/r/Roms Megathread</Button
+                                >Home</Button
                             >
                         </NavigationMenuItem>
                         <Button
@@ -105,7 +105,7 @@
             <footer class="flex flex-col items-center justify-center gap-2 p-4">
                 <Separator />
                 <p class="text-sm text-primary">
-                    © 2025-2026 /r/Roms Megathread. GPL-3.0 license.
+                    © 2025-2026 {page.data.pagetitle} GPL-3.0 license.
                 </p>
                 <p class="text-xs text-muted-foreground">
                     Designed by{" "}
