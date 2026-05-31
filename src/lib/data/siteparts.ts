@@ -10,9 +10,10 @@ export const SETS: Link = { name: "File Sets", url: resolve("/filesets") }
 export const PATCHING: Link = { name: "Patching & ROM Hacks", url: resolve("/patching") }
 export const TYPES: Link = { name: "File Types", url: resolve("/filetypes") }
 export const PRESERVE: Link = { name: "Preservation", url: resolve("/preservation") }
+export const MANAGE: Link = { name: "Preservation", url: resolve("/manage") }
 export const OTHER: Link = { name: "Other", url: resolve("/other") }
 
-export const LINKSITES: Link[] = [DOWNLOADS, TORRENTS, SYSTEMS, SETS, PATCHING, TYPES, PRESERVE, OTHER]
+export const LINKSITES: Link[] = [DOWNLOADS, TORRENTS, SYSTEMS, SETS, PATCHING, TYPES, PRESERVE, MANAGE, OTHER]
 
 export const VIRTUALBOY: LinkSystem = { name: "Nintendo Virtual Boy", url: resolve("/systems/virtualboy"), image: img.VIRTUALBOY };
 export const POKEMINI: LinkSystem = { name: "Nintendo Pokémon Mini", url: resolve("/systems/pokemini"), image: img.POKEMINI };

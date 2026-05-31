@@ -14,5 +14,6 @@ export const sidebarItems: SidebarItem[] = [
     { title: "File Types", url: resolve("/filetypes") },
     { title: "Preservation", url: resolve("/preservation") },
     { title: "Sites to Avoid", url: resolve("/sitestoavoid") },
+    { title: "Management", url: resolve("/manage") },
     { title: "Other", url: resolve("/other") },
 ];

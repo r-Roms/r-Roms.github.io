@@ -15,4 +15,4 @@ Welcome to the official repository for the [/r/ROMs](https://www.reddit.com/r/Ro
 
 ## Disclaimer
 
-This repository and site is provided for **reference only.** The site doed not host any copyrighted files. The site provides links to external archival sites and reference information on downloading and managing ROMs. Users are responsible for complying with their local laws.
+This repository and site is provided for **reference only.** The site does not host any copyrighted files. The site provides links to external archival sites and reference information on downloading and managing ROMs. Users are responsible for complying with their local laws.
