@@ -5,8 +5,6 @@ import { } from "$lib/data/sites.js";
 const header: string = "Sony Playstation 5"
 const EmulatorPath: string = "PlayStation_5_emulators#Emulators_and_Compatibility_layers"
 
-const downloads: DownloadRow = []
-
 const fileTypes: FileType[] = [
     {   extension: ".pkg", recommended: true,
         notes: "Installable format for digital content."

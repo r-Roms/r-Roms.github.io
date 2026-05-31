@@ -35,3 +35,30 @@ export const NoPayStation: Link = {
     description: "Download PSP, Vita, & PS3 games, DLC, and updates " +
     "direct from PlayStation servers."
 }
+export const RetroExo: Link = {
+    name: "Retro eXo", url: "https://www.retro-exo.com",
+    description: "DOS & PC games."
+}
+export const MyAbandonware: Link = {
+    name: "MyAbandonware", url: "https://www.myabandonware.com/",
+    description: "PC & Console game abandonware."
+}
+export const VetusWare: Link = {
+    name: "VetusWare", url: "https://vetusware.com",
+    description: "PC gaming & software abandonware."
+}
+export const GOGgames: Link = {
+    name: "GOG-Games", url: "https://gog-games.to",
+    description: "Download or torrent backups of Windows games from gog.com."
+}
+export const FreeGOGPCGames: Link = {
+    name: "FreeGOGPCGames", url: "https://freegogpcgames.com",
+    description: "Torrent backups of Windows games from gog.com."
+}
+export const OVAGames: Link = {
+    name: "OVAGames", url: "https://www.ovagames.com",
+}
+export const Pleasuredome: Link = {
+    name: "Pleasuredome", url: "https://pleasuredome.github.io/pleasuredome/",
+    description: "Retro Arcade ROMs."
+}

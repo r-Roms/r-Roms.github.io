@@ -1,6 +1,6 @@
 import type { Link, LinkSystem } from "$lib/types.js";
 import { resolve } from "$app/paths";
-import * as img from "$lib/img/systems";
+import * as img from "$lib/img/systems/index.js";
 
 export const HOME: Link = { name: "Home", url: resolve("/") }
 export const DOWNLOADS: Link = { name: "Downloads", url: resolve("/downloads") }
@@ -46,11 +46,31 @@ export const SEGACD: LinkSystem = { name: "Sega CD", url: resolve("/systems/sega
 export const SEGA32X: LinkSystem = { name: "Sega 32X", url: resolve("/systems/sega32x"), image: img.SEGA32X };
 export const SATURN: LinkSystem = { name: "Sega Saturn", url: resolve("/systems/saturn"), image: img.SATURN };
 export const DREAMCAST: LinkSystem = { name: "Sega Dreamcast", url: resolve("/systems/dreamcast"), image: img.DREAMCAST };
-
+export const PC: LinkSystem = { name: "Desktop PC", url: resolve("/systems/pc"), image: img.PC };
+export const ARCADE: LinkSystem = { name: "Arcade", url: resolve("/systems/arcade"), image: img.ARCADE };
+export const ATARI2600: LinkSystem = { name: "Atari 2600", url: resolve("/systems/atari2600"), image: img.ATARI2600 };
+export const ATARI5200: LinkSystem = { name: "Atari 5200", url: resolve("/systems/atari5200"), image: img.ATARI5200 };
+export const ATARI7800: LinkSystem = { name: "Atari 7800", url: resolve("/systems/atari7800"), image: img.ATARI7800 };
+export const ATARIJAGUAR: LinkSystem = { name: "Atari Jaguar", url: resolve("/systems/atarijaguar"), image: img.ATARIJAGUAR };
+export const ATARILYNX: LinkSystem = { name: "Atari Lynx", url: resolve("/systems/atarilynx"), image: img.ATARILYNX };
+export const TG16: LinkSystem = { name: "NEC PC Engine / TurboGrafx-16", url: resolve("/systems/tg16"), image: img.TG16 };
+export const PIPPIN: LinkSystem = { name: "Bandai Pippin", url: resolve("/systems/pippin"), image: img.PIPPIN };
+export const FMTOWNS: LinkSystem = { name: "Fujitsu FM-Towns", url: resolve("/systems/fmtowns"), image: img.FMTOWNS };
+export const TGCD: LinkSystem = { name: "NEC PC Engine CD / TurboGrafx CD", url: resolve("/systems/tg-cd"), image: img.TGCD };
+export const PCFX: LinkSystem = { name: "NEC PC-FX & PC-FXGA", url: resolve("/systems/pcfx"), image: img.PCFX };
+export const PC98: LinkSystem = { name: "NEC PC-98 Series", url: resolve("/systems/pc98"), image: img.PC98 };
+export const P3DO: LinkSystem = { name: "Panasonic 3DO Interactive Multiplayer", url: resolve("/systems/3do"), image: img.P3DO };
+export const CDI: LinkSystem = { name: "Philips CD-i", url: resolve("/systems/cdi"), image: img.CDI };
+export const NEOGEO: LinkSystem = { name: "SNK Neo Geo", url: resolve("/systems/neogeo"), image: img.NEOGEO };
+export const PICO8: LinkSystem = { name: "Pico-8", url: resolve("/systems/pico8"), image: img.PICO8 };
 
 export const LINKSYSTEMS: LinkSystem[] = [
     VIRTUALBOY, POKEMINI, GB, GBA, NDS,
     NES, SNES, N3DS, N64, GC, WII, WIIU, SWITCH, SWITCH2,
     PSP, PSVITA, PSX, PS2, PS3, PS4, PS5,
     XBOX, XBOX360, XBOXONE, XBOXSERIES,
-    MASTERSYSTEM, GENESIS, GAMEGEAR, SEGACD, SEGA32X, SATURN, DREAMCAST]
+    MASTERSYSTEM, GENESIS, GAMEGEAR, SEGACD, SEGA32X, SATURN, DREAMCAST,
+    PC, ARCADE, ATARI2600, ATARI5200, ATARI7800, ATARIJAGUAR, ATARILYNX,
+    TG16, PIPPIN, FMTOWNS, TGCD, PCFX, PC98, P3DO, CDI, NEOGEO,
+    PICO8,
+]

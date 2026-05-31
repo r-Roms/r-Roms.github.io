@@ -5,8 +5,6 @@ import { Minerva, InternetArchive, Vimm, LolROMs } from "$lib/data/sites.js";
 const header: string = "Sony Playstation 4"
 const EmulatorPath: string = "PlayStation_4_emulators#Emulators_and_compatibility_layers"
 
-const downloads: Sites = []
-
 const fileTypes: FileType[] = [
     {   extension: ".pkg", recommended: true,
         notes: "Installable format for digital content."

@@ -5,8 +5,6 @@ import { Minerva, InternetArchive, Vimm, LolROMs } from "$lib/data/sites.js";
 const header: string = "Nintendo Switch"
 const EmulatorPath: string = "Nintendo_Switch_emulators#Emulators"
 
-const downloads: Sites = []
-
 const fileTypes: FileType[] = [
     {   extension: ".nsp", recommended: true,
         notes: "Installable eShop format that may bundle DLC & updates."

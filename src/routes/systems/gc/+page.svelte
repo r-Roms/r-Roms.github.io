@@ -8,9 +8,9 @@
 </script>
 
 <div class="page-container">
-    <h1 class="header1">{data.header}</h1>
-    <TableDownloads rows={data.downloads} />
-    <TableFileType rows={data.fileTypes} />
-    <Rvz />
-    <SnippetEmulator path={data.EmulatorPath} />
+<h1 class="header1">{data.header}</h1>
+<TableDownloads rows={data.downloads} />
+<TableFileType rows={data.fileTypes} />
+<Rvz />
+<SnippetEmulator path={data.EmulatorPath} />
 </div>
