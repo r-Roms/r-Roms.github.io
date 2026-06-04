@@ -5,15 +5,11 @@
 </script>
 
 <div class="page-container">
-    <h1 class="header1">
-        Sites to avoid
-    </h1>
-    <p class="text">
-        This is a compiled list of sites specifically to avoid
-        with a provided reason.
-    </p>
-    <h2 class="header2">
-        Sites
-    </h2>
-    <ListBullet links={data.sites} />
+<h1 class="header1">Sites to Avoid</h1>
+<p class="text">
+    This is a compiled list of sites specifically to avoid
+    with a provided reason.
+</p>
+<h2 class="header2">Sites</h2>
+<ListBullet links={data.sites} />
 </div>

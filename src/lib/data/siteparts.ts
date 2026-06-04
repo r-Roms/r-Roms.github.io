@@ -3,17 +3,19 @@ import { resolve } from "$app/paths";
 import * as img from "$lib/img/systems/index.js";
 
 export const HOME: Link = { name: "Home", url: resolve("/") }
-export const DOWNLOADS: Link = { name: "Downloads", url: resolve("/downloads") }
-export const TORRENTS: Link = { name: "Torrents", url: resolve("/torrents") }
-export const SYSTEMS: Link = { name: "Systems", url: resolve("/systems") }
-export const SETS: Link = { name: "File Sets", url: resolve("/filesets") }
-export const PATCHING: Link = { name: "Patching & ROM Hacks", url: resolve("/patching") }
-export const TYPES: Link = { name: "File Types", url: resolve("/filetypes") }
-export const PRESERVE: Link = { name: "Preservation", url: resolve("/preservation") }
-export const MANAGE: Link = { name: "Preservation", url: resolve("/manage") }
-export const OTHER: Link = { name: "Other", url: resolve("/other") }
+export const SYSTEMS: Link = { name: "Systems", url: resolve("/systems"), description: "Links to console & system specific pages" }
+export const DOWNLOADS: Link = { name: "Downloads", url: resolve("/downloads"), description: "Links & information for downloading files" }
+export const TORRENTS: Link = { name: "Torrents", url: resolve("/torrents"), description: "Links & information for torrenting files" }
+export const PATCHING: Link = { name: "Patching & ROM Hacks", url: resolve("/patching"), description: "Information on patching ROMs and ROM hacks" }
+export const SETS: Link = { name: "File Sets", url: resolve("/filesets"), description: "Links for larger file collections" }
+export const TYPES: Link = { name: "File Types", url: resolve("/filetypes"), description: "Information for important file types" }
+export const PRESERVE: Link = { name: "Preservation", url: resolve("/preservation"), description: "Information for reference databases and file verification" }
+export const MANAGE: Link = { name: "ROM Management", url: resolve("/manage"), description: "Rom managers & emulation front-ends" }
+export const AVOID: Link = { name: "Sites to Avoid", url: resolve("/sitestoavoid"), description: "A list of sites which are recommended to avoid" }
+export const OTHER: Link = { name: "Other", url: resolve("/other"), description: "Miscellaneous information" }
 
-export const LINKSITES: Link[] = [DOWNLOADS, TORRENTS, SYSTEMS, SETS, PATCHING, TYPES, PRESERVE, MANAGE, OTHER]
+export const LINKSITES: Link[] = [SYSTEMS, DOWNLOADS, TORRENTS, PATCHING, SETS,
+    TYPES, PRESERVE, MANAGE, AVOID, OTHER]
 
 export const VIRTUALBOY: LinkSystem = { name: "Nintendo Virtual Boy", url: resolve("/systems/virtualboy"), image: img.VIRTUALBOY };
 export const POKEMINI: LinkSystem = { name: "Nintendo Pokémon Mini", url: resolve("/systems/pokemini"), image: img.POKEMINI };

@@ -7,7 +7,7 @@
 <div class="page-container">
 <h1 class="header1">{data.pagetitle}</h1>
 <h2 class="header2">Sections</h2>
-<ListBullet links={data.links} />
+<ListBullet links={data.LINKSITES} />
 <h2 class="header2">Issues</h2>
 <p class="text">
     Any issues found on this site should be posted to the
@@ -21,6 +21,25 @@
     The Megathread consists of aggregated links hosted on many sites.
     Keeping these files available require the support of users. Please
     consider making donations to your favorite sites if they allow it.
+</p>
+<h2 class="header2">Why have a Megathread site</h2>
+<p class="text">
+    Having a single source of truth allows us to provide the most
+    up-to-date and safe links in a concise format. Reddit comments are
+    unlikely to be updated, may provide conflicting information, and
+    may require you to look up several comments across several posts over
+    many years.
+</p>
+<h2 class="header2">Reddit DMs</h2>
+<p class="text">
+    We do not recommend accepting unsolicited DMs from users if you comment on
+    or create a post on the r/ROMs. Users looking to DM you could be trying
+    to help, but they may be pushing you to malicious sites or links without
+    the public visibility to call them out. Any safe information they provide
+    likely should be provided in a comment (allowing users to review or
+    benefit from), included in this site, provided as an Issue to include
+    on the site, or be covered by an existing public community. 
+
 </p>
 <h2 class="header2">Designer Shoutout</h2>
 <p class="text">
