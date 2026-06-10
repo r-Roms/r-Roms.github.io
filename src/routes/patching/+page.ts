@@ -1,5 +1,5 @@
 import type { PageLoad } from "./$types.js";
-import type { Link } from "$lib/types.js";
+import type { Link, BaseRomsForPatch } from "$lib/types.js";
 
 const sites: Link[] = [
     {
@@ -26,8 +26,8 @@ const sites: Link[] = [
         url: "https://www.reddit.com/r/PokemonROMhacks/",
     },
     {
-        name: "r/ROMhacks",
-        url: "https://www.reddit.com/r/RomHacks/",
+        name: "r/ROMhacking",
+        url: "https://www.reddit.com/r/romhacking/",
     },
     {
         name: "PokeCommunity",
@@ -41,6 +41,33 @@ const sites: Link[] = [
     },
 ]
 
+const baseRoms: BaseRomsForPatch[] = [
+    {
+        name: "Pokemon - Emerald Version (USA, Europe)",
+        altnames: [
+            "1986 - Pokemon Emerald (U)(TrashMan)",
+        ],
+        notes: [],
+        hashes: {
+            crc32: "1f1c08fb",
+            md5: "605b89b67018abcea91e693a4dd25be3",
+            sha1: "f3ae088181bf583e55daf962a92bb46f4f1d07b7",
+        }
+    },
+    {
+        name: "Pokemon - FireRed Version (USA, Europe)",
+        altnames: [
+            "1636 - Pokemon FireRed (U)(Squirrels)",
+        ],
+        notes: [],
+        hashes: {
+            crc32: "dd88761c",
+            md5: "e26ee0d44e809351c8ce2d73c7400cdd",
+            sha1: "41cb23d8dccc8ebd7c649cd8fbb58eeace6e2fdc",
+        }
+    },
+]
+
 export const load: PageLoad = () => {    
-    return { sites };
+    return { sites, baseRoms };
 };

@@ -4,6 +4,16 @@
   let { systems = [] }: { systems: LinkSystem[] } = $props();
 
   let viewMode = $state<"grid" | "list">("grid");
+
+  $effect(() => {
+    const mq = window.matchMedia("(max-width: 640px)");
+    viewMode = mq.matches ? "list" : "grid";
+    const handler = (e: MediaQueryListEvent) => {
+      viewMode = e.matches ? "list" : "grid";
+    };
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  });
   let query = $state("");
 
   let filtered = $derived(

@@ -33,3 +33,10 @@ export type FileType = {
     recommended?: boolean;
     notes?: string
 }
+
+export type BaseRomsForPatch = {
+    name: string;
+    altnames: string[];
+    notes?: string[];
+    hashes: { crc32: string, md5: string, sha1: string }
+}

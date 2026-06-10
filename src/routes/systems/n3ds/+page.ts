@@ -1,5 +1,5 @@
 import type { PageLoad } from "./$types.js";
-import { type DownloadRow, type FileType, extendSite } from "$lib/types.js";
+import { type DownloadRow, type FileType, type Link, extendSite } from "$lib/types.js";
 import { Minerva, InternetArchive, hShop, LolROMs, Vimm } from "$lib/data/sites.js";
 
 const header: string = "Nintendo 3DS"
@@ -133,6 +133,11 @@ const fileTypes: FileType[] = [
     },
 ];
 
+const errfix: Link[] = [
+    { name: "Internet Archive", url: "https://archive.org/details/errfix.3dsx_202405" },
+    { name: "Google Drive", url: "https://drive.google.com/file/d/1vBUdfWET9qflVezU9OM0sam08TvXL63Q/view" },
+];
+
 export const load: PageLoad = () => {    
-    return { header, EmulatorPath, downloads, fileTypes };
+    return { header, EmulatorPath, downloads, fileTypes, errfix };
 };

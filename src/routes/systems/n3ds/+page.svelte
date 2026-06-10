@@ -2,8 +2,12 @@
     import type { PageData } from "./$types.js";
     import TableDownloads from "$lib/components/tables/downloads.svelte";
     import TableFileType from "$lib/components/tables/filetypes.svelte";
+    import ListBullet from "$lib/components/lists/bullet.svelte";
     import SnippetEmulator from "$lib/components/emulator.svelte";
     import { SETS } from "$lib/data/siteparts.js"
+    import prohibitionSign from "$lib/img/3dsmiierror.png";
+    import ImageZoomed from "$lib/components/ImageZoomed.svelte";
+
     let { data }: { data: PageData } = $props();
 </script>
 
@@ -39,6 +43,18 @@
     >
     section of this site, or by dumping from your own 3DS.
 </p>
-
+<h2 class="header2">Mii Errors</h2>
+<p class="text">
+    Emulators may not display Miis correctly in game. Instead of the Mii's
+    head it displays the
+    <ImageZoomed src={prohibitionSign}>ISO standard general prohibition sign</ImageZoomed>.
+    This is because the emulator does not come with the Mii system files
+    required. To fix this you will need to download and run
+    <code class="inline-code">errfix.3dsx</code> as if it was a game ROM in
+    your emulator. Use the following links to download the file. To confirm
+    the file is correct the SHA-1 checksum should be
+    <code class="inline-code">8da42d751916db5b505ac954575ae8274b9f3387</code>.
+</p>
+<ListBullet links={data.errfix} />
 <SnippetEmulator path={data.EmulatorPath} />
 </div>
