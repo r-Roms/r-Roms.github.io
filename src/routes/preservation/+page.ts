@@ -9,7 +9,7 @@ const databases: Link[] = [
     },
     {
         name: "Redump",
-        url: "http://redump.org",
+        url: "https://redump.info",
         description: "Catalogs accurate file hashes for optical media"
     },
     {
