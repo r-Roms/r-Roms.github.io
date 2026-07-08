@@ -1,6 +1,6 @@
 import type { PageLoad } from "./$types.js";
 import { type DownloadRow, type FileType, extendSite } from "$lib/types.js";
-import { Minerva, InternetArchive, Vimm, LolROMs } from "$lib/data/sites.js";
+import { Minerva, InternetArchive, Vimm, LolROMs, ROMsTime } from "$lib/data/sites.js";
 
 const header: string = "Sony PlayStation"
 const EmulatorPath: string = "PlayStation_emulators#Emulators"
@@ -14,6 +14,7 @@ const downloads: DownloadRow[] = [
             extendSite(InternetArchive, "download/chd_psx_jap/CHD-PSX-JAP/", "Archive (JAP) (Part 1)"),
             extendSite(InternetArchive, "download/chd_psx_jap_p2/CHD-PSX-JAP/", "Archive (JAP) (Part 2)"),
             extendSite(InternetArchive, "download/chd_psx_misc/CHD-PSX-Misc/", "Archive (MISC)"),
+            extendSite(ROMsTime, "roms?platform=playstation"),
         ],
         torrents: [
             extendSite(Minerva, "browse/Internet%20Archive/chadmaster/chd_psx/CHD-PSX-USA/", "Minerva (USA)"),
@@ -27,6 +28,7 @@ const downloads: DownloadRow[] = [
         title: "BIN/CUE Format",
         downloads: [
             extendSite(LolROMs, "SONY/PlayStation/Discs%20%28BIN%29"),
+            extendSite(ROMsTime, "roms?platform=playstation"),
             extendSite(Vimm, "vault/PS1"),
             extendSite(InternetArchive, "download/sony_playstation_part1", "Archive (Part 1) (#-D)"),
             extendSite(InternetArchive, "download/sony_playstation_part2", "Archive (Part 2) (E-I)"),

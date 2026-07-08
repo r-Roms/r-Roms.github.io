@@ -9,6 +9,7 @@ const sites: Link[] = [
     Sites.InternetArchive,
     Sites.hShop,
     Sites.LolROMs,
+    Sites.ROMsTime,
     Sites.EdgeEmulation,
     Sites.StartGame,
     Sites.NoPayStation,

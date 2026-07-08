@@ -1,6 +1,6 @@
 import type { PageLoad } from "./$types.js";
 import { type DownloadRow, type FileType, extendSite } from "$lib/types.js";
-import { Minerva, InternetArchive, Vimm, LolROMs } from "$lib/data/sites.js";
+import { Minerva, InternetArchive, Vimm, LolROMs, ROMsTime } from "$lib/data/sites.js";
 
 const header: string = "Nintendo Entertainment System / Famicom"
 const EmulatorPath: string = "Nintendo_Entertainment_System_emulators#Comparisons"
@@ -11,6 +11,8 @@ const downloads: DownloadRow[] = [
         downloads: [
             extendSite(Vimm, "vault/NES"),
             extendSite(LolROMs, "Nintendo/Nintendo%20Entertainment%20System/Headered%20%28NES2.0%29"),
+            extendSite(ROMsTime, "roms?platform=nes"),
+
         ],
         torrents: [
             extendSite(Minerva, "browse/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20(Headered)/")

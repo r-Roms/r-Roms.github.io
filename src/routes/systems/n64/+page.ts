@@ -1,6 +1,6 @@
 import type { PageLoad } from "./$types.js";
 import { type DownloadRow, type FileType, extendSite } from "$lib/types.js";
-import { Minerva, InternetArchive, Vimm, LolROMs } from "$lib/data/sites.js";
+import { Minerva, InternetArchive, Vimm, LolROMs, ROMsTime } from "$lib/data/sites.js";
 
 const header: string = "Nintendo 64"
 const EmulatorPath: string = "Nintendo_64_emulators#Comparison"
@@ -11,6 +11,7 @@ const downloads: DownloadRow[] = [
         downloads: [
             extendSite(Vimm, "vault/N64"),
             extendSite(LolROMs, "Nintendo/Nintendo%2064"),
+            extendSite(ROMsTime, "roms?platform=nintendo-64"),
         ],
         torrents: [
             extendSite(Minerva, "browse/No-Intro/Nintendo%20-%20Nintendo%2064%20(BigEndian)/")

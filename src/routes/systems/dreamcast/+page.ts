@@ -1,6 +1,6 @@
 import type { PageLoad } from "./$types.js";
 import { type DownloadRow, type FileType, extendSite } from "$lib/types.js";
-import { Minerva, InternetArchive, Vimm, LolROMs } from "$lib/data/sites.js";
+import { Minerva, InternetArchive, Vimm, LolROMs, ROMsTime } from "$lib/data/sites.js";
 
 const header: string = "Sega Dreamcast"
 const EmulatorPath: string = "Dreamcast_emulators#Emulators"
@@ -10,6 +10,7 @@ const downloads: DownloadRow[] = [
         title: "CHD Format",
         downloads: [
             extendSite(InternetArchive, "download/dc-chd-zstd-redump/dc-chd-zstd/"),
+            extendSite(ROMsTime, "roms?platform=sega-dreamcast"),
         ],
         torrents: [
             extendSite(Minerva, "browse/Internet%20Archive/chadmaster/dc-chd-zstd-redump/dc-chd-zstd/"),
@@ -23,6 +24,7 @@ const downloads: DownloadRow[] = [
             extendSite(InternetArchive, "download/interludev1.0032003necinterchanneljp", "Archive (JAP)"),
             extendSite(InternetArchive, "download/almstcmpltdrmcst"),
             extendSite(InternetArchive, "download/DreamcastCollectionByGhostwareMulti-region"),
+            extendSite(ROMsTime, "roms?platform=sega-dreamcast"),
         ],
         torrents: [
             extendSite(Minerva, "browse/Internet%20Archive/cmpltromsets/almstcmpltdrmcst/"),

@@ -1,6 +1,6 @@
 import type { PageLoad } from "./$types.js";
 import { type DownloadRow, type FileType, extendSite } from "$lib/types.js";
-import { Minerva, InternetArchive, Vimm, LolROMs } from "$lib/data/sites.js";
+import { Minerva, InternetArchive, Vimm, LolROMs, ROMsTime } from "$lib/data/sites.js";
 
 const header: string = "Nintendo Game Boy Advance"
 const EmulatorPath: string = "Game_Boy_Advance_emulators#Emulators"
@@ -11,6 +11,8 @@ const downloads: DownloadRow[] = [
         downloads: [
             extendSite(Vimm, "vault/GBA"),
             extendSite(LolROMs, "Nintendo/Game%20Boy%20Advance"),
+            extendSite(ROMsTime, "roms?platform=game-boy-advance"),
+            
         ],
         torrents: [
             extendSite(Minerva, "browse/No-Intro/Nintendo%20-%20Game%20Boy%20Advance")

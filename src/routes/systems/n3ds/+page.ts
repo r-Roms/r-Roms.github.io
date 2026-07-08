@@ -1,6 +1,6 @@
 import type { PageLoad } from "./$types.js";
 import { type DownloadRow, type FileType, type Link, extendSite } from "$lib/types.js";
-import { Minerva, InternetArchive, hShop, LolROMs, Vimm } from "$lib/data/sites.js";
+import { Minerva, InternetArchive, hShop, LolROMs, Vimm, ROMsTime } from "$lib/data/sites.js";
 
 const header: string = "Nintendo 3DS"
 const EmulatorPath: string = "Nintendo_3DS_emulators#Emulators"
@@ -10,6 +10,7 @@ const downloads: DownloadRow[] = [
         title: "CIA Format",
         downloads: [
             extendSite(hShop),
+            extendSite(ROMsTime, "roms?platform=nintendo-3ds"),
         ],
         torrents: [],
     },
@@ -18,6 +19,7 @@ const downloads: DownloadRow[] = [
         downloads: [
             extendSite(Vimm, "vault/3DS"),
             extendSite(LolROMs, "Nintendo/3DS/Decrypted"),
+            extendSite(ROMsTime, "roms?platform=nintendo-3ds"),
         ],
         torrents: [
             extendSite(Minerva, "browse/No-Intro/Nintendo%20-%20Nintendo%203DS%20(Decrypted)/"),

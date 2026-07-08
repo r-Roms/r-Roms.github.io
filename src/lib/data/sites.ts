@@ -7,6 +7,9 @@ export const Vimm: Link = {
 export const LolROMs: Link = {
     name: "LOLROM", url: "https://lolroms.com",
 }
+export const ROMsTime: Link = {
+    name: "ROMsTime", url: "https://romstime.com",
+}
 export const Minerva: Link = {
     name: "Minerva", url: "https://minerva-archive.org",
     description: "ROMs are part of larger collections which can be individually selected.",

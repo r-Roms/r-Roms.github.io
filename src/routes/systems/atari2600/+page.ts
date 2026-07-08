@@ -1,6 +1,6 @@
 import type { PageLoad } from "./$types.js";
 import { type DownloadRow, type FileType, extendSite } from "$lib/types.js";
-import { Minerva, InternetArchive, Vimm, LolROMs } from "$lib/data/sites.js";
+import { Minerva, InternetArchive, Vimm, LolROMs, ROMsTime } from "$lib/data/sites.js";
 
 const header: string = "Atari 2600"
 const EmulatorPath: string = "Atari_2600_emulators#Emulators"
@@ -11,6 +11,7 @@ const downloads: DownloadRow[] = [
         downloads: [
             extendSite(Vimm, "vault/Atari2600"),
             extendSite(LolROMs, "Atari/2600"),
+            extendSite(ROMsTime, "roms?platform=atari-2600"),
             extendSite(InternetArchive, "download/ni-roms/roms/Atari%20-%202600.zip/"),
             extendSite(InternetArchive, "download/nointro.atari-2600"),
         ],

@@ -1,6 +1,6 @@
 import type { PageLoad } from "./$types.js";
 import { type DownloadRow, type FileType, extendSite } from "$lib/types.js";
-import { Minerva, InternetArchive, Vimm, LolROMs } from "$lib/data/sites.js";
+import { Minerva, InternetArchive, Vimm, LolROMs, ROMsTime } from "$lib/data/sites.js";
 
 const header: string = "Sony PlayStation Portable"
 const EmulatorPath: string = "PlayStation_Portable_emulators#Emulators"
@@ -11,6 +11,7 @@ const downloads: DownloadRow[] = [
         downloads: [
             extendSite(InternetArchive, "download/psp-chd-zstd-redump-part1/psp-chd-zstd/", "Archive (Part 1)"),
             extendSite(InternetArchive, "download/psp-chd-zstd-redump-part2/psp-chd-zstd/", "Archive (Part 2)"),
+            extendSite(ROMsTime, "roms?platform=playstation"),
         ],
         torrents: [
             extendSite(Minerva, "browse/Internet%20Archive/chadmaster/psp-chd-zstd-redump-part1/psp-chd-zstd/", "Minerva (Part 1)"),
@@ -22,6 +23,7 @@ const downloads: DownloadRow[] = [
         downloads: [
             extendSite(Vimm, "vault/PSP"),
             extendSite(LolROMs, "SONY/PlayStation%20Portable/Discs%20%28ISO%29"),
+            extendSite(ROMsTime, "roms?platform=playstation"),
             extendSite(InternetArchive, "download/sony_playstation_portable_part1", "Archive (Part 1)"),
             extendSite(InternetArchive, "download/sony_playstation_portable_part2", "Archive (Part 2)"),
             extendSite(InternetArchive, "download/sony_playstation_portable_part3", "Archive (Part 3)"),
@@ -35,6 +37,7 @@ const downloads: DownloadRow[] = [
         title: "PBP Format",
         downloads: [
             extendSite(InternetArchive, "download/PSP_DLC", "Archive (DLC)"),
+            extendSite(ROMsTime, "roms?platform=playstation"),
         ],
         torrents: [
             extendSite(Minerva, "browse/Internet%20Archive/storage_manager/PSP-DLC/PSP%20DLC/", "Minerva (DLC)"),

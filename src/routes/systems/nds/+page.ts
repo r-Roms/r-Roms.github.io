@@ -1,6 +1,6 @@
 import type { PageLoad } from "./$types.js";
 import { type DownloadRow, type FileType, extendSite } from "$lib/types.js";
-import { Minerva, InternetArchive, Vimm, LolROMs } from "$lib/data/sites.js";
+import { Minerva, InternetArchive, Vimm, LolROMs, ROMsTime } from "$lib/data/sites.js";
 
 const header: string = "Nintendo DS"
 const EmulatorPath: string = "Nintendo_DS_emulators#Emulators"
@@ -11,6 +11,7 @@ const downloads: DownloadRow[] = [
         downloads: [
             extendSite(Vimm, "vault/DS"),
             extendSite(LolROMs, "Nintendo/DS"),
+            extendSite(ROMsTime, "roms?platform=nintendo-ds"),
         ],
         torrents: [
             extendSite(Minerva, "browse/No-Intro/Nintendo%20-%20Nintendo%20DS%20(Decrypted)/")
