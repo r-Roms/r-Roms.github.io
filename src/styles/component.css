@@ -1,0 +1,7 @@
+@layer components {
+    .page-container { @apply mx-8 mb-8 mt-8 space-y-4 bg-background; }
+    .table-container { @apply my-6 w-full overflow-auto rounded-md border border-border; }
+    .list-numbered { @apply my-6 ml-6 list-decimal [&>li]:mt-2; }
+    .list-bulleted { @apply my-6 ml-6 list-disc [&>li]:mt-2; }
+    .image { @apply max-w-full h-auto rounded-md object-scale-down; }
+}

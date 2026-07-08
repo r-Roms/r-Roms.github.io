@@ -1,6 +1,7 @@
 {
 	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
+		"allowArbitraryExtensions": true,
 		"allowJs": true,
 		"checkJs": true,
 		"esModuleInterop": true,

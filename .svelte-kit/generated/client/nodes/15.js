@@ -1,1 +1,0 @@
-export { default as component } from "../../../../src/routes/Nintendo/nintendo-3ds/+page.svelte";
