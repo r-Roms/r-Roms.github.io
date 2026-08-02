@@ -88,13 +88,7 @@
                             >Download</a
                         >
                     </TableCell>
-                    <TableCell>
-                        <a
-                            href="https://archive.org/details/nes-collection-no-intro"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
+                    <TableCell></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>
@@ -107,6 +101,11 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Nintendo - NES Collection</TableCell>
+                    <TableCell></TableCell>
                     <TableCell>
                         <a
                             href="https://archive.org/details/nes-collection-no-intro"
@@ -179,13 +178,7 @@
                             >Download</a
                         >
                     </TableCell>
-                    <TableCell>
-                        <a
-                            href="https://archive.org/details/No-Intro_N64_Collection"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
+                    <TableCell></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Nintendo - Nintendo 64 (ByteSwapped)</TableCell>
@@ -196,13 +189,7 @@
                             >Download</a
                         >
                     </TableCell>
-                    <TableCell>
-                        <a
-                            href="https://archive.org/details/No-Intro_N64_Collection"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
+                    <TableCell></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Nintendo - Nintendo 64DD</TableCell>
@@ -213,6 +200,11 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Nintendo - N64 Collection</TableCell>
+                    <TableCell></TableCell>
                     <TableCell>
                         <a
                             href="https://archive.org/details/No-Intro_N64_Collection"
@@ -300,13 +292,7 @@
                             >Download</a
                         >
                     </TableCell>
-                    <TableCell>
-                        <a
-                            href="https://archive.org/details/No-Intro_GameBoy_Advance_Collection"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
+                    <TableCell></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>
@@ -319,13 +305,7 @@
                             >Download</a
                         >
                     </TableCell>
-                    <TableCell>
-                        <a
-                            href="https://archive.org/details/No-Intro_GameBoy_Advance_Collection"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
+                    <TableCell></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Nintendo - Game Boy Advance (Video)</TableCell>
@@ -336,13 +316,7 @@
                             >Download</a
                         >
                     </TableCell>
-                    <TableCell>
-                        <a
-                            href="https://archive.org/details/No-Intro_GameBoy_Advance_Collection"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
+                    <TableCell></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>
@@ -355,6 +329,11 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Nintendo - Game Boy Advance Collection</TableCell>
+                    <TableCell></TableCell>
                     <TableCell>
                         <a
                             href="https://archive.org/details/No-Intro_GameBoy_Advance_Collection"
