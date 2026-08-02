@@ -213,6 +213,42 @@
                     </TableCell>
                     <TableCell></TableCell>
                 </TableRow>
+                <TableRow>
+                    <TableCell>3DS No-Intro 2024 Individual Games Part 1</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/3DS-Redump-2024-Individual-Games-Part1"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>3DS No-Intro 2024 Individual Games Part 2</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/3DS-Redump-2024-Individual-Games-Part2"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>N3DS No-Intro Collection 2024</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/xenoblade-chronicles-3-d-europe-en-fr-de-es-it"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell></TableCell>
+                </TableRow>
             </TableBody>
         </Table>
         <h2
