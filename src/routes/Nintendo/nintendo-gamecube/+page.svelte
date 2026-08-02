@@ -189,6 +189,22 @@
                         >
                     </TableCell>
                 </TableRow>
+                <TableRow>
+                    <TableCell>GameCube Redump 2024 Individual Games</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell class="space-x-2">
+                        <a
+                            href="https://archive.org/details/GameCube-Redump-2024-Individual-Games-Part1"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Part 1</a
+                        >
+                        <a
+                            href="https://archive.org/details/GameCube-Redump-2024-Individual-Games-Part2"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Part 2</a
+                        >
+                    </TableCell>
+                </TableRow>
             </TableBody>
         </Table>
     </div>
