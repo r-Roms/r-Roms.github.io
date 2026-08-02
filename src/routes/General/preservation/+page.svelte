@@ -43,7 +43,7 @@
                 <TableRow>
                     <TableCell>
                         <a
-                            href="http://redump.org"
+                            href="https://redump.info"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Redump</a
                         >
