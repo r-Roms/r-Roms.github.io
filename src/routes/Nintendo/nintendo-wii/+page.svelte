@@ -9,7 +9,7 @@
         TableRow,
     } from "$lib/components/ui/table/index.js";
 </script>
-
+ 
 <!-- Home page for the ROMs megathread -->
 <div class="mx-8 mb-8 mt-8 space-y-4 bg-background">
     <h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">
@@ -118,7 +118,45 @@
                     >
                     <TableCell></TableCell>
                 </TableRow>
+                <TableRow>
+                    <TableCell>Wii Redump 2024 Individual Games</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell class="space-x-2">
+                        <a
+                            href="https://archive.org/details/Wii-Redump-2024-Individual-Games-Part1"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Part 1</a
+                        >
+                        <a
+                            href="https://archive.org/details/Wii-Redump-2024-Individual-Games-Part2"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Part 2</a
+                        >
+                        <a
+                            href="https://archive.org/details/Wii-Redump-2024-Individual-Games-Part3"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Part 3</a
+                        >
+                        <a
+                            href="https://archive.org/details/Wii-Redump-2024-Individual-Games-Part4"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Part 4</a
+                        >
+                        <a
+                            href="https://archive.org/details/Wii-Redump-2024-Individual-Games-Part5"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Part 5</a
+                        >
+                        <a
+                            href="https://archive.org/details/Wii-Redump-2024-Individual-Games-Part6"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Part 6</a
+                        >
+                    </TableCell>
+                    <TableCell></TableCell>
+                </TableRow>
             </TableBody>
         </Table>
     </div>
 </div>
+
