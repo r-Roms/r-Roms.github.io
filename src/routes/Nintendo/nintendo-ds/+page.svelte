@@ -149,6 +149,30 @@
                     </TableCell>
                     <TableCell></TableCell>
                 </TableRow>
+                <TableRow>
+                    <TableCell>DS No-Intro 2024</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/DS-No-Intro-2024-Myrient-Zipped"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell></TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>DSi No-Intro 2024</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/DSi-No-Intro-2024-Myrient-Zipped-2"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell></TableCell>
+                </TableRow>
             </TableBody>
         </Table>
     </div>
