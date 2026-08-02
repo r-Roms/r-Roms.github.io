@@ -73,6 +73,7 @@
                 <TableRow>
                     <TableHead>Title</TableHead>
                     <TableHead>Minerva (Torrent Based)</TableHead>
+                    <TableHead>Internet Archive</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -87,6 +88,13 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/nes-collection-no-intro"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>
@@ -95,6 +103,13 @@
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20(Headerless)/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/nes-collection-no-intro"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -114,6 +129,7 @@
                 <TableRow>
                     <TableHead>Title</TableHead>
                     <TableHead>Minerva (Torrent Based)</TableHead>
+                    <TableHead>Internet Archive</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -124,6 +140,13 @@
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/No-Intro_SNES_Collection"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -143,6 +166,7 @@
                 <TableRow>
                     <TableHead>Title</TableHead>
                     <TableHead>Minerva (Torrent Based)</TableHead>
+                    <TableHead>Internet Archive</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -151,6 +175,13 @@
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%2064%20(BigEndian)/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/No-Intro_N64_Collection"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -165,12 +196,26 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/No-Intro_N64_Collection"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Nintendo - Nintendo 64DD</TableCell>
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%2064DD/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/No-Intro_N64_Collection"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -190,6 +235,7 @@
                 <TableRow>
                     <TableHead>Title</TableHead>
                     <TableHead>Minerva (Torrent Based)</TableHead>
+                    <TableHead>Internet Archive</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -202,12 +248,26 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/No-Intro_GameBoy_Color_Collection"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Nintendo - Game Boy</TableCell>
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/No-Intro_GameBoy_Collection"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -227,6 +287,7 @@
                 <TableRow>
                     <TableHead>Title</TableHead>
                     <TableHead>Minerva (Torrent Based)</TableHead>
+                    <TableHead>Internet Archive</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -235,6 +296,13 @@
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy%20Advance/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/No-Intro_GameBoy_Advance_Collection"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -251,12 +319,26 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/No-Intro_GameBoy_Advance_Collection"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Nintendo - Game Boy Advance (Video)</TableCell>
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy%20Advance%20(Video)/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/No-Intro_GameBoy_Advance_Collection"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -269,6 +351,13 @@
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy%20Advance%20(e-Reader)/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/details/No-Intro_GameBoy_Advance_Collection"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
