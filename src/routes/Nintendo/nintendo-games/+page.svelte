@@ -65,6 +65,160 @@
     <h2
         class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
     >
+        Nintendo NES Downloads
+    </h2>
+    <div class="my-6 w-full overflow-y-auto">
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
+                <TableRow>
+                    <TableCell>
+                        Nintendo - Nintendo Entertainment System (Headered)
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20(Headered)/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        Nintendo - Nintendo Entertainment System (Headerless)
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20(Headerless)/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                </TableRow>
+            </TableBody>
+        </Table>
+    </div>
+    <h2
+        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+    >
+        Nintendo SNES Downloads
+    </h2>
+    <div class="my-6 w-full overflow-y-auto">
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
+                <TableRow>
+                    <TableCell>
+                        Nintendo - Super Nintendo Entertainment System
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                </TableRow>
+            </TableBody>
+        </Table>
+    </div>
+    <h2
+        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+    >
+        Nintendo 64 Downloads
+    </h2>
+    <div class="my-6 w-full overflow-y-auto">
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
+                <TableRow>
+                    <TableCell>Nintendo - Nintendo 64 (BigEndian)</TableCell>
+                    <TableCell>
+                        <a
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%2064%20(BigEndian)/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Nintendo - Nintendo 64 (ByteSwapped)</TableCell>
+                    <TableCell>
+                        <a
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%2064%20(ByteSwapped)/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Nintendo - Nintendo 64DD</TableCell>
+                    <TableCell>
+                        <a
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%2064DD/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                </TableRow>
+            </TableBody>
+        </Table>
+    </div>
+    <h2
+        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+    >
+        Nintendo Gameboy & Gameboy Color Downloads
+    </h2>
+    <div class="my-6 w-full overflow-y-auto">
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Minerva (Torrent Based)</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
+                <TableRow>
+                    <TableCell>Nintendo - Game Boy Color</TableCell>
+                    <TableCell>
+                        <a
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy%20Color/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>Nintendo - Game Boy</TableCell>
+                    <TableCell>
+                        <a
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy/"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                </TableRow>
+            </TableBody>
+        </Table>
+    </div>
+    <h2
+        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
+    >
         Nintendo Gameboy Advance Downloads
     </h2>
     <div class="my-6 w-full overflow-y-auto">
@@ -126,131 +280,6 @@
     <h2
         class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
     >
-        Nintendo Gameboy & Gameboy Color Downloads
-    </h2>
-    <div class="my-6 w-full overflow-y-auto">
-        <Table>
-            <TableHeader>
-                <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Minerva (Torrent Based)</TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                <TableRow>
-                    <TableCell>Nintendo - Game Boy Color</TableCell>
-                    <TableCell>
-                        <a
-                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy%20Color/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>Nintendo - Game Boy</TableCell>
-                    <TableCell>
-                        <a
-                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Game%20Boy/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
-                </TableRow>
-            </TableBody>
-        </Table>
-    </div>
-    <h2
-        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
-    >
-        Nintendo 64 Downloads
-    </h2>
-    <div class="my-6 w-full overflow-y-auto">
-        <Table>
-            <TableHeader>
-                <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Minerva (Torrent Based)</TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                <TableRow>
-                    <TableCell>Nintendo - Nintendo 64 (BigEndian)</TableCell>
-                    <TableCell>
-                        <a
-                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%2064%20(BigEndian)/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>Nintendo - Nintendo 64 (ByteSwapped)</TableCell>
-                    <TableCell>
-                        <a
-                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%2064%20(ByteSwapped)/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>Nintendo - Nintendo 64DD</TableCell>
-                    <TableCell>
-                        <a
-                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%2064DD/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
-                </TableRow>
-            </TableBody>
-        </Table>
-    </div>
-    <h2
-        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
-    >
-        Nintendo NES Downloads
-    </h2>
-    <div class="my-6 w-full overflow-y-auto">
-        <Table>
-            <TableHeader>
-                <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Minerva (Torrent Based)</TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                <TableRow>
-                    <TableCell>
-                        Nintendo - Nintendo Entertainment System (Headered)
-                    </TableCell>
-                    <TableCell>
-                        <a
-                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20(Headered)/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>
-                        Nintendo - Nintendo Entertainment System (Headerless)
-                    </TableCell>
-                    <TableCell>
-                        <a
-                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%20Entertainment%20System%20(Headerless)/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
-                </TableRow>
-            </TableBody>
-        </Table>
-    </div>
-    <h2
-        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
-    >
         Nintendo Pokemon Mini Downloads
     </h2>
     <div class="my-6 w-full overflow-y-auto">
@@ -267,35 +296,6 @@
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Pokemon%20Mini/"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
-                </TableRow>
-            </TableBody>
-        </Table>
-    </div>
-    <h2
-        class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
-    >
-        Nintendo SNES Downloads
-    </h2>
-    <div class="my-6 w-full overflow-y-auto">
-        <Table>
-            <TableHeader>
-                <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Minerva (Torrent Based)</TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                <TableRow>
-                    <TableCell>
-                        Nintendo - Super Nintendo Entertainment System
-                    </TableCell>
-                    <TableCell>
-                        <a
-                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Super%20Nintendo%20Entertainment%20System/"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
