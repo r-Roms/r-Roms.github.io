@@ -27,11 +27,15 @@
         Nintendo FCDS Downloads
     </h2>
     <div class="my-6 w-full overflow-y-auto">
-        <Table>
+        <Table class="table-fixed w-full">
             <TableHeader>
                 <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Minerva (Torrent Based)</TableHead>
+                    <TableHead class="w-[45%]">Title</TableHead>
+                    <TableHead class="w-[27.5%]"
+                        >Minerva (Torrent Based)</TableHead
+                    >
+                    <TableHead class="w-[27.5%]">Internet Archive</TableHead
+                    >
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -46,6 +50,7 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell></TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>
@@ -58,6 +63,7 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell></TableCell>
                 </TableRow>
             </TableBody>
         </Table>
@@ -68,12 +74,15 @@
         Nintendo NES Downloads
     </h2>
     <div class="my-6 w-full overflow-y-auto">
-        <Table>
+        <Table class="table-fixed w-full">
             <TableHeader>
                 <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Minerva (Torrent Based)</TableHead>
-                    <TableHead>Internet Archive</TableHead>
+                    <TableHead class="w-[45%]">Title</TableHead>
+                    <TableHead class="w-[27.5%]"
+                        >Minerva (Torrent Based)</TableHead
+                    >
+                    <TableHead class="w-[27.5%]">Internet Archive</TableHead
+                    >
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -123,12 +132,15 @@
         Nintendo SNES Downloads
     </h2>
     <div class="my-6 w-full overflow-y-auto">
-        <Table>
+        <Table class="table-fixed w-full">
             <TableHeader>
                 <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Minerva (Torrent Based)</TableHead>
-                    <TableHead>Internet Archive</TableHead>
+                    <TableHead class="w-[45%]">Title</TableHead>
+                    <TableHead class="w-[27.5%]"
+                        >Minerva (Torrent Based)</TableHead
+                    >
+                    <TableHead class="w-[27.5%]">Internet Archive</TableHead
+                    >
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -160,12 +172,15 @@
         Nintendo 64 Downloads
     </h2>
     <div class="my-6 w-full overflow-y-auto">
-        <Table>
+        <Table class="table-fixed w-full">
             <TableHeader>
                 <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Minerva (Torrent Based)</TableHead>
-                    <TableHead>Internet Archive</TableHead>
+                    <TableHead class="w-[45%]">Title</TableHead>
+                    <TableHead class="w-[27.5%]"
+                        >Minerva (Torrent Based)</TableHead
+                    >
+                    <TableHead class="w-[27.5%]">Internet Archive</TableHead
+                    >
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -222,12 +237,15 @@
         Nintendo Gameboy & Gameboy Color Downloads
     </h2>
     <div class="my-6 w-full overflow-y-auto">
-        <Table>
+        <Table class="table-fixed w-full">
             <TableHeader>
                 <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Minerva (Torrent Based)</TableHead>
-                    <TableHead>Internet Archive</TableHead>
+                    <TableHead class="w-[45%]">Title</TableHead>
+                    <TableHead class="w-[27.5%]"
+                        >Minerva (Torrent Based)</TableHead
+                    >
+                    <TableHead class="w-[27.5%]">Internet Archive</TableHead
+                    >
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -274,12 +292,15 @@
         Nintendo Gameboy Advance Downloads
     </h2>
     <div class="my-6 w-full overflow-y-auto">
-        <Table>
+        <Table class="table-fixed w-full">
             <TableHeader>
                 <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Minerva (Torrent Based)</TableHead>
-                    <TableHead>Internet Archive</TableHead>
+                    <TableHead class="w-[45%]">Title</TableHead>
+                    <TableHead class="w-[27.5%]"
+                        >Minerva (Torrent Based)</TableHead
+                    >
+                    <TableHead class="w-[27.5%]">Internet Archive</TableHead
+                    >
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -351,11 +372,15 @@
         Nintendo Pokemon Mini Downloads
     </h2>
     <div class="my-6 w-full overflow-y-auto">
-        <Table>
+        <Table class="table-fixed w-full">
             <TableHeader>
                 <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Minerva (Torrent Based)</TableHead>
+                    <TableHead class="w-[45%]">Title</TableHead>
+                    <TableHead class="w-[27.5%]"
+                        >Minerva (Torrent Based)</TableHead
+                    >
+                    <TableHead class="w-[27.5%]">Internet Archive</TableHead
+                    >
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -368,6 +393,7 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell></TableCell>
                 </TableRow>
             </TableBody>
         </Table>
@@ -378,11 +404,15 @@
         Nintendo Virtual Boy Downloads
     </h2>
     <div class="my-6 w-full overflow-y-auto">
-        <Table>
+        <Table class="table-fixed w-full">
             <TableHeader>
                 <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Minerva (Torrent Based)</TableHead>
+                    <TableHead class="w-[45%]">Title</TableHead>
+                    <TableHead class="w-[27.5%]"
+                        >Minerva (Torrent Based)</TableHead
+                    >
+                    <TableHead class="w-[27.5%]">Internet Archive</TableHead
+                    >
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -395,6 +425,7 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell></TableCell>
                 </TableRow>
             </TableBody>
         </Table>
