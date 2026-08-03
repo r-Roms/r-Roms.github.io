@@ -117,7 +117,7 @@
                     <TableCell></TableCell>
                     <TableCell>
                         <a
-                            href="https://archive.org/details/nes-collection-no-intro"
+                            href="https://archive.org/details/NES_Test_Collection_3"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
