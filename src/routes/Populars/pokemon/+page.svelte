@@ -398,15 +398,9 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20X%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CKo%29%20%283DS%29.7z"
+                            href="https://archive.org/download/3DS-Redump-2024-Individual-Games-Part1/Pokemon%20X%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CKo%29.zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >3DS</a
-                        >
-                        /
-                        <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20X%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CKo%29%20%28CIA%29.7z"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >CIA</a
                         >
                     </TableCell>
                 </TableRow>
@@ -427,15 +421,9 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20Y%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CKo%29%20%283DS%29.7z"
+                            href="https://archive.org/download/3DS-Redump-2024-Individual-Games-Part1/Pokemon%20Y%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CKo%29.zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >3DS</a
-                        >
-                        /
-                        <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20Y%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CKo%29%20%28CIA%29.7z"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >CIA</a
                         >
                     </TableCell>
                 </TableRow>
@@ -456,15 +444,9 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20Omega%20Ruby%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CKo%29%20%28Rev%202%29%20%283DS%29.7z"
+                            href="https://archive.org/download/3DS-Redump-2024-Individual-Games-Part1/Pokemon%20Omega%20Ruby%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CKo%29%20%28Rev%202%29.zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >3DS</a
-                        >
-                        /
-                        <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20Omega%20Ruby%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CKo%29%20%28Rev%202%29%20%28CIA%29.7z"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >CIA</a
                         >
                     </TableCell>
                 </TableRow>
@@ -485,15 +467,9 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20Alpha%20Sapphire%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CKo%29%20%28Rev%202%29%20%283DS%29.7z"
+                            href="https://archive.org/download/3DS-Redump-2024-Individual-Games-Part1/Pokemon%20Alpha%20Sapphire%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CKo%29%20%28Rev%202%29.zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >3DS</a
-                        >
-                        /
-                        <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20Alpha%20Sapphire%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CKo%29%20%28Rev%202%29%20%28CIA%29.7z"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >CIA</a
                         >
                     </TableCell>
                 </TableRow>
@@ -514,15 +490,9 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20Sun%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CZh%2CKo%29%20%283DS%29.7z"
+                            href="https://archive.org/download/3DS-Redump-2024-Individual-Games-Part1/Pokemon%20Sun%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CZh%2CKo%29.zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >3DS</a
-                        >
-                        /
-                        <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20Sun%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CZh%2CKo%29%20%28CIA%29.7z"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >CIA</a
                         >
                     </TableCell>
                 </TableRow>
@@ -543,15 +513,9 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20Moon%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CZh%2CKo%29%20%283DS%29.7z"
+                            href="https://archive.org/download/3DS-Redump-2024-Individual-Games-Part1/Pokemon%20Moon%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CZh%2CKo%29.zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >3DS</a
-                        >
-                        /
-                        <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20Moon%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CZh%2CKo%29%20%28CIA%29.7z"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >CIA</a
                         >
                     </TableCell>
                 </TableRow>
@@ -572,15 +536,9 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20Ultra%20Sun%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CZh%2CKo%29%20%283DS%29.7z"
+                            href="https://archive.org/download/3DS-Redump-2024-Individual-Games-Part1/Pokemon%20Ultra%20Sun%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CZh%2CKo%29.zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >3DS</a
-                        >
-                        /
-                        <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20Ultra%20Sun%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CZh%2CKo%29%20%28CIA%29.7z"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >CIA</a
                         >
                     </TableCell>
                 </TableRow>
@@ -601,15 +559,9 @@
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20Ultraa%20Moon%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CZh%2CKo%29%20%283DS%29.7z"
+                            href="https://archive.org/download/3DS-Redump-2024-Individual-Games-Part1/Pokemon%20Ultra%20Moon%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CZh%2CKo%29.zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >3DS</a
-                        >
-                        /
-                        <a
-                            href="https://archive.org/download/pkmn_collection/3DS/Pokemon%20Ultraa%20Moon%20%28USA%29%20%28En%2CJa%2CFr%2CDe%2CEs%2CIt%2CZh%2CKo%29%20%28CIA%29.7z"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >CIA</a
                         >
                     </TableCell>
                 </TableRow>
