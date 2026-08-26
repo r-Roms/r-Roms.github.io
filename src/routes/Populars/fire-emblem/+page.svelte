@@ -20,6 +20,7 @@
                 <TableRow>
                     <TableHead>Title</TableHead>
                     <TableHead>Minerva (Torrent Based)</TableHead>
+                    <TableHead>Internet Archive</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody>
@@ -34,12 +35,26 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/GameCube-Redump-2024-Individual-Games-Part1/Fire%20Emblem%20-%20Path%20of%20Radiance%20%28USA%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Fire Emblem Radiant Dawn (Wii) (USA)</TableCell>
                     <TableCell>
                         <a
                             href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/Fire%20Emblem%20-%20Radiant%20Dawn%20(USA)%20(Rev%201).zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/Wii-Redump-2024-Individual-Games-Part2/Fire%20Emblem%20-%20Radiant%20Dawn%20%28USA%29%20%28Rev%201%29.zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -56,8 +71,16 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/3DS-Redump-2024-Individual-Games-Part1/Fire%20Emblem%20Fates%20-%20Special%20Edition%20%28USA%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
                 </TableRow>
             </TableBody>
         </Table>
     </div>
 </div>
+
