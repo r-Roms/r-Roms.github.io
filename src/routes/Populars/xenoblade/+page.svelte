@@ -33,7 +33,13 @@
                             >Download</a
                         >
                     </TableCell>
-                    <TableCell></TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/Wii-Redump-2024-Individual-Games-Part6/Xenoblade%20Chronicles%20%28USA%2C%20Asia%29%20%28En%2CFr%2CEs%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Xenoblade Chronicles X (Wii U) (USA)</TableCell>
