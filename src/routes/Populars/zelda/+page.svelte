@@ -23,59 +23,20 @@
                     <TableHead>Internet Archive</TableHead>
                 </TableRow>
             </TableHeader>
-            <TableBody>
-                <TableRow>
+            <TableBody>                <TableRow>
                     <TableCell>
-                        Legend of Zelda Twilight Princess (Wii) (USA)
+                        Legend of Zelda Ocarina of Time (N64) (USA)
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/Legend%20of%20Zelda,%20The%20-%20Twilight%20Princess%20(USA)%20(En,Fr,Es)%20(Rev%202).zip"
+                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%2064%20(BigEndian)/Legend%20of%20Zelda,%20The%20-%20Ocarina%20of%20Time%20(USA).zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
                     </TableCell>
                     <TableCell>
                         <a
-                            href="https://archive.org/download/Wii-Redump-2024-Individual-Games-Part3/Legend%20of%20Zelda%2C%20The%20-%20Twilight%20Princess%20%28USA%29%20%28En%2CFr%2CEs%29%20%28Rev%202%29.zip"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>
-                        Legend of Zelda Twilight Princess (GC) (USA)
-                    </TableCell>
-                    <TableCell>
-                        <a
-                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/Legend%20of%20Zelda,%20The%20-%20Twilight%20Princess%20(USA).zip"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
-                    <TableCell>
-                        <a
-                            href="https://archive.org/download/GameCube-Redump-2024-Individual-Games-Part1/Legend%20of%20Zelda%2C%20The%20-%20Twilight%20Princess%20%28USA%29.zip"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
-                </TableRow>
-                <TableRow>
-                    <TableCell>
-                        Legend of Zelda Skyward Sword (Wii) (USA)
-                    </TableCell>
-                    <TableCell>
-                        <a
-                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/Legend%20of%20Zelda,%20The%20-%20Skyward%20Sword%20(USA)%20(En,Fr,Es)%20(Rev%202).zip"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
-                    <TableCell>
-                        <a
-                            href="https://archive.org/download/Wii-Redump-2024-Individual-Games-Part3/Legend%20of%20Zelda%2C%20The%20-%20Skyward%20Sword%20%28USA%29%20%28En%2CFr%2CEs%29%20%28Rev%202%29.zip"
+                            href="https://archive.org/download/pkmn_collection/Legend%20of%20Zelda%2C%20The%20-%20Ocarina%20of%20Time%20%28USA%29.zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -127,6 +88,44 @@
                 </TableRow>
                 <TableRow>
                     <TableCell>
+                        Legend of Zelda Twilight Princess (Wii) (USA)
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/Legend%20of%20Zelda,%20The%20-%20Twilight%20Princess%20(USA)%20(En,Fr,Es)%20(Rev%202).zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/Wii-Redump-2024-Individual-Games-Part3/Legend%20of%20Zelda%2C%20The%20-%20Twilight%20Princess%20%28USA%29%20%28En%2CFr%2CEs%29%20%28Rev%202%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        Legend of Zelda Twilight Princess (GC) (USA)
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20GameCube%20-%20NKit%20RVZ%20[zstd-19-128k]/Legend%20of%20Zelda,%20The%20-%20Twilight%20Princess%20(USA).zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/GameCube-Redump-2024-Individual-Games-Part1/Legend%20of%20Zelda%2C%20The%20-%20Twilight%20Princess%20%28USA%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
                         Legend of Zelda Ocarina of Time 3D (3DS) (USA)
                     </TableCell>
                     <TableCell>
@@ -146,12 +145,18 @@
                 </TableRow>
                 <TableRow>
                     <TableCell>
-                        Legend of Zelda Majora's Mask 3D (3DS) (USA)
+                        Legend of Zelda Skyward Sword (Wii) (USA)
                     </TableCell>
-                    <TableCell></TableCell>
                     <TableCell>
                         <a
-                            href="https://archive.org/download/3DS-Redump-2024-Individual-Games-Part1/Legend%20of%20Zelda%2C%20The%20-%20Majora%27s%20Mask%203D%20%28USA%29%20%28En%2CFr%2CEs%29%20%28Rev%201%29.zip"
+                            href="https://minerva-archive.org/browse/Redump/Nintendo%20-%20Wii%20-%20NKit%20RVZ%20[zstd-19-128k]/Legend%20of%20Zelda,%20The%20-%20Skyward%20Sword%20(USA)%20(En,Fr,Es)%20(Rev%202).zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/Wii-Redump-2024-Individual-Games-Part3/Legend%20of%20Zelda%2C%20The%20-%20Skyward%20Sword%20%28USA%29%20%28En%2CFr%2CEs%29%20%28Rev%202%29.zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -172,18 +177,12 @@
                 </TableRow>
                 <TableRow>
                     <TableCell>
-                        Legend of Zelda Ocarina of Time (N64) (USA)
+                        Legend of Zelda Majora's Mask 3D (3DS) (USA)
                     </TableCell>
+                    <TableCell></TableCell>
                     <TableCell>
                         <a
-                            href="https://minerva-archive.org/browse/No-Intro/Nintendo%20-%20Nintendo%2064%20(BigEndian)/Legend%20of%20Zelda,%20The%20-%20Ocarina%20of%20Time%20(USA).zip"
-                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                            >Download</a
-                        >
-                    </TableCell>
-                    <TableCell>
-                        <a
-                            href="https://archive.org/download/pkmn_collection/Legend%20of%20Zelda%2C%20The%20-%20Ocarina%20of%20Time%20%28USA%29.zip"
+                            href="https://archive.org/download/3DS-Redump-2024-Individual-Games-Part1/Legend%20of%20Zelda%2C%20The%20-%20Majora%27s%20Mask%203D%20%28USA%29%20%28En%2CFr%2CEs%29%20%28Rev%201%29.zip"
                             class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
                             >Download</a
                         >
@@ -232,7 +231,7 @@
                         >
                     </TableCell>
                 </TableRow>
-            </TableBody>
+</TableBody>
         </Table>
     </div>
     <p class="leading-7 [&:not(:first-child)]:mt-6">
