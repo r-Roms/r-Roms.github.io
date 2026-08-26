@@ -33,7 +33,13 @@
                             >Download</a
                         >
                     </TableCell>
-                    <TableCell></TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/Wii-Redump-2024-Individual-Games-Part6/Super%20Smash%20Bros.%20Brawl%20%28USA%29%20%28Rev%202%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Super Smash Bros Melee (GC) (USA)</TableCell>
@@ -44,7 +50,26 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/GameCube-Redump-2024-Individual-Games-Part2/Super%20Smash%20Bros.%20Melee%20%28USA%29%20%28En%2CJa%29%20%28Rev%202%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        Super Smash Bros for Nintendo 3DS (3DS) (USA)
+                    </TableCell>
                     <TableCell></TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/3DS-Redump-2024-Individual-Games-Part1/Super%20Smash%20Bros.%20for%20Nintendo%203DS%20%28USA%29%20%28En%2CFr%2CEs%29%20%28Rev%207%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>
