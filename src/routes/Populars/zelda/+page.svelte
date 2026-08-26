@@ -35,7 +35,13 @@
                             >Download</a
                         >
                     </TableCell>
-                    <TableCell></TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/Wii-Redump-2024-Individual-Games-Part3/Legend%20of%20Zelda%2C%20The%20-%20Twilight%20Princess%20%28USA%29%20%28En%2CFr%2CEs%29%20%28Rev%202%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>
@@ -48,7 +54,13 @@
                             >Download</a
                         >
                     </TableCell>
-                    <TableCell></TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/GameCube-Redump-2024-Individual-Games-Part1/Legend%20of%20Zelda%2C%20The%20-%20Twilight%20Princess%20%28USA%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>
@@ -61,7 +73,13 @@
                             >Download</a
                         >
                     </TableCell>
-                    <TableCell></TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/Wii-Redump-2024-Individual-Games-Part3/Legend%20of%20Zelda%2C%20The%20-%20Skyward%20Sword%20%28USA%29%20%28En%2CFr%2CEs%29%20%28Rev%202%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>Legend of Zelda Wind Waker (GC) (USA)</TableCell>
@@ -72,7 +90,40 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/GameCube-Redump-2024-Individual-Games-Part1/Legend%20of%20Zelda%2C%20The%20-%20The%20Wind%20Waker%20%28USA%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        Legend of Zelda Ocarina of Time & Master Quest (GC)
+                        (USA)
+                    </TableCell>
                     <TableCell></TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/GameCube-Redump-2024-Individual-Games-Part1/Legend%20of%20Zelda%2C%20The%20-%20Ocarina%20of%20Time%20%26%20Master%20Quest%20%28USA%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        Legend of Zelda Four Swords Adventures (GC) (USA)
+                    </TableCell>
+                    <TableCell></TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/GameCube-Redump-2024-Individual-Games-Part1/Legend%20of%20Zelda%2C%20The%20-%20Four%20Swords%20Adventures%20%28USA%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>
@@ -85,7 +136,39 @@
                             >Download</a
                         >
                     </TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/3DS-Redump-2024-Individual-Games-Part1/Legend%20of%20Zelda%2C%20The%20-%20Ocarina%20of%20Time%203D%20%28USA%29%20%28En%2CFr%2CEs%29%20%28Rev%201%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        Legend of Zelda Majora's Mask 3D (3DS) (USA)
+                    </TableCell>
                     <TableCell></TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/3DS-Redump-2024-Individual-Games-Part1/Legend%20of%20Zelda%2C%20The%20-%20Majora%27s%20Mask%203D%20%28USA%29%20%28En%2CFr%2CEs%29%20%28Rev%201%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell>
+                        Legend of Zelda A Link Between Worlds (3DS) (USA)
+                    </TableCell>
+                    <TableCell></TableCell>
+                    <TableCell>
+                        <a
+                            href="https://archive.org/download/3DS-Redump-2024-Individual-Games-Part1/Legend%20of%20Zelda%2C%20The%20-%20A%20Link%20Between%20Worlds%20%28USA%29%20%28En%2CFr%2CEs%29.zip"
+                            class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
+                            >Download</a
+                        >
+                    </TableCell>
                 </TableRow>
                 <TableRow>
                     <TableCell>
