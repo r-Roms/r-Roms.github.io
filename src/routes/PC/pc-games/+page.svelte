@@ -631,24 +631,6 @@
                 >
             </TableRow>
             <TableRow>
-                <TableCell>GoodOldDownloads</TableCell>
-                <TableCell
-                    ><a
-                        class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://gog-games.to/">Download</a
-                    ></TableCell
-                >
-            </TableRow>
-            <TableRow>
-                <TableCell>GOG Mirror</TableCell>
-                <TableCell
-                    ><a
-                        class="text-primary font-medium underline underline-offset-4 md:text-base hover:bg-primary hover:text-primary-foreground"
-                        href="https://freegogpcgames.com/">Download</a
-                    ></TableCell
-                >
-            </TableRow>
-            <TableRow>
                 <TableCell>Ovagames</TableCell>
                 <TableCell
                     ><a
